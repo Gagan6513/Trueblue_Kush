@@ -52,6 +52,7 @@ class ReturnVehicleVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.DeliveredCollectedBy(_:)), name: .deliveredCollectedBy, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListReturnVehicle, object: nil)
+        
         mileageOutTxtFld.isUserInteractionEnabled = false
         dateOutTxtFld.isUserInteractionEnabled = false
         timeOutTxtFld.isUserInteractionEnabled = false

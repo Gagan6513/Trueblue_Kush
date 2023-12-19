@@ -9,6 +9,7 @@ import UIKit
 
 class CarImageCVC: UICollectionViewCell {
 
+    @IBOutlet weak var carImages: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

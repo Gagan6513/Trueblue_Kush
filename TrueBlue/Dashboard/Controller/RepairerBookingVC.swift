@@ -36,7 +36,6 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
         CallAPIWhenPageLoad()
-        
     }
     
     func CallAPIWhenPageLoad(){
@@ -237,6 +236,8 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.REPAIR_BOOKING_TABLEVIEW_CELL, for: indexPath as IndexPath) as! RepairerBookingTableViewCell
+        cell.selectionStyle = .none
+
         let repairObject = repairBookingsArray[indexPath.row]
         cell.selectionStyle = .none
         cell.associateLbl.text = repairObject["associate_name"] as? String
@@ -248,11 +249,16 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.refNoLbl.text = repairObject["application_id"] as? String
         cell.vehicleRegoLbl.text = repairObject["registration_no"] as? String
         
-        let formDate = getDayMonthWithYear(dateString: repairObject["expected_delivery_date"] as! String)
-        let formDateArr = formDate.components(separatedBy: "~")
-        cell.dayLbl.text = formDateArr[0]
-        cell.monthYearLbl.text = formDateArr[1]
-        cell.selectionStyle = .none
+        if let expected_delivery_date = repairObject["expected_delivery_date"] as? String {
+            let formDate = getDayMonthWithYear(dateString: expected_delivery_date)
+            let formDateArr = formDate.components(separatedBy: "~")
+            cell.dayLbl.text = formDateArr[0]
+            cell.monthYearLbl.text = formDateArr[1]
+        } else {
+            cell.dayLbl.text = ""
+            cell.monthYearLbl.text = ""
+        }
+        
         cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
         cell.viewMainBorder.layer.borderWidth =  1
         cell.viewMainBorder.backgroundColor = .white

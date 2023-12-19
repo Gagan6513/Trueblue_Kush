@@ -12,11 +12,17 @@ class DashboardVC: UIViewController {
     let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings"]
 //    , "Under Maintenance Vehicles"
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle"]
+    
+    var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
+    var searchbyPicker = UIPickerView()
+    
 //    , "returnVehicle"
     var searchTblView = UITableView()
     var searchResults = Int()
     var searchDashboardData = [SearchDashboardModelData]()
     var vehiclesDetailsData = [VehiclesDetailsModelData]()
+    @IBOutlet weak var searchTextInPopup: UITextField!
+    @IBOutlet weak var searchByTxtFld: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTxtFld: UITextField!
     @IBOutlet weak var searchView: UIView!
@@ -39,10 +45,16 @@ class DashboardVC: UIViewController {
         } else {
             searchPopView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         }
-        
+        self.searchByTxtFld.text = self.arrSearchby[0]
+
         setUpSearchTblView()
         hideKeyboardWhenTappedAround()
         apiGetRequest(parameters: nil, endPoint: EndPoints.DASHBOARD_COUNT)
+        
+        self.searchByTxtFld.inputView = self.searchbyPicker
+        self.searchbyPicker.delegate = self
+        self.searchbyPicker.dataSource = self
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -316,6 +328,7 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate {
         //performSegue(withIdentifier: AppSegue.DASHBOARD_SEARCH_RESULT_DETAILS, sender: searchDashboardData[indexPath.row])
         // performSegue(withIdentifier: AppSegue.DASHBOARD_SEARCH_RESULT_DETAILS, sender: indexPath.row)
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return searchView.frame.height
     }
@@ -372,7 +385,7 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
         case 4:
             performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
-            
+
 //            let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
 //            ctrl.modalPresentationStyle = .overFullScreen
 //            self.present(ctrl, animated: true)
@@ -509,5 +522,35 @@ extension DashboardVC : DashboardVMDelegate {
         }
     }
     
+    
+}
+
+extension DashboardVC : UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        self.searchByTxtFld.text = self.arrSearchby[0]
+        return self.arrSearchby.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.arrSearchby[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.searchByTxtFld.text = self.arrSearchby[row]
+        self.searchTextInPopup.keyboardType = .default
+
+//        if row == 1 {
+//            self.searchTextInPopup.keyboardType = .phonePad
+//        } else if row == 2 {
+//            self.searchTextInPopup.keyboardType = .emailAddress
+//        } else {
+//            self.searchTextInPopup.keyboardType = .default
+//        }
+    }
     
 }
