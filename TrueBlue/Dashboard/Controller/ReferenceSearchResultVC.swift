@@ -96,6 +96,8 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = vehicleTableView.dequeueReusableCell(withIdentifier: AppTblViewCells.REF_SEARCH_RESULT_TABLEVIEW_CELL, for: indexPath as IndexPath) as! ReferenceSearchResultTableViewCell
         
+        cell.selectionStyle = .none
+        
         let vehicleObject = vehicleListArray[indexPath.row]
         cell.carNameLbl.text = "\(vehicleObject["make"] as? String ?? "")/\(vehicleObject["model"] as? String ?? "")"
         cell.carNumberLbl.text = vehicleObject["vehicleRego"] as? String
@@ -109,8 +111,8 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         
         cell.lblDateIn.isHidden = cell.lblDateIn.text == ""
         cell.lblTimeIn.isHidden = cell.lblDateIn.text == ""
-        cell.lblDateOut.isHidden = cell.lblDateIn.text == ""
-        cell.lblTimeOut.isHidden = cell.lblDateIn.text == ""
+        cell.lblDateOut.isHidden = cell.lblDateOut.text == ""
+        cell.lblTimeOut.isHidden = cell.lblDateOut.text == ""
         cell.lblTo.isHidden = cell.lblDateIn.isHidden || cell.lblDateOut.isHidden
         
         return cell

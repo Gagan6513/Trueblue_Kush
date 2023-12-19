@@ -1,6 +1,7 @@
 PODS:
   - AASignatureView (1.0)
   - Alamofire (5.8.1)
+  - Applio (1.0.4)
   - CropViewController (2.6.1)
   - DKCamera (1.6.7)
   - DKImagePickerController (4.3.4):
@@ -68,6 +69,7 @@ PODS:
 DEPENDENCIES:
   - AASignatureView
   - Alamofire (~> 5.4)
+  - Applio
   - DKImagePickerController
   - DZNEmptyDataSet
   - IQKeyboardManagerSwift
@@ -81,6 +83,7 @@ SPEC REPOS:
   trunk:
     - AASignatureView
     - Alamofire
+    - Applio
     - CropViewController
     - DKCamera
     - DKImagePickerController
@@ -98,6 +101,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AASignatureView: f092f7f063ee37b5baf6f4e8ee2f848833cc70aa
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  Applio: 12864d5abc7beb72a3c306c39fb72623bf9d941f
   CropViewController: 58fb440f30dac788b129d2a1f24cffdcb102669c
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: b512c28220a2b8ac7419f21c491fc8534b7601ac
@@ -112,6 +116,6 @@ SPEC CHECKSUMS:
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: ca50f466174902ac5cfc46e8b5d4a7b14a78c622
+PODFILE CHECKSUM: f414ea05fff064dc08b035053a4465eddbee2822
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.12.1

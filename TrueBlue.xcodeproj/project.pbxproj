@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -175,6 +175,9 @@
 		8161331A2B2EF6A900938B28 /* RepairerBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816133192B2EF6A900938B28 /* RepairerBookingVC.swift */; };
 		8161331C2B2EF86900938B28 /* RepairerBookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */; };
 		93662B0C2AF0C56700ECE574 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B669AA26CFB62C007F1696 /* CollectionsViewModel.swift */; };
+		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
+		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
+		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -353,6 +356,9 @@
 		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
 		8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTableViewCell.swift; sourceTree = "<group>"; };
 		95F09AF4B08AB4D8297FEBA8 /* Pods-TrueBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueBlue.debug.xcconfig"; path = "Target Support Files/Pods-TrueBlue/Pods-TrueBlue.debug.xcconfig"; sourceTree = "<group>"; };
+		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
+		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
+		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -480,6 +486,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B3771E582B316B5500705FEF /* SwapVehicleVC */,
 				816133192B2EF6A900938B28 /* RepairerBookingVC.swift */,
 				5319E5D426C7CE1E0095045E /* DashboardVC.swift */,
 				53346CA326C82F6400807BFB /* DrawerVC.swift */,
@@ -713,6 +720,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B3771E582B316B5500705FEF /* SwapVehicleVC */ = {
+			isa = PBXGroup;
+			children = (
+				B3771E592B316B5500705FEF /* CVC */,
+				B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */,
+			);
+			path = SwapVehicleVC;
+			sourceTree = "<group>";
+		};
+		B3771E592B316B5500705FEF /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				B3771E5A2B316B5500705FEF /* CarImageCVC.xib */,
+				B3771E5B2B316B5500705FEF /* CarImageCVC.swift */,
+			);
+			path = CVC;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
+				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
@@ -882,6 +908,7 @@
 				215341DB29EE623E00C21BA2 /* CollectedDocumentsModel.swift in Sources */,
 				21EAA31829ED60EF00A3A704 /* RegoNumberListModel.swift in Sources */,
 				4D9AE15426DCD4FE0080D3AB /* AvailVehicleListModel.swift in Sources */,
+				B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */,
 				21AF34AC29E801A500606A8C /* CollectionNotesListTableViewCell.swift in Sources */,
 				210AE0C029FB98D900ACC1F9 /* GetAccidentDetailsModel.swift in Sources */,
 				215341DD29EE812F00C21BA2 /* CollectionNoteViewModel.swift in Sources */,
@@ -949,6 +976,7 @@
 				4D9AE14826DCC7E80080D3AB /* AvailableVehicleVC.swift in Sources */,
 				53FEE7D226DA566B0088AD05 /* DashboardViewModel.swift in Sources */,
 				53F312DB26D8CF2000D25E52 /* DocumentsTblViewCell.swift in Sources */,
+				B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */,
 				DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */,
 				21F3F7C829B0B3C800C3C60B /* DeliveredCollectedByModel.swift in Sources */,
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,

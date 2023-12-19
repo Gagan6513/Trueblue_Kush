@@ -20,6 +20,7 @@ target 'TrueBlue' do
   #pod 'ImageViewer'
   pod 'DKImagePickerController'
   #pod 'DateTextField'
+  pod 'Applio'
   
   post_install do |installer|
       installer.generated_projects.each do |project|
