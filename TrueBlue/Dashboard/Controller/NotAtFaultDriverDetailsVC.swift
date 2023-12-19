@@ -26,6 +26,9 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     @IBOutlet weak var licenceExpiryTxtFld: UITextField!
 //    var selectedLicenceExpiryDate = String()
     @IBOutlet weak var dateOfBirthTxtFld: UITextField!
+    
+    @IBOutlet weak var diliveryDateTxtFld: UITextField!
+    
     @IBOutlet weak var deliveryByTxtFld: UITextField!
     @IBOutlet weak var streetAddressTxtFld: UITextField!
     @IBOutlet weak var suburbTxtFld: UITextField!
@@ -126,6 +129,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         deliveryDateTxtFld.keyboardType = .numberPad
         licenceExpiryTxtFld.keyboardType = .numberPad
         dateOfBirthTxtFld.keyboardType = .numberPad
+        diliveryDateTxtFld.keyboardType = .numberPad
         dateOfAccidentTxtFld.keyboardType = .numberPad
         timeOfAccidentTxtFld.keyboardType = .numberPad
         expectedDeliveryTimeTxtFld.keyboardType = .numberPad
@@ -166,6 +170,11 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             return
         }
         
+        if (diliveryDateTxtFld.text ?? "").isEmpty {
+            showToast(strMessage: diliverydateRequired)
+            return
+        }
+        
         print(selectedBranchID)
         
         let expectedDeliveryTime = expectedDeliveryTimeTxtFld.text?.convertTimeToTwentyFourHr(isAM: timeOfAccidentSegmentedControl.selectedSegmentIndex) ?? ""
@@ -179,6 +188,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                                        "owner_lic" : licenceNumberTxtFld.text ?? "",
                                        "ownerlic_exp" : licenceExpiryTxtFld.text ?? "",
                                        "owner_dob" : dateOfBirthTxtFld.text ?? "",
+                                       "expected_delivery_date" : diliveryDateTxtFld.text ?? "",
 //                                       "delivered_by" : deliveryByTxtFld.text ?? "",
                                        "is_business_registered" : isVehicleBusinessRegistered,
                                        "owner_street" : streetAddressTxtFld.text ?? "",
@@ -246,6 +256,11 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     @IBAction func dateOfBirthCalenderBtn(_ sender: UIButton) {
         showDatePickerPopUp(textField: dateOfBirthTxtFld, notificationName: .dateNotAtFault)
     }
+    
+    @IBAction func diliveryDateCalenderBtn(_ sender: UIButton) {
+        showDatePickerPopUp(textField: diliveryDateTxtFld, notificationName: .dateNotAtFault)
+    }
+    
     @IBAction func dateOfAccidentCalenderBtn(_ sender: UIButton) {
         showDatePickerPopUp(textField: dateOfAccidentTxtFld, notificationName: .dateNotAtFault)
     }
@@ -549,6 +564,8 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             case dateOfBirthTxtFld:
                 dateOfBirthTxtFld.text = selectedDate
                 perform(#selector(dateOfBirthAlert), with: nil, afterDelay: 0.3)
+            case diliveryDateTxtFld:
+                diliveryDateTxtFld.text = selectedDate
             case dateOfAccidentTxtFld:
                 dateOfAccidentTxtFld.text = selectedDate
                 perform(#selector(dateOfAccidentAlert), with: nil, afterDelay: 0.3)
@@ -728,6 +745,8 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
         
         //Date of birth
         dateOfBirthTxtFld.text = dictDetails.dateOfBirth
+        
+        diliveryDateTxtFld.text = dictDetails.expectedDeliveryDate
         
         //Delivery Date
         deliveryByTxtFld.text = dictDetails.deliveredBy
