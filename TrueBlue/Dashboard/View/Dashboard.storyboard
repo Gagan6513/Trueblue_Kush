@@ -14913,9 +14913,49 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-Sz-LXg">
                                                             <rect key="frame" x="0.0" y="0.0" width="96" height="95"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Qgx-5y-oXJ">
+                                                                    <rect key="frame" x="6" y="8.5" width="84" height="78"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptP-Oy-EE7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                            <color key="textColor" name="AppBlack"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4x-d6-ISN">
+                                                                            <rect key="frame" x="0.0" y="19" width="84" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <color key="textColor" name="AppGrey"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSI-vG-bWg">
+                                                                            <rect key="frame" x="0.0" y="33" width="84" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                                            <color key="textColor" name="AppGrey"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBn-1Y-ujN">
+                                                                            <rect key="frame" x="0.0" y="47" width="84" height="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                            <color key="textColor" name="AppBlack"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-lS-MJs">
+                                                                            <rect key="frame" x="0.0" y="66" width="84" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <color key="textColor" name="AppGrey"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
                                                             <color key="backgroundColor" red="1" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
+                                                                <constraint firstItem="Qgx-5y-oXJ" firstAttribute="centerY" secondItem="yyd-Sz-LXg" secondAttribute="centerY" id="9x0-dC-Zpv"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Qgx-5y-oXJ" secondAttribute="trailing" constant="6" id="Jf8-qb-MIk"/>
                                                                 <constraint firstAttribute="width" constant="96" id="qZT-z8-8Hz"/>
+                                                                <constraint firstItem="Qgx-5y-oXJ" firstAttribute="leading" secondItem="yyd-Sz-LXg" secondAttribute="leading" constant="6" id="xfI-OJ-PS6"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOYOTA/Corolla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4b-0d-VrY">
@@ -15005,6 +15045,11 @@
                                             <outlet property="colorView" destination="yyd-Sz-LXg" id="Abz-CE-mKz"/>
                                             <outlet property="daysLbl" destination="zBf-uH-50f" id="hkm-w4-a7G"/>
                                             <outlet property="hiredLbl" destination="8vI-I2-NYr" id="ubq-A9-7x3"/>
+                                            <outlet property="lblDateIn" destination="ptP-Oy-EE7" id="iIO-K9-004"/>
+                                            <outlet property="lblDateOut" destination="EBn-1Y-ujN" id="T9G-Sm-kQM"/>
+                                            <outlet property="lblTimeIn" destination="n4x-d6-ISN" id="Qkd-UO-weS"/>
+                                            <outlet property="lblTimeOut" destination="4gF-lS-MJs" id="l59-hJ-EgO"/>
+                                            <outlet property="lblTo" destination="YSI-vG-bWg" id="wrb-5m-LLd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

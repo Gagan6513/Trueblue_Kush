@@ -14,6 +14,13 @@ class ReferenceSearchResultTableViewCell: UITableViewCell {
     @IBOutlet weak var carNumberLbl: UILabel!
     @IBOutlet weak var carNameLbl: UILabel!
     @IBOutlet weak var colorView: UIView!
+    
+    @IBOutlet weak var lblDateIn: UILabel!
+    @IBOutlet weak var lblTimeIn: UILabel!
+    @IBOutlet weak var lblTo: UILabel!
+    @IBOutlet weak var lblDateOut: UILabel!
+    @IBOutlet weak var lblTimeOut: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

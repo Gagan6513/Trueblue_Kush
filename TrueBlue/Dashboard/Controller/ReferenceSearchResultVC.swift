@@ -57,7 +57,7 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
 
     
     func setAllValues() {
-        if let keyCheck = vehiclesList["referralName"] {
+        if let keyCheck = vehiclesList["refno"] {
             refNoLabel.text = keyCheck as? String
         }
         if let keyCheck = vehiclesList["repairerName"] {
@@ -78,11 +78,15 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         if let keyCheck = vehiclesList["ClientRego"] {
             vehicleRegoLabel.text = keyCheck as? String
         }
+        
+        var totalDays = 0
+        self.vehicleListArray.forEach({ data in
+            totalDays += data["total_days"] as? Int ?? 0
+        })
+        totalDaysLabel.text = "\(totalDays)"
 //        if let keyCheck = vehiclesList["referralName"] {
 //            totalDaysLabel.text = keyCheck as? String
 //        }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,6 +100,19 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         cell.carNameLbl.text = "\(vehicleObject["make"] as? String ?? "")/\(vehicleObject["model"] as? String ?? "")"
         cell.carNumberLbl.text = vehicleObject["vehicleRego"] as? String
         cell.hiredLbl.text = vehicleObject["vehicleStatus"] as? String
+        cell.daysLbl.text = "\(vehicleObject["total_days"] as? Int ?? 0)"
+        
+        cell.lblDateIn.text = vehicleObject["dateIn"] as? String
+        cell.lblTimeIn.text = vehicleObject["timeIn"] as? String
+        cell.lblDateOut.text = vehicleObject["dateOut"] as? String
+        cell.lblTimeOut.text = vehicleObject["timeOut"] as? String
+        
+        cell.lblDateIn.isHidden = cell.lblDateIn.text == ""
+        cell.lblTimeIn.isHidden = cell.lblDateIn.text == ""
+        cell.lblDateOut.isHidden = cell.lblDateIn.text == ""
+        cell.lblTimeOut.isHidden = cell.lblDateIn.text == ""
+        cell.lblTo.isHidden = cell.lblDateIn.isHidden || cell.lblDateOut.isHidden
+        
         return cell
     }
 
