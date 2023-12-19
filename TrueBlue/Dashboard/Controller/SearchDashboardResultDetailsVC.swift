@@ -116,7 +116,7 @@ extension SearchDashboardResultDetailsVC : UITableViewDataSource , UITableViewDe
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var dateInData = ""
         if arrSearchData[indexPath.row].dateIn.isEmpty || arrSearchData[indexPath.row].dateIn == "0000-00-00" {
-            dateInData = dateFormatter.string(from: Date())
+            dateInData = ""
         }else {
             dateInData = arrSearchData[indexPath.row].dateIn
         }

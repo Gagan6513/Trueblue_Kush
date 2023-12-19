@@ -483,7 +483,7 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
         if(collectionView == cImageCollectionView) {
             return dictUploadedDocumentsData.documentsUploaded.count
         } else {
-            return totalAccidentImgCells
+            return self.arrAccidentImages.count//totalAccidentImgCells
         }
         
     }
@@ -499,53 +499,65 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
         } else {
             let accidentPicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ACCIDENT_PICS, for: indexPath as IndexPath) as! AccidentPicsCvCell
             let addMorePicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ADD_MORE_ACCIDENT_PICS, for: indexPath as IndexPath) as! AddMoreAccidentPicsCvCell
-            switch isAddMoreAccidentPicCell {
-            case true:
-                if indexPath.row == totalAccidentImgCells-1 {
-                    addMorePicsCell.addImgBtn.tag = indexPath.row
-                    addMorePicsCell.addImgBtn.addTarget(self, action: #selector(addAccidentImg(sender:)), for: .touchUpInside)
-                    return addMorePicsCell
-                } else {
-                    
-                    if arrAccidentImages.count > 0 {
-                        let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-                        accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-                        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-                        accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-                        tapGesture.view?.tag = indexPath.row
-                    } else {
-                        accidentPicsCell.imgView.image = .none
-                    }
-                    if totalAccidentImgCells == 1 {
-                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
-                    } else {
-                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
-                    }
-                    accidentPicsCell.editImgBtn.tag = indexPath.row
-                    accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-                    return accidentPicsCell
-                }
-            case false:
-                print(indexPath.row)
-                if arrAccidentImages.count > 0 {
-                    print(arrAccidentImages)
-                    let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-                    accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-                    accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-                    tapGesture.view?.tag = indexPath.row
-                } else {
-                    accidentPicsCell.imgView.image = .none
-                }
-                if totalAccidentImgCells == 1 {
-                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
-                } else {
-                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
-                }
-                accidentPicsCell.editImgBtn.tag = indexPath.row
-                accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-                return accidentPicsCell
-            }
+            
+            let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+            accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+            accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+            tapGesture.view?.tag = indexPath.row
+            
+            accidentPicsCell.editImgBtn.tag = indexPath.row
+            accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+            return accidentPicsCell
+            
+//            switch isAddMoreAccidentPicCell {
+//            case true:
+//                if indexPath.row == totalAccidentImgCells - 1 {
+//                    addMorePicsCell.addImgBtn.tag = indexPath.row
+//                    addMorePicsCell.addImgBtn.addTarget(self, action: #selector(addAccidentImg(sender:)), for: .touchUpInside)
+//                    return addMorePicsCell
+//                } else {
+//                    
+//                    if arrAccidentImages.count > 0 {
+//                        let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+//                        accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+//                        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+//                        accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+//                        tapGesture.view?.tag = indexPath.row
+//                    } else {
+//                        accidentPicsCell.imgView.image = .none
+//                    }
+//                    if totalAccidentImgCells == 1 {
+//                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
+//                    } else {
+//                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
+//                    }
+//                    
+//                    accidentPicsCell.editImgBtn.tag = indexPath.row
+//                    accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+//                    return accidentPicsCell
+//                }
+//            case false:
+//                print(indexPath.row)
+//                if arrAccidentImages.count > 0 {
+//                    print(arrAccidentImages)
+//                    let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+//                    accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+//                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+//                    accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+//                    tapGesture.view?.tag = indexPath.row
+//                } else {
+//                    accidentPicsCell.imgView.image = .none
+//                }
+//                if totalAccidentImgCells == 1 {
+//                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
+//                } else {
+//                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
+//                }
+//                accidentPicsCell.editImgBtn.tag = indexPath.row
+//                accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+//                return accidentPicsCell
+//            }
         }
     }
     
