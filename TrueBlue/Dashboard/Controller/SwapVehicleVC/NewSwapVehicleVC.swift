@@ -35,16 +35,34 @@ class NewSwapVehicleVC: UIViewController {
     @IBOutlet weak var txtNewDateOut: UITextField!
     @IBOutlet weak var txtNewTimeOut: UITextField!
     
+    @IBOutlet weak var imgOldFront: UIImageView!
+    @IBOutlet weak var imgOldBack: UIImageView!
+    @IBOutlet weak var imgOldLeft: UIImageView!
+    @IBOutlet weak var imgOldRight: UIImageView!
+    
+    @IBOutlet weak var imgNewFront: UIImageView!
+    @IBOutlet weak var imgNewLeft: UIImageView!
+    @IBOutlet weak var imgNewBack: UIImageView!
+    @IBOutlet weak var imgNewRight: UIImageView!
+    
     var applicationID = String()//We get this from Collections Screen
     var arrHiredVehicle = [HiredVehicleDropdownListModelData]()
     var arrReturnUploadedDocs = [DocumentDetailsModelData]()
     var arrCarImages = [fleet_docs]()
     var selectedDropdownItemIndex = -1 as Int
     
+    var selectedOldVehicle = HiredVehicleDropdownListModelData()
+    var selectedNewVehicle = AvailableVehicleDropDownListModelData()
+    
     // NEW VEHICLE
     var arrViewSwapVehicle = [DocumentDetailsModelData]()
     var arrAvailableVehicles = [AvailableVehicleDropDownListModelData]()
     var selectedVehicleId = String()
+    
+    //Image Picker
+    var imagePicker: ImagePicker?
+    
+    var selectedImage = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +75,50 @@ class NewSwapVehicleVC: UIViewController {
         self.CarImageCollectionView.dataSource = self
         self.CarImageCollectionView.registerNib(for: "CarImageCVC")
     }
+    
+    // Upload Image ================
+    
+    @IBAction func btnOldVehicleFrontImage(_ sender: Any) {
+        self.selectedImage = "old_front"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnOldVehicleBackImage(_ sender: Any) {
+        self.selectedImage = "old_back"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnOldVehicleLeftImage(_ sender: Any) {
+        self.selectedImage = "old_left"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnOldVehicleRightImage(_ sender: Any) {
+        self.selectedImage = "old_right"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnNewVehicleFrontImage(_ sender: Any) {
+        self.selectedImage = "new_front"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnNewVehicleBackImage(_ sender: Any) {
+        self.selectedImage = "new_back"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnNewVehicleLeftImage(_ sender: Any) {
+        self.selectedImage = "new_left"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    @IBAction func btnNewVehicleRightImage(_ sender: Any) {
+        self.selectedImage = "new_right"
+        self.imagePicker?.openPhotoOptions()
+    }
+    
+    // =============================
     
     @IBAction func btnChooseRefNo(_ sender: Any) {
         if applicationID.isEmpty {
@@ -95,7 +157,128 @@ class NewSwapVehicleVC: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func btnOldVehicleDateOut(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtDateOut.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnOldVehicleTimeOut(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_TIME
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_TIME_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtTimeOut.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnOldVehicleDateIn(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtDateIn.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnOldVehicleTimeIn(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_TIME
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_TIME_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtTimeIn.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnNewVehicleDateOut(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtNewDateOut.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnNewVehicleTimeOut(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_TIME
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_TIME_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtNewTimeOut.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
     @IBAction func btnSubmit(_ sender: Any) {
+        self.swapedVehicle()
     }
     
     func setupUI() {
@@ -105,6 +288,7 @@ class NewSwapVehicleVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListReturnVehicle, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListSwapVehicle, object: nil)
 
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
@@ -116,11 +300,20 @@ class NewSwapVehicleVC: UIViewController {
                 
                 switch userInfo["itemSelectedFromList"] as? String {
                 case AppDropDownLists.RETURN_VEHICLE_REGO:
+                    self.selectedOldVehicle = arrHiredVehicle[selectedDropdownItemIndex]
                     txtRefNo.text = selectedItem
                     txtMilageOut.text = arrHiredVehicle[selectedDropdownItemIndex].Mileage_out
                     txtDateOut.text = arrHiredVehicle[selectedDropdownItemIndex].date_out
                     print(arrHiredVehicle[selectedDropdownItemIndex])
-                    txtTimeOut.text = arrHiredVehicle[selectedDropdownItemIndex].time_out
+                    
+                    let time = arrHiredVehicle[selectedDropdownItemIndex].time_out
+                    print("--------------Time------------", time)
+                    let timeFormater = DateFormatter()
+                    timeFormater.dateFormat = "HH:mm:ss"
+                    
+                    let newTime = timeFormater.date(from: time)
+                    timeFormater.dateFormat = "HH:mm"
+                    self.txtTimeOut.text = timeFormater.string(from: newTime ?? Date())
                     
                     txtModelInfo.text = arrHiredVehicle[selectedDropdownItemIndex].vehicle_make + " " + arrHiredVehicle[selectedDropdownItemIndex].vehicle_model
                     
@@ -132,6 +325,7 @@ class NewSwapVehicleVC: UIViewController {
                     
                 case AppDropDownLists.AVAILABLE_VEHICLE_REGO_RA:
 
+                    self.selectedNewVehicle = arrAvailableVehicles[selectedDropdownItemIndex]
                     selectedVehicleId = arrAvailableVehicles[selectedDropdownItemIndex].id
                     self.txtNewVehivleRefNo.text = selectedItem
                     self.txtNewModelInfo.text = arrAvailableVehicles[selectedDropdownItemIndex].vehicle_make + " " + arrAvailableVehicles[selectedDropdownItemIndex].vehicle_model
@@ -178,6 +372,99 @@ class NewSwapVehicleVC: UIViewController {
                 }
             }
         }
+    }
+    
+    func validation() {
+        
+        
+        
+    }
+    
+    func swapedVehicle() {
+        if txtRefNo.text?.isEmpty ?? true {
+            showToast(strMessage: selectOldRego)
+            return
+        }
+        
+        if txtMilageIn.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter old milage in.")
+            return
+        }
+        
+        
+        if txtDateIn.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter old date in")
+            return
+        }
+        
+        
+        if txtTimeIn.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter old time in")
+            return
+        }
+        
+        if txtNewVehivleRefNo.text?.isEmpty ?? true {
+            showToast(strMessage: selectNewRego)
+            return
+        }
+        
+        if txtNewMileageOut.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter new milage out")
+            return
+        }
+        
+        if txtNewDateOut.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter new date out")
+            return
+        }
+        
+        if txtNewTimeOut.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter new time out")
+            return
+        }
+        
+//        if selectedVehicleId.isEmpty {
+//            showToast(strMessage: selectNewRego)
+//            return
+//        }
+//        if Int(txtMilageIn.text ?? "") ?? 0  < Int(txtMilageOut.text ?? "") ?? 0 {
+//            showToast(strMessage: mileageInLessThanMileageOut)
+//            return
+//        }
+        
+        var parameters: Parameters = [:]
+        parameters["reasonfor_replacement"] = self.txtReasonForReplacement.text
+        parameters["app_id"] = self.selectedOldVehicle.application_id
+        parameters["booking_id"] = self.selectedOldVehicle.booking_id
+        parameters["oldvehicle_id"] = self.selectedOldVehicle.vehicle_id
+        
+        parameters["vehicle_id"] = self.selectedNewVehicle.id // NEW VEHICLE
+        parameters["olddate_in"] = self.txtDateIn.text
+        parameters["time_in"] = self.txtTimeIn.text
+        
+        parameters["dateof_replacement"] = self.txtNewDateOut.text // NEW VEHICLE
+        parameters["timeof_replacement"] = self.txtNewTimeOut.text // NEW VEHICLE
+        
+        parameters["mileage_in"] = self.txtMilageIn.text
+        
+        parameters["front_img"] = self.imgOldFront.image?.pngData()
+        parameters["back_img"] = self.imgOldBack.image?.pngData()
+        parameters["left_img"] = self.imgOldLeft.image?.pngData()
+        parameters["right_img"] = self.imgOldRight.image?.pngData()
+        
+        parameters["newfront_img"] = self.imgNewFront.image?.pngData()
+        parameters["newback_img"] = self.imgNewBack.image?.pngData()
+        parameters["newleft_img"] = self.imgNewLeft.image?.pngData()
+        parameters["newright_img"] = self.imgNewRight.image?.pngData()
+        
+        parameters["user_id"] = UserDefaults.standard.userId() // USER INFO
+        parameters["user_name"] = UserDefaults.standard.username() // USER INFO
+
+        parameters["request_from"] = request_from
+        
+        parameters["mileage_out"] = self.txtNewMileageOut.text // NEW VEHICLE
+        
+        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
     }
     
 }
@@ -254,7 +541,7 @@ extension NewSwapVehicleVC: SwapVehicleVMDelegate {
     }
     
     func swapVehicleAPISuccess(objData: AvailableVehicleDropDownListModel, strMessage: String) {
-        showToast(strMessage: strMessage)
+//        showToast(strMessage: strMessage)
         if objData.arrResult.count > 0 {
             arrAvailableVehicles = objData.arrResult
             print(objData)
@@ -269,5 +556,33 @@ extension NewSwapVehicleVC: SwapVehicleVMDelegate {
     
     func swapVehicleAPIFailure(strMessage: String, serviceKey: String) {
         showToast(strMessage: strMessage)
+    }
+}
+
+extension NewSwapVehicleVC: ImagePickerDelegate {
+    
+    func didSelect(image: UIImage?) {
+        switch self.selectedImage {
+        case "old_front":
+            self.imgOldFront.image = image
+        case "old_back":
+            self.imgOldBack.image = image
+        case "old_left":
+            self.imgOldLeft.image = image
+        case "old_right":
+            self.imgOldRight.image = image
+            
+        case "new_front":
+            self.imgNewFront.image = image
+        case "new_back":
+            self.imgNewBack.image = image
+        case "new_left":
+            self.imgNewLeft.image = image
+        case "new_right":
+            self.imgNewRight.image = image
+        default:
+            print("")
+        }
+        self.selectedImage = ""
     }
 }

@@ -8,6 +8,9 @@
 import Foundation
 //Diksha Rattan: DataSyncMessages
 //No Internet Message
+
+let request_from = "App" // FOR REQUEST
+
 let noInternet = "No internet connection available!"
 //Api Failure
 let somethingWrong = "Oops!Something went wrong.Try again."

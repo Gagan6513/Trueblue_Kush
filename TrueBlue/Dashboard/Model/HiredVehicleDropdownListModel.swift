@@ -37,6 +37,7 @@ class HiredVehicleDropdownListModel : NSObject {
                 
                 dictArray.fleet_docs = fleet_arr
                 
+                dictArray.booking_id = dict["booking_id"] as? String ?? ""
                 dictArray.Mileage_out = dict["Mileage_out"] as? String ?? ""
                 dictArray.date_out = dict["date_out"] as? String ?? ""
                 dictArray.fuel_out = dict["fuel_out"] as? String ?? ""
@@ -51,6 +52,7 @@ class HiredVehicleDropdownListModel : NSObject {
 
 struct HiredVehicleDropdownListModelData {
 
+    var booking_id: String = ""
     var application_id : String = ""
     var refno : String = ""
     var vehicle_id : String = ""

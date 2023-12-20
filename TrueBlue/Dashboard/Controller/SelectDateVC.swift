@@ -8,12 +8,17 @@
 import UIKit
 
 class SelectDateVC: UIViewController {
+    
     var dateTextField = UITextField()
 //    var isOnlyMonthYearDatePicker = Bool()
     var currentNotification = NSNotification.Name(String())
     var isFromUpcomingBooking = false
     var isThreeYearsValidation = false
+    
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var selectedDate: ((String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +56,9 @@ class SelectDateVC: UIViewController {
         let strDay = dateFormatter.string(from: datePicker.date)
         print("Year:\(strYear),Month:\(strMonth),Day:\(strDay)")
         NotificationCenter.default.post(name: currentNotification, object: self, userInfo: ["selectedDate": strDate,"dateTextField" : dateTextField,"selectedYear":strYear,"selectedMonth":strMonth,"selectedDay":strDay])
+        
+        selectedDate?(strDate)
+        
         dismiss(animated: true, completion: nil)
     }
 

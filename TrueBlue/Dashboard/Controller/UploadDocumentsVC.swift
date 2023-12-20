@@ -512,16 +512,6 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
             let accidentPicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ACCIDENT_PICS, for: indexPath as IndexPath) as! AccidentPicsCvCell
             let addMorePicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ADD_MORE_ACCIDENT_PICS, for: indexPath as IndexPath) as! AddMoreAccidentPicsCvCell
             
-//            let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-//            accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-//            accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-//            tapGesture.view?.tag = indexPath.row
-//
-//            accidentPicsCell.editImgBtn.tag = indexPath.row
-//            accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-//            return accidentPicsCell
-            
             switch isAddMoreAccidentPicCell {
             case true:
                 if indexPath.row == totalAccidentImgCells - 1 {

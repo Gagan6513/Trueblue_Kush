@@ -10,6 +10,7 @@ import UIKit
 class SelectTimeVC: UIViewController {
     var timeTextField = UITextField()
     var currentNotification = NSNotification.Name(String())
+    var selectedDate: ((String) -> Void)?
 
     @IBOutlet weak var timeDatePicker: UIDatePicker!
     override func viewDidLoad() {
@@ -32,6 +33,8 @@ class SelectTimeVC: UIViewController {
         timeFormatter.dateFormat = "HH:mm"
         let strTime = timeFormatter.string(from: timeDatePicker.date)
         NotificationCenter.default.post(name: currentNotification, object: self, userInfo: ["selectedTime": strTime,"timeTextField" : timeTextField])
+        selectedDate?(strTime)
+
         dismiss(animated: true, completion: nil)
     }
     /*

@@ -61,8 +61,11 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func getNotes() {
         CommonObject.sharedInstance.showProgress()
         let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
+        
+        let application_id = CommonObject.sharedInstance.currentReferenceId.replacingOccurrences(of: "IV000", with: "")
+        print(application_id)
         let requestURL = newAPIPATH + "getAllNotes"
-        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId]
+        let parameters : Parameters = ["application_id" : application_id]
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
         if NetworkReachabilityManager()!.isReachable {
@@ -112,8 +115,12 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func saveNotes() {
         CommonObject.sharedInstance.showProgress()
         let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
+        
+        let application_id = CommonObject.sharedInstance.currentReferenceId.replacingOccurrences(of: "IV000", with: "")
+        print(application_id)
+        
         let requestURL = newAPIPATH + "saveNotes"
-        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId, "user_id" : UserDefaults.standard.userId(), "user_name" : UserDefaults.standard.username(), "notes" : notesTextView.text!, "request_from": "App"]
+        let parameters : Parameters = ["application_id" : application_id, "user_id" : UserDefaults.standard.userId(), "user_name" : UserDefaults.standard.username(), "notes" : notesTextView.text!, "request_from": "App"]
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
         if NetworkReachabilityManager()!.isReachable {
