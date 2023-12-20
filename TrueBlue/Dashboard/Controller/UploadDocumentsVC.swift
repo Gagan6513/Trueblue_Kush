@@ -58,7 +58,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
     @IBOutlet weak var accidentPicsCollectionView: UICollectionView!
     @IBOutlet weak var documentLbl: UILabel!
 //    @IBOutlet weak var documentTblViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var documentImgView: UIImageView!
     @IBOutlet weak var addDocumentImgView: UIImageView!
     @IBOutlet weak var deleteSignBtn: UIButton!
@@ -92,12 +92,12 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         hideKeyboardWhenTappedAround()
 //        documentTblViewHeightConstraint.constant = 0
         
-        scrollViewHeightConstraint.constant = signatureImgView.frame.origin.y + signatureImgView.frame.height + 50
-        
-        scrollViewHeightConstraint.constant = signatureImgView2.frame.origin.y + signatureImgView2.frame.height + 50
-        
-        print(scrollViewHeightConstraint.constant)
-        initialViewHeight = scrollViewHeightConstraint.constant
+//        scrollViewHeightConstraint.constant = signatureImgView.frame.origin.y + signatureImgView.frame.height + 50
+//
+//        scrollViewHeightConstraint.constant = signatureImgView2.frame.origin.y + signatureImgView2.frame.height + 50
+//
+//        print(scrollViewHeightConstraint.constant)
+//        initialViewHeight = scrollViewHeightConstraint.constant
 //        documentTblViewInitialHeight = documentTblViewHeightConstraint.constant
         setAccidentPicCVHeight()
         //getPreview()
@@ -165,13 +165,13 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         
         accidentPicsCVInitialHeight = height
         if UIDevice.current.userInterfaceIdiom == .pad {
-            scrollViewHeightConstraint.constant -= accidentPicsCVHeightConstraint.constant
+//            scrollViewHeightConstraint.constant -= accidentPicsCVHeightConstraint.constant
             accidentPicsCVHeightConstraint.constant = accidentPicsCVInitialHeight
-            scrollViewHeightConstraint.constant += (accidentPicsCVHeightConstraint.constant)
+//            scrollViewHeightConstraint.constant += (accidentPicsCVHeightConstraint.constant)
         } else {
-            scrollViewHeightConstraint.constant -= accidentPicsCVHeightConstraint.constant
+//            scrollViewHeightConstraint.constant -= accidentPicsCVHeightConstraint.constant
             accidentPicsCVHeightConstraint.constant = (accidentPicsCVInitialHeight*2)+4
-            scrollViewHeightConstraint.constant += (accidentPicsCVHeightConstraint.constant)
+//            scrollViewHeightConstraint.constant += (accidentPicsCVHeightConstraint.constant)
         }
     }
     func setUpViewHeight() {
@@ -576,7 +576,7 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if(collectionView == cImageCollectionView) {
             if UIDevice.current.userInterfaceIdiom == .pad {
-                return CGSize(width: 310, height: 340)
+                return CGSize(width: (collectionView.frame.size.width - 60) / 3, height: (collectionView.frame.size.height))
             } else {
                 return CGSize(width: (collectionView.frame.size.width - 60) / 2, height: (collectionView.frame.size.height))
             }
