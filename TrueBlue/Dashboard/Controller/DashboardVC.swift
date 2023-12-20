@@ -10,13 +10,10 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings"]
-//    , "Under Maintenance Vehicles"
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle"]
     
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
     var searchbyPicker = UIPickerView()
-    
-//    , "returnVehicle"
     var searchTblView = UITableView()
     var searchResults = Int()
     var searchDashboardData = [SearchDashboardModelData]()
@@ -27,10 +24,8 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var searchTxtFld: UITextField!
     @IBOutlet weak var searchView: UIView!
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0"]
-    //, "0"
-    
     @IBOutlet weak var searchPopView: UIView!
-    
+    @IBOutlet weak var btnSearch:UIButton!
     
     @IBOutlet weak var serachStackView: UIStackView!
     var searchVal = ""
@@ -38,15 +33,15 @@ class DashboardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(self.LogoutNotificationAction(_:)), name: .logout, object: nil)
         if UIDevice.current.userInterfaceIdiom == .pad {
             searchPopView.backgroundColor = .white
         } else {
             searchPopView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         }
+        btnSearch.setImage(UIImage(named: "search_white"), for: .normal)
         self.searchByTxtFld.text = self.arrSearchby[0]
-
+        btnSearch.layer.cornerRadius = btnSearch.frame.height / 2
         setUpSearchTblView()
         hideKeyboardWhenTappedAround()
         apiGetRequest(parameters: nil, endPoint: EndPoints.DASHBOARD_COUNT)
@@ -54,8 +49,9 @@ class DashboardVC: UIViewController {
         self.searchByTxtFld.inputView = self.searchbyPicker
         self.searchbyPicker.delegate = self
         self.searchbyPicker.dataSource = self
-        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         //API Call for logout
@@ -241,6 +237,7 @@ class DashboardVC: UIViewController {
     }
     
     @IBAction func closeSearchPopupView(_ sender: Any) {
+        searchTextInPopup.text = ""
         searchPopView.isHidden = true
     }
     

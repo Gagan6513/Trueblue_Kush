@@ -46,14 +46,15 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     var notesArray = [String:String]()
     var allNotesArray: [ResponseObject] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         centerNotesView.backgroundColor = .clear //UIColor.black.withAlphaComponent(0.3)
         getNotes()
         notesTableVIew.separatorStyle = .singleLine
-        // Do any additional setup after loading the view.
         notesTextView.layer.borderColor = UIColor(named: AppColors.BLUE)?.cgColor
-        notesTextView.layer.borderWidth =  1
+        notesTextView.layer.borderWidth =  0
         
     }
     
@@ -179,6 +180,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
   
     
     @IBAction func closeNotesView(_ sender: Any) {
+        notesTextView.text = ""
         centerNotesView.isHidden = true
     }
     @IBAction func saveNotes(_ sender: Any) {
