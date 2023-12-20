@@ -17,6 +17,17 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
     
 
     @IBOutlet weak var cImageCollectionView: UICollectionView!
+//    {
+//        didSet {
+//            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//            layout.scrollDirection = .horizontal
+//            layout.minimumInteritemSpacing = 0.01
+//            layout.minimumLineSpacing = 0.01
+//            cImageCollectionView.collectionViewLayout = layout
+//        }
+//    }
     //    var isDataRefreshNeeded = true//Call get documents data service only if this parameter is true
     var imagePicker: ImagePicker!
     var multipleImgPicker: MultipleImgPicker!
@@ -68,6 +79,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Register the cell
+        
         
 
         CommonObject.sharedInstance.isNewEntry = false
@@ -483,7 +495,7 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
         if(collectionView == cImageCollectionView) {
             return dictUploadedDocumentsData.documentsUploaded.count
         } else {
-            return self.arrAccidentImages.count//totalAccidentImgCells
+            return /*self.arrAccidentImages.count*/ totalAccidentImgCells
         }
         
     }
@@ -500,64 +512,64 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
             let accidentPicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ACCIDENT_PICS, for: indexPath as IndexPath) as! AccidentPicsCvCell
             let addMorePicsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.ADD_MORE_ACCIDENT_PICS, for: indexPath as IndexPath) as! AddMoreAccidentPicsCvCell
             
-            let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-            accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-            accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-            tapGesture.view?.tag = indexPath.row
+//            let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+//            accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+//            accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+//            tapGesture.view?.tag = indexPath.row
+//
+//            accidentPicsCell.editImgBtn.tag = indexPath.row
+//            accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+//            return accidentPicsCell
             
-            accidentPicsCell.editImgBtn.tag = indexPath.row
-            accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-            return accidentPicsCell
-            
-//            switch isAddMoreAccidentPicCell {
-//            case true:
-//                if indexPath.row == totalAccidentImgCells - 1 {
-//                    addMorePicsCell.addImgBtn.tag = indexPath.row
-//                    addMorePicsCell.addImgBtn.addTarget(self, action: #selector(addAccidentImg(sender:)), for: .touchUpInside)
-//                    return addMorePicsCell
-//                } else {
-//                    
-//                    if arrAccidentImages.count > 0 {
-//                        let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-//                        accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-//                        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-//                        accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-//                        tapGesture.view?.tag = indexPath.row
-//                    } else {
-//                        accidentPicsCell.imgView.image = .none
-//                    }
-//                    if totalAccidentImgCells == 1 {
-//                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
-//                    } else {
-//                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
-//                    }
-//                    
-//                    accidentPicsCell.editImgBtn.tag = indexPath.row
-//                    accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-//                    return accidentPicsCell
-//                }
-//            case false:
-//                print(indexPath.row)
-//                if arrAccidentImages.count > 0 {
-//                    print(arrAccidentImages)
-//                    let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
-//                    accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
-//                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
-//                    accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
-//                    tapGesture.view?.tag = indexPath.row
-//                } else {
-//                    accidentPicsCell.imgView.image = .none
-//                }
-//                if totalAccidentImgCells == 1 {
-//                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
-//                } else {
-//                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
-//                }
-//                accidentPicsCell.editImgBtn.tag = indexPath.row
-//                accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
-//                return accidentPicsCell
-//            }
+            switch isAddMoreAccidentPicCell {
+            case true:
+                if indexPath.row == totalAccidentImgCells - 1 {
+                    addMorePicsCell.addImgBtn.tag = indexPath.row
+                    addMorePicsCell.addImgBtn.addTarget(self, action: #selector(addAccidentImg(sender:)), for: .touchUpInside)
+                    return addMorePicsCell
+                } else {
+                    
+                    if arrAccidentImages.count > 0 {
+                        let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+                        accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+                        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+                        accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+                        tapGesture.view?.tag = indexPath.row
+                    } else {
+                        accidentPicsCell.imgView.image = .none
+                    }
+                    if totalAccidentImgCells == 1 {
+                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
+                    } else {
+                        accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
+                    }
+                    
+                    accidentPicsCell.editImgBtn.tag = indexPath.row
+                    accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+                    return accidentPicsCell
+                }
+            case false:
+                print(indexPath.row)
+                if arrAccidentImages.count > 0 {
+                    print(arrAccidentImages)
+                    let imgUrl = URL(string: arrAccidentImages[indexPath.row].imgUrl)
+                    accidentPicsCell.imgView.kf.setImage(with: imgUrl, placeholder: nil, options: nil, completionHandler: nil)
+                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAccidentImage(sender:)))
+                    accidentPicsCell.imgView.addGestureRecognizer(tapGesture)
+                    tapGesture.view?.tag = indexPath.row
+                } else {
+                    accidentPicsCell.imgView.image = .none
+                }
+                if totalAccidentImgCells == 1 {
+                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.ADD), for: .normal)
+                } else {
+                    accidentPicsCell.editImgBtn.setImage(UIImage(named: AppImageNames.DELETE), for: .normal)
+                }
+                accidentPicsCell.editImgBtn.tag = indexPath.row
+                accidentPicsCell.editImgBtn.addTarget(self, action: #selector(editAccidentImg(sender:)), for: .touchUpInside)
+                return accidentPicsCell
+            }
         }
     }
     
@@ -566,7 +578,7 @@ extension UploadDocumentsVC: UICollectionViewDelegate, UICollectionViewDataSourc
             if UIDevice.current.userInterfaceIdiom == .pad {
                 return CGSize(width: 310, height: 340)
             } else {
-                return CGSize(width: 154, height: 202)
+                return CGSize(width: (collectionView.frame.size.width - 60) / 2, height: (collectionView.frame.size.height))
             }
             
         }

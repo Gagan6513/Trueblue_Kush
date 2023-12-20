@@ -40,6 +40,11 @@ class NewSwapVehicleVC: UIViewController {
     var arrReturnUploadedDocs = [DocumentDetailsModelData]()
     var arrCarImages = [fleet_docs]()
     var selectedDropdownItemIndex = -1 as Int
+    
+    // NEW VEHICLE
+    var arrViewSwapVehicle = [DocumentDetailsModelData]()
+    var arrAvailableVehicles = [AvailableVehicleDropDownListModelData]()
+    var selectedVehicleId = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +78,19 @@ class NewSwapVehicleVC: UIViewController {
         }
     }
     
+    @IBAction func btnChooseNewRefNo(_ sender: Any) {
+        if arrAvailableVehicles.count > 0 {
+            var temp = [String] ()
+            for i in 0...arrAvailableVehicles.count-1 {
+                temp.append(arrAvailableVehicles[i].registration_no)
+            }
+            print(arrAvailableVehicles)
+            showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.AVAILABLE_VEHICLE_REGO_RA, notificationName: .searchListSwapVehicle)
+        }else {
+            showToast(strMessage: noRecordAvailable)
+        }
+    }
+    
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -82,32 +100,45 @@ class NewSwapVehicleVC: UIViewController {
     
     func setupUI() {
         apiPostRequest(parameters: [:], endPoint: EndPoints.HIRED_VEHICLE_DROPDOWN_LIST)
+        apiPostSwapeVehicleRequest(parameters: [:], endPoint: EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST)
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListReturnVehicle, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListSwapVehicle, object: nil)
+
     }
     
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
         if let userInfo = notification.userInfo {
-           if let selectedItem = userInfo["selectedItem"] as? String {
-            
-            selectedDropdownItemIndex = userInfo["selectedIndex"] as! Int
-            print(selectedDropdownItemIndex)
-            
-            switch userInfo["itemSelectedFromList"] as? String {
-                case AppDropDownLists.RETURN_VEHICLE_REGO:
-                txtRefNo.text = selectedItem
-                txtMilageOut.text = arrHiredVehicle[selectedDropdownItemIndex].Mileage_out
-                txtDateOut.text = arrHiredVehicle[selectedDropdownItemIndex].date_out
-                print(arrHiredVehicle[selectedDropdownItemIndex])
-                txtTimeOut.text = arrHiredVehicle[selectedDropdownItemIndex].time_out
-                txtModelInfo.text = arrHiredVehicle[selectedDropdownItemIndex].vehicle_make + arrHiredVehicle[selectedDropdownItemIndex].vehicle_model
-                self.arrCarImages = arrHiredVehicle[selectedDropdownItemIndex].fleet_docs
-                self.CarImageCollectionView.reloadData()
+            if let selectedItem = userInfo["selectedItem"] as? String {
                 
-                let parameters : Parameters = ["application_id" :arrHiredVehicle[selectedDropdownItemIndex].refno ]
-                apiPostRequest(parameters: parameters, endPoint: EndPoints.RETURNUPLOADED_DOCS)
+                selectedDropdownItemIndex = userInfo["selectedIndex"] as! Int
+                print(selectedDropdownItemIndex)
+                
+                switch userInfo["itemSelectedFromList"] as? String {
+                case AppDropDownLists.RETURN_VEHICLE_REGO:
+                    txtRefNo.text = selectedItem
+                    txtMilageOut.text = arrHiredVehicle[selectedDropdownItemIndex].Mileage_out
+                    txtDateOut.text = arrHiredVehicle[selectedDropdownItemIndex].date_out
+                    print(arrHiredVehicle[selectedDropdownItemIndex])
+                    txtTimeOut.text = arrHiredVehicle[selectedDropdownItemIndex].time_out
+                    
+                    txtModelInfo.text = arrHiredVehicle[selectedDropdownItemIndex].vehicle_make + " " + arrHiredVehicle[selectedDropdownItemIndex].vehicle_model
+                    
+                    self.arrCarImages = arrHiredVehicle[selectedDropdownItemIndex].fleet_docs
+                    self.CarImageCollectionView.reloadData()
+                    
+                    let parameters : Parameters = ["application_id" :arrHiredVehicle[selectedDropdownItemIndex].refno ]
+                    apiPostRequest(parameters: parameters, endPoint: EndPoints.RETURNUPLOADED_DOCS)
+                    
+                case AppDropDownLists.AVAILABLE_VEHICLE_REGO_RA:
 
+                    selectedVehicleId = arrAvailableVehicles[selectedDropdownItemIndex].id
+                    self.txtNewVehivleRefNo.text = selectedItem
+                    self.txtNewModelInfo.text = arrAvailableVehicles[selectedDropdownItemIndex].vehicle_make + " " + arrAvailableVehicles[selectedDropdownItemIndex].vehicle_model
+                    
+                    self.newcarImage.sd_setImage(with: URL(string: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img))
                 default:
-                print("Unkown List")
+                    print("Unkown List")
                 }
             }
         }
@@ -120,6 +151,13 @@ class NewSwapVehicleVC: UIViewController {
         obj.postReturnVehicle(currentController: self, parameters: parameters, endPoint: endPoint)
     }
     
+    func apiPostSwapeVehicleRequest(parameters: Parameters,endPoint: String){
+        CommonObject.sharedInstance.showProgress()
+        let obj = SwapVehicleViewModel()
+        obj.delegate = self
+        obj.postSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint)
+    }
+    
     func setUpData() {
         if !applicationID.isEmpty {
             // User comes from collection screen
@@ -129,7 +167,9 @@ class NewSwapVehicleVC: UIViewController {
                     txtMilageOut.text = arrHiredVehicle[i].Mileage_out
                     txtDateOut.text = arrHiredVehicle[i].date_out
                     txtTimeOut.text = arrHiredVehicle[i].time_out
-                    txtModelInfo.text = arrHiredVehicle[i].vehicle_make + arrHiredVehicle[i].vehicle_model
+                    
+                    txtModelInfo.text = arrHiredVehicle[i].vehicle_make + " " + arrHiredVehicle[i].vehicle_model
+                    
                     self.arrCarImages = arrHiredVehicle[i].fleet_docs
                     self.CarImageCollectionView.reloadData()
 //                    let timeOut = arrHiredVehicle[i].time_out
@@ -164,8 +204,8 @@ extension NewSwapVehicleVC : ReturnVehicleVMDelegate {
         arrReturnUploadedDocs = objData.documentDetails
 //        CarImageCollectionView.reloadData()
     }
-    
-    
+
+
     func returnVehicleAPISuccess(objData: ReturnVehicleModel, strMessage: String) {
 //        print(objData)
 //        showToast(strMessage: strMessage)
@@ -173,18 +213,61 @@ extension NewSwapVehicleVC : ReturnVehicleVMDelegate {
 //            self.dismiss(animated: true)
 //        })
     }
-    
-    
+
+
     func returnVehicleAPISuccess(objData: HiredVehicleDropdownListModel, strMessage: String) {
         arrHiredVehicle = objData.arrResult
         setUpData()
-        
-        
-        
         //print(arrHiredVehicle)
     }
-    
+
     func returnVehicleAPIFailure(strMessage: String, serviceKey: String) {
+        showToast(strMessage: strMessage)
+    }
+}
+
+extension NewSwapVehicleVC: SwapVehicleVMDelegate {
+    func swapVehicleAPISuccess(objData: ReturnUploadedDocsModel, strMessage: String) {
+        print(objData.documentDetails)
+        arrViewSwapVehicle = objData.documentDetails
+//        viewSwapVehicleCollectionView.reloadData()
+        
+    }
+    
+    func swapVehicleAPISuccess(strMessage: String, serviceKey: String) {
+        showToast(strMessage: strMessage)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.dismiss(animated: true)
+        })
+    }
+    
+    func swapVehicleAPISuccess(objData: HiredVehicleDropdownListModel, strMessage: String) {
+//        arrHiredVehicles = objData.arrResult
+        if objData.arrResult.count > 0 {
+            var temp = [String] ()
+            for i in 0...objData.arrResult.count-1 {
+                let refrenceRegoNumber = objData.arrResult[i].refno + "-" + objData.arrResult[i].registration_no
+                temp.append(refrenceRegoNumber)
+            }
+            showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.HIRED_VEHICLE_REGO_RA, notificationName: .searchListSwapVehicle)
+        }
+    }
+    
+    func swapVehicleAPISuccess(objData: AvailableVehicleDropDownListModel, strMessage: String) {
+        showToast(strMessage: strMessage)
+        if objData.arrResult.count > 0 {
+            arrAvailableVehicles = objData.arrResult
+            print(objData)
+//            var temp = [String] ()
+//            for i in 0...objData.arrResult.count-1 {
+//                temp.append(objData.arrResult[i].registration_no)
+//            }
+//            print(arrAvailableVehicles)
+//            showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.AVAILABLE_VEHICLE_REGO_RA, notificationName: .searchListSwapVehicle)
+        }
+    }
+    
+    func swapVehicleAPIFailure(strMessage: String, serviceKey: String) {
         showToast(strMessage: strMessage)
     }
 }

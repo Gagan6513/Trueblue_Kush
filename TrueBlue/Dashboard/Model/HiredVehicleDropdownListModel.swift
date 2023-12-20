@@ -18,6 +18,9 @@ class HiredVehicleDropdownListModel : NSObject {
                 dictArray.vehicle_id = dict["vehicle_id"] as? String ?? ""
                 dictArray.registration_no = dict["registration_no"] as? String ?? ""
                 
+                dictArray.vehicle_make = dict["vehicle_make"] as? String ?? ""
+                dictArray.vehicle_model = dict["vehicle_model"] as? String ?? ""
+                
                 var fleet_arr = [fleet_docs]()
                 
                 if let fleet_arr_a = dict["fleet_docs"] as? Array<Dictionary<String, Any>> {

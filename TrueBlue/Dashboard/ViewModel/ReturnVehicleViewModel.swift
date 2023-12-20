@@ -13,6 +13,7 @@ protocol ReturnVehicleVMDelegate {
     func returnVehicleAPISuccess(objData : ReturnUploadedDocsModel,strMessage: String)
     func returnVehicleAPIFailure(strMessage : String, serviceKey: String)
 }
+
 class ReturnVehicleViewModel : NSObject{
     var delegate : ReturnVehicleVMDelegate! = nil
     func postReturnVehicle(currentController : UIViewController ,parameters : Parameters,endPoint: String) {

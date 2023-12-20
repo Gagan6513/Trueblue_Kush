@@ -83,6 +83,9 @@ struct EndPoints {
     
     static let AVAILABLE_VEHICLE_DROPDOWN_LIST = "available_vehicles.php"
     static let HIRED_VEHICLE_DROPDOWN_LIST = "hiredvehicleslist.php"
+    
+    
+    
     static let RETURN_VEHICLE = "return_vehicle.php"
     static let RETURNUPLOADED_DOCS = "returnuploaded_docs.php"
     

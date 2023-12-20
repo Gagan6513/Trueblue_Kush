@@ -134,6 +134,7 @@ class DashboardVC: UIViewController {
         searchTblView.isHidden = true
         searchTblView.reloadData()
     }
+    
     //    func hideSearchTblViewWhenTappedAround() {
     ////        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissSearchTblView))
     //        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissSearchTblView))
@@ -144,6 +145,7 @@ class DashboardVC: UIViewController {
     //    @objc func dismissSearchTblView() {
     //        searchTblView.isHidden = true
     //    }
+    
     func getSearchResult() {
         CommonObject.sharedInstance.showProgress()
         let newAPIPATH = API_PATH //.replacingOccurrences(of: "newapp", with: "app")
@@ -164,6 +166,9 @@ class DashboardVC: UIViewController {
                      
                     let status = mainDict["status"] as? Int ?? 0
                     if status == 1{
+                        
+                        self.searchPopView.isHidden = true
+                        
                         CommonObject.sharedInstance.stopProgress()
                         
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
@@ -384,11 +389,11 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
         case 3:
             performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
         case 4:
-            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
+//            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
 
-//            let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
-//            ctrl.modalPresentationStyle = .overFullScreen
-//            self.present(ctrl, animated: true)
+            let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
             
         case 5:
             performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
