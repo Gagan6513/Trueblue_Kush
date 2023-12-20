@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "205"
             endingLineNumber = "205"
-            landmarkName = "documentImgViewTapped(_:)"
-            landmarkType = "7">
+            landmarkName = "UploadDocumentsVC"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "B0C57310-3512-4252-B857-EBFDE4BB8ABC - 42896ee1978f4d2a"
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
             endingLineNumber = "204"
-            landmarkName = "documentImgViewTapped(_:)"
+            landmarkName = "dismissVC()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
             endingLineNumber = "206"
-            landmarkName = "documentImgViewTapped(_:)"
-            landmarkType = "7">
+            landmarkName = "UploadDocumentsVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
