@@ -304,6 +304,9 @@ class NewSwapVehicleVC: UIViewController {
                     txtRefNo.text = selectedItem
                     txtMilageOut.text = arrHiredVehicle[selectedDropdownItemIndex].Mileage_out
                     txtDateOut.text = arrHiredVehicle[selectedDropdownItemIndex].date_out
+                    
+                    txtClientName.text = arrHiredVehicle[selectedDropdownItemIndex].client_name
+                    
                     print(arrHiredVehicle[selectedDropdownItemIndex])
                     
                     let time = arrHiredVehicle[selectedDropdownItemIndex].time_out
@@ -368,6 +371,7 @@ class NewSwapVehicleVC: UIViewController {
                     txtMilageOut.text = arrHiredVehicle[i].Mileage_out
                     txtDateOut.text = arrHiredVehicle[i].date_out
                     txtTimeOut.text = arrHiredVehicle[i].time_out
+                    txtClientName.text = arrHiredVehicle[i].client_name
                     
                     txtModelInfo.text = arrHiredVehicle[i].vehicle_make + " " + arrHiredVehicle[i].vehicle_model
                     

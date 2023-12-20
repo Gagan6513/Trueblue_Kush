@@ -15964,7 +15964,7 @@
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="George" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6js-z4-ec3">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="George" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6js-z4-ec3">
                                                                         <rect key="frame" x="20" y="15" width="167" height="38"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="38" id="sqE-ea-QLq">
