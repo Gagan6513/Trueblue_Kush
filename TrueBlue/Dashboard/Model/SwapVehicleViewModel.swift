@@ -26,6 +26,12 @@ class SwapVehicleViewModel : NSObject{
         objCallApi.delegateDataSync = self
         objCallApi.getRequest(endPoint: endPoint, parameters: parameters , currentController: currentController)
     }
+    
+    func postMultipartSwapVehicle(currentController : UIViewController ,parameters : Parameters,endPoint: String, img: [UIImage],isImage: Bool,isMultipleImg: Bool,imgParameter: [String], imgExtension: String) {
+        let objCallApi = DataSyncManager()
+        objCallApi.delegateDataSync = self
+        objCallApi.postRequestMultipartWithMultipleParam(endPoint: endPoint, parameters: parameters, img: img, isImage: isImage, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension, currentController: currentController)
+    }
 }
 
 

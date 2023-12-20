@@ -188,7 +188,7 @@ class NewSwapVehicleVC: UIViewController {
             vcId = AppStoryboardId.SELECT_TIME_PHONE
         }
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        let ctrl = storyboard.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
@@ -228,7 +228,7 @@ class NewSwapVehicleVC: UIViewController {
             vcId = AppStoryboardId.SELECT_TIME_PHONE
         }
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        let ctrl = storyboard.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
@@ -268,7 +268,7 @@ class NewSwapVehicleVC: UIViewController {
             vcId = AppStoryboardId.SELECT_TIME_PHONE
         }
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+        let ctrl = storyboard.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
@@ -350,6 +350,13 @@ class NewSwapVehicleVC: UIViewController {
         let obj = SwapVehicleViewModel()
         obj.delegate = self
         obj.postSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint)
+    }
+    
+    func apiPostMultipartRequest(parameters: Parameters,endPoint: String,image: [UIImage],isImg: Bool,isMultipleImg: Bool,imgParameter: [String],imgExtension: String){
+        CommonObject.sharedInstance.showProgress()
+        let obj = SwapVehicleViewModel()
+        obj.delegate = self
+        obj.postMultipartSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint, img: image, isImage: isImg, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension)
     }
     
     func setUpData() {
@@ -446,17 +453,7 @@ class NewSwapVehicleVC: UIViewController {
         parameters["timeof_replacement"] = self.txtNewTimeOut.text // NEW VEHICLE
         
         parameters["mileage_in"] = self.txtMilageIn.text
-        
-        parameters["front_img"] = self.imgOldFront.image?.pngData()
-        parameters["back_img"] = self.imgOldBack.image?.pngData()
-        parameters["left_img"] = self.imgOldLeft.image?.pngData()
-        parameters["right_img"] = self.imgOldRight.image?.pngData()
-        
-        parameters["newfront_img"] = self.imgNewFront.image?.pngData()
-        parameters["newback_img"] = self.imgNewBack.image?.pngData()
-        parameters["newleft_img"] = self.imgNewLeft.image?.pngData()
-        parameters["newright_img"] = self.imgNewRight.image?.pngData()
-        
+
         parameters["user_id"] = UserDefaults.standard.userId() // USER INFO
         parameters["user_name"] = UserDefaults.standard.username() // USER INFO
 
@@ -464,7 +461,55 @@ class NewSwapVehicleVC: UIViewController {
         
         parameters["mileage_out"] = self.txtNewMileageOut.text // NEW VEHICLE
         
-        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
+        
+//        parameters["front_img"] = self.imgOldFront.image
+//        parameters["back_img"] = self.imgOldBack.image
+//        parameters["left_img"] = self.imgOldLeft.image
+//        parameters["right_img"] = self.imgOldRight.image
+//
+//        parameters["newfront_img"] = self.imgNewFront.image
+//        parameters["newback_img"] = self.imgNewBack.image
+//        parameters["newleft_img"] = self.imgNewLeft.image
+//        parameters["newright_img"] = self.imgNewRight.image
+        
+        var images = [UIImage]()
+        var imgParam = [String]()
+        
+        if let img = self.imgOldFront.image {
+            images.append(img)
+            imgParam.append("front_img")
+        }
+        if let img = self.imgOldBack.image {
+            images.append(img)
+            imgParam.append("back_img")
+        }
+        if let img = self.imgOldLeft.image {
+            images.append(img)
+            imgParam.append("left_img")
+        }
+        if let img = self.imgOldRight.image {
+            images.append(img)
+            imgParam.append("right_img")
+        }
+        if let img = self.imgNewFront.image {
+            images.append(img)
+            imgParam.append("newfront_img")
+        }
+        if let img = self.imgNewBack.image {
+            images.append(img)
+            imgParam.append("newback_img")
+        }
+        if let img = self.imgNewLeft.image {
+            images.append(img)
+            imgParam.append("newleft_img")
+        }
+        if let img = self.imgNewRight.image {
+            images.append(img)
+            imgParam.append("newright_img")
+        }
+        apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE, image: images, isImg: images.count == 0 ? false : true, isMultipleImg: images.count == 0 ? false : true, imgParameter: imgParam, imgExtension: "png")
+        
+//        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
     }
     
 }

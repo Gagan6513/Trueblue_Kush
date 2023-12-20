@@ -103,6 +103,7 @@ extension AddMoreDetailsVC {
                                        "dateofsattlement": dateOfSettlementTxtFld.text ?? "",
                                        "return_remarks" : outherTxtFld.text ?? "",
                                        "liability_status" : liabilityStatusTxtFld.text ?? ""]
+        
         var isImg = false
         if picturesForUpload.count > 0 {
             isImg = true
