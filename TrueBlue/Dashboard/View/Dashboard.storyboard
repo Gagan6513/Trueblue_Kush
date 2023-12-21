@@ -15832,7 +15832,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                         <connections>
-                                            <outlet property="delegate" destination="jxd-tJ-LCJ" id="ZMo-Hs-IX4"/>
+                                            <outlet property="delegate" destination="FNs-s7-HJw" id="cPw-oC-0ck"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-At-cYU">
@@ -16122,8 +16122,8 @@
                         <outlet property="filterView" destination="XfA-Qw-faw" id="P7R-co-dcd"/>
                         <outlet property="repairerBookingTableView" destination="EmT-Fz-Ujz" id="sJa-qk-pcg"/>
                         <outlet property="searchButton" destination="zfw-Ml-yAq" id="XAW-X0-rXI"/>
-                        <outlet property="searchTextField" destination="EPh-GQ-z8c" id="GoD-BO-tw1"/>
                         <outlet property="searchView" destination="6ao-zo-6Sq" id="1xV-8U-64A"/>
+                        <outlet property="txtSearch" destination="EPh-GQ-z8c" id="4fN-LX-B3o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLh-58-7ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

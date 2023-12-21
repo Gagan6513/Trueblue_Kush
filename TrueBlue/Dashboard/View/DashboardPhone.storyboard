@@ -15893,7 +15893,6 @@
                         <outlet property="filterView" destination="MWZ-6h-Qdt" id="hLp-Ck-E7O"/>
                         <outlet property="repairerBookingTableView" destination="WFH-Os-c1U" id="K4s-4t-o38"/>
                         <outlet property="searchButton" destination="MV1-A5-hWJ" id="21b-Mc-K5w"/>
-                        <outlet property="searchTextField" destination="C7I-zc-mPE" id="Eqp-7n-23n"/>
                         <outlet property="searchView" destination="bOz-qT-Sek" id="GPF-L3-V8s"/>
                         <outlet property="txtSearch" destination="wF3-ko-wLD" id="cR3-67-ZkK"/>
                     </connections>

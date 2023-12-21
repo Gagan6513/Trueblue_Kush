@@ -15,7 +15,6 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var dateFromTF: UITextField!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var repairerBookingTableView: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
