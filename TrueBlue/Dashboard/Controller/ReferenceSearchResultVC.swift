@@ -63,8 +63,10 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         if let keyCheck = vehiclesList["repairerName"] {
             repairLabel.text = keyCheck as? String
         }
-        if let keyCheck = vehiclesList["ClientMakeModel"] {
+        if let keyCheck = vehiclesList["referralName"] {
             referralLabel.text = keyCheck as? String
+        } else {
+            referralLabel.text = "-"
         }
         if let keyCheck = vehiclesList["isSwapped"] {
             isSwappedLabel.text = keyCheck as? String

@@ -18,6 +18,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var repairerBookingTableView: UITableView!
+    @IBOutlet weak var txtSearch: UITextField!
     
     var repairBookingsArray = [[String: Any]]()
     override func viewDidLoad() {
@@ -187,6 +188,16 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func btnClosed(_ sender: Any) {
         filterView.isHidden = true
+    }
+    
+    @IBAction func btnSearch(_ sender: Any) {
+        self.view.endEditing(true)
+        if !(txtSearch.text?.isEmpty ?? false) {
+            let parameters : Parameters = ["application_id" : txtSearch.text ?? ""]
+            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_REPAIRER_BOOKINGS)
+        } else {
+            CallAPIWhenPageLoad()
+        }
     }
     
     @IBAction func dateFromCalendarTapped(_ sender: Any) {

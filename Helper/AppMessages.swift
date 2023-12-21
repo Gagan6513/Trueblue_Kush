@@ -13,7 +13,7 @@ let request_from = "App" // FOR REQUEST
 
 let noInternet = "No internet connection available!"
 //Api Failure
-let somethingWrong = "Oops!Something went wrong.Try again."
+let somethingWrong = "Oops! Something went wrong. Try again."
 //Dashboard
 let searchTextRequired = "Please enter search text!"
 //Date selections

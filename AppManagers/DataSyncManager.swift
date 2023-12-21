@@ -198,7 +198,7 @@ class DataSyncManager :NSObject {
             let url = new_path + endPoint
             print(parameters)
             AF.upload(multipartFormData: { multipartFormData in
-                if isImage{
+                if isImage {
                     
                     let date = Date()
                     let dateFormatter = DateFormatter()
@@ -206,7 +206,7 @@ class DataSyncManager :NSObject {
                     
                     print(img.count)
                     if isMultipleImg {
-                        for i in 0...img.count-1 {
+                        for i in 0...(img.count - 1) {
                             
                             var strDate = dateFormatter.string(from: date)
                             strDate = strDate.appendingFormat("_%i", i)
@@ -217,7 +217,7 @@ class DataSyncManager :NSObject {
                             
                             print(img[i].size.width)
                             print(img[i].size.height)
-                            multipartFormData.append(data, withName: "\(imgParameter[i])[]" , fileName: strDate + "." + imgExtension, mimeType: "image/\(imgExtension)")
+                            multipartFormData.append(data, withName: imgParameter[i] , fileName: strDate + "." + imgExtension, mimeType: "image/\(imgExtension)")
                         }
                     } else {
                         
@@ -317,4 +317,73 @@ class DataSyncManager :NSObject {
 //        }
 //
 //    }
+}
+
+extension DataSyncManager {
+    
+    // MARK: - PERFORM API CALLS
+    func performMultipartWebService(endPoint: String, parameters: Parameters, imageData: [Dictionary<String, Any>],currentController : UIViewController) {
+
+        if NetworkReachabilityManager()!.isReachable {
+            let url = new_path + endPoint
+
+            AF.upload(multipartFormData: { multiPart in
+                for (key, value) in parameters {
+                    if let temp = value as? String {
+                        multiPart.append(temp.data(using: .utf8)!, withName: key)
+                    }
+                    if let temp = value as? Int {
+                        multiPart.append("\(temp)".data(using: .utf8)!, withName: key)
+                    }
+                    if let temp = value as? NSArray {
+                        temp.forEach({ element in
+                            let keyObj = key + "[]"
+                            if let string = element as? String {
+                                multiPart.append(string.data(using: .utf8)!, withName: keyObj)
+                            } else
+                            if let num = element as? Int {
+                                let value = "\(num)"
+                                multiPart.append(value.data(using: .utf8)!, withName: keyObj)
+                            }
+                        })
+                    }
+                }
+                imageData.forEach({ data in
+                    if let imageData = data["image"] as? Data {
+                        let mimeType = ("png", "image/png")
+                        multiPart.append(imageData, withName: (data["title"] as? String ?? ""),
+                                         fileName: "\((data["title"] as? String ?? "") + "\(Date().timeIntervalSinceNow)").\(mimeType.0)",
+                                         mimeType: mimeType.1)
+                    }
+                })
+            }, to: url, method: .post , headers: nil)
+            .uploadProgress(queue: .main, closure: { progress in
+                //Current upload progress of file
+                print("Upload Progress: \(progress.fractionCompleted)")
+            })
+            .responseJSON(completionHandler: { (response) in
+                print(response)
+                if let mainDict = response.value as? [String : AnyObject] {
+                    let status = mainDict["status"] as? Int ?? 0
+                    if status == 1 {
+                        CommonObject.sharedInstance.stopProgress()
+                        let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
+                        print(dict)
+                        let strMsg = mainDict["msg"] as? String ?? ""
+                        self.delegateDataSync?.requestSuccess(dictObj: dict, serviceKey: endPoint, strMessage: strMsg)
+                    } else {
+                        CommonObject.sharedInstance.stopProgress()
+                        let errorMsg = mainDict["msg"] as? String ?? ""
+                        print(errorMsg)
+                        self.delegateDataSync?.requestFailure(serviceKey: endPoint, strMessage: errorMsg)
+                    }
+                } else {
+                    //Diksha Rattan:Api Failure Response
+                    CommonObject.sharedInstance.stopProgress()
+                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                }
+            })
+        }
+    }
+    
 }

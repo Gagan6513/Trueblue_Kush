@@ -50,11 +50,12 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        centerNotesView.backgroundColor = .clear //UIColor.black.withAlphaComponent(0.3)
+        self.centerNotesView.backgroundColor = .clear //UIColor.black.withAlphaComponent(0.3)
+        self.centerNotesView.isHidden = true
         getNotes()
         notesTableVIew.separatorStyle = .singleLine
-        notesTextView.layer.borderColor = UIColor(named: AppColors.BLUE)?.cgColor
-        notesTextView.layer.borderWidth =  0
+//        notesTextView.layer.borderColor = UIColor(named: AppColors.BLUE)?.cgColor
+//        notesTextView.layer.borderWidth =  0
         
     }
     
@@ -192,16 +193,16 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     @IBAction func saveNotes(_ sender: Any) {
         if(!notesTextView.text.isEmpty){
-            saveNotes()
+            self.notesTextView.text = ""
+            self.saveNotes()
         }
-        
         centerNotesView.isHidden = true
     }
     
     
     @IBAction func showNotesView(_ sender: Any) {
-        centerNotesView.isHidden = false
-        
+        self.notesTextView.text = ""
+        self.centerNotesView.isHidden = false
         self.view.bringSubviewToFront(centerNotesView)
     }
     

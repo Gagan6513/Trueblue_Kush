@@ -27,10 +27,12 @@ class SwapVehicleViewModel : NSObject{
         objCallApi.getRequest(endPoint: endPoint, parameters: parameters , currentController: currentController)
     }
     
-    func postMultipartSwapVehicle(currentController : UIViewController ,parameters : Parameters,endPoint: String, img: [UIImage],isImage: Bool,isMultipleImg: Bool,imgParameter: [String], imgExtension: String) {
+    func postMultipartSwapVehicle(currentController : UIViewController ,parameters : Parameters,endPoint: String, imageData: [Dictionary<String, Any>]) {
         let objCallApi = DataSyncManager()
         objCallApi.delegateDataSync = self
-        objCallApi.postRequestMultipartWithMultipleParam(endPoint: endPoint, parameters: parameters, img: img, isImage: isImage, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension, currentController: currentController)
+        
+        objCallApi.performMultipartWebService(endPoint: endPoint, parameters: parameters, imageData: imageData, currentController: currentController)
+//        objCallApi.postRequestMultipartWithMultipleParam(endPoint: endPoint, parameters: parameters, img: img, isImage: isImage, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension, currentController: currentController)
     }
 }
 

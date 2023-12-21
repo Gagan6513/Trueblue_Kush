@@ -355,11 +355,11 @@ class NewSwapVehicleVC: UIViewController {
         obj.postSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint)
     }
     
-    func apiPostMultipartRequest(parameters: Parameters,endPoint: String,image: [UIImage],isImg: Bool,isMultipleImg: Bool,imgParameter: [String],imgExtension: String){
+    func apiPostMultipartRequest(parameters: Parameters, endPoint: String, imageData: [Dictionary<String, Any>]){
         CommonObject.sharedInstance.showProgress()
         let obj = SwapVehicleViewModel()
         obj.delegate = self
-        obj.postMultipartSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint, img: image, isImage: isImg, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension)
+        obj.postMultipartSwapVehicle(currentController: self, parameters: parameters, endPoint: endPoint, imageData: imageData)
     }
     
     func setUpData() {
@@ -476,42 +476,36 @@ class NewSwapVehicleVC: UIViewController {
 //        parameters["newleft_img"] = self.imgNewLeft.image
 //        parameters["newright_img"] = self.imgNewRight.image
         
-        var images = [UIImage]()
-        var imgParam = [String]()
+//        var images = [UIImage]()
+//        var imgParam = [String]()
         
-        if let img = self.imgOldFront.image {
-            images.append(img)
-            imgParam.append("front_img")
+        var profileImageData: [Dictionary<String, Any>] = []
+        
+        if let img = self.imgOldFront.image, let data = img.pngData() {
+            profileImageData.append(["title": "front_img", "image": data])
         }
-        if let img = self.imgOldBack.image {
-            images.append(img)
-            imgParam.append("back_img")
+        if let img = self.imgOldBack.image, let data = img.pngData() {
+            profileImageData.append(["title": "back_img", "image": data])
         }
-        if let img = self.imgOldLeft.image {
-            images.append(img)
-            imgParam.append("left_img")
+        if let img = self.imgOldLeft.image, let data = img.pngData() {
+            profileImageData.append(["title": "left_img", "image": data])
         }
-        if let img = self.imgOldRight.image {
-            images.append(img)
-            imgParam.append("right_img")
+        if let img = self.imgOldRight.image, let data = img.pngData() {
+            profileImageData.append(["title": "right_img", "image": data])
         }
-        if let img = self.imgNewFront.image {
-            images.append(img)
-            imgParam.append("newfront_img")
+        if let img = self.imgNewFront.image, let data = img.pngData() {
+            profileImageData.append(["title": "newfront_img", "image": data])
         }
-        if let img = self.imgNewBack.image {
-            images.append(img)
-            imgParam.append("newback_img")
+        if let img = self.imgNewBack.image, let data = img.pngData() {
+            profileImageData.append(["title": "newback_img", "image": data])
         }
-        if let img = self.imgNewLeft.image {
-            images.append(img)
-            imgParam.append("newleft_img")
+        if let img = self.imgNewLeft.image, let data = img.pngData() {
+            profileImageData.append(["title": "newleft_img", "image": data])
         }
-        if let img = self.imgNewRight.image {
-            images.append(img)
-            imgParam.append("newright_img")
+        if let img = self.imgNewRight.image, let data = img.pngData() {
+            profileImageData.append(["title": "newright_img", "image": data])
         }
-        apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE, image: images, isImg: images.count == 0 ? false : true, isMultipleImg: images.count == 0 ? false : true, imgParameter: imgParam, imgExtension: "png")
+        apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE, imageData: profileImageData)
         
 //        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
     }

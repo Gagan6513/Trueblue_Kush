@@ -18,6 +18,7 @@ class DashboardVC: UIViewController {
     var searchResults = Int()
     var searchDashboardData = [SearchDashboardModelData]()
     var vehiclesDetailsData = [VehiclesDetailsModelData]()
+    
     @IBOutlet weak var searchTextInPopup: UITextField!
     @IBOutlet weak var searchByTxtFld: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,11 +35,9 @@ class DashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.LogoutNotificationAction(_:)), name: .logout, object: nil)
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            searchPopView.backgroundColor = .white
-        } else {
-            searchPopView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        }
+
+        self.searchPopView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+
         btnSearch.setImage(UIImage(named: "search_white"), for: .normal)
         self.searchByTxtFld.text = self.arrSearchby[0]
         btnSearch.layer.cornerRadius = btnSearch.frame.height / 2
