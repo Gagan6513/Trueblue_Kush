@@ -58,8 +58,9 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     
     @IBOutlet weak var recoveryForView: InputView!
     
-    @IBOutlet weak var recoveryLbl: UILabel!
+//    @IBOutlet weak var recoveryLbl: UILabel!
     
+    @IBOutlet weak var txtRecoveryView: JVFloatLabeledTextField!
     
     var isVehicleBusinessRegistered = ""
     var dictDetails = NotAtFaultDriverDetailsModelData()
@@ -79,8 +80,19 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     var isFromAddThirdTier = false
     var isFromBookingDetails = false
     var selectedRecovery = String()
+    
+    var picker = UIPickerView()
+    
+    var recoveryForArr = ["Trueblue", "Repairer"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        self.txtRecoveryView       .inputView = self.picker
+        
+        
         referenceIDTxtFld.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
@@ -121,8 +133,9 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.TimeNotificationAction(_:)), name: .timeNotAtFault, object: nil)
 //        setUpTimeSegmentedControls()
         setViews()
-        let recoveryTap = UITapGestureRecognizer(target: self, action: #selector(recoveryForViewTapped))
-        recoveryForView.addGestureRecognizer(recoveryTap)
+        
+//        let recoveryTap = UITapGestureRecognizer(target: self, action: #selector(recoveryForViewTapped))
+//        recoveryForView.addGestureRecognizer(recoveryTap)
     }
     
     func setViews() {
@@ -318,6 +331,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     @IBAction func insuranceListTapped(_ sender: UITapGestureRecognizer) {
         apiGetRequest(parameters: nil, endPoint: EndPoints.INSURANCE_COMPANY_LIST)
     }
+    
     @objc func recoveryForViewTapped(_ sender: UITapGestureRecognizer) {
 //        getProposedVehileListAPI()
         var recoveryForArr = [String] ()
@@ -541,8 +555,8 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                 selectedBranchID = arrBranch[selectedItemIndex].branchID
                 print(selectedBranchID)
             case AppDropDownLists.RECOVERY_FOR:
-                recoveryLbl.textColor = UIColor(named: AppColors.BLACK)
-                recoveryLbl.text = selectedItem
+                self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
+                self.txtRecoveryView.text = selectedItem
                 selectedRecovery = selectedItem
             default:
                 print("Unkown List")
@@ -786,7 +800,8 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
         //Date Of Accident
         dateOfAccidentTxtFld.text = dictDetails.dateOfAccident
         if(!dictDetails.recoveryFor.isEmpty){
-            recoveryLbl.text = dictDetails.recoveryFor
+//            recoveryLbl.text = dictDetails.recoveryFor
+            self.txtRecoveryView.text = dictDetails.recoveryFor
         }
         
         //Time Of Accident
@@ -978,4 +993,28 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
             referenceIDTxtFld.text = ""
         }
     }
+}
+
+extension NotAtFaultDriverDetailsVC: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
+        self.txtRecoveryView.text = self.recoveryForArr[0]
+        self.selectedRecovery = self.recoveryForArr[0]
+        return self.recoveryForArr.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.recoveryForArr[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
+        self.txtRecoveryView.text = self.recoveryForArr[row]
+        self.selectedRecovery = self.recoveryForArr[row]
+    }
+    
 }

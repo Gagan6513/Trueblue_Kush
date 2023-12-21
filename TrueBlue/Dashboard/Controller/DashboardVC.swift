@@ -164,6 +164,10 @@ class DashboardVC: UIViewController {
                         
                         self.searchPopView.isHidden = true
                         
+                        self.searchTextInPopup.text = ""
+                        self.searchByTxtFld.text = self.arrSearchby.first
+                        self.searchTxtFld.text = ""
+                        
                         CommonObject.sharedInstance.stopProgress()
                         
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
@@ -249,15 +253,11 @@ class DashboardVC: UIViewController {
         if (searchVal.isEmpty){
             let alert = UIAlertController(title: "", message: addReferenceVal, preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Ok", style: .default) { _ in
-                 
-//                self.dismiss(animated: true, completion: nil)
             }
-//            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
             alert.addAction(yesAction)
-//            alert.addAction(noAction)
             present(alert, animated: true, completion: nil)
-            
         } else {
+  
             getSearchResult()
         }
         

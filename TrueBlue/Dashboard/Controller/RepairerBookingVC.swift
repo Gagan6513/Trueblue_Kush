@@ -35,7 +35,11 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         // Do any additional setup after loading the view.
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
-        CallAPIWhenPageLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.CallAPIWhenPageLoad()
     }
     
     func CallAPIWhenPageLoad(){
@@ -273,6 +277,32 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.viewMainBorder.layer.borderWidth =  1
         cell.viewMainBorder.backgroundColor = .white
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let application_id = repairBookingsArray[indexPath.row]["application_id"] as? String {
+            
+            CommonObject.sharedInstance.isNewEntry = false
+            CommonObject.sharedInstance.currentReferenceId = application_id
+            
+            var storyboardName = String()
+            var vcID = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                vcID = AppStoryboardId.NEW_BOOKING_ENTRY
+                storyboardName = AppStoryboards.DASHBOARD
+            } else {
+                vcID = AppStoryboardId.NEW_BOOKIN_ENTRY_PHONE
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let newbookingEntryVc = storyboard.instantiateViewController(identifier: vcID) as! NewBookingEntryVC
+            //newbookingEntryVc.newBookingBackDelegate = self
+    //            alertVc.dictCardDetails = dictUploadedDocumentsData.cardDetails//Sending Card Details to Card Details Screen
+    //            alertVc.modalPresentationStyle = .overFullScreen
+            present(newbookingEntryVc, animated: true, completion: nil)
+            
+//            performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
+        }
     }
 }
 extension RepairerBookingVC : UITextFieldDelegate {
