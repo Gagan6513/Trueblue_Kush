@@ -50,6 +50,9 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.notesTableVIew.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        
         self.centerNotesView.backgroundColor = .clear //UIColor.black.withAlphaComponent(0.3)
         self.centerNotesView.isHidden = true
         getNotes()
@@ -193,10 +196,12 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     @IBAction func saveNotes(_ sender: Any) {
         if(!notesTextView.text.isEmpty){
-            self.notesTextView.text = ""
             self.saveNotes()
+            self.notesTextView.text = ""
+            self.centerNotesView.isHidden = true
+        } else {
+            showToast(strMessage: "Please enter notes description")
         }
-        centerNotesView.isHidden = true
     }
     
     

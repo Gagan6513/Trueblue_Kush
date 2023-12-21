@@ -193,7 +193,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func btnSearch(_ sender: Any) {
         self.view.endEditing(true)
         if !(txtSearch.text?.isEmpty ?? false) {
-            let parameters : Parameters = ["application_id" : txtSearch.text ?? ""]
+            let parameters : Parameters = ["searchval" : txtSearch.text ?? ""]
             apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_REPAIRER_BOOKINGS)
         } else {
             CallAPIWhenPageLoad()
