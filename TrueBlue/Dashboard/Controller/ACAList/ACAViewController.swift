@@ -118,14 +118,17 @@ extension ACAViewController {
         webService.method = .post
         
         var param = [String: Any]()
-        param["fromDate"] = self.startDate
-        param["toDate"] = self.endDate
-        param["aca_id"] = self.txtSearch.text
+        if self.txtSearch.text == "" {
+            param["fromDate"] = self.startDate
+            param["toDate"] = self.endDate
+        } else {
+            param["aca_id"] = self.txtSearch.text
+        }
         
         webService.parameters = param
         
         /* API CALLS */
-        WebService.shared.performWebService(model: webService) { [weak self] responseData, error in
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
             guard let self else { return }
             
             CommonObject().stopProgress()
