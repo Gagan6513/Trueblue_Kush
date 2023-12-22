@@ -10,7 +10,9 @@ import UIKit
 class DrawerVC: UIViewController {
     let screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry"]
     let imageNames = ["collection1","deal","car","exchange","new"]
+    
     var selectedRow = -1
+    
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

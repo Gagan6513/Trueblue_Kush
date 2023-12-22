@@ -779,3 +779,44 @@ fileprivate extension String {
 extension UIColor {
     static let AppGrey = "#6C6C6C".hexStringToUIColor()
 }
+
+func showGlobelAlert(title: String?,
+                     msg: String,
+                     doneButtonTitle: String? = "Okay",
+                     cancelButtonTitle: String? = "",
+                     doneAction: ((Bool) -> Void)? = nil,
+                     cancelAction: ((Bool) -> Void)? = nil) {
+    
+    let dialogMessage = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+    
+    dialogMessage.addAction(UIAlertAction(title: doneButtonTitle, style: .default, handler: { action in
+        print("action done handler")
+        doneAction?(true)
+    }))
+    if cancelButtonTitle != "" {
+        dialogMessage.addAction(UIAlertAction(title: cancelButtonTitle, style: .destructive, handler: { action in
+            print("action cancel handler")
+            cancelAction?(true)
+        }))
+    }
+    if let topController = UIApplication.topViewController() {
+        topController.present(dialogMessage, animated: true, completion: nil)
+    }
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}

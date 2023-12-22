@@ -551,11 +551,7 @@ extension NewSwapVehicleVC : ReturnVehicleVMDelegate {
 
 
     func returnVehicleAPISuccess(objData: ReturnVehicleModel, strMessage: String) {
-//        print(objData)
-//        showToast(strMessage: strMessage)
-//        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-//            self.dismiss(animated: true)
-//        })
+
     }
 
 
@@ -566,7 +562,7 @@ extension NewSwapVehicleVC : ReturnVehicleVMDelegate {
     }
 
     func returnVehicleAPIFailure(strMessage: String, serviceKey: String) {
-        showToast(strMessage: strMessage)
+        showGlobelAlert(title: "Error!", msg: strMessage)
     }
 }
 
@@ -575,12 +571,11 @@ extension NewSwapVehicleVC: SwapVehicleVMDelegate {
         print(objData.documentDetails)
         arrViewSwapVehicle = objData.documentDetails
 //        viewSwapVehicleCollectionView.reloadData()
-        
     }
     
     func swapVehicleAPISuccess(strMessage: String, serviceKey: String) {
-        showToast(strMessage: strMessage)
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+//        showToast(strMessage: strMessage)
+        showGlobelAlert(title: APP_NAME, msg: strMessage, doneAction: {_ in
             self.dismiss(animated: true)
         })
     }
@@ -612,7 +607,7 @@ extension NewSwapVehicleVC: SwapVehicleVMDelegate {
     }
     
     func swapVehicleAPIFailure(strMessage: String, serviceKey: String) {
-        showToast(strMessage: strMessage)
+        showGlobelAlert(title: "Error!", msg: strMessage)
     }
 }
 

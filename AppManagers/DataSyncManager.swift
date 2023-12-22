@@ -380,7 +380,7 @@ extension DataSyncManager {
                 } else {
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                    showGlobelAlert(title: APP_NAME, msg: somethingWrong)
                 }
             })
         }
