@@ -79,43 +79,75 @@ class NewSwapVehicleVC: UIViewController {
     // Upload Image ================
     
     @IBAction func btnOldVehicleFrontImage(_ sender: Any) {
-        self.selectedImage = "old_front"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgOldFront.image == nil {
+            self.selectedImage = "old_front"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgOldFront.image ?? UIImage())
+        }
     }
     
     @IBAction func btnOldVehicleBackImage(_ sender: Any) {
-        self.selectedImage = "old_back"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgOldBack.image == nil {
+            self.selectedImage = "old_back"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgOldBack.image ?? UIImage())
+        }
     }
     
     @IBAction func btnOldVehicleLeftImage(_ sender: Any) {
-        self.selectedImage = "old_left"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgOldLeft.image == nil {
+            self.selectedImage = "old_left"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgOldLeft.image ?? UIImage())
+        }
     }
     
     @IBAction func btnOldVehicleRightImage(_ sender: Any) {
-        self.selectedImage = "old_right"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgOldRight.image == nil {
+            self.selectedImage = "old_right"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgOldRight.image ?? UIImage())
+        }
     }
     
     @IBAction func btnNewVehicleFrontImage(_ sender: Any) {
-        self.selectedImage = "new_front"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgNewFront.image == nil {
+            self.selectedImage = "new_front"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgNewFront.image ?? UIImage())
+        }
     }
     
     @IBAction func btnNewVehicleBackImage(_ sender: Any) {
-        self.selectedImage = "new_back"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgNewBack.image == nil {
+            self.selectedImage = "new_back"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgNewBack.image ?? UIImage())
+        }
     }
     
     @IBAction func btnNewVehicleLeftImage(_ sender: Any) {
-        self.selectedImage = "new_left"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgNewLeft.image == nil {
+            self.selectedImage = "new_left"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgNewLeft.image ?? UIImage())
+        }
     }
     
     @IBAction func btnNewVehicleRightImage(_ sender: Any) {
-        self.selectedImage = "new_right"
-        self.imagePicker?.openPhotoOptions()
+        if self.imgNewRight.image == nil {
+            self.selectedImage = "new_right"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgNewRight.image ?? UIImage())
+        }
     }
     
     // =============================
@@ -278,7 +310,9 @@ class NewSwapVehicleVC: UIViewController {
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
-        self.swapedVehicle()
+        if self.validationTextfield() {
+            self.swapedVehicle()
+        }
     }
     
     func setupUI() {
@@ -377,71 +411,57 @@ class NewSwapVehicleVC: UIViewController {
                     
                     self.arrCarImages = arrHiredVehicle[i].fleet_docs
                     self.CarImageCollectionView.reloadData()
-//                    let timeOut = arrHiredVehicle[i].time_out
-//                    timeOutSegmentedControl.setUpAmPM(time: timeOut)
-//                    timeOutTxtFld.text = timeOut.DatePresentable?.getDateAccoringTo(format: .Time12Hr) ?? ""
                 }
             }
         }
     }
     
-    func validation() {
+    func validationTextfield() -> Bool {
         
-        
-        
-    }
-    
-    func swapedVehicle() {
         if txtRefNo.text?.isEmpty ?? true {
-            showToast(strMessage: selectOldRego)
-            return
+            showAlert(title: "Error", messsage: selectOldRego)
+            return false
         }
         
         if txtMilageIn.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter old milage in.")
-            return
+            showAlert(title: "Error", messsage: "Please enter old milage in.")
+            return false
         }
-        
         
         if txtDateIn.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter old date in")
-            return
+            showAlert(title: "Error", messsage: "Please enter old date in")
+            return false
         }
         
-        
         if txtTimeIn.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter old time in")
-            return
+            showAlert(title: "Error", messsage: "Please enter old time in")
+            return false
         }
         
         if txtNewVehivleRefNo.text?.isEmpty ?? true {
-            showToast(strMessage: selectNewRego)
-            return
+            showAlert(title: "Error", messsage: selectNewRego)
+            return false
         }
         
         if txtNewMileageOut.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter new milage out")
-            return
+            showAlert(title: "Error", messsage: "Please enter new milage out")
+            return false
         }
         
         if txtNewDateOut.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter new date out")
-            return
+            showAlert(title: "Error", messsage: "Please enter new date out")
+            return false
         }
         
         if txtNewTimeOut.text?.isEmpty ?? true {
-            showToast(strMessage: "Please enter new time out")
-            return
+            showAlert(title: "Error", messsage: "Please enter new time out")
+            return false
         }
         
-//        if selectedVehicleId.isEmpty {
-//            showToast(strMessage: selectNewRego)
-//            return
-//        }
-//        if Int(txtMilageIn.text ?? "") ?? 0  < Int(txtMilageOut.text ?? "") ?? 0 {
-//            showToast(strMessage: mileageInLessThanMileageOut)
-//            return
-//        }
+        return true
+    }
+    
+    func swapedVehicle() {
         
         var parameters: Parameters = [:]
         parameters["reasonfor_replacement"] = self.txtReasonForReplacement.text
@@ -464,20 +484,6 @@ class NewSwapVehicleVC: UIViewController {
         parameters["request_from"] = request_from
         
         parameters["mileage_out"] = self.txtNewMileageOut.text // NEW VEHICLE
-        
-        
-//        parameters["front_img"] = self.imgOldFront.image
-//        parameters["back_img"] = self.imgOldBack.image
-//        parameters["left_img"] = self.imgOldLeft.image
-//        parameters["right_img"] = self.imgOldRight.image
-//
-//        parameters["newfront_img"] = self.imgNewFront.image
-//        parameters["newback_img"] = self.imgNewBack.image
-//        parameters["newleft_img"] = self.imgNewLeft.image
-//        parameters["newright_img"] = self.imgNewRight.image
-        
-//        var images = [UIImage]()
-//        var imgParam = [String]()
         
         var profileImageData: [Dictionary<String, Any>] = []
         
@@ -525,6 +531,14 @@ extension NewSwapVehicleVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.width - 18) / 4, height: (collectionView.frame.width - 18) / 4)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var tempArray = [String]()
+        for item in self.arrCarImages {
+            tempArray.append(item.image_url ?? "")
+        }
+        setAllImages(currentImg: self.arrCarImages[indexPath.row].image_url ?? "", allImages: tempArray, currentIndex: indexPath.row)
     }
     
 }

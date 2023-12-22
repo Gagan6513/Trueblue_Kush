@@ -4772,7 +4772,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TL-UT-6kY" customClass="InputViewPhone" customModule="TrueBlue" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="357" width="358" height="46"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dilivery Date (DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBW-0a-Wq4" customClass="JVFloatLabeledTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Delivery Date (DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBW-0a-Wq4" customClass="JVFloatLabeledTextField">
                                                                 <rect key="frame" x="15" y="2" width="288" height="42"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -16145,7 +16145,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -16203,7 +16203,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="38" id="wqU-9M-mN1"/>
                                                                         </constraints>
-                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -16253,7 +16253,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -16404,7 +16404,7 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -16479,7 +16479,7 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -17519,7 +17519,7 @@
                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                                     </constraint>
                                                                                 </constraints>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -18244,7 +18244,7 @@
             <size key="intrinsicContentSize" width="105" height="20.333333333333332"/>
         </designable>
         <designable name="yBW-0a-Wq4">
-            <size key="intrinsicContentSize" width="209" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="214.33333333333334" height="20.333333333333332"/>
         </designable>
         <designable name="yHU-oi-L7H">
             <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
@@ -18286,7 +18286,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="menu" width="84" height="84"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="32" height="32"/>
         <image name="plusGrey" width="78" height="78"/>
         <image name="radioBtnSelected" width="49" height="49"/>
         <image name="radioBtnUnselected" width="49" height="49"/>
