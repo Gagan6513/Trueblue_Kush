@@ -8,8 +8,8 @@
 import UIKit
 
 class DrawerVC: UIViewController {
-    let screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry"]
-    let imageNames = ["collection1","deal","car","exchange","new"]
+    let screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry", "ACA List"]
+    let imageNames = ["collection1","deal","car","exchange","new", "new"]
     
     var selectedRow = -1
     
@@ -81,6 +81,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
         case 4:
             CommonObject.sharedInstance.isNewEntry = true
             performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
+        case 5:
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "ACAViewController") as! ACAViewController
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         default:
             print("Unkown Selection")
         }

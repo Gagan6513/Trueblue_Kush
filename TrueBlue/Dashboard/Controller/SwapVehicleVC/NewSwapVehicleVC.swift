@@ -554,7 +554,6 @@ extension NewSwapVehicleVC : ReturnVehicleVMDelegate {
 
     }
 
-
     func returnVehicleAPISuccess(objData: HiredVehicleDropdownListModel, strMessage: String) {
         arrHiredVehicle = objData.arrResult
         setUpData()
