@@ -110,6 +110,7 @@ extension LoginVC : LoginVMDelegate {
         UserDefaults.standard.setUsername(value: objLoginData.dictLogin.name)
         UserDefaults.standard.setIsLoggedIn(value: true)
         UserDefaults.standard.setUserId(value: objLoginData.dictLogin.userId)
+        UserDefaults.standard.setGroupId(value: objLoginData.dictLogin.groupId)
         showToast(strMessage: strMessage)
         if UIDevice.current.userInterfaceIdiom == .pad {
             performSegue(withIdentifier: AppSegue.DASHBOARD, sender: nil)

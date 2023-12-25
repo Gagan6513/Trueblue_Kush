@@ -31,6 +31,14 @@ extension UserDefaults {
         return string(forKey: "userId") ?? ""
     }
     
+    func setGroupId(value: String) {
+        set(value, forKey: "group_id")
+        synchronize()
+    }
+    func getGroupId() -> String {
+        return string(forKey: "group_id") ?? ""
+    }
+    
     func GetReferenceId() -> String {
         return string(forKey: "referenceID") ?? ""
     }
