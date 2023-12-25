@@ -9,8 +9,8 @@ import Foundation
 
 class API_URL {
     
-    static let baseURL = "http://172.200.221.113/app/"
-    
+    //static let baseURL = "http://172.200.221.113/app/"// staging
+    static let baseURL = "https://www.mytbam.com.au/crm/app/"// prod
     static let getACAList = baseURL + "acaRequests"
     
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 class DrawerVC: UIViewController {
-    let screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry", "ACA List"]
-    let imageNames = ["collection1","deal","car","exchange","new", "new"]
+    var screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry", "ACA List"]
+    var imageNames = ["collection1","deal","car","exchange","new", "new"]
     
     var selectedRow = -1
     
@@ -17,6 +17,16 @@ class DrawerVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(UserDefaults.standard.getGroupId() != "5"){
+            if screenNames.contains("ACA List") {
+                screenNames.removeLast()
+                imageNames.removeLast()
+            } else {
+                print("The array does not contain 'ACA List'")
+            }
+          
+            
+        }
         // Do any additional setup after loading the view.
     }
 //    func clearUserDefaults() {
