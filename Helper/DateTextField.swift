@@ -609,4 +609,25 @@ extension Date {
     func endOfMonth() -> Date {
         return Date() // Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
+    
+    func year(using calendar: Calendar = .current) -> Int {
+        calendar.component(.year, from: self)
+    }
+    func month(using calendar: Calendar = .current) -> Int {
+        calendar.component(.month, from: self)
+    }
+    
+    func getMonthDates() -> [Date] {
+//        let now = Date()
+        let year = self.year()
+        let month = self.month()
+        let range = Calendar.current.range(of: .day, in: .month, for: self)!
+        
+        let components = range.map { day -> DateComponents in
+            let date = DateComponents(calendar: .current, year: year, month: month, day: day).date!
+            return Calendar.current.dateComponents([.weekday, .day, .month, .year], from: date)
+        }
+        
+        return components.map{ Calendar.current.date(from: $0)! }
+    }
 }

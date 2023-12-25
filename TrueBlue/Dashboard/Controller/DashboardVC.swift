@@ -9,9 +9,11 @@ import UIKit
 import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings"]
-    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle"]
     
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings", "Add Events"]
+    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
+    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
+
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
     var searchbyPicker = UIPickerView()
     var searchTblView = UITableView()
@@ -24,7 +26,6 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTxtFld: UITextField!
     @IBOutlet weak var searchView: UIView!
-    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0"]
     @IBOutlet weak var searchPopView: UIView!
     @IBOutlet weak var btnSearch:UIButton!
     
@@ -405,6 +406,10 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             performSegue(withIdentifier: AppSegue.REPAIRER_BOOKINGS, sender: nil)
 //            performSegue(withIdentifier: AppSegue.UNDER_MAINTENANCE_VEHICLES, sender: nil)
         case 11:
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case 12:
             CommonObject.sharedInstance.isNewEntry = true
             performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
         default:

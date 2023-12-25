@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -189,6 +189,11 @@
 		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
 		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
 		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
+		B392BC782B39437E0002DD69 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC772B39437E0002DD69 /* EventViewController.swift */; };
+		B392BC7C2B39445D0002DD69 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC7A2B39445D0002DD69 /* EventTVC.swift */; };
+		B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC7B2B39445D0002DD69 /* EventTVC.xib */; };
+		B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC7F2B394D310002DD69 /* AddEventPopupVC.swift */; };
+		B392BC832B39548F0002DD69 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC822B39548F0002DD69 /* UserListModel.swift */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -381,6 +386,11 @@
 		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
 		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
 		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
+		B392BC772B39437E0002DD69 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		B392BC7A2B39445D0002DD69 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
+		B392BC7B2B39445D0002DD69 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
+		B392BC7F2B394D310002DD69 /* AddEventPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventPopupVC.swift; sourceTree = "<group>"; };
+		B392BC822B39548F0002DD69 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -508,6 +518,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B392BC762B39436E0002DD69 /* Event */,
 				B3366DBC2B35713B00F72CE8 /* ACAFilterPopup */,
 				B3366DB42B35551300F72CE8 /* ACAList */,
 				B3771E582B316B5500705FEF /* SwapVehicleVC */,
@@ -835,6 +846,42 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		B392BC762B39436E0002DD69 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC812B39547B0002DD69 /* Model */,
+				B392BC7E2B394D1D0002DD69 /* Add Event */,
+				B392BC792B39444F0002DD69 /* TVC */,
+				B392BC772B39437E0002DD69 /* EventViewController.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		B392BC792B39444F0002DD69 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC7A2B39445D0002DD69 /* EventTVC.swift */,
+				B392BC7B2B39445D0002DD69 /* EventTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		B392BC7E2B394D1D0002DD69 /* Add Event */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC7F2B394D310002DD69 /* AddEventPopupVC.swift */,
+			);
+			path = "Add Event";
+			sourceTree = "<group>";
+		};
+		B392BC812B39547B0002DD69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC822B39548F0002DD69 /* UserListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,6 +952,7 @@
 			files = (
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
+				B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */,
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
 				B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */,
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
@@ -980,6 +1028,7 @@
 				53B669A726CFB431007F1696 /* CollectionsModel.swift in Sources */,
 				53B669A926CFB44A007F1696 /* DeliveriesModel.swift in Sources */,
 				53D5D7E126DDED010048F393 /* AddHirerViewModel.swift in Sources */,
+				B392BC7C2B39445D0002DD69 /* EventTVC.swift in Sources */,
 				533C6B1B26D658860070C4C1 /* DocumentListModel.swift in Sources */,
 				53FEE7D426DA57610088AD05 /* DashboardModel.swift in Sources */,
 				B3366DBA2B3555DF00F72CE8 /* AcaTVC.swift in Sources */,
@@ -993,6 +1042,7 @@
 				534D4DD9276C5E6700363682 /* CustomGroupDetailCameraCell.swift in Sources */,
 				532E308126D79EF3006322F0 /* BookingDetailsVC1.swift in Sources */,
 				5392791F26FC7E2000696A30 /* BookingDetailsVC.swift in Sources */,
+				B392BC832B39548F0002DD69 /* UserListModel.swift in Sources */,
 				537D73CF26CCCD9C009591BF /* SwapVehicleVC.swift in Sources */,
 				8161331C2B2EF86900938B28 /* RepairerBookingTableViewCell.swift in Sources */,
 				8127D2E82B2C9DCD00E731AE /* NotesListTableViewCell.swift in Sources */,
@@ -1002,6 +1052,7 @@
 				21E4E16B29E6BD630020DFEE /* DeliveryNotesListTableViewCell.swift in Sources */,
 				5398588828A2599600E0BF3A /* DiagramVM.swift in Sources */,
 				533C6B1726D64D370070C4C1 /* SelectDateVC.swift in Sources */,
+				B392BC782B39437E0002DD69 /* EventViewController.swift in Sources */,
 				535A71DA26DA86F8003FE838 /* AddHirerVC.swift in Sources */,
 				537D73C926CCCBB7009591BF /* DeliveriesVC.swift in Sources */,
 				21EAA31C29ED62C200A3A704 /* ReferralsListModel.swift in Sources */,
@@ -1086,6 +1137,7 @@
 				DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */,
 				21F3F7C829B0B3C800C3C60B /* DeliveredCollectedByModel.swift in Sources */,
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,
+				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
 				4D9AE14A26DCC8000080D3AB /* HiredVehicleVC.swift in Sources */,
 				81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */,
