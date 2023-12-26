@@ -221,6 +221,7 @@ extension AddEventPopupVC {
                     return
                 }
                 if let data = data as? UserModel {
+                    NotificationCenter.default.post(name: .eventListRefresh, object: nil)
                     showGlobelAlert(title: APP_NAME, msg: data.msg ?? "", doneAction: { [weak self] _ in
                         guard let self else { return }
                         if data.status == 1 {

@@ -18,6 +18,7 @@ class SelectDateVC: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var selectedDate: ((String) -> Void)?
+    var selectedDatee: ((Date) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ class SelectDateVC: UIViewController {
         NotificationCenter.default.post(name: currentNotification, object: self, userInfo: ["selectedDate": strDate,"dateTextField" : dateTextField,"selectedYear":strYear,"selectedMonth":strMonth,"selectedDay":strDay])
         
         selectedDate?(strDate)
-        
+        selectedDatee?(datePicker.date)
         dismiss(animated: true, completion: nil)
     }
 

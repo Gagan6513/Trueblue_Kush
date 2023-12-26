@@ -59,6 +59,8 @@ extension Notification.Name {
     static let searchListRepairer = Notification.Name("repairerList")
     static let searchListReferral = Notification.Name("referralList")
     
+    static let eventListRefresh = Notification.Name("eventListRefresh")
+    
     static let deliveryNoteListRefresh = Notification.Name("deliveryNoteListRefresh")
     static let collectionNoteListRefresh = Notification.Name("collectionNoteListRefresh")
     //    static let returnVehicleDetails = Notification.Name("returnVehicleDetails")

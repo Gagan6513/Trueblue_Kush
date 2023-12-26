@@ -28,3 +28,21 @@ class UserList: Codable {
     var name: String?
     
 }
+
+class EventDataModel: Codable {
+    
+    var data: [EventList]?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+
+class EventList: Codable {
+    
+    var TOTAL_EVENT: String?
+    var PENDING_EVENT: String?
+    var EVENT_DATE: String?
+    
+}

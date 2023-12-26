@@ -221,8 +221,10 @@
             <connections>
                 <outlet property="lblDate" destination="Cij-g4-4RP" id="6p4-sW-vCe"/>
                 <outlet property="lblMonth" destination="htf-YJ-EgO" id="NdE-vZ-4RB"/>
-                <outlet property="lblPendingEvents" destination="vwP-uy-DPc" id="TNx-i2-dsb"/>
+                <outlet property="lblPendingEvents" destination="pLO-tc-JKA" id="31x-lt-f0k"/>
                 <outlet property="lblTotalEvents" destination="9dR-1p-Wve" id="cSg-Uq-iHB"/>
+                <outlet property="viewPendingEvent" destination="VTV-0R-sOC" id="7Qs-jt-dSf"/>
+                <outlet property="viewTotalEvent" destination="HfN-WO-6rt" id="atV-Gn-3av"/>
             </connections>
             <point key="canvasLocation" x="80.916030534351137" y="49.295774647887328"/>
         </tableViewCell>

@@ -194,6 +194,11 @@
 		B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC7B2B39445D0002DD69 /* EventTVC.xib */; };
 		B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC7F2B394D310002DD69 /* AddEventPopupVC.swift */; };
 		B392BC832B39548F0002DD69 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC822B39548F0002DD69 /* UserListModel.swift */; };
+		B392BC862B39646A0002DD69 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC852B39646A0002DD69 /* EventDetailsViewController.swift */; };
+		B392BC8A2B3965670002DD69 /* HourlyEventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC882B3965670002DD69 /* HourlyEventTVC.swift */; };
+		B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC892B3965670002DD69 /* HourlyEventTVC.xib */; };
+		B392BC902B3965800002DD69 /* TodaysEventsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */; };
+		B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -391,6 +396,11 @@
 		B392BC7B2B39445D0002DD69 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
 		B392BC7F2B394D310002DD69 /* AddEventPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventPopupVC.swift; sourceTree = "<group>"; };
 		B392BC822B39548F0002DD69 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		B392BC852B39646A0002DD69 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		B392BC882B3965670002DD69 /* HourlyEventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyEventTVC.swift; sourceTree = "<group>"; };
+		B392BC892B3965670002DD69 /* HourlyEventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyEventTVC.xib; sourceTree = "<group>"; };
+		B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysEventsTVC.swift; sourceTree = "<group>"; };
+		B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodaysEventsTVC.xib; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -518,6 +528,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B392BC842B39645C0002DD69 /* EventDetails */,
 				B392BC762B39436E0002DD69 /* Event */,
 				B3366DBC2B35713B00F72CE8 /* ACAFilterPopup */,
 				B3366DB42B35551300F72CE8 /* ACAList */,
@@ -882,6 +893,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B392BC842B39645C0002DD69 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC872B3965530002DD69 /* TVC */,
+				B392BC852B39646A0002DD69 /* EventDetailsViewController.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		B392BC872B3965530002DD69 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC8D2B3965740002DD69 /* TodaysEvents */,
+				B392BC8C2B39656A0002DD69 /* Hourly Events */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		B392BC8C2B39656A0002DD69 /* Hourly Events */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC882B3965670002DD69 /* HourlyEventTVC.swift */,
+				B392BC892B3965670002DD69 /* HourlyEventTVC.xib */,
+			);
+			path = "Hourly Events";
+			sourceTree = "<group>";
+		};
+		B392BC8D2B3965740002DD69 /* TodaysEvents */ = {
+			isa = PBXGroup;
+			children = (
+				B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */,
+				B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */,
+			);
+			path = TodaysEvents;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -952,6 +999,7 @@
 			files = (
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
+				B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */,
 				B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */,
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
 				B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */,
@@ -959,6 +1007,7 @@
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
 				532F6852272AB6D30067C5A7 /* DashboardPhone.storyboard in Resources */,
+				B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */,
 				5344798B26C6813F00380609 /* AppColours.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1036,6 +1085,7 @@
 				5392792126FC7E3900696A30 /* CardDetailsVC.swift in Sources */,
 				4F1ED4552B06A7B4009149A1 /* UpcomingBookingsVC.swift in Sources */,
 				534B1D2526CF796D00E3907C /* InputView.swift in Sources */,
+				B392BC862B39646A0002DD69 /* EventDetailsViewController.swift in Sources */,
 				21E4E16D29E6C01B0020DFEE /* DeliveryNotesListVC.swift in Sources */,
 				531B15B326C788C2005D5EBF /* SplashVC.swift in Sources */,
 				533AB4FD26E08C470088A74C /* HirerDetailsModel.swift in Sources */,
@@ -1110,6 +1160,7 @@
 				21AD550D29EFFB1E00444451 /* ReturnUploadedDocsModel.swift in Sources */,
 				4D9AE14E26DCCA280080D3AB /* HiredVehicleTblCell.swift in Sources */,
 				53F312D926D8A27700D25E52 /* BookingDetailsModel.swift in Sources */,
+				B392BC8A2B3965670002DD69 /* HourlyEventTVC.swift in Sources */,
 				53C5AF3B27019E90004F2FC3 /* CollectionsHeaderTblViewCell.swift in Sources */,
 				B3366DC42B35778B00F72CE8 /* WebService.swift in Sources */,
 				536761C92754D26F00D7F2AB /* DateTextField.swift in Sources */,
@@ -1177,6 +1228,7 @@
 				530DE5A426E7820C007F4C4F /* SearchListTblViewCell.swift in Sources */,
 				35A3252A26CBBC4D000B4457 /* AppExtensions.swift in Sources */,
 				B3366DD32B358CEA00F72CE8 /* TableView+Extention.swift in Sources */,
+				B392BC902B3965800002DD69 /* TodaysEventsTVC.swift in Sources */,
 				530F39C626D4FC7000222E5E /* AnyOtherPartyDetailsViewModel.swift in Sources */,
 				530B1A1026CB80EE001ACBBA /* NewBookingEntryTabCvCell.swift in Sources */,
 				530F39C026D4B84100222E5E /* NewReferenceIdModel.swift in Sources */,
