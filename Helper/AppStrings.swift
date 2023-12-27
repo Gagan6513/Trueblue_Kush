@@ -8,16 +8,11 @@
 import Foundation
 let APP_NAME = "prod"
 
-//let API_PATH = "http://172.200.221.113/newapp/" // staging
-//let new_path = "http://172.200.221.113/app/"// Staging
+let API_PATH = "http://172.200.221.113/newapp/" // staging
+let new_path = "http://172.200.221.113/app/" // Staging
 
-let API_PATH = "https://www.mytbam.com.au/crm/newapp/" // Prod
-let new_path = "https://www.mytbam.com.au/crm/app/"// Prod
-
-/* ---- Added by kush ---- */
-//let baseURL = "https://www.mytbam.com.au/crm/app/" // prod
-let baseURL = "http://172.200.221.113/app/" // staging
-/* */
+//let API_PATH = "https://www.mytbam.com.au/crm/newapp/" // Prod
+//let new_path = "https://www.mytbam.com.au/crm/app/"// Prod
 
 let IMG_PATH = ""
 

@@ -325,7 +325,7 @@ extension DataSyncManager {
     func performMultipartWebService(endPoint: String, parameters: Parameters, imageData: [Dictionary<String, Any>],currentController : UIViewController) {
 
         if NetworkReachabilityManager()!.isReachable {
-            let url = new_path + endPoint
+            let url = baseURL + endPoint
 
             AF.upload(multipartFormData: { multiPart in
                 for (key, value) in parameters {
