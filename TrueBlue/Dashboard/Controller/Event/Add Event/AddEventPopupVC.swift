@@ -48,6 +48,9 @@ class AddEventPopupVC: UIViewController {
     func setupUI() {
         self.dateFormater.dateFormat = "dd-MM-YYYY"
         self.timeFormater.dateFormat = "hh:mm a"
+        
+        self.eventDate.minimumDate = Date()
+        
         self.eventDate.datePickerMode = .date
         self.eventDate.preferredDatePickerStyle = .wheels
         
@@ -58,7 +61,8 @@ class AddEventPopupVC: UIViewController {
         self.txtEventTime.inputView = self.eventTime
         
         self.txtAddEvent.inputView = self.eventType
-        self.txtAssignTo.inputView = self.assign
+//        self.txtAssignTo.inputView = self.assign
+        self.txtAssignTo.delegate = self
         
         self.txtEventDate.delegate = self
         self.txtEventTime.delegate = self
@@ -68,6 +72,16 @@ class AddEventPopupVC: UIViewController {
         
         self.assign.delegate = self
         self.assign.dataSource = self
+        
+        NotificationCenter.default.addObserver(forName: .searchUser, object: nil, queue: nil, using: { [weak self] data in
+            guard let self else { return }
+            let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
+            
+            if let data = self.arrUserList.first(where: { $0.name == noti }) {
+                self.txtAssignTo.text = data.name
+                self.selectedUserId = data.id ?? ""
+            }
+        })
     }
     
     func validateTextField() {
@@ -83,10 +97,10 @@ class AddEventPopupVC: UIViewController {
             showAlert(title: "Error!", messsage: "Please selecte event date.")
             return
         }
-        if self.txtEventTime.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please selecte event time.")
-            return
-        }
+//        if self.txtEventTime.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please selecte event time.")
+//            return
+//        }
         if self.txtDescription.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: "Please enter event description.")
             return
@@ -100,8 +114,18 @@ extension AddEventPopupVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == self.txtEventDate {
             self.txtEventDate.text = dateFormater.string(from: self.eventDate.date)
-        } else {
+        } else if textField == self.txtEventTime {
             self.txtEventTime.text = timeFormater.string(from: self.eventTime.date)
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == self.txtAssignTo {
+            let array = self.arrUserList.map({ $0.name ?? "" })
+            self.showSearchListPopUp(listForSearch: array, listNameForSearch: AppDropDownLists.SEARCH_USER_LIST, notificationName: .searchUser)
+            DispatchQueue.main.async {
+                self.view.endEditing(true)
+            }
         }
     }
     

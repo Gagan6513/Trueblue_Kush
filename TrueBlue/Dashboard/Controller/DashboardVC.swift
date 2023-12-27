@@ -10,7 +10,7 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings", "Add Events"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings", "Add Tasks"]
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
 
@@ -44,8 +44,8 @@ class DashboardVC: UIViewController {
         btnSearch.layer.cornerRadius = btnSearch.frame.height / 2
         setUpSearchTblView()
         hideKeyboardWhenTappedAround()
-        apiGetRequest(parameters: nil, endPoint: EndPoints.DASHBOARD_COUNT)
-        
+ //       apiGetRequest(parameters: ["loginUserId": UserDefaults.standard.userId()], endPoint: EndPoints.DASHBOARD_COUNT)
+        apiPostRequest(parameters: ["loginUserId": UserDefaults.standard.userId()], endPoint: EndPoints.DASHBOARD_COUNT)
         self.searchByTxtFld.inputView = self.searchbyPicker
         self.searchbyPicker.delegate = self
         self.searchbyPicker.dataSource = self
@@ -509,6 +509,7 @@ extension DashboardVC : DashboardVMDelegate {
         arrDashboardCount[7] = objData.dictResult.todayDeliveryNotes
         arrDashboardCount[8] = objData.dictResult.upcomingbookingcount
         arrDashboardCount[9] = objData.dictResult.repairerbookingcount
+        arrDashboardCount[10] = objData.dictResult.task_count
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)

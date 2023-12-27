@@ -24,8 +24,6 @@ class DrawerVC: UIViewController {
             } else {
                 print("The array does not contain 'ACA List'")
             }
-          
-            
         }
         // Do any additional setup after loading the view.
     }
