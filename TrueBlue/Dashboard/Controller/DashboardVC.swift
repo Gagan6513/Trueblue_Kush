@@ -509,7 +509,7 @@ extension DashboardVC : DashboardVMDelegate {
         arrDashboardCount[7] = objData.dictResult.todayDeliveryNotes
         arrDashboardCount[8] = objData.dictResult.upcomingbookingcount
         arrDashboardCount[9] = objData.dictResult.repairerbookingcount
-        arrDashboardCount[10] = objData.dictResult.task_count
+        arrDashboardCount[10] = "\(objData.dictResult.task_count)"
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)

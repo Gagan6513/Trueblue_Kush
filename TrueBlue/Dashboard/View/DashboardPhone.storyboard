@@ -15278,8 +15278,8 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-bF-aW4">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="154"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNc-Ag-RAn">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="72"/>
+                                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNc-Ag-RAn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="0.0"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VkA-VC-cTf">
                                                                                     <rect key="frame" x="10" y="7" width="85" height="20"/>
@@ -15305,16 +15305,16 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-z5-eJQ">
-                                                                            <rect key="frame" x="0.0" y="82" width="100" height="72"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="154"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ref. No." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M95-u9-Qik">
-                                                                                    <rect key="frame" x="10" y="0.0" width="85" height="14"/>
+                                                                                    <rect key="frame" x="10" y="64" width="85" height="14"/>
                                                                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGO No." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e5V-Bf-D7m">
-                                                                                    <rect key="frame" x="10" y="16" width="85" height="14"/>
+                                                                                    <rect key="frame" x="10" y="80" width="85" height="14"/>
                                                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -15326,12 +15326,12 @@
                                                                                 <constraint firstItem="e5V-Bf-D7m" firstAttribute="top" secondItem="M95-u9-Qik" secondAttribute="bottom" constant="2" id="B7Y-2Z-YSf"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="e5V-Bf-D7m" secondAttribute="trailing" constant="5" id="S2t-gX-7ye"/>
                                                                                 <constraint firstItem="M95-u9-Qik" firstAttribute="leading" secondItem="gaG-z5-eJQ" secondAttribute="leading" constant="10" id="Tab-3S-bBs"/>
-                                                                                <constraint firstItem="M95-u9-Qik" firstAttribute="top" secondItem="gaG-z5-eJQ" secondAttribute="top" id="eL9-Oy-mj7"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="M95-u9-Qik" secondAttribute="trailing" constant="5" id="kTc-uB-QCQ"/>
+                                                                                <constraint firstItem="e5V-Bf-D7m" firstAttribute="centerY" secondItem="gaG-z5-eJQ" secondAttribute="centerY" constant="10" id="xgx-rx-G2T"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7W-1o-NWG">
-                                                                            <rect key="frame" x="0.0" y="154" width="100" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="0.0"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Referral name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R4n-ht-Zm9">
                                                                                     <rect key="frame" x="10" y="0.0" width="85" height="14"/>
