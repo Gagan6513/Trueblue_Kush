@@ -232,7 +232,6 @@ class DataSyncManager :NSObject {
                         
                         multipartFormData.append(data, withName: imgParameter[0] , fileName: strDate + "." + imgExtension, mimeType: "image/\(imgExtension)")
                     }
-                   
                 }
                 for (key, value) in parameters {
                     if let arr = parameters[key] as? [String] {
