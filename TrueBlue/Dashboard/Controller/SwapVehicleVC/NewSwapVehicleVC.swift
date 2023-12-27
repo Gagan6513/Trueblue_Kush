@@ -14,6 +14,9 @@ class NewSwapVehicleVC: UIViewController {
 
     @IBOutlet weak var CarImageCollectionView: UICollectionView!
     
+    @IBOutlet weak var dateInValidation: UILabel!
+    @IBOutlet weak var milesInValidation: UILabel!
+    
     @IBOutlet weak var txtRefNo: UITextField!
     @IBOutlet weak var txtClientName: UITextField!
     @IBOutlet weak var txtModelInfo: UITextField!
@@ -245,8 +248,28 @@ class NewSwapVehicleVC: UIViewController {
         ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
             self.txtDateIn.text = date
+            self.checkValidation()
         }
         self.present(ctrl, animated: false)
+    }
+    
+    func checkValidation() {
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd-MM-yyyy"
+        dateFormater.timeZone = .current
+        dateInValidation.isHidden = true
+        if let dateOut = dateFormater.date(from: self.txtDateOut.text ?? "\(Date())") {
+            if let dateIn = dateFormater.date(from: self.txtDateIn.text ?? "\(Date())") {
+                let new = dateIn.offset(from: dateOut)
+                print("Diff ", new)
+                if new != "" {
+                    dateInValidation.text = "Days Out: \(new)"
+                    dateInValidation.isHidden = false
+                    self.dateInValidation.isHidden = dateOut < dateIn
+                }
+            }
+        }
     }
     
     @IBAction func btnOldVehicleTimeIn(_ sender: Any) {
@@ -323,6 +346,8 @@ class NewSwapVehicleVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListSwapVehicle, object: nil)
 
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        
+        self.txtMilageIn.delegate = self
     }
     
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
@@ -359,6 +384,9 @@ class NewSwapVehicleVC: UIViewController {
                     
                     let parameters : Parameters = ["application_id" :arrHiredVehicle[selectedDropdownItemIndex].refno ]
                     apiPostRequest(parameters: parameters, endPoint: EndPoints.RETURNUPLOADED_DOCS)
+                    
+                    self.checkValidation()
+                    self.validationMiles(milageinStr: self.txtMilageIn.text ?? "0", milageOutStr: self.txtMilageOut.text ?? "0")
                     
                 case AppDropDownLists.AVAILABLE_VEHICLE_REGO_RA:
 
@@ -438,6 +466,28 @@ class NewSwapVehicleVC: UIViewController {
             return false
         }
         
+        let milageout = Int(self.txtMilageOut.text ?? "0") ?? 0
+        let milagein = Int(self.txtMilageIn.text ?? "0") ?? 0
+        
+        if milageout > milagein {
+            showAlert(title: "Error", messsage: "Mileage in should be greater than mileage out")
+            
+            return false
+        }
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd-MM-yyyy"
+        
+        if let dateOut = dateFormater.date(from: self.txtDateOut.text ?? "\(Date())") {
+            if let dateIn = dateFormater.date(from: self.txtDateIn.text ?? "\(Date())") {
+                if dateOut > dateIn {
+                    showAlert(title: "Error", messsage: "Date In should be greater than date out")
+                    return false
+                }
+            }
+        }
+        
+        
         if txtNewVehivleRefNo.text?.isEmpty ?? true {
             showAlert(title: "Error", messsage: selectNewRego)
             return false
@@ -516,6 +566,29 @@ class NewSwapVehicleVC: UIViewController {
 //        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
     }
     
+}
+
+extension NewSwapVehicleVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if self.txtMilageIn == textField {
+            if let text = textField.text, let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                self.validationMiles(milageinStr: updatedText, milageOutStr: self.txtMilageOut.text ?? "0")
+            }
+        }
+        return true
+    }
+    
+    func validationMiles(milageinStr: String, milageOutStr: String) {
+        self.milesInValidation.isHidden = (milageinStr == "") || (milageOutStr == "")
+        let milageout = Int(milageOutStr) ?? 0
+        let milagein = Int(milageinStr) ?? 0
+        let finalCount = milageout - milagein
+        self.milesInValidation.text = "Mileage Consumed: \(finalCount)"
+        self.milesInValidation.isHidden = finalCount < 0
+    }
 }
 
 extension NewSwapVehicleVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
