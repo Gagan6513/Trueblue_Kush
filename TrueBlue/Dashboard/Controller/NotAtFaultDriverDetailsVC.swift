@@ -200,13 +200,12 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             return
         }
         
-        if !isFromBookingDetails {
-            if CommonObject.sharedInstance.vehicleId == "" {
-                showToast(strMessage: "Please add booking details")
-                return
-            }
-        }
-        
+//        if !isFromBookingDetails {
+//            if CommonObject.sharedInstance.vehicleId == "" {
+//                showToast(strMessage: "Please add booking details")
+//                return
+//            }
+//        }
         
         print(selectedBranchID)
         
