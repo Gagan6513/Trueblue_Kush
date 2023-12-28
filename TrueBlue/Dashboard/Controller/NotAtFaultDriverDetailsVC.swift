@@ -88,6 +88,8 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CommonObject.sharedInstance.vehicleId = ""
+        
         self.picker.delegate = self
         self.picker.dataSource = self
         self.txtRecoveryView       .inputView = self.picker
@@ -197,6 +199,14 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             showToast(strMessage: diliverydateRequired)
             return
         }
+        
+        if !isFromBookingDetails {
+            if CommonObject.sharedInstance.vehicleId == "" {
+                showToast(strMessage: "Please add booking details")
+                return
+            }
+        }
+        
         
         print(selectedBranchID)
         

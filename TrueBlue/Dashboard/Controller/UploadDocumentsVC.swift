@@ -942,6 +942,7 @@ extension UploadDocumentsVC : PreviewVMDelegate {
 }
 extension UploadDocumentsVC : FinalSubmitVMDelegate {
     func finalSubmitAPISuccess(strMessage: String, serviceKey: String) {
+        CommonObject.sharedInstance.vehicleId = ""
         showToast(strMessage: strMessage)
         CommonObject.sharedInstance.isNewEntry = true
         var storyboardName = String()
@@ -965,6 +966,7 @@ extension UploadDocumentsVC : FinalSubmitVMDelegate {
         switch serviceKey {
         case EndPoints.FINAL_SUBMIT:
             print("FinalSubmitViewModel")
+            CommonObject.sharedInstance.vehicleId = ""
         default:
             print("Other Service Key")
         }
