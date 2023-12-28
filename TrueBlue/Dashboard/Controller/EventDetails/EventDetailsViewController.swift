@@ -26,6 +26,40 @@ class EventDetailsViewController: UIViewController {
         self.dismiss(animated: false)
     }
     
+    @IBAction func btnCalender(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDatee = { [weak self] date in
+            guard let self else { return }
+            let datess = DateFormatter()
+            datess.dateFormat = "yyyy-MM-dd"
+            self.selectedDate = datess.string(from: date)
+            
+            self.setupNavigationTitle()
+            self.getEventDetails()
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    func setupNavigationTitle() {
+        let api_timeFormater = DateFormatter()
+        api_timeFormater.dateFormat =  "yyyy-MM-dd"
+        let api_time = api_timeFormater.date(from: self.selectedDate)
+        api_timeFormater.dateFormat =  "dd-MM-yyyy"
+        self.navigationTitle.text = "Event list of " + api_timeFormater.string(from: api_time ?? Date())
+        
+    }
+    
     func setupUI() {
         
         self.tableViewHourlyEvents.isHidden = true
@@ -39,12 +73,7 @@ class EventDetailsViewController: UIViewController {
         self.tableViewTodaysEvents.dataSource = self
         self.tableViewTodaysEvents.registerNib(for: "TodaysEventsTVC")
         
-        let api_timeFormater = DateFormatter()
-        api_timeFormater.dateFormat =  "yyyy-MM-dd"
-        let api_time = api_timeFormater.date(from: self.selectedDate)
-        api_timeFormater.dateFormat =  "dd-MM-yyyy"
-        self.navigationTitle.text = "Event list of " + api_timeFormater.string(from: api_time ?? Date())
-        
+        self.setupNavigationTitle()
         self.getEventDetails()
     }
 }

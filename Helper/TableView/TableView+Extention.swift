@@ -45,6 +45,6 @@ public enum NoData: String {
     
     case aca_empty = "ACA not found!"
     case hourly_event_empty = "Hourly events not found!"
-    case todays_event_empty = "Todays events not found!"
+    case todays_event_empty = "Today's events not found!"
     
 }

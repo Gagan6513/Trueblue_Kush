@@ -19210,11 +19210,26 @@
                                             <action selector="btnBack:" destination="MFz-p0-vLK" eventType="touchUpInside" id="SMc-7w-kO3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9J-j4-d6m">
+                                        <rect key="frame" x="325" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="h9J-j4-d6m" secondAttribute="height" id="4rQ-tw-OAa"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="calendar" catalog="system"/>
+                                        <connections>
+                                            <action selector="btnCalender:" destination="MFz-p0-vLK" eventType="touchUpInside" id="NaW-BP-rPR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="3478F6"/>
                                 <constraints>
                                     <constraint firstItem="zxa-03-bbk" firstAttribute="top" secondItem="IgJ-qB-VaW" secondAttribute="top" id="24r-fC-9zM"/>
                                     <constraint firstItem="seH-Gu-dmA" firstAttribute="centerX" secondItem="IgJ-qB-VaW" secondAttribute="centerX" id="5GK-b9-InG"/>
+                                    <constraint firstItem="h9J-j4-d6m" firstAttribute="top" secondItem="IgJ-qB-VaW" secondAttribute="top" id="AUM-u8-h3p"/>
+                                    <constraint firstAttribute="trailing" secondItem="h9J-j4-d6m" secondAttribute="trailing" constant="6" id="Ipr-gx-mbT"/>
+                                    <constraint firstAttribute="bottom" secondItem="h9J-j4-d6m" secondAttribute="bottom" id="MU0-fB-SqL"/>
                                     <constraint firstAttribute="height" constant="44" id="Y2w-wt-rJM">
                                         <variation key="heightClass=regular-widthClass=regular" constant="55"/>
                                     </constraint>

@@ -107,6 +107,9 @@ class BookingDetailsVC: UIViewController {
             showToast(strMessage: selectProposedVehicle)
             return
         }
+        
+        CommonObject.sharedInstance.vehicleId = selectedProposedVehicleId
+        
         let expectedDeliveryTime =  (deliveryTimeTxtFld.text ?? "").convertTimeToTwentyFourHr(isAM: deliveryTimeSegmentedControl.selectedSegmentIndex)
         let timeOut = timeOutTxtFld.text?.convertTimeToTwentyFourHr(isAM: timeOutSegmentedControl.selectedSegmentIndex) ?? ""
         let parameters: Parameters = ["application_id": CommonObject.sharedInstance.currentReferenceId,
