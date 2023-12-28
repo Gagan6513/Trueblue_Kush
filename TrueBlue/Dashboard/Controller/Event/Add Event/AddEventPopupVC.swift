@@ -221,7 +221,7 @@ extension AddEventPopupVC {
         request.parameters = ["userId": UserDefaults.standard.userId(),
                               "assignTo": self.selectedUserId,
                               "eventDate": api_date, // 2023-12-25
-                              "eventTime": api_time, // 10:00
+                              "eventTime": (self.txtEventTime.text != "") ? api_time : "", // 10:00
                               "eventDesc": self.txtDescription.text ?? "",
                               "eventType": self.selectedType]
         request.method = .post

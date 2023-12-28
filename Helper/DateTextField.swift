@@ -663,11 +663,11 @@ extension Date {
     }
     /// Returns the a custom time interval description from another date
     func offset(from date: Date) -> String {
-        if years(from: date)   > 0 { return "\(years(from: date)) Years"   }
-        if months(from: date)  > 0 { return "\(months(from: date)) Months" }
-        if weeks(from: date)   > 0 { return "\(weeks(from: date)) Weeks"   }
+//        if years(from: date)   > 0 { return "\(years(from: date)) Years"   }
+//        if months(from: date)  > 0 { return "\(months(from: date)) Months" }
+//        if weeks(from: date)   > 0 { return "\(weeks(from: date)) Weeks"   }
         if days(from: date)    > 0 { return "\(days(from: date)) Days"     }
-        if hours(from: date)   > 0 { return "\(hours(from: date)) Hours"   }
+//        if hours(from: date)   > 0 { return "\(hours(from: date)) Hours"   }
         
 //        let dayHourMinuteSecond: Set<Calendar.Component> = [.day]
 //        let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self)

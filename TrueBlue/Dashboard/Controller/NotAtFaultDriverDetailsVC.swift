@@ -183,6 +183,16 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             return
         }
         
+        if (licenceExpiryTxtFld.text ?? "").isEmpty {
+            showToast(strMessage: licenceexpirydateRequired)
+            return
+        }
+        
+        if (dateOfBirthTxtFld.text ?? "").isEmpty {
+            showToast(strMessage: dobdateRequired)
+            return
+        }
+        
         if (diliveryDateTxtFld.text ?? "").isEmpty {
             showToast(strMessage: diliverydateRequired)
             return
@@ -698,7 +708,7 @@ extension NotAtFaultDriverDetailsVC : UITextFieldDelegate {
             isAllowed = allowedCharacters.isSuperset(of: characterSet)
         case fullNameTxtFld :
             isAllowed = textField.isValidNameCharacter(characterTyped: string, range: range)
-        case deliveryDateTxtFld,licenceExpiryTxtFld,dateOfBirthTxtFld,dateOfAccidentTxtFld:
+        case deliveryDateTxtFld,licenceExpiryTxtFld,dateOfBirthTxtFld,dateOfAccidentTxtFld,diliveryDateTxtFld:
             isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
         case expectedDeliveryTimeTxtFld,timeOfAccidentTxtFld:
             isAllowed = textField.validateTimeTyped(shouldChangeCharactersInRange: range, replacementString: string)

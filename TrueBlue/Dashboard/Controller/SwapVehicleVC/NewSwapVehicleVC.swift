@@ -266,7 +266,7 @@ class NewSwapVehicleVC: UIViewController {
                 if new != "" {
                     dateInValidation.text = "Days Out: \(new)"
                     dateInValidation.isHidden = false
-                    self.dateInValidation.isHidden = dateOut < dateIn
+                    self.dateInValidation.isHidden = dateOut > dateIn
                 }
             }
         }
@@ -585,7 +585,7 @@ extension NewSwapVehicleVC: UITextFieldDelegate {
         self.milesInValidation.isHidden = (milageinStr == "") || (milageOutStr == "")
         let milageout = Int(milageOutStr) ?? 0
         let milagein = Int(milageinStr) ?? 0
-        let finalCount = milageout - milagein
+        let finalCount = milagein - milageout
         self.milesInValidation.text = "Mileage Consumed: \(finalCount)"
         self.milesInValidation.isHidden = finalCount < 0
     }

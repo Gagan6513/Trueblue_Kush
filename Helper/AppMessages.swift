@@ -45,6 +45,8 @@ let saveProposedVehicle = "Please select and save proposed vehicle."
 let fullNameRequired = "Please enter the full name"
 let phoneNumberRequired = "Please enter the phone number"
 let diliverydateRequired = "Please select delivery date"
+let dobdateRequired = "Please select date of birth date"
+let licenceexpirydateRequired = "Please select licence expiry date"
 
 //Booking Details
 let selectProposedVehicle = "Please select proposed vehicle."
