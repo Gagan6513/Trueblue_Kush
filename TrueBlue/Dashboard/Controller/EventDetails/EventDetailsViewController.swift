@@ -27,6 +27,10 @@ class EventDetailsViewController: UIViewController {
     }
     
     func setupUI() {
+        
+        self.tableViewHourlyEvents.isHidden = true
+        self.tableViewTodaysEvents.isHidden = true
+        
         self.tableViewHourlyEvents.delegate = self
         self.tableViewHourlyEvents.dataSource = self
         self.tableViewHourlyEvents.registerNib(for: "HourlyEventTVC")
@@ -49,9 +53,19 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableViewHourlyEvents {
-            return self.eventDetailsData.hourEvents?.count ?? 0
+            if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
+                tableView.removeBackgroundView()
+                return count
+            }
+            tableView.setBackgroundView(msg: .hourly_event_empty)
+            return 0
         } else {
-            return self.eventDetailsData.dayEvents?.count ?? 0
+            if let count = self.eventDetailsData.dayEvents?.count, count != 0 {
+                tableView.removeBackgroundView()
+                return count
+            }
+            tableView.setBackgroundView(msg: .todays_event_empty)
+            return 0
         }
     }
     
@@ -141,6 +155,9 @@ extension EventDetailsViewController {
                             self.tableViewHourlyEvents.reloadData()
                             self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
                         }
+                        
+                        self.tableViewHourlyEvents.isHidden = false
+                        self.tableViewTodaysEvents.isHidden = false
                     }
                 }
             }
