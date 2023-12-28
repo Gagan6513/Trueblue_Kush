@@ -4782,7 +4782,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TL-UT-6kY" customClass="InputViewPhone" customModule="TrueBlue" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="357" width="343" height="46"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Delivery Date (DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBW-0a-Wq4" customClass="JVFloatLabeledTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expected Delivery Date (DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBW-0a-Wq4" customClass="JVFloatLabeledTextField">
                                                                 <rect key="frame" x="15" y="2" width="273" height="42"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -19750,7 +19750,7 @@
             <size key="intrinsicContentSize" width="105" height="20"/>
         </designable>
         <designable name="yBW-0a-Wq4">
-            <size key="intrinsicContentSize" width="214.5" height="20"/>
+            <size key="intrinsicContentSize" width="285.5" height="20"/>
         </designable>
         <designable name="yHU-oi-L7H">
             <size key="intrinsicContentSize" width="189.5" height="20"/>
@@ -19772,8 +19772,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="170.5" height="170.5"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="checkUnselected" width="170.5" height="170.5"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="close_popup" width="16" height="16"/>
