@@ -132,10 +132,16 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.view.isOpaque = false
-        self.present(ctrl, animated: false)
+        let mainDate = self.dateFormater.string(from: self.arrDates[indexPath.row])
+        if let data = self.arrEvents.first(where: { $0.EVENT_DATE == mainDate }) {
+            let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "EventDetailsViewController") as! EventDetailsViewController
+            ctrl.selectedDate = mainDate
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.view.isOpaque = false
+            self.present(ctrl, animated: false)
+        } else {
+            showAlert(title: APP_NAME, messsage: "Sorry! You Don't have any Pending Events for this date")
+        }
     }
 }
 

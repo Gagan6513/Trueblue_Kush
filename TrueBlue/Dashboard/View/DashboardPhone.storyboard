@@ -19406,6 +19406,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationTitle" destination="seH-Gu-dmA" id="cx0-7I-hYD"/>
                         <outlet property="tableViewHourlyEvents" destination="U49-hm-5fY" id="C2d-Vb-O9u"/>
                         <outlet property="tableViewTodaysEvents" destination="52E-aN-gkq" id="oFm-Nx-yA4"/>
                     </connections>

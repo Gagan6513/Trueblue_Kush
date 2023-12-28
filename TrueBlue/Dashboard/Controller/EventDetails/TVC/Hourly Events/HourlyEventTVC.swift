@@ -19,6 +19,8 @@ class HourlyEventTVC: UITableViewCell {
     var btnExpandClick: (() -> Void)?
     var count = 0
     
+    var dataa: HourEvents?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()
@@ -46,17 +48,28 @@ class HourlyEventTVC: UITableViewCell {
             self.tblMain.endUpdates()
         }
     }
+    
+    func setupDetails(data: HourEvents) {
+        self.dataa = data
+        self.lblHour.text = data.title ?? ""
+        self.tableView.reloadData()
+    }
 }
 
 extension HourlyEventTVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.count
+        return self.dataa?.events?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodaysEventsTVC") as? TodaysEventsTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
+        
+        if let data = self.dataa?.events?[indexPath.row] {
+            cell.setupDetails(data: data)
+        }
+        
         return cell
     }
 }

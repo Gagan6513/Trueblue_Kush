@@ -28,10 +28,13 @@
                                     <constraint firstAttribute="width" constant="5" id="0uV-dK-4UF"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-nP-Ygn">
-                                <rect key="frame" x="311" y="6" width="20" height="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timer_event" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-nP-Ygn">
+                                <rect key="frame" x="315" y="6" width="16" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Yr2-0Z-pSp"/>
+                                    <constraint firstAttribute="width" constant="16" id="Yr2-0Z-pSp">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" secondItem="gVY-nP-Ygn" secondAttribute="height" id="Z2I-5y-dmL"/>
                                 </constraints>
                             </imageView>
@@ -49,7 +52,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xST-Ge-ecA">
-                                <rect key="frame" x="69" y="6" width="230" height="22"/>
+                                <rect key="frame" x="69" y="6" width="234" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="htS-cn-BN4"/>
                                 </constraints>
@@ -60,7 +63,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7h-3Z-Jwk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7h-3Z-Jwk">
                                 <rect key="frame" x="21" y="64.666666666666671" width="40" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="brt-x6-sdq"/>
@@ -139,7 +142,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="8"/>
+                                <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -153,11 +156,20 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgIcon" destination="gVY-nP-Ygn" id="KX8-kH-4Vd"/>
+                <outlet property="lblBy" destination="xST-Ge-ecA" id="DWe-4p-DEJ"/>
+                <outlet property="lblDescription" destination="SWh-fS-XPX" id="trx-OL-LBb"/>
+                <outlet property="lblTime" destination="Xiv-BF-JTS" id="k3i-1I-rc4"/>
+                <outlet property="lblTo" destination="XvI-hy-cmr" id="sLe-Is-gFh"/>
+                <outlet property="viewBG" destination="7Ds-5X-ae1" id="sZw-bd-5IX"/>
+                <outlet property="viewSidebar" destination="TCu-h8-Htf" id="nn2-Wr-QA5"/>
+            </connections>
             <point key="canvasLocation" x="129.00763358778624" y="55.985915492957751"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="timer" width="12.333333015441895" height="12.333333015441895"/>
+        <image name="Timer_event" width="37" height="37"/>
         <namedColor name="AppBlack">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
