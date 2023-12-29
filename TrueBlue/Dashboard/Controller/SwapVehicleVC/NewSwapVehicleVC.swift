@@ -447,22 +447,22 @@ class NewSwapVehicleVC: UIViewController {
     func validationTextfield() -> Bool {
         
         if txtRefNo.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: selectOldRego)
+            showAlert(title: "Error!", messsage: selectOldRego)
             return false
         }
         
         if txtMilageIn.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter old milage in.")
+            showAlert(title: "Error!", messsage: "Please enter old milage in.")
             return false
         }
         
         if txtDateIn.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter old date in")
+            showAlert(title: "Error!", messsage: "Please enter old date in")
             return false
         }
         
         if txtTimeIn.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter old time in")
+            showAlert(title: "Error!", messsage: "Please enter old time in")
             return false
         }
         
@@ -470,7 +470,7 @@ class NewSwapVehicleVC: UIViewController {
         let milagein = Int(self.txtMilageIn.text ?? "0") ?? 0
         
         if milageout > milagein {
-            showAlert(title: "Error", messsage: "Mileage in should be greater than mileage out")
+            showAlert(title: "Error!", messsage: "Mileage in should be greater than mileage out")
             
             return false
         }
@@ -481,7 +481,7 @@ class NewSwapVehicleVC: UIViewController {
         if let dateOut = dateFormater.date(from: self.txtDateOut.text ?? "\(Date())") {
             if let dateIn = dateFormater.date(from: self.txtDateIn.text ?? "\(Date())") {
                 if dateOut > dateIn {
-                    showAlert(title: "Error", messsage: "Date In should be greater than date out")
+                    showAlert(title: "Error!", messsage: "Date In should be greater than date out")
                     return false
                 }
             }
@@ -489,22 +489,22 @@ class NewSwapVehicleVC: UIViewController {
         
         
         if txtNewVehivleRefNo.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: selectNewRego)
+            showAlert(title: "Error!", messsage: selectNewRego)
             return false
         }
         
         if txtNewMileageOut.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter new milage out")
+            showAlert(title: "Error!", messsage: "Please enter new milage out")
             return false
         }
         
         if txtNewDateOut.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter new date out")
+            showAlert(title: "Error!", messsage: "Please enter new date out")
             return false
         }
         
         if txtNewTimeOut.text?.isEmpty ?? true {
-            showAlert(title: "Error", messsage: "Please enter new time out")
+            showAlert(title: "Error!", messsage: "Please enter new time out")
             return false
         }
         
@@ -647,7 +647,7 @@ extension NewSwapVehicleVC: SwapVehicleVMDelegate {
     
     func swapVehicleAPISuccess(strMessage: String, serviceKey: String) {
 //        showToast(strMessage: strMessage)
-        showGlobelAlert(title: APP_NAME, msg: strMessage, doneAction: {_ in
+        showGlobelAlert(title: alert_title, msg: strMessage, doneAction: {_ in
             self.dismiss(animated: true)
         })
     }

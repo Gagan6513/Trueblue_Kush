@@ -54,13 +54,13 @@ class DataSyncManager :NSObject {
                 } else {
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                    currentController.showAlert(title: alert_title, messsage: somethingWrong)
                 }
             }
         } else {
             //Diksha Rattan:No internet
             CommonObject.sharedInstance.stopProgress()
-            currentController.showAlert(title: APP_NAME, messsage: noInternet)
+            currentController.showAlert(title: alert_title, messsage: noInternet)
         }
     }
     
@@ -95,13 +95,13 @@ class DataSyncManager :NSObject {
                 } else{
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                    currentController.showAlert(title: alert_title, messsage: somethingWrong)
                 }
             }
         } else {
             //Diksha Rattan: No Internet
             CommonObject.sharedInstance.stopProgress()
-            currentController.showAlert(title: APP_NAME, messsage: noInternet)
+            currentController.showAlert(title: alert_title, messsage: noInternet)
         }
     }
     
@@ -182,13 +182,13 @@ class DataSyncManager :NSObject {
                 } else {
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                    currentController.showAlert(title: alert_title, messsage: somethingWrong)
                 }
             }
         } else {
             //Diksha Rattan: No Internet
             CommonObject.sharedInstance.stopProgress()
-            currentController.showAlert(title: APP_NAME, messsage: noInternet)
+            currentController.showAlert(title: alert_title, messsage: noInternet)
         }
     }
     
@@ -267,13 +267,13 @@ class DataSyncManager :NSObject {
                 } else {
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    currentController.showAlert(title: APP_NAME, messsage: somethingWrong)
+                    currentController.showAlert(title: alert_title, messsage: somethingWrong)
                 }
             }
         } else {
             //Diksha Rattan: No Internet
             CommonObject.sharedInstance.stopProgress()
-            currentController.showAlert(title: APP_NAME, messsage: noInternet)
+            currentController.showAlert(title: alert_title, messsage: noInternet)
         }
     }
     
@@ -379,7 +379,7 @@ extension DataSyncManager {
                 } else {
                     //Diksha Rattan:Api Failure Response
                     CommonObject.sharedInstance.stopProgress()
-                    showGlobelAlert(title: APP_NAME, msg: somethingWrong)
+                    showGlobelAlert(title: alert_title, msg: somethingWrong)
                 }
             })
         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+let alert_title = "Alert!"
 let APP_NAME = "prod"
 
 let API_PATH = "http://172.200.221.113/newapp/" // staging

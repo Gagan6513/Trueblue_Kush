@@ -358,7 +358,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         performSegue(withIdentifier: AppSegue.DIGITAL_SIGNATURE, sender: nil)
     }
     @IBAction func deleteSignBtn(_ sender: UIButton) {
-        let deleteSignAlert = UIAlertController(title: APP_NAME, message: confirmDeleteSignatureImage, preferredStyle: .alert)
+        let deleteSignAlert = UIAlertController(title: alert_title, message: confirmDeleteSignatureImage, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
             //Delete Signature
             let parameters : Parameters = ["sign_id" : self.dictUploadedDocumentsData.signId,
@@ -426,7 +426,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
     
     @objc func deleteDocument(sender: UIButton){
         print("del dc ",sender.tag)
-        let deleteDocumentAlert = UIAlertController(title: APP_NAME, message: confirmDeleteDocumentImage, preferredStyle: .alert)
+        let deleteDocumentAlert = UIAlertController(title: alert_title, message: confirmDeleteDocumentImage, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { _ in
             let parameters : Parameters = ["doc_id": self.dictUploadedDocumentsData.documentsUploaded[sender.tag].documentId,
                                            "user_id" : UserDefaults.standard.userId()]
@@ -448,7 +448,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
             self.imagePicker.present(from: accidentPicsCollectionView)
             accidentImgChangedAtRow = sender.tag
         } else {
-            let deleteAccidentImageAlert = UIAlertController(title: APP_NAME, message: confirmDeleteAccidentImage, preferredStyle: .alert)
+            let deleteAccidentImageAlert = UIAlertController(title: alert_title, message: confirmDeleteAccidentImage, preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
                 //Delete Accident Image
                 let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
@@ -477,7 +477,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
     func didTapDeleteButton(index: Int) {
         print("Delete button tapped in cell at index: \(index)")
         
-        let deleteDocumentAlert = UIAlertController(title: APP_NAME, message: confirmDeleteDocumentImage, preferredStyle: .alert)
+        let deleteDocumentAlert = UIAlertController(title: alert_title, message: confirmDeleteDocumentImage, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { _ in
             let parameters : Parameters = ["doc_id": self.dictUploadedDocumentsData.documentsUploaded[index].documentId,
                                            "user_id" : UserDefaults.standard.userId()]

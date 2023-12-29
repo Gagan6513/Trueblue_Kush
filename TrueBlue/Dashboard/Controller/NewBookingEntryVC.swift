@@ -100,7 +100,7 @@ class NewBookingEntryVC: UIViewController {
             alert.addAction(noAction)
             present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: APP_NAME, message: exitWithoutSave, preferredStyle: .alert)
+            let alert = UIAlertController(title: alert_title, message: exitWithoutSave, preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
                 if !UserDefaults.standard.GetReferenceId().isEmpty{
                     UserDefaults.standard.removeReferenceID()

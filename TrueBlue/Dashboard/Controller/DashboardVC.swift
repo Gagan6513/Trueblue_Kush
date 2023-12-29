@@ -277,7 +277,7 @@ class DashboardVC: UIViewController {
     
     @objc func LogoutNotificationAction(_ notification: NSNotification) {
         
-        let logoutAlert = UIAlertController(title: APP_NAME, message: confirmLogout, preferredStyle: .alert)
+        let logoutAlert = UIAlertController(title: alert_title, message: confirmLogout, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
             self.logout()
         }

@@ -140,7 +140,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             ctrl.view.isOpaque = false
             self.present(ctrl, animated: false)
         } else {
-            showAlert(title: APP_NAME, messsage: "Sorry! You Don't have any Pending Events for this date")
+            showAlert(title: alert_title, messsage: "Sorry! You Don't have any Pending Events for this date")
         }
     }
 }

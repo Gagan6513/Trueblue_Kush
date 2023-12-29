@@ -99,7 +99,7 @@ extension UIViewController {
         }
     }
     
-    func showAlert(title: String = APP_NAME, message: String, yesTitle: String, noTitle: String, yesAction: @escaping ()->Void, noAction: @escaping ()->Void) {
+    func showAlert(title: String = alert_title, message: String, yesTitle: String, noTitle: String, yesAction: @escaping ()->Void, noAction: @escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: yesTitle, style: .default) { _ in
             yesAction()
