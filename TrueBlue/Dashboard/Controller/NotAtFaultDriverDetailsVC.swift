@@ -169,43 +169,48 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     
     
     func saveNotAtFaultDetails() {
-        if !(emailTxtFld.text ??  "").trimmingCharacters(in: .whitespaces).isEmpty {
-            if !(emailTxtFld.text ??  "").isValidEmailAddress() {
-                showToast(strMessage: validEmailRequired)
+        
+        if (self.referenceIDTxtFld.text ?? "") == "" || (self.referenceIDTxtFld.text ?? "") == "0" {
+            if !(emailTxtFld.text ??  "").trimmingCharacters(in: .whitespaces).isEmpty {
+                if !(emailTxtFld.text ??  "").isValidEmailAddress() {
+                    showToast(strMessage: validEmailRequired)
+                    return
+                }
+            }
+            if (fullNameTxtFld.text ?? "").isEmpty {
+                showToast(strMessage: fullNameRequired)
                 return
             }
+            
+            if (phoneTxtFld.text ?? "").isEmpty {
+                showToast(strMessage: phoneNumberRequired)
+                return
+            }
+            
+            if (licenceExpiryTxtFld.text ?? "").isEmpty {
+                showToast(strMessage: licenceexpirydateRequired)
+                return
+            }
+            
+            if (dateOfBirthTxtFld.text ?? "").isEmpty {
+                showToast(strMessage: dobdateRequired)
+                return
+            }
+            
+            if (diliveryDateTxtFld.text ?? "").isEmpty {
+                showToast(strMessage: diliverydateRequired)
+                return
+            }
+            
+            if !isFromBookingDetails {
+                if CommonObject.sharedInstance.vehicleId == "" {
+                    showToast(strMessage: "Please add booking details")
+                    return
+                }
+            }
         }
-        if (fullNameTxtFld.text ?? "").isEmpty {
-            showToast(strMessage: fullNameRequired)
-            return
-        }
-        
-        if (phoneTxtFld.text ?? "").isEmpty {
-            showToast(strMessage: phoneNumberRequired)
-            return
-        }
-        
-        if (licenceExpiryTxtFld.text ?? "").isEmpty {
-            showToast(strMessage: licenceexpirydateRequired)
-            return
-        }
-        
-        if (dateOfBirthTxtFld.text ?? "").isEmpty {
-            showToast(strMessage: dobdateRequired)
-            return
-        }
-        
-        if (diliveryDateTxtFld.text ?? "").isEmpty {
-            showToast(strMessage: diliverydateRequired)
-            return
-        }
-        
-//        if !isFromBookingDetails {
-//            if CommonObject.sharedInstance.vehicleId == "" {
-//                showToast(strMessage: "Please add booking details")
-//                return
-//            }
-//        }
+
+
         
         print(selectedBranchID)
         
@@ -375,8 +380,6 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     @IBAction func branchListTapped(_ sender: UITapGestureRecognizer) {
         apiGetRequest(parameters: nil, endPoint: EndPoints.BRANCH_LIST)
     }
-    
-    
     
     @IBAction func vehicleBusinessRegisteredYesBtn(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveLinear, animations: {

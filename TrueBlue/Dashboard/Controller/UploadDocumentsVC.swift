@@ -293,16 +293,18 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         }
     }
     @IBAction func previewBtn(_ sender: UIButton) {
-        var parameters = [String : Any]()
-        parameters["application_id"] = CommonObject.sharedInstance.currentReferenceId
-        parameters["vehicle_id"] = CommonObject.sharedInstance.vehicleId
-        let endPoint = EndPoints.RA_PREVIEW
-
-        let obj = PreviewViewModel()
-        obj.delegate = self
-        obj.previewAPI(currentController: self, parameters: parameters, endPoint: endPoint)
-        
-        
+        if !CommonObject.sharedInstance.vehicleId.isEmpty {
+            var parameters = [String : Any]()
+            parameters["application_id"] = CommonObject.sharedInstance.currentReferenceId
+            parameters["vehicle_id"] = CommonObject.sharedInstance.vehicleId
+            let endPoint = EndPoints.RA_PREVIEW
+            
+            let obj = PreviewViewModel()
+            obj.delegate = self
+            obj.previewAPI(currentController: self, parameters: parameters, endPoint: endPoint)
+        } else {
+            showAlert(title: "Error!", messsage: "Please allocate the vehicle before previewing the document.")
+        }
 //        getPreview()
         
     }
@@ -326,14 +328,18 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         present(sendToEmailVc, animated: true, completion: nil)
     }
     @IBAction func finalSubmitBtn(_ sender: UIButton) {
-        var parameters = [String : Any]()
-        parameters["application_id"] = CommonObject.sharedInstance.currentReferenceId
-        parameters["vehicle_id"] = CommonObject.sharedInstance.vehicleId
-        let endPoint = EndPoints.FINAL_SUBMIT
-         
-        let obj = FinalSubmitViewModel()
-        obj.delegate = self
-        obj.finalSubmitAPI(currentController: self, parameters: parameters, endPoint: endPoint)
+        if !CommonObject.sharedInstance.vehicleId.isEmpty {
+            var parameters = [String : Any]()
+            parameters["application_id"] = CommonObject.sharedInstance.currentReferenceId
+            parameters["vehicle_id"] = CommonObject.sharedInstance.vehicleId
+            let endPoint = EndPoints.FINAL_SUBMIT
+            
+            let obj = FinalSubmitViewModel()
+            obj.delegate = self
+            obj.finalSubmitAPI(currentController: self, parameters: parameters, endPoint: endPoint)
+        } else {
+            showAlert(title: "Error!", messsage: "Please allocate the vehicle before submitting  the form.")
+        }
     }
     @IBAction func cardDetailsBtn(_ sender: UIButton) {
         var storyboard = UIStoryboard()

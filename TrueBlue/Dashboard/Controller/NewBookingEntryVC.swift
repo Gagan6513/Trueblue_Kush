@@ -156,7 +156,7 @@ extension NewBookingEntryVC : UICollectionViewDelegate, UICollectionViewDataSour
             return
         }
         
-        if CommonObject.sharedInstance.isNewEntry && UserDefaults.standard.GetReferenceId().isEmpty{
+        if CommonObject.sharedInstance.isNewEntry && UserDefaults.standard.GetReferenceId().isEmpty {
             showToast(strMessage: "Please save your details in Not at Fault Driver Details Screen")
             return
         }
