@@ -18,6 +18,7 @@ class HourlyEventTVC: UITableViewCell {
     var obs: NSKeyValueObservation?
     var btnExpandClick: (() -> Void)?
     var count = 0
+    var needToUpdate = false
     
     var dataa: HourEvents?
     
@@ -43,9 +44,9 @@ class HourlyEventTVC: UITableViewCell {
         
         self.obs = self.tableView.observe(\.contentSize, options: .new) { (_, change) in
             guard let height = change.newValue?.height else { return }
-            self.tblMain.beginUpdates()
+            self.needToUpdate ? self.tblMain.beginUpdates() : nil
             self.tableViewHeight.constant = height
-            self.tblMain.endUpdates()
+            self.needToUpdate ? self.tblMain.endUpdates() : nil
         }
     }
     

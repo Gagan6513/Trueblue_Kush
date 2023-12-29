@@ -7,8 +7,17 @@
 
 import UIKit
 
+class EventDetailsNavigation: UICollectionViewCell {
+    
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var imgIcon: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    
+}
+
 class EventDetailsViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var navigationTitle: UILabel!
     @IBOutlet weak var tableViewHourlyEvents: UITableView!
     @IBOutlet weak var tableViewTodaysEvents: UITableView!
@@ -16,6 +25,12 @@ class EventDetailsViewController: UIViewController {
     var selectedIndex = -1
     var selectedDate = ""
     var eventDetailsData = EventDetailsData()
+    var filterEventData = EventDetailsData()
+    var arrNavigation = [["title": "All", "icon": "", "type": "all"],
+                         ["title": "Collections", "icon": "Collections", "type": "collection_notes"],
+                         ["title": "Deliveries", "icon": "Deliveries", "type": "delivery_notes"],
+                         ["title": "Tasks", "icon": "Tasks", "type": "todo_task"]]
+    var selectedFilter = "all"
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +77,9 @@ class EventDetailsViewController: UIViewController {
     
     func setupUI() {
         
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
         self.tableViewHourlyEvents.isHidden = true
         self.tableViewTodaysEvents.isHidden = true
         
@@ -78,18 +96,101 @@ class EventDetailsViewController: UIViewController {
     }
 }
 
+extension EventDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrNavigation.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventDetailsNavigation", for: indexPath) as? EventDetailsNavigation else { return UICollectionViewCell() }
+        
+        cell.lblTitle.text = self.arrNavigation[indexPath.row]["title"]
+        cell.imgIcon.isHidden = (self.arrNavigation[indexPath.row]["icon"] ?? "") == ""
+        if (self.arrNavigation[indexPath.row]["icon"] ?? "") != "" {
+            cell.imgIcon.image = UIImage(named: self.arrNavigation[indexPath.row]["icon"] ?? "")
+        }
+        
+        if selectedFilter == (self.arrNavigation[indexPath.row]["type"] ?? "") {
+            cell.imgIcon.tintColor = .white
+            cell.lblTitle.textColor = .white
+            cell.bgView.backgroundColor = .darkGray
+        } else {
+            cell.imgIcon.tintColor = .black
+            cell.lblTitle.textColor = .black
+            cell.bgView.backgroundColor = .clear
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 4), height: collectionView.frame.height)
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedFilter = (self.arrNavigation[indexPath.row]["type"] ?? "")
+        self.collectionView.reloadData()
+        self.filterData()
+    }
+    
+    func filterData() {
+        if self.selectedFilter == "all" {
+            self.filterEventData = self.eventDetailsData
+        } else {
+            var dayEvents = [Events]()
+            var eventss = [Events]()
+            var hourEvents = [HourEvents]()
+            
+            self.eventDetailsData.dayEvents?.forEach({ data in
+                if (data.EVENT_TYPE ?? "") == self.selectedFilter {
+                    dayEvents.append(data)
+                }
+            })
+            
+            self.eventDetailsData.hourEvents?.forEach({ data in
+                eventss = []
+                print(data.events?.count ?? 0)
+                data.events?.forEach({ dataa in
+                    if (dataa.EVENT_TYPE ?? "") == self.selectedFilter {
+                        eventss.append(dataa)
+                    }
+                })
+                let newEvent = HourEvents()
+                newEvent.title = data.title
+                newEvent.events = eventss
+                hourEvents.append(newEvent)
+            })
+            
+            let newEvent = EventDetailsData()
+            newEvent.dayEvents = dayEvents
+            newEvent.hourEvents = hourEvents
+            self.filterEventData = newEvent
+        }
+        
+        self.tableViewHourlyEvents.reloadData()
+        self.tableViewTodaysEvents.reloadData()
+        
+        if let count = self.filterEventData.hourEvents?.count, count != 0 {
+            self.selectedIndex = -1
+            self.tableViewHourlyEvents.reloadData()
+            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
+    }
+    
+}
+
 extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableViewHourlyEvents {
-            if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
+            if let count = self.filterEventData.hourEvents?.count, count != 0 {
                 tableView.removeBackgroundView()
                 return count
             }
             tableView.setBackgroundView(msg: .hourly_event_empty)
             return 0
         } else {
-            if let count = self.eventDetailsData.dayEvents?.count, count != 0 {
+            if let count = self.filterEventData.dayEvents?.count, count != 0 {
                 tableView.removeBackgroundView()
                 return count
             }
@@ -107,9 +208,10 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             cell.lblHour.backgroundColor = (self.selectedIndex == indexPath.row) ? .lightGray.withAlphaComponent(0.5) : .clear
             cell.tblMain = tableView
             cell.count = self.selectedIndex == indexPath.row ? 2 : 0
+            cell.needToUpdate = self.selectedIndex == indexPath.row
             cell.tableView.reloadData()
-            
-            if let data = self.eventDetailsData.hourEvents?[indexPath.row] {
+
+            if let data = self.filterEventData.hourEvents?[indexPath.row] {
                 cell.setupDetails(data: data)
             }
             
@@ -124,7 +226,7 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodaysEventsTVC") as? TodaysEventsTVC else { return UITableViewCell() }
             cell.selectionStyle = .none
-            if let data = self.eventDetailsData.dayEvents?[indexPath.row] {
+            if let data = self.filterEventData.dayEvents?[indexPath.row] {
                 cell.setupDetails(data: data)
             }
             cell.lblTime.isHidden = true
@@ -175,15 +277,16 @@ extension EventDetailsViewController {
                     }
                     
                     self.eventDetailsData = data.data ?? EventDetailsData()
+                    self.filterEventData = self.eventDetailsData
                     self.tableViewHourlyEvents.reloadData()
                     self.tableViewTodaysEvents.reloadData()
                     
                     DispatchQueue.main.async {
-                        if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
-                            self.selectedIndex = 0
-                            self.tableViewHourlyEvents.reloadData()
-                            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-                        }
+//                        if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
+//                            self.selectedIndex = 0
+//                            self.tableViewHourlyEvents.reloadData()
+//                            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+//                        }
                         
                         self.tableViewHourlyEvents.isHidden = false
                         self.tableViewTodaysEvents.isHidden = false

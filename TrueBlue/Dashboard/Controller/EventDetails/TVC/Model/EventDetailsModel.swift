@@ -22,13 +22,6 @@ class EventDetailsData: Codable {
     var hourEvents: [HourEvents]?
 }
 
-class DayEvents: Codable {
-    
-    var title: String?
-    var events: [Events]?
-    
-}
-
 class HourEvents: Codable {
     
     var title: String?
