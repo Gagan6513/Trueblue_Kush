@@ -41,6 +41,46 @@ class AddEventPopupVC: UIViewController {
         self.dismiss(animated: false)
     }
     
+    @IBAction func btnTime(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_TIME
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_TIME_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectTimeVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtEventTime.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
+    @IBAction func btnDate(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtEventDate.text = date
+        }
+        self.present(ctrl, animated: false)
+    }
+    
     @IBAction func btnSave(_ sender: Any) {
         self.validateTextField()
     }
@@ -57,8 +97,8 @@ class AddEventPopupVC: UIViewController {
         self.eventTime.datePickerMode = .time
         self.eventTime.preferredDatePickerStyle = .wheels
         
-        self.txtEventDate.inputView = self.eventDate
-        self.txtEventTime.inputView = self.eventTime
+//        self.txtEventDate.inputView = self.eventDate
+//        self.txtEventTime.inputView = self.eventTime
         
         self.txtAddEvent.inputView = self.eventType
 //        self.txtAssignTo.inputView = self.assign
@@ -112,11 +152,11 @@ class AddEventPopupVC: UIViewController {
 extension AddEventPopupVC: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == self.txtEventDate {
-            self.txtEventDate.text = dateFormater.string(from: self.eventDate.date)
-        } else if textField == self.txtEventTime {
-            self.txtEventTime.text = timeFormater.string(from: self.eventTime.date)
-        }
+//        if textField == self.txtEventDate {
+//            self.txtEventDate.text = dateFormater.string(from: self.eventDate.date)
+//        } else if textField == self.txtEventTime {
+//            self.txtEventTime.text = timeFormater.string(from: self.eventTime.date)
+//        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -127,6 +167,19 @@ extension AddEventPopupVC: UITextFieldDelegate {
                 self.view.endEditing(true)
             }
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var isAllowed = true
+        switch textField {
+        case txtEventDate:
+            isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
+        case txtEventTime :
+            isAllowed = textField.validateTimeTyped(shouldChangeCharactersInRange: range, replacementString: string)
+        default:
+            print("TextField without restriction")
+        }
+        return isAllowed
     }
     
 }
@@ -209,19 +262,17 @@ extension AddEventPopupVC {
     func addEventType() {
         
         let api_dateFormater = DateFormatter()
-        api_dateFormater.dateFormat =  "YYYY-MM-dd"
-        let api_date = api_dateFormater.string(from: self.eventDate.date)
-        
-        let api_timeFormater = DateFormatter()
-        api_timeFormater.dateFormat =  "HH:mm"
-        let api_time = api_timeFormater.string(from: self.eventTime.date)
+        api_dateFormater.dateFormat =  "dd-MM-yyyy"
+        let api_date = api_dateFormater.date(from: self.txtEventDate.text ?? "") ?? Date()
+        api_dateFormater.dateFormat =  "yyyy-MM-dd"
+        let api_new_date = api_dateFormater.string(from: api_date)
         
         let request = WebServiceModel()
         request.url = URL(string: API_URL.save_event)!
         request.parameters = ["userId": UserDefaults.standard.userId(),
                               "assignTo": self.selectedUserId,
-                              "eventDate": api_date, // 2023-12-25
-                              "eventTime": (self.txtEventTime.text != "") ? api_time : "", // 10:00
+                              "eventDate": "\(api_new_date)", // 2023-12-25
+                              "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
                               "eventDesc": self.txtDescription.text ?? "",
                               "eventType": self.selectedType]
         request.method = .post

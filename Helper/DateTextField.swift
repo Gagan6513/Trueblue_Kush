@@ -219,14 +219,15 @@ public class DateTextField: NSObject {
         var validHour = hour
         var validMinutes = minutes
         if hour.count == 2 {
-            if hourInt > 12 || hourInt == 0 {
-                validHour = "12"
-            }
-        } else if hour.count == 1 {
-            if hourInt > 1 {
-                validHour = "0\(hour)"
+            if hourInt > 23 || hourInt == 0 {
+                validHour = "23"
             }
         }
+//        else if hour.count == 1 {
+//            if hourInt > 2 {
+//                validHour = "02"
+//            }
+//        }
         
         if minutes.count == 2 {
             if minutesInt > 59 {

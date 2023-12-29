@@ -116,7 +116,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
 //            if CommonObject.sharedInstance.currentReferenceId.isEmpty{
 //                CommonObject.sharedInstance.currentReferenceId = UserDefaults.standard.GetReferenceId()
 //            }
-            if CommonObject.sharedInstance.isNewEntry{
+            if CommonObject.sharedInstance.isNewEntry {
                 CommonObject.sharedInstance.currentReferenceId = UserDefaults.standard.GetReferenceId()
             }
             referenceIDTxtFld.text = CommonObject.sharedInstance.currentReferenceId
@@ -311,6 +311,12 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         
 //        isFromBookingDetails
         
+        if (self.referenceIDTxtFld.text ?? "") != "" || (self.referenceIDTxtFld.text ?? "") != "0" {
+            isFromBookingDetails = true
+            saveNotAtFaultDetails()
+            return
+        }
+        
         if (fullNameTxtFld.text ?? "").isEmpty {
             showToast(strMessage: fullNameRequired)
             return
@@ -427,6 +433,12 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     }
     @IBAction func addSeconHirerBtn(_ sender: UIButton) {
         
+        if (self.referenceIDTxtFld.text ?? "") != "" || (self.referenceIDTxtFld.text ?? "") != "0" {
+            isFromAddSecondTier = true
+            saveNotAtFaultDetails()
+            return
+        }
+        
         if (fullNameTxtFld.text ?? "").isEmpty {
             showToast(strMessage: fullNameRequired)
             return
@@ -460,6 +472,12 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     }
     
     @IBAction func addThirdHirerBtn(_ sender: UIButton) {
+        
+        if (self.referenceIDTxtFld.text ?? "") != "" || (self.referenceIDTxtFld.text ?? "") != "0" {
+            isFromAddThirdTier = true
+            saveNotAtFaultDetails()
+            return
+        }
         
         if (fullNameTxtFld.text ?? "").isEmpty {
             showToast(strMessage: fullNameRequired)

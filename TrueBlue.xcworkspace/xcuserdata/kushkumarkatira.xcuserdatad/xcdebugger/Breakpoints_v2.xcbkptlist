@@ -183,54 +183,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14A7D8B2-8FC4-48D6-B8C4-DA4230BAA74E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "bookingDetailsBtn(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "14A7D8B2-8FC4-48D6-B8C4-DA4230BAA74E - 10ec5beace9241f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.bookingDetailsBtn(__C.UIButton) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "314"
-                  endingLineNumber = "314"
-                  offsetFromSymbolStart = "624">
-               </Location>
-               <Location
-                  uuid = "14A7D8B2-8FC4-48D6-B8C4-DA4230BAA74E - 10ec5beace9241f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.bookingDetailsBtn(__C.UIButton) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "314"
-                  endingLineNumber = "314"
-                  offsetFromSymbolStart = "112">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "81014F5F-B1B5-4EC3-AF7D-0EA0FD6F83F3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -238,74 +190,73 @@
             filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
             landmarkName = "addSeconHirerBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCA9DB6B-D83A-43C3-B11B-CFED0542DFEE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "bookingDetailsBtn(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "81014F5F-B1B5-4EC3-AF7D-0EA0FD6F83F3 - 1506531cec6a85fe"
+                  uuid = "DCA9DB6B-D83A-43C3-B11B-CFED0542DFEE - 10ec5beace923cd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.addSeconHirerBtn(__C.UIButton) -&gt; ()"
+                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.bookingDetailsBtn(__C.UIButton) -&gt; ()"
                   moduleName = "TrueBlue"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "432"
-                  endingLineNumber = "432"
-                  offsetFromSymbolStart = "620">
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "1516">
                </Location>
                <Location
-                  uuid = "81014F5F-B1B5-4EC3-AF7D-0EA0FD6F83F3 - 1506531cec6a863c"
+                  uuid = "DCA9DB6B-D83A-43C3-B11B-CFED0542DFEE - a7edfc31250091f1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.addSeconHirerBtn(__C.UIButton) -&gt; ()"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in TrueBlue.NotAtFaultDriverDetailsVC.bookingDetailsBtn(__C.UIButton) -&gt; ()"
                   moduleName = "TrueBlue"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "430"
-                  endingLineNumber = "430"
-                  offsetFromSymbolStart = "108">
+                  startingLineNumber = "333"
+                  endingLineNumber = "333"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "DCA9DB6B-D83A-43C3-B11B-CFED0542DFEE - 10ec5beace923cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrueBlue.NotAtFaultDriverDetailsVC.bookingDetailsBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "2512">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A258C202-C818-42F2-B046-6551811BC9F5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "saveNotAtFaultDetails()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "16B9B0A1-7526-430D-8F3C-2C088E21EE9E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
-            landmarkName = "notAtFaultDriverDetailsAPISuccess(objData:strMessage:serviceKey:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -18903,6 +18903,16 @@
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMc-ke-FgV">
+                                                                        <rect key="frame" x="177" y="0.0" width="40" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="aMc-ke-FgV" secondAttribute="height" id="kfb-fW-Ive"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnDate:" destination="L3l-0a-OdS" eventType="touchUpInside" id="Fug-cg-YH5"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -18911,10 +18921,13 @@
                                                                     <constraint firstAttribute="trailing" secondItem="B9P-GZ-00F" secondAttribute="trailing" constant="6" id="IDK-Wv-zpA"/>
                                                                     <constraint firstAttribute="bottom" secondItem="B9P-GZ-00F" secondAttribute="bottom" id="P5R-Rz-eHE"/>
                                                                     <constraint firstItem="B9P-GZ-00F" firstAttribute="top" secondItem="drz-xR-ahb" secondAttribute="top" id="aRF-XG-N1G"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="aMc-ke-FgV" secondAttribute="bottom" id="au7-sJ-swD"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="aMc-ke-FgV" secondAttribute="trailing" id="bdm-8T-Zzr"/>
                                                                     <constraint firstAttribute="height" constant="40" id="k4e-dX-poY">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                                     </constraint>
                                                                     <constraint firstItem="B9P-GZ-00F" firstAttribute="leading" secondItem="drz-xR-ahb" secondAttribute="leading" constant="6" id="tXg-PB-O6j"/>
+                                                                    <constraint firstItem="aMc-ke-FgV" firstAttribute="top" secondItem="drz-xR-ahb" secondAttribute="top" id="yie-Vq-e6q"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -18975,17 +18988,28 @@
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKW-Fr-JID">
+                                                                        <rect key="frame" x="177" y="0.0" width="40" height="40"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnTime:" destination="L3l-0a-OdS" eventType="touchUpInside" id="8Us-Ys-JSW"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="DKW-Fr-JID" firstAttribute="top" secondItem="lH3-kt-NwK" secondAttribute="top" id="CVl-Vf-YMf"/>
                                                                     <constraint firstAttribute="height" constant="40" id="EUO-Id-3jD">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                                     </constraint>
                                                                     <constraint firstItem="55E-Xs-qEp" firstAttribute="centerY" secondItem="lH3-kt-NwK" secondAttribute="centerY" id="HQe-Ji-MjD"/>
                                                                     <constraint firstItem="Ce1-AU-gZX" firstAttribute="top" secondItem="lH3-kt-NwK" secondAttribute="top" id="LKv-bC-NXO"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Ce1-AU-gZX" secondAttribute="trailing" constant="6" id="Pri-Xd-eT6"/>
+                                                                    <constraint firstItem="DKW-Fr-JID" firstAttribute="width" secondItem="DKW-Fr-JID" secondAttribute="height" id="Q7J-ZK-5Kc"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Ce1-AU-gZX" secondAttribute="bottom" id="cCp-e9-FM5"/>
                                                                     <constraint firstAttribute="trailing" secondItem="55E-Xs-qEp" secondAttribute="trailing" constant="12" id="gaU-tF-3en"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="DKW-Fr-JID" secondAttribute="trailing" id="mDg-Ws-dTp"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="DKW-Fr-JID" secondAttribute="bottom" id="tpW-Ux-VG5"/>
                                                                     <constraint firstItem="Ce1-AU-gZX" firstAttribute="leading" secondItem="lH3-kt-NwK" secondAttribute="leading" constant="6" id="yBJ-fa-Ned"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
