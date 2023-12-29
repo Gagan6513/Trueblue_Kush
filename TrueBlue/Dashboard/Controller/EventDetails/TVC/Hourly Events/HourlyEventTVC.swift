@@ -17,7 +17,6 @@ class HourlyEventTVC: UITableViewCell {
     var tblMain = UITableView()
     var obs: NSKeyValueObservation?
     var btnExpandClick: (() -> Void)?
-    var count = 0
     var needToUpdate = false
     
     var dataa: HourEvents?
