@@ -43,32 +43,44 @@ class EventViewController: UIViewController {
     }
     
     @IBAction func btnCalender(_ sender: Any) {
-        var storyboardName = String()
-        var vcId = String()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            storyboardName = AppStoryboards.DASHBOARD
-            vcId = AppStoryboardId.SELECT_DATE
-        } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
-            vcId = AppStoryboardId.SELECT_DATE_PHONE
-        }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+//        var storyboardName = String()
+//        var vcId = String()
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            storyboardName = AppStoryboards.DASHBOARD
+//            vcId = AppStoryboardId.SELECT_DATE
+//        } else {
+//            storyboardName = AppStoryboards.DASHBOARD_PHONE
+//            vcId = AppStoryboardId.SELECT_DATE_PHONE
+//        }
+//        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+//        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+//        ctrl.modalPresentationStyle = .overFullScreen
+////        ctrl.datePicker.datePickerMode
+//        ctrl.selectedDatee = { [weak self] date in
+//            guard let self else { return }
+//            self.selectedDate = date
+//            self.setupDates()
+//        }
+//        self.present(ctrl, animated: false)
+        
+        
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "MonthSelectionVC") as! MonthSelectionVC
         ctrl.modalPresentationStyle = .overFullScreen
-//        ctrl.datePicker.datePickerMode
-        ctrl.selectedDatee = { [weak self] date in
+        ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
             self.selectedDate = date
             self.setupDates()
         }
         self.present(ctrl, animated: false)
+
+        
     }
     
     func setupTableView() {
         
         self.setupDates()
         
-        self.dateFormater.dateFormat = "YYYY-MM-dd"
+        self.dateFormater.dateFormat = "yyyy-MM-dd"
 
         self.tableView.contentInset = UIEdgeInsets(top: 14, left: 0, bottom: 100, right: 0)
         self.tableView.delegate = self

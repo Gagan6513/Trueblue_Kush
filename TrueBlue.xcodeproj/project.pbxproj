@@ -200,6 +200,7 @@
 		B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC892B3965670002DD69 /* HourlyEventTVC.xib */; };
 		B392BC902B3965800002DD69 /* TodaysEventsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */; };
 		B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */; };
+		B397658D2B42A0FA0016B6C8 /* MonthSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -403,6 +404,7 @@
 		B392BC892B3965670002DD69 /* HourlyEventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyEventTVC.xib; sourceTree = "<group>"; };
 		B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysEventsTVC.swift; sourceTree = "<group>"; };
 		B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodaysEventsTVC.xib; sourceTree = "<group>"; };
+		B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionVC.swift; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B397658B2B42A0E30016B6C8 /* MonthSelectionVC */,
 				B392BC842B39645C0002DD69 /* EventDetails */,
 				B392BC762B39436E0002DD69 /* Event */,
 				B3366DBC2B35713B00F72CE8 /* ACAFilterPopup */,
@@ -940,6 +943,14 @@
 			path = TodaysEvents;
 			sourceTree = "<group>";
 		};
+		B397658B2B42A0E30016B6C8 /* MonthSelectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */,
+			);
+			path = MonthSelectionVC;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1234,7 @@
 				5344796F26C67CB800380609 /* SceneDelegate.swift in Sources */,
 				4D4F54DD26D7397C001EEC7B /* CollectionListCell.swift in Sources */,
 				53DA39BC26D3775200842140 /* InsuranceCompanyListModel.swift in Sources */,
+				B397658D2B42A0FA0016B6C8 /* MonthSelectionVC.swift in Sources */,
 				21E0BF7629AF50E1000B9486 /* PreviewViewModel.swift in Sources */,
 				5387D9DB26D0C4D500462670 /* AccidentPicsCvCell.swift in Sources */,
 				530F39C426D4F5E000222E5E /* AtFaultDriverDetailsViewModel.swift in Sources */,
