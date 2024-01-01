@@ -18,17 +18,26 @@ class AddEventPopupVC: UIViewController {
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var btnSave: UIButton!
     
+    @IBOutlet weak var viewStatus: UIView!
+    @IBOutlet weak var txtStatus: UITextField!
+    
     var selectedEvent: Events?
     var arrUserList = [UserList]()
     var arrType = [["title":"Collection Notes", "type":"collection_notes"],
                    ["title":"Delivery Notes", "type":"delivery_notes"],
                    ["title":"Todo Notes", "type":"todo_task"]]
     
+    var arrStatus = [["title":"Pending", "type":"pending"],
+                   ["title":"Collected", "type":"collected"],
+                   ["title":"Overdue", "type":"overdue"]]
+    var selectedStatus = ""
+    
     var selectedType = ""
     var selectedUserId = ""
     
     var eventType = UIPickerView()
     var assign = UIPickerView()
+    var status = UIPickerView()
     var eventDate = UIDatePicker()
     var eventTime = UIDatePicker()
     
@@ -117,6 +126,11 @@ class AddEventPopupVC: UIViewController {
         self.assign.delegate = self
         self.assign.dataSource = self
         
+        self.status.delegate = self
+        self.status.dataSource = self
+        
+        self.txtStatus.inputView = self.status
+        
         NotificationCenter.default.addObserver(forName: .searchUser, object: nil, queue: nil, using: { [weak self] data in
             guard let self else { return }
             let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
@@ -138,6 +152,10 @@ class AddEventPopupVC: UIViewController {
         self.assignToView.isHidden = self.selectedEvent != nil
         
         self.titleLabel.text = self.selectedEvent == nil ? "Add Event" : "Edit Event"
+        
+        self.selectedStatus = self.selectedEvent?.STAGE ?? ""
+        self.txtStatus.text = self.arrStatus.first(where: { $0["type"] == selectedEvent?.STAGE ?? "" })?["title"] ?? ""
+        self.viewStatus.isHidden = self.selectedEvent == nil
     }
         
     func validateTextField() {
@@ -215,6 +233,10 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
             self.txtAddEvent.text = self.arrType.first?["title"]
             self.selectedType = self.arrType.first?["type"] ?? ""
             return self.arrType.count
+        } else if pickerView == self.status {
+            self.txtStatus.text = self.arrStatus.first?["title"]
+            self.selectedStatus = self.arrStatus.first?["type"] ?? ""
+            return self.arrStatus.count
         } else {
             self.txtAssignTo.text = self.arrUserList.first?.name
             self.selectedUserId = self.arrUserList.first?.id ?? ""
@@ -225,6 +247,8 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == self.eventType {
             return self.arrType[row]["title"]
+        } else if pickerView == self.status {
+            return self.arrStatus[row]["title"]
         } else {
             return self.arrUserList[row].name
         }
@@ -234,6 +258,9 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
         if pickerView == self.eventType {
             self.txtAddEvent.text = self.arrType[row]["title"]
             self.selectedType = self.arrType[row]["type"] ?? ""
+        } else if pickerView == self.status {
+            self.txtStatus.text = self.arrStatus[row]["title"]
+            self.selectedStatus = self.arrStatus[row]["type"] ?? ""
         } else {
             self.txtAssignTo.text = self.arrUserList[row].name
             self.selectedUserId = self.arrUserList[row].id ?? ""
@@ -342,7 +369,7 @@ extension AddEventPopupVC {
         request.parameters = ["userId": UserDefaults.standard.userId(),
                               "userName": UserDefaults.standard.username(),
                               "eventId": self.selectedEvent?.ID ?? "",
-                              "eventStage": self.selectedEvent?.STAGE?.lowercased() ?? "",
+                              "eventStage": self.selectedStatus.lowercased(),
                               "eventDate": "\(api_new_date)", // 2023-12-25
                               "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
                               "eventDesc": self.txtDescription.text ?? "",
