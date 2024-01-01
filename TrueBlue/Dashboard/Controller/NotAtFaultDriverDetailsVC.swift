@@ -92,7 +92,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         
         self.picker.delegate = self
         self.picker.dataSource = self
-        self.txtRecoveryView       .inputView = self.picker
+        self.txtRecoveryView.inputView = self.picker
         
         
         referenceIDTxtFld.isUserInteractionEnabled = false
@@ -839,9 +839,9 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
         
         //Date Of Accident
         dateOfAccidentTxtFld.text = dictDetails.dateOfAccident
-        if(!dictDetails.recoveryFor.isEmpty){
+        if (!dictDetails.recoveryFor.isEmpty) {
 //            recoveryLbl.text = dictDetails.recoveryFor
-            self.txtRecoveryView.text = dictDetails.recoveryFor
+            self.txtRecoveryView.text = dictDetails.recoveryFor.capitalized
         }
         
         //Time Of Accident
@@ -1041,9 +1041,9 @@ extension NotAtFaultDriverDetailsVC: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
-        self.txtRecoveryView.text = self.recoveryForArr[0]
-        self.selectedRecovery = self.recoveryForArr[0]
+//        self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
+//        self.txtRecoveryView.text = self.recoveryForArr[0]
+//        self.selectedRecovery = self.recoveryForArr[0]
         return self.recoveryForArr.count
     }
     
@@ -1052,6 +1052,7 @@ extension NotAtFaultDriverDetailsVC: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        CommonObject.sharedInstance.isDataChangedInCurrentTab = true
         self.txtRecoveryView.textColor = UIColor(named: AppColors.BLACK)
         self.txtRecoveryView.text = self.recoveryForArr[row]
         self.selectedRecovery = self.recoveryForArr[row]
