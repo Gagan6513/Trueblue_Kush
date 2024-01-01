@@ -9,12 +9,16 @@ import UIKit
 
 class AddEventPopupVC: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var assignToView: UIView!
     @IBOutlet weak var txtAddEvent: UITextField!
     @IBOutlet weak var txtAssignTo: UITextField!
     @IBOutlet weak var txtEventDate: UITextField!
     @IBOutlet weak var txtEventTime: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
+    @IBOutlet weak var btnSave: UIButton!
     
+    var selectedEvent: Events?
     var arrUserList = [UserList]()
     var arrType = [["title":"Collection Notes", "type":"collection_notes"],
                    ["title":"Delivery Notes", "type":"delivery_notes"],
@@ -97,11 +101,11 @@ class AddEventPopupVC: UIViewController {
         self.eventTime.datePickerMode = .time
         self.eventTime.preferredDatePickerStyle = .wheels
         
-//        self.txtEventDate.inputView = self.eventDate
-//        self.txtEventTime.inputView = self.eventTime
+        //        self.txtEventDate.inputView = self.eventDate
+        //        self.txtEventTime.inputView = self.eventTime
         
         self.txtAddEvent.inputView = self.eventType
-//        self.txtAssignTo.inputView = self.assign
+        //        self.txtAssignTo.inputView = self.assign
         self.txtAssignTo.delegate = self
         
         self.txtEventDate.delegate = self
@@ -122,8 +126,20 @@ class AddEventPopupVC: UIViewController {
                 self.selectedUserId = data.id ?? ""
             }
         })
+        
+        self.txtAssignTo.text = selectedEvent?.ASSIGNED_TO_USER
+        self.txtEventDate.text = selectedEvent?.EVENT_DATE
+        self.txtEventTime.text = selectedEvent?.EVENT_TIME
+        self.txtDescription.text = selectedEvent?.EVENT_DESC
+        self.txtAddEvent.text = self.arrType.first(where: { $0["type"] == selectedEvent?.EVENT_TYPE ?? "" })?["title"] ?? ""
+        self.selectedType = selectedEvent?.EVENT_TYPE ?? ""
+        self.selectedUserId = selectedEvent?.ASSIGNED_TO ?? ""
+        
+        self.assignToView.isHidden = self.selectedEvent != nil
+        
+        self.titleLabel.text = self.selectedEvent == nil ? "Add Event" : "Edit Event"
     }
-    
+        
     func validateTextField() {
         if self.txtAddEvent.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: "Please selecte events.")
@@ -145,7 +161,12 @@ class AddEventPopupVC: UIViewController {
             showAlert(title: "Error!", messsage: "Please enter event description.")
             return
         }
-        self.addEventType()
+        
+        if self.selectedEvent == nil {
+            self.addEventType()
+        } else {
+            self.updateEventType()
+        }
     }
 }
 
@@ -271,6 +292,57 @@ extension AddEventPopupVC {
         request.url = URL(string: API_URL.save_event)!
         request.parameters = ["userId": UserDefaults.standard.userId(),
                               "assignTo": self.selectedUserId,
+                              "eventDate": "\(api_new_date)", // 2023-12-25
+                              "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
+                              "eventDesc": self.txtDescription.text ?? "",
+                              "eventType": self.selectedType]
+        request.method = .post
+        
+        WebService.shared.performMultipartWebService(model: request, imageData: [], complition: { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(UserModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? UserModel {
+                    NotificationCenter.default.post(name: .eventListRefresh, object: nil)
+                    showGlobelAlert(title: alert_title, msg: data.msg ?? "", doneAction: { [weak self] _ in
+                        guard let self else { return }
+                        if data.status == 1 {
+                            self.dismiss(animated: false)
+                        }
+                    })
+                }
+            }
+        })
+    }
+    
+    func updateEventType() {
+        
+        let api_dateFormater = DateFormatter()
+        api_dateFormater.dateFormat =  "dd-MM-yyyy"
+        let api_date = api_dateFormater.date(from: self.txtEventDate.text ?? "") ?? Date()
+        api_dateFormater.dateFormat =  "yyyy-MM-dd"
+        let api_new_date = self.txtEventDate.text ?? "" // api_dateFormater.string(from: api_date)
+        
+        let request = WebServiceModel()
+        request.url = URL(string: API_URL.update_event)!
+        request.parameters = ["userId": UserDefaults.standard.userId(),
+                              "userName": UserDefaults.standard.username(),
+                              "eventId": self.selectedEvent?.ID ?? "",
+                              "eventStage": self.selectedEvent?.STAGE?.lowercased() ?? "",
                               "eventDate": "\(api_new_date)", // 2023-12-25
                               "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
                               "eventDesc": self.txtDescription.text ?? "",

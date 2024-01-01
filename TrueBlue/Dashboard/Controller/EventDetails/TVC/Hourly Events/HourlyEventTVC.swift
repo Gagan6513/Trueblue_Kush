@@ -20,6 +20,7 @@ class HourlyEventTVC: UITableViewCell {
     var needToUpdate = false
     
     var dataa: HourEvents?
+    var editButtonClicked: ((Events) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,6 +69,11 @@ extension HourlyEventTVC: UITableViewDelegate, UITableViewDataSource {
         
         if let data = self.dataa?.events?[indexPath.row] {
             cell.setupDetails(data: data)
+        }
+        
+        cell.editButtonClicked = { [weak self] data in
+            guard let self else { return }
+            self.editButtonClicked?(data)
         }
         
         return cell

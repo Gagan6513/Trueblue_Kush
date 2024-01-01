@@ -55,6 +55,7 @@ class EventViewController: UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
         let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
         ctrl.modalPresentationStyle = .overFullScreen
+//        ctrl.datePicker.datePickerMode
         ctrl.selectedDatee = { [weak self] date in
             guard let self else { return }
             self.selectedDate = date

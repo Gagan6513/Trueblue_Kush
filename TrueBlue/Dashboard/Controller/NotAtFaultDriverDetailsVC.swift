@@ -246,7 +246,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
 //                                       "expected_delivery_time": expectedDeliveryTime, //expectedDeliveryTimeTxtFld.text ?? "",
 //                                       "delivery_location" :dropLocationTxtFld.text ?? "",
 //                                       "proposed_vehicle": selectedProposedVehicleId,
-                                       "recovery_for"  : selectedRecovery,
+                                       "recovery_for"  : selectedRecovery.lowercased(),
                                        "description": accidentDescriptionTxtView.text ?? ""]
         print(parameters)
         apiPostRequest(parameters: parameters, endPoint: EndPoints.SAVE_NOT_AT_FAULT_DRIVER_DETAILS)

@@ -115,24 +115,35 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-7L-2PY">
+                                <rect key="frame" x="315" y="6" width="16" height="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="btnEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MIH-oh-fhc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95300000905990601" green="0.6119999885559082" blue="0.071000002324581146" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SWh-fS-XPX" firstAttribute="leading" secondItem="xST-Ge-ecA" secondAttribute="leading" id="42C-Nh-2AE"/>
+                            <constraint firstItem="bHP-7L-2PY" firstAttribute="leading" secondItem="gVY-nP-Ygn" secondAttribute="leading" id="62F-8k-qf3"/>
                             <constraint firstItem="qOe-hM-dXB" firstAttribute="top" secondItem="gVY-nP-Ygn" secondAttribute="top" id="7MJ-sD-Pzy"/>
                             <constraint firstItem="XvI-hy-cmr" firstAttribute="leading" secondItem="SWh-fS-XPX" secondAttribute="leading" id="9lo-Ng-p9N"/>
                             <constraint firstItem="TCu-h8-Htf" firstAttribute="top" secondItem="7Ds-5X-ae1" secondAttribute="top" id="CEZ-1a-IJy"/>
+                            <constraint firstItem="bHP-7L-2PY" firstAttribute="trailing" secondItem="gVY-nP-Ygn" secondAttribute="trailing" id="Czu-kG-J8a"/>
                             <constraint firstItem="TCu-h8-Htf" firstAttribute="leading" secondItem="7Ds-5X-ae1" secondAttribute="leading" id="DrG-CC-nRf"/>
                             <constraint firstItem="Xiv-BF-JTS" firstAttribute="trailing" secondItem="gVY-nP-Ygn" secondAttribute="trailing" id="EG5-hJ-zTt"/>
                             <constraint firstItem="xST-Ge-ecA" firstAttribute="leading" secondItem="qOe-hM-dXB" secondAttribute="trailing" constant="8" id="O0u-ea-lVp"/>
                             <constraint firstItem="gVY-nP-Ygn" firstAttribute="top" secondItem="7Ds-5X-ae1" secondAttribute="top" constant="6" id="ShT-ww-ck5"/>
                             <constraint firstItem="C7h-3Z-Jwk" firstAttribute="leading" secondItem="qOe-hM-dXB" secondAttribute="leading" id="bK4-tL-Wwy"/>
+                            <constraint firstItem="bHP-7L-2PY" firstAttribute="bottom" secondItem="gVY-nP-Ygn" secondAttribute="bottom" id="c6U-rx-5Yi"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XvI-hy-cmr" secondAttribute="bottom" constant="6" id="fUv-P5-Kgm"/>
                             <constraint firstItem="xST-Ge-ecA" firstAttribute="top" secondItem="qOe-hM-dXB" secondAttribute="top" id="gHc-FH-d96"/>
                             <constraint firstAttribute="bottom" secondItem="TCu-h8-Htf" secondAttribute="bottom" id="gmG-Sf-3B1"/>
                             <constraint firstItem="Xiv-BF-JTS" firstAttribute="top" secondItem="XvI-hy-cmr" secondAttribute="top" id="gyo-Q3-ym7"/>
                             <constraint firstAttribute="trailing" secondItem="gVY-nP-Ygn" secondAttribute="trailing" constant="12" id="hI2-B6-Uji"/>
                             <constraint firstItem="XvI-hy-cmr" firstAttribute="top" secondItem="SWh-fS-XPX" secondAttribute="bottom" constant="2" id="hoB-Aq-sN3"/>
+                            <constraint firstItem="bHP-7L-2PY" firstAttribute="top" secondItem="gVY-nP-Ygn" secondAttribute="top" id="pSg-Bt-XGw"/>
                             <constraint firstItem="qOe-hM-dXB" firstAttribute="leading" secondItem="TCu-h8-Htf" secondAttribute="trailing" constant="16" id="rrJ-Pr-s2l"/>
                             <constraint firstItem="gVY-nP-Ygn" firstAttribute="leading" secondItem="xST-Ge-ecA" secondAttribute="trailing" constant="12" id="wWC-aS-GdP"/>
                             <constraint firstAttribute="trailing" secondItem="SWh-fS-XPX" secondAttribute="trailing" constant="12" id="ytp-oZ-em5"/>

@@ -108,6 +108,11 @@ class BookingDetailsVC: UIViewController {
             return
         }
         
+        if self.mileageOutTxtFld.text?.isEmpty ?? true {
+            showToast(strMessage: "Please enter mileage out.")
+            return
+        }
+        
         CommonObject.sharedInstance.vehicleId = selectedProposedVehicleId
         
         let expectedDeliveryTime =  (deliveryTimeTxtFld.text ?? "").convertTimeToTwentyFourHr(isAM: deliveryTimeSegmentedControl.selectedSegmentIndex)

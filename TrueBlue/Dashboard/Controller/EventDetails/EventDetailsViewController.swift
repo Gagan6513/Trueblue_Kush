@@ -91,12 +91,20 @@ class EventDetailsViewController: UIViewController {
         self.tableViewTodaysEvents.dataSource = self
         self.tableViewTodaysEvents.registerNib(for: "TodaysEventsTVC")
         
+        NotificationCenter.default.addObserver(forName: .eventListRefresh, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            self.setupNavigationTitle()
+            self.getEventDetails()
+        })
+        
         self.setupNavigationTitle()
         self.getEventDetails()
     }
 }
 
 extension EventDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.arrNavigation.count
     }
@@ -222,6 +230,12 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
 //                self.tableViewHourlyEvents.scrollToRow(at: indexPath, at: .top, animated: false)
 //            }
             
+            cell.editButtonClicked = { [weak self] data in
+                guard let self else { return }
+                self.editEvent(data: data)
+            }
+      
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodaysEventsTVC") as? TodaysEventsTVC else { return UITableViewCell() }
@@ -230,8 +244,20 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
                 cell.setupDetails(data: data)
             }
             cell.lblTime.isHidden = true
+            cell.editButtonClicked = { [weak self] data in
+                guard let self else { return }
+                self.editEvent(data: data)
+            }
             return cell
         }
+    }
+    
+    func editEvent(data : Events) {
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "AddEventPopupVC") as! AddEventPopupVC
+        ctrl.selectedEvent = data
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.view.isOpaque = false
+        self.present(ctrl, animated: false)
     }
 }
 

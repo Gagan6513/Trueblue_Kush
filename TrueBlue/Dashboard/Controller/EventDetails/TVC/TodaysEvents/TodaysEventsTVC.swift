@@ -19,6 +19,9 @@ class TodaysEventsTVC: UITableViewCell {
     @IBOutlet weak var viewSidebar: UIView!
     @IBOutlet weak var viewBG: UIView!
     
+    var events = Events()
+    var editButtonClicked: ((Events) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,6 +34,7 @@ class TodaysEventsTVC: UITableViewCell {
     }
     
     func setupDetails(data: Events) {
+        self.events = data
         self.lblBy.text = data.ASSIGNED_BY_USER?.capitalized
         self.lblDescription.text = data.EVENT_DESC
         self.lblTo.text = data.ASSIGNED_TO_USER?.capitalized
@@ -59,6 +63,15 @@ class TodaysEventsTVC: UITableViewCell {
             self.viewBG.backgroundColor = UIColor(named: "07B107")?.withAlphaComponent(0.2)
         }
         
+        if (data.STAGE?.lowercased() ?? "") == "pending" {
+            self.imgIcon.image = UIImage(named: "Timer_event")
+        } else {
+            self.imgIcon.image = UIImage(named: "Todo_event")
+        }
+        
     }
     
+    @IBAction func btnEdit(_ sender: Any) {
+        self.editButtonClicked?(self.events)
+    }
 }
