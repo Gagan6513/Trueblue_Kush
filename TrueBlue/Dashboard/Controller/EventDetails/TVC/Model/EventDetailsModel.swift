@@ -42,5 +42,6 @@ class Events: Codable {
     var CREATED_BY: String?
     var ASSIGNED_BY_USER: String?
     var ASSIGNED_TO_USER: String?
+    var REMARKS: String?
     
 }

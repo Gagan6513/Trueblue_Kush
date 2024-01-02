@@ -36,7 +36,9 @@ class TodaysEventsTVC: UITableViewCell {
     func setupDetails(data: Events) {
         self.events = data
         self.lblBy.text = data.ASSIGNED_BY_USER?.capitalized
-        self.lblDescription.text = data.EVENT_DESC
+        
+        self.lblDescription.text = (data.EVENT_DESC ?? "")
+        
         self.lblTo.text = data.ASSIGNED_TO_USER?.capitalized
         self.lblTime.text = data.EVENT_TIME
         

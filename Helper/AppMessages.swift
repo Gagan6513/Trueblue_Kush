@@ -62,6 +62,7 @@ let saveDataFirst = "Please save details first."
 let exitWithoutSave = "Do you want to exit?"
 let expiredLicenseDateEntered = "This is an expired licence date. Are you sure you still want to proceed?"
 let requiredHirerAge = "Hirer must be 21 to drive. Are you sure you still want to proceed?"
+let requiredHirerAge21 = "Hirer must be 21 to drive."
 let futureDobEntered = "Date of Birth can not be in future."
 let futureDateOfAccidentEntered = "Date of accident can not be in future."
 

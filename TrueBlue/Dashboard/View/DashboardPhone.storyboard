@@ -19156,7 +19156,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-I1-gLO">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remark :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-I1-gLO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="QeT-oX-LUC"/>
@@ -19267,6 +19267,7 @@
                     <connections>
                         <outlet property="assignToView" destination="kQn-Fq-Lwo" id="cun-wS-GI4"/>
                         <outlet property="btnSave" destination="mK2-6t-Uat" id="46a-aj-WAv"/>
+                        <outlet property="descTitle" destination="bEP-I1-gLO" id="d8R-u9-xs7"/>
                         <outlet property="titleLabel" destination="T4X-v7-RFj" id="QBI-YK-ZHQ"/>
                         <outlet property="txtAddEvent" destination="Pw8-My-JKR" id="i2r-Dx-19d"/>
                         <outlet property="txtAssignTo" destination="TLu-Ri-GLd" id="nay-Wa-Mcc"/>
@@ -20122,8 +20123,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="170.5" height="170.5"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="checkUnselected" width="170.5" height="170.5"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="close_popup" width="16" height="16"/>

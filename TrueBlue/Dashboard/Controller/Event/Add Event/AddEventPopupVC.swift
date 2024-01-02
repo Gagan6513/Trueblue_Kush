@@ -18,6 +18,7 @@ class AddEventPopupVC: UIViewController {
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var btnSave: UIButton!
     
+    @IBOutlet weak var descTitle: UILabel!
     @IBOutlet weak var viewStatus: UIView!
     @IBOutlet weak var txtStatus: UITextField!
     
@@ -141,10 +142,12 @@ class AddEventPopupVC: UIViewController {
             }
         })
         
+        self.descTitle.text = self.selectedEvent == nil ? "Description :" : "Remarks :"
+        
         self.txtAssignTo.text = selectedEvent?.ASSIGNED_TO_USER
         self.txtEventDate.text = selectedEvent?.EVENT_DATE
         self.txtEventTime.text = selectedEvent?.EVENT_TIME
-        self.txtDescription.text = selectedEvent?.EVENT_DESC
+        self.txtDescription.text = selectedEvent?.REMARKS
         self.txtAddEvent.text = self.arrType.first(where: { $0["type"] == selectedEvent?.EVENT_TYPE ?? "" })?["title"] ?? ""
         self.selectedType = selectedEvent?.EVENT_TYPE ?? ""
         self.selectedUserId = selectedEvent?.ASSIGNED_TO ?? ""
@@ -372,7 +375,7 @@ extension AddEventPopupVC {
                               "eventStage": self.selectedStatus.lowercased(),
                               "eventDate": "\(api_new_date)", // 2023-12-25
                               "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
-                              "eventDesc": self.txtDescription.text ?? "",
+                              "eventRemarks": self.txtDescription.text ?? "",
                               "eventType": self.selectedType]
         request.method = .post
         

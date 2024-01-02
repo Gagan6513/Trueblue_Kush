@@ -23,9 +23,7 @@ class MonthSelectionVC: UIViewController {
         
         if let monthInt = Calendar.current.dateComponents([.month], from: Date()).month {
             print(monthInt) // 4
-            
             self.pickerView.selectRow(monthInt - 1, inComponent: 0, animated: false)
-            
         }
         
         if let yearInt = Calendar.current.dateComponents([.year], from: Date()).year {
@@ -33,8 +31,6 @@ class MonthSelectionVC: UIViewController {
             let index = self.arrYear.firstIndex(where: { $0 == yearInt }) ?? 0
             self.pickerView.selectRow(index, inComponent: 1, animated: false)
         }
-        
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func btnClose(_ sender: Any) {
