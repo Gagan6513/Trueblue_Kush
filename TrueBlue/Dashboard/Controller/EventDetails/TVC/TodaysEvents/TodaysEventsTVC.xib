@@ -19,17 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ds-5X-ae1">
-                        <rect key="frame" x="20" y="6" width="343" height="135"/>
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="139"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-h8-Htf">
-                                <rect key="frame" x="0.0" y="0.0" width="5" height="135"/>
+                                <rect key="frame" x="0.0" y="0.0" width="5" height="139"/>
                                 <color key="backgroundColor" name="F39C12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="0uV-dK-4UF"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timer_event" translatesAutoresizingMaskIntoConstraints="NO" id="gVY-nP-Ygn">
-                                <rect key="frame" x="315" y="6" width="16" height="16"/>
+                                <rect key="frame" x="355" y="6" width="16" height="16"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="Yr2-0Z-pSp">
@@ -52,7 +52,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xST-Ge-ecA">
-                                <rect key="frame" x="69" y="6" width="234" height="22"/>
+                                <rect key="frame" x="69" y="6" width="274" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="htS-cn-BN4"/>
                                 </constraints>
@@ -89,7 +89,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:20 am" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiv-BF-JTS">
-                                <rect key="frame" x="281" y="64.666666666666671" width="50" height="22"/>
+                                <rect key="frame" x="321" y="64.666666666666671" width="50" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Z0T-hG-lQa"/>
                                     <constraint firstAttribute="width" constant="50" id="twR-bJ-WTd">
@@ -104,7 +104,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver the car to Client John James by day end. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWh-fS-XPX">
-                                <rect key="frame" x="69" y="29.999999999999996" width="262" height="32.666666666666657"/>
+                                <rect key="frame" x="69" y="29.999999999999996" width="302" height="32.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="E5G-o3-ONE"/>
                                 </constraints>
@@ -116,7 +116,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-7L-2PY">
-                                <rect key="frame" x="315" y="6" width="16" height="16"/>
+                                <rect key="frame" x="355" y="6" width="16" height="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="btnEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MIH-oh-fhc"/>
@@ -159,10 +159,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="7Ds-5X-ae1" secondAttribute="trailing" constant="20" id="D6Y-mj-bnt"/>
-                    <constraint firstItem="7Ds-5X-ae1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="E1c-HZ-tSE"/>
-                    <constraint firstItem="7Ds-5X-ae1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="N6k-O8-NIQ"/>
-                    <constraint firstAttribute="bottom" secondItem="7Ds-5X-ae1" secondAttribute="bottom" constant="6" id="s5f-Eq-WWr"/>
+                    <constraint firstAttribute="trailing" secondItem="7Ds-5X-ae1" secondAttribute="trailing" id="D6Y-mj-bnt"/>
+                    <constraint firstItem="7Ds-5X-ae1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E1c-HZ-tSE"/>
+                    <constraint firstItem="7Ds-5X-ae1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N6k-O8-NIQ"/>
+                    <constraint firstAttribute="bottom" secondItem="7Ds-5X-ae1" secondAttribute="bottom" constant="8" id="s5f-Eq-WWr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

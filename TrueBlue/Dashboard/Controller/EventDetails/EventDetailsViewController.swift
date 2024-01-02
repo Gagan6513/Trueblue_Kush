@@ -121,7 +121,17 @@ extension EventDetailsViewController: UICollectionViewDelegate, UICollectionView
         if selectedFilter == (self.arrNavigation[indexPath.row]["type"] ?? "") {
             cell.imgIcon.tintColor = .white
             cell.lblTitle.textColor = .white
-            cell.bgView.backgroundColor = .darkGray
+            
+            if selectedFilter == "collection_notes" {
+                cell.bgView.backgroundColor = UIColor(named: "AppOrange")
+            } else if selectedFilter == "delivery_notes" {
+                cell.bgView.backgroundColor = UIColor(named: "3478F6")
+            } else if selectedFilter == "todo_task" {
+                cell.bgView.backgroundColor = UIColor(named: "07B107")
+            } else {
+                cell.bgView.backgroundColor = .darkGray
+            }
+            
         } else {
             cell.imgIcon.tintColor = .black
             cell.lblTitle.textColor = .black
@@ -219,7 +229,7 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
             cell.needToUpdate = false
             if let data = self.filterEventData.hourEvents?[indexPath.row] {
-                cell.lblHour.backgroundColor = (data.events?.count ?? 0) != 0 ? .lightGray.withAlphaComponent(0.5) : .clear
+//                cell.lblHour.backgroundColor = (data.events?.count ?? 0) != 0 ? .lightGray.withAlphaComponent(0.5) : .clear
                 cell.setupDetails(data: data)
             }
             
@@ -304,15 +314,16 @@ extension EventDetailsViewController {
                     
                     self.eventDetailsData = data.data ?? EventDetailsData()
                     self.filterEventData = self.eventDetailsData
+                    
                     self.tableViewHourlyEvents.reloadData()
                     self.tableViewTodaysEvents.reloadData()
                     
                     DispatchQueue.main.async {
-//                        if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
-//                            self.selectedIndex = 0
-//                            self.tableViewHourlyEvents.reloadData()
-//                            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-//                        }
+                        if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
+                            self.selectedIndex = 0
+                            self.tableViewHourlyEvents.reloadData()
+                            self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                        }
                         
                         self.tableViewHourlyEvents.isHidden = false
                         self.tableViewTodaysEvents.isHidden = false

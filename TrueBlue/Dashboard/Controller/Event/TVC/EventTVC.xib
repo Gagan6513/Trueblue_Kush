@@ -139,7 +139,7 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="u6B-QW-RC7" secondAttribute="trailing" constant="12" id="wIo-ZX-Ji7">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
                         </constraints>
                         <userDefinedRuntimeAttributes>

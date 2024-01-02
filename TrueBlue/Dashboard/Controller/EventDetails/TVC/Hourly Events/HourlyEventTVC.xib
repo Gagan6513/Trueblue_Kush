@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 - 9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jO-Mv-jS9">
-                                <rect key="frame" x="20" y="10" width="60" height="26"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="10" width="60" height="26"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="wfk-p9-hiG">
                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
@@ -34,7 +33,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" name="AppBlack"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -46,10 +45,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Buw-wG-jII">
-                                <rect key="frame" x="80" y="10" width="240" height="100"/>
+                                <rect key="frame" x="60" y="23.666666666666671" width="260" height="100"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kaw-9m-03K">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="jqS-vV-Uf9"/>
@@ -59,16 +58,25 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWY-KD-hfb">
-                                <rect key="frame" x="20" y="10" width="60" height="26"/>
+                                <rect key="frame" x="0.0" y="10" width="60" height="26"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="btnShowDetails:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UVc-rN-hI9"/>
                                 </connections>
                             </button>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDL-TF-Wco">
+                                <rect key="frame" x="60" y="22.666666666666668" width="260" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="22s-25-khR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Buw-wG-jII" firstAttribute="top" secondItem="8jO-Mv-jS9" secondAttribute="top" id="Dqj-Bc-Nbb"/>
+                            <constraint firstItem="WDL-TF-Wco" firstAttribute="centerY" secondItem="SWY-KD-hfb" secondAttribute="centerY" id="3ZF-mS-tT6"/>
+                            <constraint firstItem="WDL-TF-Wco" firstAttribute="leading" secondItem="8jO-Mv-jS9" secondAttribute="trailing" id="EGo-Q9-mV4"/>
+                            <constraint firstItem="Buw-wG-jII" firstAttribute="top" secondItem="WDL-TF-Wco" secondAttribute="bottom" id="IkB-GC-iop"/>
                             <constraint firstItem="SWY-KD-hfb" firstAttribute="bottom" secondItem="8jO-Mv-jS9" secondAttribute="bottom" id="ajc-fO-Mid"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Buw-wG-jII" secondAttribute="bottom" constant="10" id="eKH-9w-w7r"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8jO-Mv-jS9" secondAttribute="bottom" constant="10" id="ebB-CT-PNi"/>
@@ -76,7 +84,8 @@
                             <constraint firstAttribute="trailing" secondItem="Buw-wG-jII" secondAttribute="trailing" id="fne-6R-D5d"/>
                             <constraint firstItem="SWY-KD-hfb" firstAttribute="top" secondItem="8jO-Mv-jS9" secondAttribute="top" id="gI3-js-avm"/>
                             <constraint firstItem="Buw-wG-jII" firstAttribute="leading" secondItem="8jO-Mv-jS9" secondAttribute="trailing" id="h8b-aS-4FG"/>
-                            <constraint firstItem="8jO-Mv-jS9" firstAttribute="leading" secondItem="33v-W9-1Jt" secondAttribute="leading" constant="20" id="n8m-M6-Ue2"/>
+                            <constraint firstItem="8jO-Mv-jS9" firstAttribute="leading" secondItem="33v-W9-1Jt" secondAttribute="leading" id="n8m-M6-Ue2"/>
+                            <constraint firstAttribute="trailing" secondItem="WDL-TF-Wco" secondAttribute="trailing" id="pol-lr-GrA"/>
                             <constraint firstItem="SWY-KD-hfb" firstAttribute="leading" secondItem="8jO-Mv-jS9" secondAttribute="leading" id="sb7-EH-5sL"/>
                             <constraint firstItem="SWY-KD-hfb" firstAttribute="trailing" secondItem="8jO-Mv-jS9" secondAttribute="trailing" id="tUp-kj-fpY"/>
                         </constraints>
@@ -100,9 +109,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="AppBlack">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
