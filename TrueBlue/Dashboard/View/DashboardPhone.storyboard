@@ -10534,8 +10534,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="arrowBack"/>
                                         <connections>
-                                            <action selector="backBtn:" destination="cMT-Hj-Paj" eventType="touchUpInside" id="lBb-d0-aYQ"/>
-                                            <action selector="backBtn:" destination="vaL-Pu-PxH" eventType="touchUpInside" id="mPZ-ap-hVd"/>
+                                            <action selector="backBtn:" destination="cMT-Hj-Paj" eventType="touchUpInside" id="9x4-rb-7Eb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming bookings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75r-u4-a9N">
@@ -10574,6 +10573,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="ic_back"/>
                                         <connections>
+                                            <action selector="backBtn:" destination="cMT-Hj-Paj" eventType="touchUpInside" id="0JN-Fk-Of1"/>
                                             <action selector="btnCloseClicked:" destination="cMT-Hj-Paj" eventType="touchUpInside" id="YRi-AY-aR9"/>
                                         </connections>
                                     </button>
@@ -15323,8 +15323,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="ic_back"/>
                                         <connections>
-                                            <action selector="btnBack:" destination="MFz-p0-vLK" eventType="touchUpInside" id="6qd-2d-FaN"/>
-                                            <action selector="btnClosed:" destination="Drw-vd-WZc" eventType="touchUpInside" id="aQB-ZN-3oP"/>
+                                            <action selector="backBtn:" destination="Drw-vd-WZc" eventType="touchUpInside" id="w9f-RX-TnD"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -20393,8 +20392,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="170.5" height="170.5"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="checkUnselected" width="170.5" height="170.5"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="close_popup" width="16" height="16"/>
