@@ -202,10 +202,10 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                 return
             }
             
-            if !validateAge() {
-                showToast(strMessage: requiredHirerAge21)
-                return
-            }
+//            if !validateAge() {
+//                showToast(strMessage: requiredHirerAge21)
+//                return
+//            }
             
 //            if !isFromBookingDetails {
 //                if CommonObject.sharedInstance.vehicleId == "" {

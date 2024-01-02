@@ -84,11 +84,11 @@ class AtFaultDriverDetailsVC: UIViewController {
 
     @IBAction func saveAsDraftBtn(_ sender: UIButton) {
         
-        if !validateAge() {
-            showToast(strMessage: requiredHirerAge21)
-            return
-        }
-        
+//        if !validateAge() {
+//            showToast(strMessage: requiredHirerAge21)
+//            return
+//        }
+//        
         let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
                                        "user_id" : UserDefaults.standard.userId(),
                                        "atfault_name" : fullNameTxtFld.text ?? "",
@@ -120,13 +120,27 @@ class AtFaultDriverDetailsVC: UIViewController {
     
     
     @objc func dateOfBirthAlert() {
+//        let strDate = dateOfBirthTxtFld.text ?? ""
+//        let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
+//        print(age)
+//        if age.year < 0 {
+//            dateOfBirthTxtFld.text = ""
+//            showToast(strMessage: futureDobEntered)
+//        }
+        
         let strDate = dateOfBirthTxtFld.text ?? ""
         let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
         print(age)
         if age.year < 0 {
             dateOfBirthTxtFld.text = ""
             showToast(strMessage: futureDobEntered)
-        } 
+        } else if (age.year == 0 && (age.month > 0 || age.day > 0)) ||  (age.year > 0 && age.year < 21) {
+            showAlert(message: requiredHirerAge, yesTitle: "Yes", noTitle: "No", yesAction: {
+
+            }, noAction: {
+                self.dateOfBirthTxtFld.text = ""
+            })
+        }
     }
     
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
