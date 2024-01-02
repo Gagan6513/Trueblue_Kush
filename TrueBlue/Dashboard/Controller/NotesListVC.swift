@@ -206,9 +206,21 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     @IBAction func showNotesView(_ sender: Any) {
-        self.notesTextView.text = ""
-        self.centerNotesView.isHidden = false
-        self.view.bringSubviewToFront(centerNotesView)
+//        self.notesTextView.text = ""
+//        self.centerNotesView.isHidden = false
+//        self.view.bringSubviewToFront(centerNotesView)
+        
+        let storyboard = UIStoryboard(name: AppStoryboards.DASHBOARD_PHONE, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: "AddNotesPopupVC") as! AddNotesPopupVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        
+        ctrl.notesDescStr = { [weak self] notes in
+            guard let self else { return }
+            self.notesTextView.text = notes
+            self.saveNotes()
+        }
+        
+        self.present(ctrl, animated: false)
     }
     
 }

@@ -200,6 +200,7 @@
 		B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC892B3965670002DD69 /* HourlyEventTVC.xib */; };
 		B392BC902B3965800002DD69 /* TodaysEventsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */; };
 		B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */; };
+		B39339F92B43E3EC003EDD35 /* AddNotesPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39339F82B43E3EC003EDD35 /* AddNotesPopupVC.swift */; };
 		B397658D2B42A0FA0016B6C8 /* MonthSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
@@ -404,6 +405,7 @@
 		B392BC892B3965670002DD69 /* HourlyEventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyEventTVC.xib; sourceTree = "<group>"; };
 		B392BC8E2B3965800002DD69 /* TodaysEventsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysEventsTVC.swift; sourceTree = "<group>"; };
 		B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodaysEventsTVC.xib; sourceTree = "<group>"; };
+		B39339F82B43E3EC003EDD35 /* AddNotesPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesPopupVC.swift; sourceTree = "<group>"; };
 		B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionVC.swift; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B39339F72B43E3DC003EDD35 /* AddNotes */,
 				B397658B2B42A0E30016B6C8 /* MonthSelectionVC */,
 				B392BC842B39645C0002DD69 /* EventDetails */,
 				B392BC762B39436E0002DD69 /* Event */,
@@ -943,6 +946,14 @@
 			path = TodaysEvents;
 			sourceTree = "<group>";
 		};
+		B39339F72B43E3DC003EDD35 /* AddNotes */ = {
+			isa = PBXGroup;
+			children = (
+				B39339F82B43E3EC003EDD35 /* AddNotesPopupVC.swift */,
+			);
+			path = AddNotes;
+			sourceTree = "<group>";
+		};
 		B397658B2B42A0E30016B6C8 /* MonthSelectionVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,6 +1126,7 @@
 				532E308126D79EF3006322F0 /* BookingDetailsVC1.swift in Sources */,
 				5392791F26FC7E2000696A30 /* BookingDetailsVC.swift in Sources */,
 				B392BC832B39548F0002DD69 /* UserListModel.swift in Sources */,
+				B39339F92B43E3EC003EDD35 /* AddNotesPopupVC.swift in Sources */,
 				537D73CF26CCCD9C009591BF /* SwapVehicleVC.swift in Sources */,
 				8161331C2B2EF86900938B28 /* RepairerBookingTableViewCell.swift in Sources */,
 				8127D2E82B2C9DCD00E731AE /* NotesListTableViewCell.swift in Sources */,
