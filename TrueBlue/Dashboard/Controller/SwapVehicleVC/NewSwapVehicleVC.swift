@@ -42,12 +42,14 @@ class NewSwapVehicleVC: UIViewController {
     @IBOutlet weak var imgOldBack: UIImageView!
     @IBOutlet weak var imgOldLeft: UIImageView!
     @IBOutlet weak var imgOldRight: UIImageView!
+    @IBOutlet weak var imgOldMeter: UIImageView!
     
     @IBOutlet weak var imgNewFront: UIImageView!
     @IBOutlet weak var imgNewLeft: UIImageView!
     @IBOutlet weak var imgNewBack: UIImageView!
     @IBOutlet weak var imgNewRight: UIImageView!
-    
+    @IBOutlet weak var imgNewMeter: UIImageView!
+
     var applicationID = String()//We get this from Collections Screen
     var arrHiredVehicle = [HiredVehicleDropdownListModelData]()
     var arrReturnUploadedDocs = [DocumentDetailsModelData]()
@@ -116,6 +118,14 @@ class NewSwapVehicleVC: UIViewController {
             self.displayImageOnFullScreen(img: self.imgOldRight.image ?? UIImage())
         }
     }
+    @IBAction func btnOldVehicleMeterImage(_ sender: Any) {
+        if self.imgOldMeter.image == nil {
+            self.selectedImage = "odometer_img"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgOldMeter.image ?? UIImage())
+        }
+    }
     
     @IBAction func btnNewVehicleFrontImage(_ sender: Any) {
         if self.imgNewFront.image == nil {
@@ -150,6 +160,15 @@ class NewSwapVehicleVC: UIViewController {
             self.imagePicker?.openPhotoOptions()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewRight.image ?? UIImage())
+        }
+    }
+    
+    @IBAction func btnNewVehicleMeterImage(_ sender: Any) {
+        if self.imgNewMeter.image == nil {
+            self.selectedImage = "newodometer_img"
+            self.imagePicker?.openPhotoOptions()
+        } else {
+            self.displayImageOnFullScreen(img: self.imgNewMeter.image ?? UIImage())
         }
     }
     
@@ -549,6 +568,9 @@ class NewSwapVehicleVC: UIViewController {
         if let img = self.imgOldRight.image, let data = img.pngData() {
             profileImageData.append(["title": "right_img", "image": data])
         }
+        if let img = self.imgOldMeter.image, let data = img.pngData() {
+            profileImageData.append(["title": "odometer_img", "image": data])
+        }
         if let img = self.imgNewFront.image, let data = img.pngData() {
             profileImageData.append(["title": "newfront_img", "image": data])
         }
@@ -561,6 +583,10 @@ class NewSwapVehicleVC: UIViewController {
         if let img = self.imgNewRight.image, let data = img.pngData() {
             profileImageData.append(["title": "newright_img", "image": data])
         }
+        if let img = self.imgNewMeter.image, let data = img.pngData() {
+            profileImageData.append(["title": "newodometer_img", "image": data])
+        }
+        
         apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE, imageData: profileImageData)
         
 //        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
@@ -603,7 +629,7 @@ extension NewSwapVehicleVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width - 18) / 4, height: (collectionView.frame.width - 18) / 4)
+        return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -695,6 +721,8 @@ extension NewSwapVehicleVC: ImagePickerDelegate {
             self.imgOldLeft.image = image
         case "old_right":
             self.imgOldRight.image = image
+        case "odometer_img":
+            self.imgOldMeter.image = image
             
         case "new_front":
             self.imgNewFront.image = image
@@ -704,6 +732,9 @@ extension NewSwapVehicleVC: ImagePickerDelegate {
             self.imgNewLeft.image = image
         case "new_right":
             self.imgNewRight.image = image
+        case "newodometer_img":
+            self.imgNewMeter.image = image
+            
         default:
             print("")
         }
