@@ -83,6 +83,12 @@ class AtFaultDriverDetailsVC: UIViewController {
     }
 
     @IBAction func saveAsDraftBtn(_ sender: UIButton) {
+        
+        if !validateAge() {
+            showToast(strMessage: requiredHirerAge21)
+            return
+        }
+        
         let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
                                        "user_id" : UserDefaults.standard.userId(),
                                        "atfault_name" : fullNameTxtFld.text ?? "",
@@ -100,6 +106,18 @@ class AtFaultDriverDetailsVC: UIViewController {
                                        "atfault_state" : selectedStateId]
         apiPostRequest(parameters: parameters, endPoint: EndPoints.SAVE_AT_FAULT_DRIVER_DETAILS)
     }
+    
+    func validateAge() -> Bool {
+        let strDate = dateOfBirthTxtFld.text ?? ""
+        let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
+        print(age)
+        if (age.year == 0 && (age.month > 0 || age.day > 0)) ||  (age.year > 0 && age.year < 21) {
+            print("Please select age above 21")
+            return false
+        }
+        return true
+    }
+    
     
     @objc func dateOfBirthAlert() {
         let strDate = dateOfBirthTxtFld.text ?? ""

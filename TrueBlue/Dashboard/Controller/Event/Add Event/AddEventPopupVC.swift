@@ -9,6 +9,7 @@ import UIKit
 
 class AddEventPopupVC: UIViewController {
     
+    @IBOutlet weak var addEvent: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var assignToView: UIView!
     @IBOutlet weak var txtAddEvent: UITextField!
@@ -159,6 +160,7 @@ class AddEventPopupVC: UIViewController {
         self.selectedStatus = self.selectedEvent?.STAGE ?? ""
         self.txtStatus.text = self.arrStatus.first(where: { $0["type"] == selectedEvent?.STAGE ?? "" })?["title"] ?? ""
         self.viewStatus.isHidden = self.selectedEvent == nil
+        self.addEvent.isHidden = self.selectedEvent != nil
     }
         
     func validateTextField() {
