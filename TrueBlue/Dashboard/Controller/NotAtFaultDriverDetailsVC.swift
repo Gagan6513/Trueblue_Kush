@@ -202,12 +202,17 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                 return
             }
             
-            if !isFromBookingDetails {
-                if CommonObject.sharedInstance.vehicleId == "" {
-                    showToast(strMessage: "Please add booking details")
-                    return
-                }
-            }
+//            if validateAge() {
+//                showToast(strMessage: requiredHirerAge21)
+//                return
+//            }
+            
+//            if !isFromBookingDetails {
+//                if CommonObject.sharedInstance.vehicleId == "" {
+//                    showToast(strMessage: "Please add booking details")
+//                    return
+//                }
+//            }
         }
 
 
@@ -546,6 +551,17 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                 self.dateOfBirthTxtFld.text = ""
             })
         }
+    }
+    
+    func validateAge() -> Bool {
+        let strDate = dateOfBirthTxtFld.text ?? ""
+        let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
+        print(age)
+        if (age.year == 0 && (age.month > 0 || age.day > 0)) ||  (age.year > 0 && age.year < 21) {
+            print("Please select age above 21")
+            return false
+        }
+        return true
     }
     
     @objc func dateOfAccidentAlert() {
