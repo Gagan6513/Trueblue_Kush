@@ -556,34 +556,34 @@ class NewSwapVehicleVC: UIViewController {
         
         var profileImageData: [Dictionary<String, Any>] = []
         
-        if let img = self.imgOldFront.image, let data = img.pngData() {
+        if let img = self.imgOldFront.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "front_img", "image": data])
         }
-        if let img = self.imgOldBack.image, let data = img.pngData() {
+        if let img = self.imgOldBack.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "back_img", "image": data])
         }
-        if let img = self.imgOldLeft.image, let data = img.pngData() {
+        if let img = self.imgOldLeft.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "left_img", "image": data])
         }
-        if let img = self.imgOldRight.image, let data = img.pngData() {
+        if let img = self.imgOldRight.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "right_img", "image": data])
         }
-        if let img = self.imgOldMeter.image, let data = img.pngData() {
+        if let img = self.imgOldMeter.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "odometer_img", "image": data])
         }
-        if let img = self.imgNewFront.image, let data = img.pngData() {
+        if let img = self.imgNewFront.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "newfront_img", "image": data])
         }
-        if let img = self.imgNewBack.image, let data = img.pngData() {
+        if let img = self.imgNewBack.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "newback_img", "image": data])
         }
-        if let img = self.imgNewLeft.image, let data = img.pngData() {
+        if let img = self.imgNewLeft.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "newleft_img", "image": data])
         }
-        if let img = self.imgNewRight.image, let data = img.pngData() {
+        if let img = self.imgNewRight.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "newright_img", "image": data])
         }
-        if let img = self.imgNewMeter.image, let data = img.pngData() {
+        if let img = self.imgNewMeter.image, let data = img.jpegData(compressionQuality: 0.7) {
             profileImageData.append(["title": "newodometer_img", "image": data])
         }
         
