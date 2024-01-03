@@ -20,8 +20,10 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var txtSearch: UITextField!
     
     var repairBookingsArray = [[String: Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.repairerBookingTableView.isHidden = true
         filterView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -47,7 +49,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let dates = getCurrentMonthDates()
         print("Start Date: \(dates.startDate)")
         print("End Date: \(dates.endDate)")
-        let parameters : Parameters = ["fromDate" : dates.startDate,
+        let parameters : Parameters = ["fromDate" : "2018-01-01",
                                            "toDate" : dates.endDate]
         apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_REPAIRER_BOOKINGS)
         
@@ -100,27 +102,25 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     if let responseData = mainDict["data"] as? [String: Any],
                        let responseArray = responseData["response"] as? [[String: Any]] {
-                        
                         self.repairBookingsArray = responseArray
                         self.repairerBookingTableView.reloadData()
                     } else {
                         print("Error parsing response")
                     }
+                    
+                    self.repairerBookingTableView.isHidden = false
+                    
                     let status = mainDict["status"] as? Int ?? 0
-                    if status == 1{
+                    if status == 1 {
                         CommonObject.sharedInstance.stopProgress()
-                        
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
                         print(dict)
-                        
-                        
                         let strMsg = mainDict["msg"] as? String ?? ""
                         //                        self.delegateDataSync?.requestSuccess(dictObj: dict, serviceKey: endPoint, strMessage: strMsg)
                     } else {
                         CommonObject.sharedInstance.stopProgress()
                         let errorMsg = mainDict["msg"] as? String ?? ""
                         print(errorMsg)
-                        
                     }
                 } else{
                     //Diksha Rattan:Api Failure Response
@@ -245,6 +245,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.repairBookingsArray.count == 0 ? tableView.setBackgroundView(msg: .repairer_data_empty) : tableView.removeBackgroundView()
         return repairBookingsArray.count
     }
     

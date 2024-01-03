@@ -15,6 +15,7 @@ class NoDataView: BaseCustomView {
     // ----------------------------------------------------
     deinit {
         print("Deinit \(NoDataView.self)")
+//        noRecordFound
     }
     
     // ----------------------------------------------------
