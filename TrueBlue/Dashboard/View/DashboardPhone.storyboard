@@ -12364,7 +12364,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3472.5" y="-1335.2112676056338"/>
+            <point key="canvasLocation" x="-3535" y="-1335"/>
         </scene>
         <!--Collection NoteVC-->
         <scene sceneID="0is-Zr-UOQ">
@@ -13499,7 +13499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yN-wU-kaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2793.75" y="-1335.2112676056338"/>
+            <point key="canvasLocation" x="-2857" y="-1335"/>
         </scene>
         <!--Collection Notes ListVC-->
         <scene sceneID="eYM-mi-bGo">
@@ -16690,7 +16690,7 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-VG-g0c">
-                                                                                                <rect key="frame" x="0.0" y="15" width="75.5" height="38"/>
+                                                                                                <rect key="frame" x="0.0" y="15" width="12" height="38"/>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                                 <connections>
                                                                                                     <action selector="btnOldVehicleDateIn:" destination="u2L-DE-hLQ" eventType="touchUpInside" id="6rH-KD-iaa"/>
@@ -16701,9 +16701,9 @@
                                                                                         <constraints>
                                                                                             <constraint firstItem="3XP-d1-Wyf" firstAttribute="top" secondItem="hbp-nf-f0D" secondAttribute="bottom" id="1Ed-NN-EdA"/>
                                                                                             <constraint firstItem="BQo-dN-3eD" firstAttribute="leading" secondItem="hbp-nf-f0D" secondAttribute="leading" id="1jc-Hd-kTj"/>
+                                                                                            <constraint firstItem="35X-VG-g0c" firstAttribute="trailing" secondItem="BQo-dN-3eD" secondAttribute="trailing" id="8tS-IN-VQN"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="35X-VG-g0c" secondAttribute="bottom" id="DFB-Xs-9Vx"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="3XP-d1-Wyf" secondAttribute="bottom" id="Il5-7p-VaT"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="35X-VG-g0c" secondAttribute="trailing" id="JXY-rL-YSd"/>
                                                                                             <constraint firstItem="35X-VG-g0c" firstAttribute="top" secondItem="hbp-nf-f0D" secondAttribute="bottom" id="K7t-l9-e94"/>
                                                                                             <constraint firstItem="BQo-dN-3eD" firstAttribute="centerY" secondItem="3XP-d1-Wyf" secondAttribute="centerY" id="QT2-2A-izg"/>
                                                                                             <constraint firstItem="G2b-wJ-wS9" firstAttribute="bottom" secondItem="3XP-d1-Wyf" secondAttribute="bottom" id="S2k-4s-Gjl"/>
@@ -16765,7 +16765,7 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHe-9l-qrt">
-                                                                                                <rect key="frame" x="0.0" y="15" width="80" height="38"/>
+                                                                                                <rect key="frame" x="68" y="15" width="12" height="38"/>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                                 <connections>
                                                                                                     <action selector="btnOldVehicleTimeIn:" destination="u2L-DE-hLQ" eventType="touchUpInside" id="9hN-Nx-SZc"/>
@@ -16778,12 +16778,12 @@
                                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                                                                                             </constraint>
                                                                                             <constraint firstItem="Cth-Hq-SR9" firstAttribute="leading" secondItem="KDb-3B-TLp" secondAttribute="leading" id="3R4-6X-csu"/>
+                                                                                            <constraint firstItem="MHe-9l-qrt" firstAttribute="leading" secondItem="DPX-cc-j6T" secondAttribute="leading" id="6hg-1u-YPT"/>
                                                                                             <constraint firstItem="DPX-cc-j6T" firstAttribute="trailing" secondItem="Cth-Hq-SR9" secondAttribute="trailing" id="73O-Gs-d2y"/>
                                                                                             <constraint firstItem="7kH-8u-u4x" firstAttribute="leading" secondItem="2yD-sN-QV6" secondAttribute="leading" id="EAc-m4-j36"/>
                                                                                             <constraint firstItem="DPX-cc-j6T" firstAttribute="leading" secondItem="2yD-sN-QV6" secondAttribute="trailing" constant="4" id="HAs-qg-pYK"/>
                                                                                             <constraint firstItem="2yD-sN-QV6" firstAttribute="top" secondItem="Cth-Hq-SR9" secondAttribute="bottom" id="HvQ-bi-PLq"/>
                                                                                             <constraint firstItem="DPX-cc-j6T" firstAttribute="centerY" secondItem="2yD-sN-QV6" secondAttribute="centerY" id="PQ1-bm-sRW"/>
-                                                                                            <constraint firstItem="MHe-9l-qrt" firstAttribute="leading" secondItem="KDb-3B-TLp" secondAttribute="leading" id="UTp-pl-EWE"/>
                                                                                             <constraint firstAttribute="trailing" secondItem="MHe-9l-qrt" secondAttribute="trailing" id="Wjd-Bl-4RF"/>
                                                                                             <constraint firstItem="7kH-8u-u4x" firstAttribute="bottom" secondItem="2yD-sN-QV6" secondAttribute="bottom" id="cb4-Ps-wzH"/>
                                                                                             <constraint firstItem="2yD-sN-QV6" firstAttribute="leading" secondItem="Cth-Hq-SR9" secondAttribute="leading" id="dmP-kX-Hya"/>
@@ -17883,7 +17883,7 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mst-6P-DvV">
-                                                                                                <rect key="frame" x="0.0" y="15" width="75.5" height="38"/>
+                                                                                                <rect key="frame" x="0.0" y="15" width="12" height="38"/>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                                 <connections>
                                                                                                     <action selector="btnNewVehicleDateOut:" destination="u2L-DE-hLQ" eventType="touchUpInside" id="BG2-WT-mVD"/>
@@ -17897,8 +17897,8 @@
                                                                                             <constraint firstItem="dAW-ag-XoY" firstAttribute="leading" secondItem="XKr-oq-6rp" secondAttribute="trailing" constant="4" id="8J4-Cg-mya"/>
                                                                                             <constraint firstItem="XKr-oq-6rp" firstAttribute="leading" secondItem="5Qr-rl-jWm" secondAttribute="leading" id="OM9-OK-Lt4"/>
                                                                                             <constraint firstItem="WA8-uU-tbc" firstAttribute="trailing" secondItem="dAW-ag-XoY" secondAttribute="trailing" id="OsV-7V-vGV"/>
+                                                                                            <constraint firstItem="mst-6P-DvV" firstAttribute="trailing" secondItem="XKr-oq-6rp" secondAttribute="trailing" id="Wnl-6b-9nY"/>
                                                                                             <constraint firstItem="dAW-ag-XoY" firstAttribute="trailing" secondItem="5Qr-rl-jWm" secondAttribute="trailing" id="ZhA-Jk-Df1"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="mst-6P-DvV" secondAttribute="trailing" id="Zl9-f9-fc9"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="dAW-ag-XoY" secondAttribute="bottom" id="bRZ-c2-XS5"/>
                                                                                             <constraint firstItem="WA8-uU-tbc" firstAttribute="bottom" secondItem="dAW-ag-XoY" secondAttribute="bottom" id="ca8-Ai-5Kh"/>
                                                                                             <constraint firstItem="5Qr-rl-jWm" firstAttribute="top" secondItem="mGd-ik-0Bv" secondAttribute="top" id="d85-Dl-ocf"/>
@@ -17958,7 +17958,7 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtP-Vj-QCe">
-                                                                                                <rect key="frame" x="0.0" y="15" width="80" height="38"/>
+                                                                                                <rect key="frame" x="68" y="15" width="12" height="38"/>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                                 <connections>
                                                                                                     <action selector="btnNewVehicleTimeOut:" destination="u2L-DE-hLQ" eventType="touchUpInside" id="t1E-rp-vkh"/>
@@ -17977,11 +17977,11 @@
                                                                                             <constraint firstItem="hlx-Eo-rvA" firstAttribute="centerY" secondItem="AY1-aG-cAz" secondAttribute="centerY" id="R2x-EB-tIV"/>
                                                                                             <constraint firstItem="PtP-Vj-QCe" firstAttribute="top" secondItem="gLa-3P-D0Z" secondAttribute="bottom" id="UdA-9Z-Z5G"/>
                                                                                             <constraint firstItem="M24-BJ-b2w" firstAttribute="bottom" secondItem="AY1-aG-cAz" secondAttribute="bottom" id="Up0-gM-HvS"/>
+                                                                                            <constraint firstItem="PtP-Vj-QCe" firstAttribute="leading" secondItem="hlx-Eo-rvA" secondAttribute="leading" id="Zbb-Ue-eeP"/>
                                                                                             <constraint firstItem="gLa-3P-D0Z" firstAttribute="top" secondItem="7l7-io-a99" secondAttribute="top" id="bKj-xR-Lrb"/>
                                                                                             <constraint firstItem="gLa-3P-D0Z" firstAttribute="leading" secondItem="7l7-io-a99" secondAttribute="leading" id="c0w-g3-Lls"/>
                                                                                             <constraint firstAttribute="bottom" secondItem="AY1-aG-cAz" secondAttribute="bottom" id="e5e-WM-t87"/>
                                                                                             <constraint firstItem="AY1-aG-cAz" firstAttribute="top" secondItem="gLa-3P-D0Z" secondAttribute="bottom" id="gGB-qt-qre"/>
-                                                                                            <constraint firstItem="PtP-Vj-QCe" firstAttribute="leading" secondItem="7l7-io-a99" secondAttribute="leading" id="lMZ-O2-hDl"/>
                                                                                             <constraint firstItem="hlx-Eo-rvA" firstAttribute="leading" secondItem="AY1-aG-cAz" secondAttribute="trailing" constant="4" id="ogI-hw-6Rs"/>
                                                                                             <constraint firstAttribute="trailing" secondItem="PtP-Vj-QCe" secondAttribute="trailing" id="ruD-oF-xgt"/>
                                                                                             <constraint firstItem="M24-BJ-b2w" firstAttribute="trailing" secondItem="hlx-Eo-rvA" secondAttribute="trailing" id="tIj-1F-AnL"/>

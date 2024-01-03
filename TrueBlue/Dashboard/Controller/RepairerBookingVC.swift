@@ -225,7 +225,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         showDatePickerPopUp(textField: dateToTF, notificationName: .collectionDate, _isFromUpcomingBooking: true)
     }
     
-    func getDayMonthWithYear(dateString: String) -> String {
+    func getDayMonthWithYear(dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
@@ -241,7 +241,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
             return "\(dayOfMonth)~\(formattedDateString)"
         }
         
-        return "Invalid date format"
+        return nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -264,10 +264,14 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.vehicleRegoLbl.text = repairObject["registration_no"] as? String
         
         if let expected_delivery_date = repairObject["expected_delivery_date"] as? String {
-            let formDate = getDayMonthWithYear(dateString: expected_delivery_date)
-            let formDateArr = formDate.components(separatedBy: "~")
-            cell.dayLbl.text = formDateArr[0]
-            cell.monthYearLbl.text = formDateArr[1]
+            if let formDate = getDayMonthWithYear(dateString: expected_delivery_date) {
+                let formDateArr = formDate.components(separatedBy: "~")
+                cell.dayLbl.text = formDateArr[0]
+                cell.monthYearLbl.text = formDateArr[1]
+            } else {
+                cell.dayLbl.text = ""
+                cell.monthYearLbl.text = ""
+            }
         } else {
             cell.dayLbl.text = ""
             cell.monthYearLbl.text = ""

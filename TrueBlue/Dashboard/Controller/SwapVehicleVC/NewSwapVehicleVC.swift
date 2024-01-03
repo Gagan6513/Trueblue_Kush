@@ -358,6 +358,13 @@ class NewSwapVehicleVC: UIViewController {
     }
     
     func setupUI() {
+        
+        self.txtDateIn.delegate = self
+        self.txtTimeIn.delegate = self
+        self.txtNewDateOut.delegate = self
+        self.txtNewTimeOut.delegate = self
+        
+        
         apiPostRequest(parameters: [:], endPoint: EndPoints.HIRED_VEHICLE_DROPDOWN_LIST)
         apiPostSwapeVehicleRequest(parameters: [:], endPoint: EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST)
 
@@ -620,13 +627,22 @@ extension NewSwapVehicleVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if self.txtMilageIn == textField {
+        var isAllowed = true
+        switch textField {
+        case txtDateIn, txtNewDateOut:
+            isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
+            self.checkValidation()
+        case txtTimeIn, txtNewTimeOut :
+            isAllowed = textField.validateTimeTyped(shouldChangeCharactersInRange: range, replacementString: string)
+        case txtMilageIn:
             if let text = textField.text, let textRange = Range(range, in: text) {
                 let updatedText = text.replacingCharacters(in: textRange, with: string)
                 self.validationMiles(milageinStr: updatedText, milageOutStr: self.txtMilageOut.text ?? "0")
             }
+        default:
+            print("TextField without restriction")
         }
-        return true
+        return isAllowed
     }
     
     func validationMiles(milageinStr: String, milageOutStr: String) {
