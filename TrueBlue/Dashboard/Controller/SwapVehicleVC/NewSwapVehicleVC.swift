@@ -556,34 +556,56 @@ class NewSwapVehicleVC: UIViewController {
         
         var profileImageData: [Dictionary<String, Any>] = []
         
-        if let img = self.imgOldFront.image, let data = img.jpegData(compressionQuality: 0.7) {
+        print("actual size front_img = \((Double(self.imgOldFront.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size back_img = \((Double(self.imgOldBack.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size left_img = \((Double(self.imgOldLeft.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size right_img = \((Double(self.imgOldRight.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size odometer_img = \((Double(self.imgOldMeter.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        
+        print("actual size newfront_img = \((Double(self.imgNewFront.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size newback_img = \((Double(self.imgNewBack.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size newleft_img = \((Double(self.imgNewLeft.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size newright_img = \((Double(self.imgNewRight.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        print("actual size newodometer_img = \((Double(self.imgNewMeter.image?.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+        
+        if let img = self.imgOldFront.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size front_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "front_img", "image": data])
         }
-        if let img = self.imgOldBack.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgOldBack.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size back_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "back_img", "image": data])
         }
-        if let img = self.imgOldLeft.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgOldLeft.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size left_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "left_img", "image": data])
         }
-        if let img = self.imgOldRight.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgOldRight.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size right_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "right_img", "image": data])
         }
-        if let img = self.imgOldMeter.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgOldMeter.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size odometer_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "odometer_img", "image": data])
         }
-        if let img = self.imgNewFront.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgNewFront.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size newfront_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "newfront_img", "image": data])
         }
-        if let img = self.imgNewBack.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgNewBack.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size newback_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "newback_img", "image": data])
         }
-        if let img = self.imgNewLeft.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgNewLeft.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size newleft_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "newleft_img", "image": data])
         }
-        if let img = self.imgNewRight.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgNewRight.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size newright_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "newright_img", "image": data])
         }
-        if let img = self.imgNewMeter.image, let data = img.jpegData(compressionQuality: 0.7) {
+        if let img = self.imgNewMeter.image, let data = img.jpegData(compressionQuality: 0.6) {
+            print("after compression size newodometer_img = \((Double(data.count) / 1000.00).rounded()) KB")
             profileImageData.append(["title": "newodometer_img", "image": data])
         }
         

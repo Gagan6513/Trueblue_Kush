@@ -209,7 +209,7 @@ class AddHirerVC: UIViewController {
         if age.year < 0 {
             dateOfBirthTxtFld.text = ""
             showToast(strMessage: futureDobEntered)
-        } else if (age.year == 0 && (age.month > 0 || age.day > 0)) ||  (age.year > 0 && age.year < 21) {
+        } else if (age.year == 0 && (age.month >= 0 || age.day >= 0)) ||  (age.year >= 0 && age.year < 21) {
             showAlert(message: requiredHirerAge, yesTitle: "Yes", noTitle: "No", yesAction: {
 
             }, noAction: {
