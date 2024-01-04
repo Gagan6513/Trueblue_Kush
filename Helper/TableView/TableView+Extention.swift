@@ -47,5 +47,6 @@ public enum NoData: String {
     case repairer_data_empty = "Repairer Bookings not found!"
     case hourly_event_empty = "Hourly events not found!"
     case todays_event_empty = "Today's events not found!"
+    case user_list_empty = "User list not found!"
     
 }

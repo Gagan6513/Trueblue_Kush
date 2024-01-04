@@ -9,6 +9,16 @@ import UIKit
 
 class UserListTVC: UITableViewCell {
 
+//    MARK: - variable
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var groupLabel: UILabel!
+    
+//    MARK: - Variable
+    var isLogoutClicked: (() -> Void)?
+    
+//    MARK: - Override Function
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +30,15 @@ class UserListTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
+//    MARK: - Button Action
+    @IBAction func logOutButtonAction(_ sender: Any) {
+        self.isLogoutClicked?()
+    }
+    
+    func setData(data: AllUserListData) {
+        userNameLabel.text = data.username
+        statusLabel.text = data.status
+        nameLabel.text = data.name
+        groupLabel.text = data.group_name
+    }
 }

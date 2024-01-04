@@ -15,4 +15,5 @@ class API_URL {
     static let get_eventlist = new_path + "calDateEventsCount"
     static let get_event_details = new_path + "calDateEventsList"
     static let update_event = new_path + "saveCalendarEventStage"
+    static let get_all_user = new_path + "getAllUsersData"
 }

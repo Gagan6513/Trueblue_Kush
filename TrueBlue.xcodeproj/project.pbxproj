@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -167,6 +167,10 @@
 		53F312DD26D8DF9300D25E52 /* DocumentsHeaderTblViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F312DC26D8DF9300D25E52 /* DocumentsHeaderTblViewCell.swift */; };
 		53FEE7D226DA566B0088AD05 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEE7D126DA566B0088AD05 /* DashboardViewModel.swift */; };
 		53FEE7D426DA57610088AD05 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEE7D326DA57610088AD05 /* DashboardModel.swift */; };
+		573264372B46790300E1450D /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573264362B46790300E1450D /* UserVC.swift */; };
+		5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732643B2B467A4A00E1450D /* UserListTVC.swift */; };
+		5732643E2B467A4A00E1450D /* UserListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5732643C2B467A4A00E1450D /* UserListTVC.xib */; };
+		573264412B4683C500E1450D /* AllUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573264402B4683C500E1450D /* AllUserModel.swift */; };
 		8127D2E62B2C95F200E731AE /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127D2E52B2C95F200E731AE /* NotesListVC.swift */; };
 		8127D2E82B2C9DCD00E731AE /* NotesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127D2E72B2C9DCD00E731AE /* NotesListTableViewCell.swift */; };
 		81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */; };
@@ -372,6 +376,10 @@
 		53F312DC26D8DF9300D25E52 /* DocumentsHeaderTblViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsHeaderTblViewCell.swift; sourceTree = "<group>"; };
 		53FEE7D126DA566B0088AD05 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		53FEE7D326DA57610088AD05 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		573264362B46790300E1450D /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		5732643B2B467A4A00E1450D /* UserListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTVC.swift; sourceTree = "<group>"; };
+		5732643C2B467A4A00E1450D /* UserListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTVC.xib; sourceTree = "<group>"; };
+		573264402B4683C500E1450D /* AllUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserModel.swift; sourceTree = "<group>"; };
 		8127D2E52B2C95F200E731AE /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		8127D2E72B2C9DCD00E731AE /* NotesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewCell.swift; sourceTree = "<group>"; };
 		81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -534,6 +542,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				573264382B4679EC00E1450D /* UserList */,
 				B39339F72B43E3DC003EDD35 /* AddNotes */,
 				B397658B2B42A0E30016B6C8 /* MonthSelectionVC */,
 				B392BC842B39645C0002DD69 /* EventDetails */,
@@ -767,6 +776,41 @@
 				537D73D426CCD385009591BF /* KeyboardStateListener.swift */,
 			);
 			path = AppManagers;
+			sourceTree = "<group>";
+		};
+		573264382B4679EC00E1450D /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				5732643F2B4683A900E1450D /* Model */,
+				573264392B467A1200E1450D /* TVC */,
+				573264362B46790300E1450D /* UserVC.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		573264392B467A1200E1450D /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				5732643A2B467A2100E1450D /* UserListTVC */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		5732643A2B467A2100E1450D /* UserListTVC */ = {
+			isa = PBXGroup;
+			children = (
+				5732643B2B467A4A00E1450D /* UserListTVC.swift */,
+				5732643C2B467A4A00E1450D /* UserListTVC.xib */,
+			);
+			path = UserListTVC;
+			sourceTree = "<group>";
+		};
+		5732643F2B4683A900E1450D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				573264402B4683C500E1450D /* AllUserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		88EB67466E59C7F5B895502A /* Frameworks */ = {
@@ -1039,6 +1083,7 @@
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
+				5732643E2B467A4A00E1450D /* UserListTVC.xib in Resources */,
 				532F6852272AB6D30067C5A7 /* DashboardPhone.storyboard in Resources */,
 				B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */,
 				5344798B26C6813F00380609 /* AppColours.xcassets in Resources */,
@@ -1226,8 +1271,11 @@
 				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
 				4D9AE14A26DCC8000080D3AB /* HiredVehicleVC.swift in Sources */,
+				5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */,
+				573264412B4683C500E1450D /* AllUserModel.swift in Sources */,
 				81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */,
 				21F2AFC329F7969A004B8732 /* SwappedVehicleTblViewCell.swift in Sources */,
+				573264372B46790300E1450D /* UserVC.swift in Sources */,
 				5392792326FC845100696A30 /* CardDetailsViewModel.swift in Sources */,
 				53B669AF26CFB9D8007F1696 /* ReturnVehicleViewModel.swift in Sources */,
 				533C6B2126D668160070C4C1 /* RepairerListModel.swift in Sources */,
