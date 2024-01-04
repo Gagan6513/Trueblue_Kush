@@ -16,8 +16,6 @@ class NewBookingEntryVC: UIViewController {
     var formRefrenceID = ""
     var newBookingBackDelegate: NewBookingBackDelegate? = nil
     
-    
-    
     @IBOutlet weak var containerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,19 +136,14 @@ extension NewBookingEntryVC : UICollectionViewDelegate, UICollectionViewDataSour
         cell.tabLbl.text = tabSelections[indexPath.row]
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCvCells.NEW_BOOKING_ENTRY_TAB, for: indexPath as IndexPath) as! NewBookingEntryTabCvCell
-        let font = cell.tabLbl.font
-        let estimatedWidth = tabSelections[indexPath.row].size(withAttributes: [.font: font]).width + cell.tabIndexLbl.frame.width + cell.tabIndexLbl.frame.minX + 15
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//                    return CGSize(width: estimatedWidth, height: collectionView.frame.size.height)
-//        //            return CGSize(width: (collectionView.frame.size.width - 90)/2.4, height: collectionView.frame.size.height)
-//                }
-        collectionView.layoutIfNeeded()
-        return CGSize(width: estimatedWidth
-                      , height: collectionView.frame.size.height)
-//        return CGSize(width: (collectionView.frame.size.width - 15)/2.4, height: collectionView.frame.size.height)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+//        let font = cell.tabLbl.font ?? .boldSystemFont(ofSize: 16)
+//        let estimatedWidth = tabSelections[indexPath.row].size(withAttributes: [.font: font]).width + cell.tabIndexLbl.frame.width + cell.tabIndexLbl.frame.minX + 24
+//        collectionView.layoutIfNeeded()
+//        return CGSize(width: estimatedWidth, height: collectionView.frame.size.height)
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedRow == indexPath.row {
             return

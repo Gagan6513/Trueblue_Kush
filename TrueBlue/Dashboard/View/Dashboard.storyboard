@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-fe-WwK">
-                                <rect key="frame" x="20" y="282.5" width="794" height="871.5"/>
+                                <rect key="frame" x="20" y="244" width="794" height="910"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h5V-OQ-0FS">
                                     <size key="itemSize" width="337" height="211"/>
@@ -174,35 +174,43 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-G6-dyS">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="262.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="224"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tim-Ni-5xe">
-                                        <rect key="frame" x="50" y="50" width="75" height="79"/>
+                                        <rect key="frame" x="22" y="50" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="T4B-Pm-dOf"/>
+                                            <constraint firstAttribute="width" secondItem="tim-Ni-5xe" secondAttribute="height" id="hTn-QN-GuI"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                         <state key="normal" image="menu"/>
                                         <connections>
                                             <action selector="drawerBtn:" destination="eXB-L7-xlE" eventType="touchUpInside" id="GNc-Qo-zXk"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-Hq-AX3">
-                                        <rect key="frame" x="165" y="54" width="267" height="71"/>
+                                        <rect key="frame" x="102" y="53.5" width="200" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="cIF-RJ-PHL"/>
+                                        </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdQ-P1-qxt">
-                                        <rect key="frame" x="50" y="158" width="734" height="65.5"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdQ-P1-qxt">
+                                        <rect key="frame" x="22" y="149" width="790" height="55"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Here" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="RFn-rm-y4P">
-                                                <rect key="frame" x="37" y="0.0" width="609" height="65.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="712" height="55"/>
                                                 <color key="textColor" name="AppGrey"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="eXB-L7-xlE" id="5ZG-rQ-Cyc"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-lv-RsN">
-                                                <rect key="frame" x="666" y="16" width="34" height="32.5"/>
+                                                <rect key="frame" x="740" y="13" width="30" height="28.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="Mmd-Xl-CjA"/>
-                                                    <constraint firstAttribute="width" constant="34" id="duU-xF-Ykn"/>
+                                                    <constraint firstAttribute="width" constant="30" id="duU-xF-Ykn"/>
+                                                    <constraint firstAttribute="width" secondItem="uVl-lv-RsN" secondAttribute="height" multiplier="1:1" id="pJe-xE-6M3"/>
                                                 </constraints>
                                                 <color key="tintColor" name="AppBlack"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
@@ -211,18 +219,19 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="Color"/>
                                         <constraints>
-                                            <constraint firstItem="RFn-rm-y4P" firstAttribute="leading" secondItem="UdQ-P1-qxt" secondAttribute="leading" constant="37" id="09L-C0-rnP"/>
+                                            <constraint firstItem="RFn-rm-y4P" firstAttribute="leading" secondItem="UdQ-P1-qxt" secondAttribute="leading" constant="20" id="09L-C0-rnP"/>
                                             <constraint firstItem="RFn-rm-y4P" firstAttribute="top" secondItem="UdQ-P1-qxt" secondAttribute="top" id="7CN-iU-JFq"/>
                                             <constraint firstItem="uVl-lv-RsN" firstAttribute="centerY" secondItem="UdQ-P1-qxt" secondAttribute="centerY" id="HID-LJ-uVl"/>
-                                            <constraint firstAttribute="trailing" secondItem="uVl-lv-RsN" secondAttribute="trailing" constant="34" id="JVP-km-PSs"/>
+                                            <constraint firstAttribute="trailing" secondItem="uVl-lv-RsN" secondAttribute="trailing" constant="20" id="JVP-km-PSs"/>
                                             <constraint firstAttribute="bottom" secondItem="RFn-rm-y4P" secondAttribute="bottom" id="TWH-Hw-pLq"/>
-                                            <constraint firstItem="uVl-lv-RsN" firstAttribute="leading" secondItem="RFn-rm-y4P" secondAttribute="trailing" constant="20" id="rXy-u3-Ou5"/>
+                                            <constraint firstItem="uVl-lv-RsN" firstAttribute="leading" secondItem="RFn-rm-y4P" secondAttribute="trailing" constant="8" id="rXy-u3-Ou5"/>
+                                            <constraint firstAttribute="height" constant="55" id="shf-KU-Tm9"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
+                                                <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -230,17 +239,14 @@
                                 <color key="backgroundColor" name="AppBlue"/>
                                 <constraints>
                                     <constraint firstItem="tim-Ni-5xe" firstAttribute="top" secondItem="kxg-G6-dyS" secondAttribute="top" constant="50" id="102-hI-tiD"/>
-                                    <constraint firstItem="tim-Ni-5xe" firstAttribute="width" secondItem="kxg-G6-dyS" secondAttribute="width" multiplier="0.09" id="HQA-E0-6Vg"/>
-                                    <constraint firstItem="tim-Ni-5xe" firstAttribute="height" secondItem="kxg-G6-dyS" secondAttribute="height" multiplier="0.3" id="Kc3-KH-aTA"/>
+                                    <constraint firstAttribute="bottom" secondItem="UdQ-P1-qxt" secondAttribute="bottom" constant="20" id="3Dd-Ls-t90"/>
                                     <constraint firstItem="Dxu-Hq-AX3" firstAttribute="centerY" secondItem="tim-Ni-5xe" secondAttribute="centerY" id="N5e-Rq-QLb"/>
                                     <constraint firstItem="UdQ-P1-qxt" firstAttribute="top" secondItem="tim-Ni-5xe" secondAttribute="bottom" constant="29" id="Uhi-58-ldc"/>
-                                    <constraint firstItem="UdQ-P1-qxt" firstAttribute="leading" secondItem="kxg-G6-dyS" secondAttribute="leading" constant="50" id="dD2-nI-pyc"/>
-                                    <constraint firstItem="Dxu-Hq-AX3" firstAttribute="width" secondItem="kxg-G6-dyS" secondAttribute="width" multiplier="0.32" id="dxb-Rl-fnV"/>
-                                    <constraint firstItem="UdQ-P1-qxt" firstAttribute="height" secondItem="kxg-G6-dyS" secondAttribute="height" multiplier="0.25" id="heN-nD-XKx"/>
-                                    <constraint firstAttribute="trailing" secondItem="UdQ-P1-qxt" secondAttribute="trailing" constant="50" id="hk8-e9-2Iy"/>
-                                    <constraint firstItem="tim-Ni-5xe" firstAttribute="leading" secondItem="kxg-G6-dyS" secondAttribute="leading" constant="50" id="i1G-PK-fvo"/>
+                                    <constraint firstItem="UdQ-P1-qxt" firstAttribute="leading" secondItem="kxg-G6-dyS" secondAttribute="leading" constant="22" id="dD2-nI-pyc"/>
+                                    <constraint firstAttribute="trailing" secondItem="UdQ-P1-qxt" secondAttribute="trailing" constant="22" id="hk8-e9-2Iy"/>
+                                    <constraint firstItem="tim-Ni-5xe" firstAttribute="leading" secondItem="kxg-G6-dyS" secondAttribute="leading" constant="22" id="i1G-PK-fvo"/>
                                     <constraint firstItem="Dxu-Hq-AX3" firstAttribute="height" secondItem="tim-Ni-5xe" secondAttribute="height" multiplier="0.9" id="igS-zI-Ms0"/>
-                                    <constraint firstItem="Dxu-Hq-AX3" firstAttribute="leading" secondItem="tim-Ni-5xe" secondAttribute="trailing" constant="40" id="yuT-Qm-eYV"/>
+                                    <constraint firstItem="Dxu-Hq-AX3" firstAttribute="leading" secondItem="tim-Ni-5xe" secondAttribute="trailing" constant="10" id="yuT-Qm-eYV"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9P-SM-rU3">
@@ -491,7 +497,6 @@
                             <constraint firstItem="sQn-M9-UIK" firstAttribute="top" secondItem="dVx-bU-iua" secondAttribute="top" id="WsR-O6-7Ep"/>
                             <constraint firstItem="OgR-Jw-nBC" firstAttribute="trailing" secondItem="Y9P-SM-rU3" secondAttribute="trailing" constant="42" id="bn3-6N-tHW"/>
                             <constraint firstItem="Xbq-qL-tcy" firstAttribute="bottom" secondItem="Y9P-SM-rU3" secondAttribute="bottom" id="e6Y-pP-swt"/>
-                            <constraint firstItem="kxg-G6-dyS" firstAttribute="height" secondItem="dVx-bU-iua" secondAttribute="height" multiplier="0.22" id="kFo-fj-HTV"/>
                             <constraint firstItem="sQn-M9-UIK" firstAttribute="leading" secondItem="dVx-bU-iua" secondAttribute="leading" id="liA-ID-V6v"/>
                             <constraint firstItem="UxF-nD-E4j" firstAttribute="centerX" secondItem="Y9P-SM-rU3" secondAttribute="centerX" id="ncS-Qh-igy"/>
                             <constraint firstItem="kxg-G6-dyS" firstAttribute="leading" secondItem="OgR-Jw-nBC" secondAttribute="leading" id="ocM-g2-7I8"/>
@@ -3146,37 +3151,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NeW-4B-WQ9">
-                                <rect key="frame" x="0.0" y="145.5" width="834" height="71.5"/>
+                                <rect key="frame" x="0.0" y="85" width="834" height="71"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y4F-zV-bXq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="Dop-C9-BAO"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y4F-zV-bXq">
                                     <size key="itemSize" width="252" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="50" minY="0.0" maxX="50" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newBookingEntryTabCvCell" id="tVV-kZ-5wt" customClass="NewBookingEntryTabCvCell" customModule="TrueBlue" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="-5" width="252" height="81.5"/>
+                                        <rect key="frame" x="20" y="-4.5" width="252" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="guY-KZ-T1J">
-                                            <rect key="frame" x="0.0" y="0.0" width="252" height="81.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="252" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="i6f-fL-Lu4">
-                                                    <rect key="frame" x="66" y="0.0" width="176" height="81.5"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                                    <rect key="frame" x="66" y="0.0" width="176" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="ZPq-h1-3iQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLe-QH-b8B">
-                                                    <rect key="frame" x="10" y="18" width="46" height="46"/>
+                                                    <rect key="frame" x="10" y="17" width="46" height="46"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="9Z6-qM-Ncc"/>
                                                         <constraint firstAttribute="height" constant="46" id="Z33-0h-FcC"/>
                                                         <constraint firstAttribute="width" constant="46" id="lUM-ss-KW1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" name="AppBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -3192,11 +3203,11 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="14"/>
+                                                    <real key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="252" height="81.5"/>
+                                        <size key="customSize" width="252" height="80"/>
                                         <connections>
                                             <outlet property="tabIndexLbl" destination="nLe-QH-b8B" id="AZK-kP-n72"/>
                                             <outlet property="tabLbl" destination="i6f-fL-Lu4" id="hV5-zQ-XhL"/>
@@ -3209,11 +3220,14 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-Hg-XrF">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="95.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-D6-w7B">
-                                        <rect key="frame" x="50" y="31.5" width="39" height="33"/>
-                                        <state key="normal" image="arrowBack">
+                                        <rect key="frame" x="4" y="0.0" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dzC-D6-w7B" secondAttribute="height" id="HOb-Jk-cgm"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -3221,13 +3235,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Booking Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-Jh-Mud">
-                                        <rect key="frame" x="268" y="27.5" width="298" height="40.5"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="35"/>
+                                        <rect key="frame" x="334.5" y="17" width="165" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grd-yt-whw">
-                                        <rect key="frame" x="736" y="24" width="48" height="47.5"/>
+                                        <rect key="frame" x="756.5" y="14" width="27.5" height="27.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="grd-yt-whw" secondAttribute="height" multiplier="1:1" id="dFZ-C1-Vbv"/>
                                         </constraints>
@@ -3236,9 +3250,12 @@
                                 </subviews>
                                 <color key="backgroundColor" name="AppBlue"/>
                                 <constraints>
-                                    <constraint firstItem="dzC-D6-w7B" firstAttribute="leading" secondItem="TPR-Hg-XrF" secondAttribute="leading" constant="50" id="7WO-b5-zdG"/>
+                                    <constraint firstItem="dzC-D6-w7B" firstAttribute="leading" secondItem="TPR-Hg-XrF" secondAttribute="leading" constant="4" id="7WO-b5-zdG"/>
                                     <constraint firstItem="grd-yt-whw" firstAttribute="height" secondItem="TPR-Hg-XrF" secondAttribute="height" multiplier="0.5" id="SK3-S0-lbZ"/>
                                     <constraint firstAttribute="trailing" secondItem="grd-yt-whw" secondAttribute="trailing" constant="50" id="Xzw-c5-rO2"/>
+                                    <constraint firstAttribute="bottom" secondItem="dzC-D6-w7B" secondAttribute="bottom" id="Y9M-Lx-zcS"/>
+                                    <constraint firstItem="dzC-D6-w7B" firstAttribute="top" secondItem="TPR-Hg-XrF" secondAttribute="top" id="bKB-oI-rsq"/>
+                                    <constraint firstAttribute="height" constant="55" id="i5y-pN-SFw"/>
                                     <constraint firstItem="grd-yt-whw" firstAttribute="centerY" secondItem="TPR-Hg-XrF" secondAttribute="centerY" id="iJ0-Df-2if"/>
                                     <constraint firstItem="UKe-Jh-Mud" firstAttribute="centerX" secondItem="TPR-Hg-XrF" secondAttribute="centerX" id="pbe-wV-zfJ"/>
                                     <constraint firstItem="dzC-D6-w7B" firstAttribute="centerY" secondItem="TPR-Hg-XrF" secondAttribute="centerY" id="sF8-pk-Phm"/>
@@ -3246,7 +3263,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrY-Di-2lC">
-                                <rect key="frame" x="20" y="267" width="794" height="927"/>
+                                <rect key="frame" x="20" y="176" width="794" height="1018"/>
                                 <connections>
                                     <segue destination="3lo-Un-0uU" kind="embed" id="hqn-bF-xce"/>
                                 </connections>
@@ -3259,21 +3276,19 @@
                         <viewLayoutGuide key="safeArea" id="85b-n3-xEi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jrY-Di-2lC" firstAttribute="top" secondItem="NeW-4B-WQ9" secondAttribute="bottom" constant="50" id="7G5-zR-cqM"/>
+                            <constraint firstItem="jrY-Di-2lC" firstAttribute="top" secondItem="NeW-4B-WQ9" secondAttribute="bottom" constant="20" id="7G5-zR-cqM"/>
                             <constraint firstItem="NeW-4B-WQ9" firstAttribute="leading" secondItem="85b-n3-xEi" secondAttribute="leading" id="B5j-sU-FfD"/>
                             <constraint firstItem="TPR-Hg-XrF" firstAttribute="leading" secondItem="UoF-SX-yaL" secondAttribute="leading" id="DDK-OW-EDC"/>
                             <constraint firstItem="TPR-Hg-XrF" firstAttribute="top" secondItem="sqg-KB-pky" secondAttribute="bottom" id="Pq6-7H-3hT"/>
-                            <constraint firstItem="NeW-4B-WQ9" firstAttribute="top" secondItem="TPR-Hg-XrF" secondAttribute="bottom" constant="50" id="UZX-pU-tEe"/>
+                            <constraint firstItem="NeW-4B-WQ9" firstAttribute="top" secondItem="TPR-Hg-XrF" secondAttribute="bottom" constant="30" id="UZX-pU-tEe"/>
                             <constraint firstItem="85b-n3-xEi" firstAttribute="trailing" secondItem="NeW-4B-WQ9" secondAttribute="trailing" id="VTT-da-b9I"/>
                             <constraint firstAttribute="trailing" secondItem="TPR-Hg-XrF" secondAttribute="trailing" id="eCS-0e-g6B"/>
                             <constraint firstItem="jrY-Di-2lC" firstAttribute="leading" secondItem="85b-n3-xEi" secondAttribute="leading" constant="20" id="eON-sO-5AK"/>
                             <constraint firstItem="85b-n3-xEi" firstAttribute="trailing" secondItem="jrY-Di-2lC" secondAttribute="trailing" constant="20" id="eQf-0w-i3n"/>
-                            <constraint firstItem="TPR-Hg-XrF" firstAttribute="height" secondItem="UoF-SX-yaL" secondAttribute="height" multiplier="0.08" id="gYp-0C-uLc"/>
                             <constraint firstAttribute="trailing" secondItem="sqg-KB-pky" secondAttribute="trailing" id="jTb-37-AKP"/>
                             <constraint firstItem="sqg-KB-pky" firstAttribute="top" secondItem="UoF-SX-yaL" secondAttribute="top" id="jzf-dL-EHP"/>
                             <constraint firstItem="85b-n3-xEi" firstAttribute="bottom" secondItem="jrY-Di-2lC" secondAttribute="bottom" id="q9O-Np-rKQ"/>
                             <constraint firstItem="TPR-Hg-XrF" firstAttribute="top" secondItem="85b-n3-xEi" secondAttribute="top" id="qWz-Zv-I5U"/>
-                            <constraint firstItem="NeW-4B-WQ9" firstAttribute="height" secondItem="UoF-SX-yaL" secondAttribute="height" multiplier="0.06" id="umg-xx-WO8"/>
                             <constraint firstItem="sqg-KB-pky" firstAttribute="leading" secondItem="UoF-SX-yaL" secondAttribute="leading" id="y3z-5Y-qCa"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -4264,11 +4279,11 @@
             <objects>
                 <viewController storyboardIdentifier="notAtFaultDriverDetailsVC" id="3lo-Un-0uU" customClass="NotAtFaultDriverDetailsVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O4B-QW-9Xv">
-                        <rect key="frame" x="0.0" y="0.0" width="794" height="927"/>
+                        <rect key="frame" x="0.0" y="0.0" width="794" height="1019"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-yY-GK5">
-                                <rect key="frame" x="0.0" y="0.0" width="794" height="927"/>
+                                <rect key="frame" x="0.0" y="0.0" width="794" height="1019"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-p1-0bc">
                                         <rect key="frame" x="0.0" y="0.0" width="794" height="2628"/>
@@ -9264,10 +9279,10 @@
                                 <color key="backgroundColor" name="AppBlue"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFG-zB-iD3">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="95.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnn-3S-IFZ">
-                                        <rect key="frame" x="50" y="73.5" width="39" height="33"/>
+                                        <rect key="frame" x="50" y="31.5" width="39" height="33"/>
                                         <state key="normal" image="arrowBack">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -9276,14 +9291,14 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXT-1H-LKQ">
-                                        <rect key="frame" x="694" y="45" width="90" height="90"/>
+                                        <rect key="frame" x="736" y="24" width="48" height="47.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SXT-1H-LKQ" secondAttribute="height" multiplier="1:1" id="60m-JZ-rJn"/>
                                         </constraints>
                                         <state key="normal" image="search"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-sB-jlT">
-                                        <rect key="frame" x="298.5" y="70" width="237.5" height="40.5"/>
+                                        <rect key="frame" x="298.5" y="27.5" width="237.5" height="40.5"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -16244,373 +16259,349 @@
     </scenes>
     <designables>
         <designable name="06u-iH-Axh">
-            <size key="intrinsicContentSize" width="374" height="43.5"/>
+            <size key="intrinsicContentSize" width="374" height="23.5"/>
         </designable>
         <designable name="0kl-X2-AdZ">
-            <size key="intrinsicContentSize" width="64.5" height="46"/>
+            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
         </designable>
         <designable name="1BL-1e-020">
-            <size key="intrinsicContentSize" width="426" height="46"/>
+            <size key="intrinsicContentSize" width="426" height="24.5"/>
         </designable>
         <designable name="1Bg-ua-BAO">
-            <size key="intrinsicContentSize" width="129" height="46"/>
+            <size key="intrinsicContentSize" width="129" height="24.5"/>
         </designable>
         <designable name="1Dh-l0-i4L">
-            <size key="intrinsicContentSize" width="278" height="56.5"/>
+            <size key="intrinsicContentSize" width="278" height="30.5"/>
         </designable>
         <designable name="1z6-7b-RZM">
-            <size key="intrinsicContentSize" width="171" height="56.5"/>
+            <size key="intrinsicContentSize" width="171" height="30.5"/>
         </designable>
         <designable name="2xw-EN-JWT">
-            <size key="intrinsicContentSize" width="125" height="46"/>
+            <size key="intrinsicContentSize" width="125" height="24.5"/>
         </designable>
         <designable name="32D-I8-lKm">
-            <size key="intrinsicContentSize" width="181.5" height="46"/>
+            <size key="intrinsicContentSize" width="181.5" height="24.5"/>
         </designable>
         <designable name="3DE-Oa-jwo">
-            <size key="intrinsicContentSize" width="6" height="29.5"/>
+            <size key="intrinsicContentSize" width="6" height="24.5"/>
         </designable>
         <designable name="4Me-jE-BoS">
-            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
         </designable>
         <designable name="5bD-Ba-6Wv">
-            <size key="intrinsicContentSize" width="58" height="46"/>
+            <size key="intrinsicContentSize" width="58" height="24.5"/>
         </designable>
         <designable name="7Da-LD-AT4">
-            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
         </designable>
         <designable name="9T8-V3-VJ3">
-            <size key="intrinsicContentSize" width="6" height="29.5"/>
+            <size key="intrinsicContentSize" width="6" height="24.5"/>
         </designable>
         <designable name="A2F-1S-dLh">
-            <size key="intrinsicContentSize" width="179" height="46"/>
-        </designable>
-        <designable name="A8Z-Je-XOf">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="179" height="24.5"/>
         </designable>
         <designable name="BAb-y5-tXr">
-            <size key="intrinsicContentSize" width="150.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="150.5" height="30.5"/>
         </designable>
         <designable name="BOV-Ab-jtc">
-            <size key="intrinsicContentSize" width="58" height="46"/>
+            <size key="intrinsicContentSize" width="58" height="24.5"/>
         </designable>
         <designable name="BS2-D2-h60">
-            <size key="intrinsicContentSize" width="50.5" height="46"/>
+            <size key="intrinsicContentSize" width="50.5" height="24.5"/>
         </designable>
         <designable name="C6j-Bh-55u">
-            <size key="intrinsicContentSize" width="131.5" height="46"/>
+            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
         </designable>
         <designable name="CfH-kI-Dwe">
-            <size key="intrinsicContentSize" width="146" height="46"/>
+            <size key="intrinsicContentSize" width="146" height="24.5"/>
         </designable>
         <designable name="D2h-Za-BbH">
-            <size key="intrinsicContentSize" width="272.5" height="51.5"/>
+            <size key="intrinsicContentSize" width="272.5" height="28"/>
         </designable>
         <designable name="DVc-hZ-qXT">
-            <size key="intrinsicContentSize" width="168.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="168.5" height="30.5"/>
         </designable>
         <designable name="Eli-Ij-3Xa">
-            <size key="intrinsicContentSize" width="183.5" height="46"/>
+            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
         </designable>
         <designable name="F0Y-5D-zlS">
-            <size key="intrinsicContentSize" width="115.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="115.5" height="30.5"/>
         </designable>
         <designable name="FS3-pD-o9p">
-            <size key="intrinsicContentSize" width="93.5" height="46"/>
+            <size key="intrinsicContentSize" width="93.5" height="24.5"/>
         </designable>
         <designable name="FjY-bp-g9y">
-            <size key="intrinsicContentSize" width="135" height="56.5"/>
+            <size key="intrinsicContentSize" width="135" height="30.5"/>
         </designable>
         <designable name="Fwq-Ji-QNJ">
-            <size key="intrinsicContentSize" width="130.5" height="46"/>
+            <size key="intrinsicContentSize" width="130.5" height="24.5"/>
         </designable>
         <designable name="GD6-G4-Qtb">
-            <size key="intrinsicContentSize" width="91.5" height="46"/>
+            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
         </designable>
         <designable name="GrP-4d-aJh">
-            <size key="intrinsicContentSize" width="115.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="115.5" height="30.5"/>
         </designable>
         <designable name="H7Z-XE-zaf">
-            <size key="intrinsicContentSize" width="262.5" height="46"/>
+            <size key="intrinsicContentSize" width="262.5" height="24.5"/>
         </designable>
         <designable name="Hv3-dx-9VD">
-            <size key="intrinsicContentSize" width="142.5" height="46"/>
+            <size key="intrinsicContentSize" width="142.5" height="24.5"/>
         </designable>
         <designable name="Ib9-66-o27">
-            <size key="intrinsicContentSize" width="131.5" height="46"/>
+            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
         </designable>
         <designable name="Im2-jl-muc">
-            <size key="intrinsicContentSize" width="109" height="46"/>
+            <size key="intrinsicContentSize" width="109" height="24.5"/>
         </designable>
         <designable name="J1p-Te-ZKZ">
-            <size key="intrinsicContentSize" width="109" height="46"/>
+            <size key="intrinsicContentSize" width="109" height="24.5"/>
         </designable>
         <designable name="J6c-Yv-qDe">
-            <size key="intrinsicContentSize" width="288" height="46"/>
+            <size key="intrinsicContentSize" width="288" height="24.5"/>
         </designable>
         <designable name="JAX-MX-WQc">
-            <size key="intrinsicContentSize" width="133.5" height="43.5"/>
+            <size key="intrinsicContentSize" width="133.5" height="23.5"/>
         </designable>
         <designable name="JDj-nc-qxq">
-            <size key="intrinsicContentSize" width="223" height="46"/>
+            <size key="intrinsicContentSize" width="223" height="24.5"/>
         </designable>
         <designable name="JOX-lr-Rys">
-            <size key="intrinsicContentSize" width="151.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="151.5" height="30.5"/>
         </designable>
         <designable name="KJH-kw-fTM">
-            <size key="intrinsicContentSize" width="72.5" height="46"/>
+            <size key="intrinsicContentSize" width="72.5" height="24.5"/>
         </designable>
         <designable name="L2p-Po-IaZ">
-            <size key="intrinsicContentSize" width="101.5" height="46"/>
+            <size key="intrinsicContentSize" width="101.5" height="24.5"/>
         </designable>
         <designable name="MwF-xl-sbx">
-            <size key="intrinsicContentSize" width="258.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="258.5" height="30.5"/>
         </designable>
         <designable name="NOD-6m-kh0">
-            <size key="intrinsicContentSize" width="75.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="75.5" height="30.5"/>
         </designable>
         <designable name="NoH-pA-chA">
-            <size key="intrinsicContentSize" width="112.5" height="46"/>
-        </designable>
-        <designable name="NyR-dQ-Prk">
-            <size key="intrinsicContentSize" width="-1" height="2.5"/>
+            <size key="intrinsicContentSize" width="112.5" height="24.5"/>
         </designable>
         <designable name="OfH-bW-2rz">
-            <size key="intrinsicContentSize" width="124" height="56.5"/>
+            <size key="intrinsicContentSize" width="124" height="30.5"/>
         </designable>
         <designable name="Oo4-Ve-y2T">
-            <size key="intrinsicContentSize" width="109" height="46"/>
+            <size key="intrinsicContentSize" width="109" height="24.5"/>
         </designable>
         <designable name="PPx-zc-Lfg">
-            <size key="intrinsicContentSize" width="183.5" height="46"/>
+            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
         </designable>
         <designable name="Pau-NW-WM2">
-            <size key="intrinsicContentSize" width="184" height="56.5"/>
+            <size key="intrinsicContentSize" width="184" height="30.5"/>
         </designable>
         <designable name="QQC-OR-ase">
-            <size key="intrinsicContentSize" width="165.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="165.5" height="30.5"/>
         </designable>
         <designable name="Qfg-My-uGM">
-            <size key="intrinsicContentSize" width="6" height="28"/>
+            <size key="intrinsicContentSize" width="6" height="23"/>
         </designable>
         <designable name="RNm-mV-sQf">
-            <size key="intrinsicContentSize" width="296" height="56.5"/>
+            <size key="intrinsicContentSize" width="296" height="30.5"/>
         </designable>
         <designable name="Rop-Va-822">
-            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
         </designable>
         <designable name="SUM-DO-2dl">
-            <size key="intrinsicContentSize" width="168.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="168.5" height="30.5"/>
         </designable>
         <designable name="Teh-9U-Ozi">
-            <size key="intrinsicContentSize" width="242.5" height="51.5"/>
+            <size key="intrinsicContentSize" width="242.5" height="28"/>
         </designable>
         <designable name="U7S-gB-Cx5">
-            <size key="intrinsicContentSize" width="262.5" height="46"/>
+            <size key="intrinsicContentSize" width="262.5" height="24.5"/>
         </designable>
         <designable name="UEu-kd-9bW">
-            <size key="intrinsicContentSize" width="61.5" height="46"/>
+            <size key="intrinsicContentSize" width="61.5" height="24.5"/>
         </designable>
         <designable name="UFB-hf-7bM">
-            <size key="intrinsicContentSize" width="177" height="46"/>
+            <size key="intrinsicContentSize" width="177" height="24.5"/>
         </designable>
         <designable name="UOc-bR-940">
-            <size key="intrinsicContentSize" width="183.5" height="46"/>
+            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
         </designable>
         <designable name="UQV-qY-cpg">
-            <size key="intrinsicContentSize" width="272.5" height="51.5"/>
+            <size key="intrinsicContentSize" width="272.5" height="28"/>
         </designable>
         <designable name="UcB-4R-VAv">
-            <size key="intrinsicContentSize" width="120.5" height="46"/>
+            <size key="intrinsicContentSize" width="120.5" height="24.5"/>
         </designable>
         <designable name="UdO-Nv-nOH">
-            <size key="intrinsicContentSize" width="58" height="46"/>
-        </designable>
-        <designable name="Uyo-eu-Z6C">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="58" height="24.5"/>
         </designable>
         <designable name="VAI-9z-Bit">
-            <size key="intrinsicContentSize" width="184" height="56.5"/>
+            <size key="intrinsicContentSize" width="184" height="30.5"/>
         </designable>
         <designable name="Vhv-a0-ifg">
             <size key="intrinsicContentSize" width="34" height="34"/>
         </designable>
         <designable name="Vwt-gE-XOO">
-            <size key="intrinsicContentSize" width="413" height="56.5"/>
+            <size key="intrinsicContentSize" width="413" height="30.5"/>
         </designable>
         <designable name="XfJ-dm-o4A">
-            <size key="intrinsicContentSize" width="128" height="46"/>
+            <size key="intrinsicContentSize" width="128" height="24.5"/>
         </designable>
         <designable name="YIq-pw-TMr">
-            <size key="intrinsicContentSize" width="128" height="46"/>
+            <size key="intrinsicContentSize" width="128" height="24.5"/>
         </designable>
         <designable name="Yg3-LN-vuQ">
-            <size key="intrinsicContentSize" width="91.5" height="46"/>
+            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
         </designable>
         <designable name="ZEx-lG-dfd">
-            <size key="intrinsicContentSize" width="203.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="203.5" height="30.5"/>
         </designable>
         <designable name="ZMb-R1-lG3">
-            <size key="intrinsicContentSize" width="278" height="56.5"/>
+            <size key="intrinsicContentSize" width="278" height="30.5"/>
         </designable>
         <designable name="aGp-Zd-1vE">
-            <size key="intrinsicContentSize" width="68" height="46"/>
+            <size key="intrinsicContentSize" width="68" height="24.5"/>
         </designable>
         <designable name="akJ-rg-RyD">
-            <size key="intrinsicContentSize" width="98" height="46"/>
+            <size key="intrinsicContentSize" width="98" height="24.5"/>
         </designable>
         <designable name="bb9-jo-72T">
-            <size key="intrinsicContentSize" width="128" height="46"/>
+            <size key="intrinsicContentSize" width="128" height="24.5"/>
         </designable>
         <designable name="bcc-nK-ckd">
-            <size key="intrinsicContentSize" width="202.5" height="46"/>
+            <size key="intrinsicContentSize" width="202.5" height="24.5"/>
         </designable>
         <designable name="cUg-2k-dbB">
-            <size key="intrinsicContentSize" width="181" height="56.5"/>
+            <size key="intrinsicContentSize" width="181" height="30.5"/>
         </designable>
         <designable name="d73-t5-cbv">
-            <size key="intrinsicContentSize" width="357" height="46"/>
+            <size key="intrinsicContentSize" width="357" height="24.5"/>
         </designable>
         <designable name="dRY-co-Q8B">
-            <size key="intrinsicContentSize" width="58" height="46"/>
+            <size key="intrinsicContentSize" width="58" height="24.5"/>
         </designable>
         <designable name="e1B-vh-S6f">
-            <size key="intrinsicContentSize" width="6" height="28"/>
+            <size key="intrinsicContentSize" width="6" height="23"/>
         </designable>
         <designable name="eh9-Tv-8XY">
-            <size key="intrinsicContentSize" width="253.5" height="46"/>
+            <size key="intrinsicContentSize" width="253.5" height="24.5"/>
         </designable>
         <designable name="elS-iO-4gl">
-            <size key="intrinsicContentSize" width="64.5" height="46"/>
+            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
         </designable>
         <designable name="fFm-WW-BdQ">
-            <size key="intrinsicContentSize" width="201.5" height="46"/>
+            <size key="intrinsicContentSize" width="201.5" height="24.5"/>
         </designable>
         <designable name="fa9-Gw-R34">
-            <size key="intrinsicContentSize" width="272.5" height="46"/>
+            <size key="intrinsicContentSize" width="272.5" height="24.5"/>
         </designable>
         <designable name="fb8-ug-v03">
-            <size key="intrinsicContentSize" width="181.5" height="46"/>
+            <size key="intrinsicContentSize" width="181.5" height="24.5"/>
         </designable>
         <designable name="fjx-1X-OWZ">
-            <size key="intrinsicContentSize" width="201.5" height="46"/>
+            <size key="intrinsicContentSize" width="201.5" height="24.5"/>
         </designable>
         <designable name="fsA-zY-x4T">
-            <size key="intrinsicContentSize" width="109" height="46"/>
+            <size key="intrinsicContentSize" width="109" height="24.5"/>
         </designable>
         <designable name="ggI-vP-D6g">
-            <size key="intrinsicContentSize" width="64.5" height="46"/>
+            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
         </designable>
         <designable name="hDT-9L-qyb">
-            <size key="intrinsicContentSize" width="64.5" height="46"/>
+            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
         </designable>
         <designable name="hPg-Ck-nFG">
-            <size key="intrinsicContentSize" width="296" height="56.5"/>
+            <size key="intrinsicContentSize" width="296" height="30.5"/>
         </designable>
         <designable name="hnk-A7-ilL">
-            <size key="intrinsicContentSize" width="125" height="46"/>
+            <size key="intrinsicContentSize" width="125" height="24.5"/>
         </designable>
         <designable name="hxf-R0-9xg">
-            <size key="intrinsicContentSize" width="242.5" height="51.5"/>
-        </designable>
-        <designable name="jeI-SR-Y1Q">
-            <size key="intrinsicContentSize" width="-1" height="2.5"/>
+            <size key="intrinsicContentSize" width="242.5" height="28"/>
         </designable>
         <designable name="kAU-M2-eDT">
-            <size key="intrinsicContentSize" width="258.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="258.5" height="30.5"/>
         </designable>
         <designable name="kY2-Pj-P0a">
-            <size key="intrinsicContentSize" width="6" height="29.5"/>
+            <size key="intrinsicContentSize" width="6" height="24.5"/>
         </designable>
         <designable name="kjC-ly-e8I">
-            <size key="intrinsicContentSize" width="130.5" height="46"/>
-        </designable>
-        <designable name="laV-1d-9f6">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="130.5" height="24.5"/>
         </designable>
         <designable name="lwb-YT-Ypv">
-            <size key="intrinsicContentSize" width="131.5" height="46"/>
+            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
         </designable>
         <designable name="mqz-3g-bV9">
-            <size key="intrinsicContentSize" width="131.5" height="46"/>
+            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
         </designable>
         <designable name="n8E-vz-n7V">
-            <size key="intrinsicContentSize" width="6" height="29.5"/>
+            <size key="intrinsicContentSize" width="6" height="24.5"/>
         </designable>
         <designable name="nLG-hI-vFW">
-            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
         </designable>
         <designable name="nRj-ge-xXg">
-            <size key="intrinsicContentSize" width="146" height="46"/>
+            <size key="intrinsicContentSize" width="146" height="24.5"/>
         </designable>
         <designable name="nhl-7h-P8z">
-            <size key="intrinsicContentSize" width="338.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="338.5" height="30.5"/>
         </designable>
         <designable name="phj-Gn-NMM">
-            <size key="intrinsicContentSize" width="203.5" height="56.5"/>
-        </designable>
-        <designable name="q3j-lP-hyn">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="203.5" height="30.5"/>
         </designable>
         <designable name="qeT-qC-RjC">
-            <size key="intrinsicContentSize" width="91.5" height="46"/>
+            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
         </designable>
         <designable name="rBr-Ih-QXJ">
-            <size key="intrinsicContentSize" width="170" height="56.5"/>
+            <size key="intrinsicContentSize" width="170" height="30.5"/>
         </designable>
         <designable name="rIh-pv-DFs">
-            <size key="intrinsicContentSize" width="135" height="56.5"/>
+            <size key="intrinsicContentSize" width="135" height="30.5"/>
         </designable>
         <designable name="rXa-sb-RLQ">
-            <size key="intrinsicContentSize" width="158" height="46"/>
-        </designable>
-        <designable name="s4b-qr-KvV">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="158" height="24.5"/>
         </designable>
         <designable name="s7u-we-XmO">
-            <size key="intrinsicContentSize" width="138" height="56.5"/>
+            <size key="intrinsicContentSize" width="138" height="30.5"/>
         </designable>
         <designable name="sCM-PU-cl6">
-            <size key="intrinsicContentSize" width="135" height="56.5"/>
+            <size key="intrinsicContentSize" width="135" height="30.5"/>
         </designable>
         <designable name="sug-8T-MbE">
-            <size key="intrinsicContentSize" width="166" height="46"/>
-        </designable>
-        <designable name="tFm-Mc-Ijj">
-            <size key="intrinsicContentSize" width="-1" height="8.5"/>
+            <size key="intrinsicContentSize" width="166" height="24.5"/>
         </designable>
         <designable name="tbh-83-Wd2">
-            <size key="intrinsicContentSize" width="97" height="46"/>
+            <size key="intrinsicContentSize" width="97" height="24.5"/>
         </designable>
         <designable name="teL-KC-SYK">
-            <size key="intrinsicContentSize" width="202.5" height="46"/>
+            <size key="intrinsicContentSize" width="202.5" height="24.5"/>
         </designable>
         <designable name="uHl-i3-qAR">
-            <size key="intrinsicContentSize" width="296" height="56.5"/>
+            <size key="intrinsicContentSize" width="296" height="30.5"/>
         </designable>
         <designable name="vb5-E0-dTR">
-            <size key="intrinsicContentSize" width="62.5" height="46"/>
+            <size key="intrinsicContentSize" width="62.5" height="24.5"/>
         </designable>
         <designable name="w4Z-JG-3qe">
-            <size key="intrinsicContentSize" width="296" height="56.5"/>
+            <size key="intrinsicContentSize" width="296" height="30.5"/>
         </designable>
         <designable name="wRT-vx-2Cz">
-            <size key="intrinsicContentSize" width="135" height="46"/>
+            <size key="intrinsicContentSize" width="135" height="24.5"/>
         </designable>
         <designable name="xe8-7e-7BH">
-            <size key="intrinsicContentSize" width="106" height="46"/>
+            <size key="intrinsicContentSize" width="106" height="24.5"/>
         </designable>
         <designable name="xrX-IF-X7Y">
-            <size key="intrinsicContentSize" width="67" height="46"/>
+            <size key="intrinsicContentSize" width="67" height="24.5"/>
         </designable>
         <designable name="yiA-ve-GzH">
-            <size key="intrinsicContentSize" width="165.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="165.5" height="30.5"/>
         </designable>
         <designable name="ytC-vG-5rf">
-            <size key="intrinsicContentSize" width="6" height="29.5"/>
+            <size key="intrinsicContentSize" width="6" height="24.5"/>
         </designable>
         <designable name="zW9-9X-S0I">
-            <size key="intrinsicContentSize" width="75.5" height="56.5"/>
+            <size key="intrinsicContentSize" width="75.5" height="30.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
