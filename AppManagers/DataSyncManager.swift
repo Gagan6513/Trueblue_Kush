@@ -207,7 +207,7 @@ class DataSyncManager :NSObject {
                     }
                 }
                 
-            }, to: url, method: .post , headers: nil){ $0.timeoutInterval = 300 }.responseJSON { resp in
+            }, to: url, method: .post , headers: WebServiceModel().headers){ $0.timeoutInterval = 300 }.responseJSON { resp in
                 debugPrint(resp)
                 print(resp)
                 if let mainDict = resp.value as? [String : AnyObject] {
@@ -306,7 +306,7 @@ class DataSyncManager :NSObject {
                     }
                 }
                 
-            }, to: url, method: .post , headers: nil){ $0.timeoutInterval = 300 }.responseJSON { resp in
+            }, to: url, method: .post , headers: WebServiceModel().headers){ $0.timeoutInterval = 300 }.responseJSON { resp in
                 debugPrint(resp)
                 print(resp)
                 if let mainDict = resp.value as? [String : AnyObject] {
@@ -428,7 +428,7 @@ extension DataSyncManager {
                                          mimeType: mimeType.1)
                     }
                 })
-            }, to: url, method: .post , headers: nil)
+            }, to: url, method: .post , headers: WebServiceModel().headers)
             .uploadProgress(queue: .main, closure: { progress in
                 //Current upload progress of file
                 print("Upload Progress: \(progress.fractionCompleted)")

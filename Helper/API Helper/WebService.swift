@@ -20,7 +20,6 @@ class WebServiceModel {
         self.headers?.add(name: "Accept", value: "application/json")
         self.headers?.add(name: "Content-type", value: "application/json")
         self.headers?.add(name: "userId", value: UserDefaults.standard.userId())
-        
     }
 }
 
