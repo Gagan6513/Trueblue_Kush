@@ -155,40 +155,20 @@ class AddHirerVC: UIViewController {
             }
         }
         var parameters : Parameters = [:]
-        switch hirerNumber {
-        case 2:
             parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
                           "hirerno" : hirerNumber,
-                          "hire2_firstname": firstNameTxtFld.text ?? "",
-                          "hire2_lastname": lastNameTxtFld.text ?? "",
-                          "hire2_street":streetAddressTxtFld.text ?? "",
-                          "hire2_email":emailTxtFld.text ?? "",
-                          "hire2_phone":phoneTxtFld.text ?? "",
-                          "hire2_lic_no": licNumberTxtFld.text ?? "",
-                          "hire2_exp": expTxtFld.text ?? "",
-                          "hire2_dob":dateOfBirthTxtFld.text ?? "",
-                          "hire2_suburb":suburbTxtFld.text ?? "",
-                          "hire2_state":selectedStateId,
-                          "hire2_post_code":postalCodeTxtFld.text ?? "",
-                          "hire2_country": "Australia"]
-        case 3:
-            parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
-                          "hirerno" : hirerNumber,
-                          "hire3_firstname": firstNameTxtFld.text ?? "",
-                          "hire3_lastname": lastNameTxtFld.text ?? "",
-                          "hire3_street":streetAddressTxtFld.text ?? "",
-                          "hire3_email":emailTxtFld.text ?? "",
-                          "hire3_phone":phoneTxtFld.text ?? "",
-                          "hire3_lic_no": licNumberTxtFld.text ?? "",
-                          "hire3_exp": expTxtFld.text ?? "",
-                          "hire3_dob":dateOfBirthTxtFld.text ?? "",
-                          "hire3_suburb":suburbTxtFld.text ?? "",
-                          "hire3_state":selectedStateId,
-                          "hire3_post_code":postalCodeTxtFld.text ?? "",
-                          "hire3_country": "Australia"]
-        default:
-            print("Unkown Hirer Number")
-        }
+                          "hire_firstname": firstNameTxtFld.text ?? "",
+                          "hire_lastname": lastNameTxtFld.text ?? "",
+                          "hire_street":streetAddressTxtFld.text ?? "",
+                          "hire_email":emailTxtFld.text ?? "",
+                          "hire_phone":phoneTxtFld.text ?? "",
+                          "hire_lic_no": licNumberTxtFld.text ?? "",
+                          "hire_exp": expTxtFld.text ?? "",
+                          "hire_dob":dateOfBirthTxtFld.text ?? "",
+                          "hire_suburb":suburbTxtFld.text ?? "",
+                          "hire_state":selectedStateId,
+                          "hire_post_code":postalCodeTxtFld.text ?? "",
+                          "hire_country": "Australia"]
         apiPostRequest(parameters: parameters, endPoint: EndPoints.ADD_HIRER)
     }
     
