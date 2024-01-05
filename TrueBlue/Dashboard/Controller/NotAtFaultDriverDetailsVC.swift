@@ -480,6 +480,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         
         if (self.referenceIDTxtFld.text ?? "") != "" || (self.referenceIDTxtFld.text ?? "") != "0" {
             isFromAddThirdTier = true
+            isFromAddSecondTier = false
             saveNotAtFaultDetails()
             return
         }
@@ -496,6 +497,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         
         if UserDefaults.standard.GetReferenceId().isEmpty{
             isFromAddThirdTier = true
+            isFromAddSecondTier = false
             saveNotAtFaultDetails()
         }else{
             var storyboard = String()
@@ -927,9 +929,9 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
         //Accident Description
         accidentDescriptionTxtView.text = dictDetails.accidentDescription
         
-        if isFromAddSecondTier || isFromAddThirdTier{
-            isFromAddSecondTier = false
-            isFromAddThirdTier = false
+        if isFromAddSecondTier || isFromAddThirdTier {
+//            isFromAddSecondTier = false
+//            isFromAddThirdTier = false
             var storyboard = String()
             var vcId = String()
             if UIDevice.current.userInterfaceIdiom == .pad {

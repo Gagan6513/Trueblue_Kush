@@ -67,6 +67,7 @@ class AddHirerVC: UIViewController {
     func getHirerdetails() {
         let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
                                        "hirerno": hirerNumber]
+        print(parameters)
         apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_HIRER_DETAILS)
     }
     
