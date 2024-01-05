@@ -19,6 +19,8 @@ class DataSyncManager :NSObject {
         
         var requestURL = ""
         requestURL = API_PATH + endPoint
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        var newHeader = HTTPHeaders(header)
         
         if endPoint == EndPoints.SWAP_VEHICLE || endPoint == EndPoints.GET_NEW_UPCOMING_BOOKINGS || endPoint == EndPoints.UNDER_MAINTENANCE{
             let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
@@ -27,8 +29,9 @@ class DataSyncManager :NSObject {
         
         if NetworkReachabilityManager()!.isReachable {
             print(requestURL)
-            print(parameters)
-            AF.request(requestURL, method: .post , parameters: parameters , encoding: URLEncoding.httpBody){ $0.timeoutInterval = 60 }.responseJSON{ (response) in
+            print(parameters, newHeader)
+        
+            AF.request(requestURL, method: .post , parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader){ $0.timeoutInterval = 60 }.responseJSON{ (response) in
                 debugPrint(response)
                 CommonObject.sharedInstance.stopProgress()
                 //Diksha Rattan:Checking for internet connection
@@ -37,6 +40,15 @@ class DataSyncManager :NSObject {
                     print(mainDict)
                     let status = mainDict["status"] as? Int ?? 0
                     let success = mainDict["success"] as? Int ?? 0
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        currentController.showAlertWithAction(title: alert_title, messsage: message) {
+                            self.logout()
+                        }
+                        return
+                    }
                     //Diksha Rattan:checking status
                     if status == 1 || success == 1{
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
@@ -64,12 +76,35 @@ class DataSyncManager :NSObject {
         }
     }
     
+    func logout(){
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            vcId = AppStoryboardId.LOGIN
+        } else {
+            vcId = AppStoryboardId.LOGIN_PHONE
+        }
+        self.clearUserDefaults()
+        let vc = UIStoryboard(name: AppStoryboards.MAIN, bundle: Bundle.main).instantiateViewController(withIdentifier: vcId)
+        vc.modalPresentationStyle = .fullScreen
+        if let topController = UIApplication.topViewController() {
+            topController.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func clearUserDefaults() {
+        UserDefaults.standard.setUsername(value: "")
+        UserDefaults.standard.setIsLoggedIn(value: false)
+        UserDefaults.standard.setUserId(value: "")
+    }
     
     func getRequest(endPoint : String,  parameters : Parameters?, currentController : UIViewController) {
         print(parameters)
         let requestURL = API_PATH + endPoint
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        var newHeader = HTTPHeaders(header)
+        
         if NetworkReachabilityManager()!.isReachable {
-            AF.request(requestURL , method: .get, parameters: parameters, encoding: URLEncoding.httpBody) { $0.timeoutInterval = 60 }.responseJSON { (response) in
+            AF.request(requestURL , method: .get, parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader) { $0.timeoutInterval = 60 }.responseJSON { (response) in
                 debugPrint(response)
                 print(requestURL)
                 print(parameters)
@@ -77,6 +112,16 @@ class DataSyncManager :NSObject {
                 if let mainDict = response.value as? [String : AnyObject] {
                     print(mainDict)
                     let status = mainDict["status"] as? Int ?? 0
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        currentController.showAlertWithAction(title: alert_title, messsage: message) {
+                            self.logout()
+                        }
+                        return
+                    }
+                    
                     if status == 1{
                         CommonObject.sharedInstance.stopProgress()
                         

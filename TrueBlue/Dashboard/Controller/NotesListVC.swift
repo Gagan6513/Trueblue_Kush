@@ -70,16 +70,27 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         print(application_id)
         let requestURL = newAPIPATH + "getAllNotes"
         let parameters : Parameters = ["application_id" : application_id]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
         if NetworkReachabilityManager()!.isReachable {
-            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody) { $0.timeoutInterval = 60 }.responseJSON { (response) in
+            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader) { $0.timeoutInterval = 60 }.responseJSON { (response) in
                 debugPrint(response)
                 
                 CommonObject.sharedInstance.stopProgress()
                 if let mainDict = response.value as? [String : AnyObject] {
                     
                     print(mainDict)
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        self.showAlertWithAction(title: alert_title, messsage: message) {
+                            self.logout()
+                        }
+                        return
+                    }
                     
                     if let responseData = mainDict["data"] as? [String: Any],
                        let responseArray = responseData["response"] as? [[String: Any]] {
@@ -116,6 +127,27 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    func logout(){
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            vcId = AppStoryboardId.LOGIN
+        } else {
+            vcId = AppStoryboardId.LOGIN_PHONE
+        }
+        self.clearUserDefaults()
+        let vc = UIStoryboard(name: AppStoryboards.MAIN, bundle: Bundle.main).instantiateViewController(withIdentifier: vcId)
+        vc.modalPresentationStyle = .fullScreen
+        if let topController = UIApplication.topViewController() {
+            topController.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func clearUserDefaults() {
+        UserDefaults.standard.setUsername(value: "")
+        UserDefaults.standard.setIsLoggedIn(value: false)
+        UserDefaults.standard.setUserId(value: "")
+    }
+    
     func saveNotes() {
         CommonObject.sharedInstance.showProgress()
         let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
@@ -125,16 +157,31 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let requestURL = newAPIPATH + "saveNotes"
         let parameters : Parameters = ["application_id" : application_id, "user_id" : UserDefaults.standard.userId(), "user_name" : UserDefaults.standard.username(), "notes" : notesTextView.text!, "request_from": "App"]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
         if NetworkReachabilityManager()!.isReachable {
-            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody) { $0.timeoutInterval = 60 }.responseJSON { (response) in
+            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader) { $0.timeoutInterval = 60 }.responseJSON { (response) in
                 debugPrint(response)
                 print(requestURL)
+                let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+                var newHeader = HTTPHeaders(header)
                 
                 CommonObject.sharedInstance.stopProgress()
                 if let mainDict = response.value as? [String : AnyObject] {
                     print(mainDict)
+                    
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        self.showAlertWithAction(title: alert_title, messsage: message) {
+                            self.logout()
+                        }
+                        return
+                    }
+                    
                     let status = mainDict["status"] as? Int ?? 0
                     if status == 1{
                         CommonObject.sharedInstance.stopProgress()

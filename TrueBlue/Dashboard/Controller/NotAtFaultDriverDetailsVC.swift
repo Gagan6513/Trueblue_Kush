@@ -187,15 +187,15 @@ class NotAtFaultDriverDetailsVC: UIViewController {
                 return
             }
             
-            if (licenceExpiryTxtFld.text ?? "").isEmpty {
-                showToast(strMessage: licenceexpirydateRequired)
-                return
-            }
-            
-            if (dateOfBirthTxtFld.text ?? "").isEmpty {
-                showToast(strMessage: dobdateRequired)
-                return
-            }
+//            if (licenceExpiryTxtFld.text ?? "").isEmpty {
+//                showToast(strMessage: licenceexpirydateRequired)
+//                return
+//            }
+//            
+//            if (dateOfBirthTxtFld.text ?? "").isEmpty {
+//                showToast(strMessage: dobdateRequired)
+//                return
+//            }
             
             if (diliveryDateTxtFld.text ?? "").isEmpty {
                 showToast(strMessage: diliverydateRequired)

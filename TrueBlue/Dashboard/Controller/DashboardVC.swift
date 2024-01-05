@@ -147,10 +147,12 @@ class DashboardVC: UIViewController {
         let newAPIPATH = API_PATH //.replacingOccurrences(of: "newapp", with: "app")
         let requestURL = newAPIPATH + EndPoints.SEARCH_REFERENCE
         let parameters : Parameters = ["searchvalue" : searchVal]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
         if NetworkReachabilityManager()!.isReachable {
-            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody) { $0.timeoutInterval = 60 }.responseJSON { (response) in
+            AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader) { $0.timeoutInterval = 60 }.responseJSON { (response) in
                 debugPrint(response)
                 
                 CommonObject.sharedInstance.stopProgress()
@@ -158,7 +160,15 @@ class DashboardVC: UIViewController {
                 if let mainDict = response.value as? [String : AnyObject] {
                     
                     print(mainDict)
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
                     
+                    if statusCode == 5001 {
+                        self.showAlertWithAction(title: alert_title, messsage: message) {
+                            self.logout()
+                        }
+                        return
+                    }
                      
                     let status = mainDict["status"] as? Int ?? 0
                     if status == 1{

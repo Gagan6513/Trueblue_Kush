@@ -66,6 +66,7 @@ class NewSwapVehicleVC: UIViewController {
     
     //Image Picker
     var imagePicker: ImagePicker?
+    var multipleImgPicker: MultipleImgPicker!
     
     var selectedImage = ""
 
@@ -86,7 +87,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleFrontImage(_ sender: Any) {
         if self.imgOldFront.image == nil {
             self.selectedImage = "old_front"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgOldFront.image ?? UIImage())
         }
@@ -95,7 +97,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleBackImage(_ sender: Any) {
         if self.imgOldBack.image == nil {
             self.selectedImage = "old_back"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgOldBack.image ?? UIImage())
         }
@@ -104,7 +107,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleLeftImage(_ sender: Any) {
         if self.imgOldLeft.image == nil {
             self.selectedImage = "old_left"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgOldLeft.image ?? UIImage())
         }
@@ -113,7 +117,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleRightImage(_ sender: Any) {
         if self.imgOldRight.image == nil {
             self.selectedImage = "old_right"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgOldRight.image ?? UIImage())
         }
@@ -121,7 +126,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleMeterImage(_ sender: Any) {
         if self.imgOldMeter.image == nil {
             self.selectedImage = "odometer_img"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgOldMeter.image ?? UIImage())
         }
@@ -130,7 +136,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnNewVehicleFrontImage(_ sender: Any) {
         if self.imgNewFront.image == nil {
             self.selectedImage = "new_front"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewFront.image ?? UIImage())
         }
@@ -139,7 +146,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnNewVehicleBackImage(_ sender: Any) {
         if self.imgNewBack.image == nil {
             self.selectedImage = "new_back"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewBack.image ?? UIImage())
         }
@@ -148,7 +156,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnNewVehicleLeftImage(_ sender: Any) {
         if self.imgNewLeft.image == nil {
             self.selectedImage = "new_left"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewLeft.image ?? UIImage())
         }
@@ -157,7 +166,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnNewVehicleRightImage(_ sender: Any) {
         if self.imgNewRight.image == nil {
             self.selectedImage = "new_right"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewRight.image ?? UIImage())
         }
@@ -166,7 +176,8 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnNewVehicleMeterImage(_ sender: Any) {
         if self.imgNewMeter.image == nil {
             self.selectedImage = "newodometer_img"
-            self.imagePicker?.openPhotoOptions()
+//            self.imagePicker?.openPhotoOptions()
+            self.selectImage()
         } else {
             self.displayImageOnFullScreen(img: self.imgNewMeter.image ?? UIImage())
         }
@@ -372,6 +383,7 @@ class NewSwapVehicleVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListSwapVehicle, object: nil)
 
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        multipleImgPicker = MultipleImgPicker(presentationController: self,delegate: self)
         
         self.txtMilageIn.delegate = self
     }
@@ -778,4 +790,43 @@ extension NewSwapVehicleVC: ImagePickerDelegate {
         }
         self.selectedImage = ""
     }
+}
+
+extension NewSwapVehicleVC {
+    func selectImage() {
+        let multipleImgPickerController = DKImagePickerController()
+        multipleImgPickerController.maxSelectableCount = 1
+        multipleImgPickerController.modalPresentationStyle = .fullScreen
+        multipleImgPickerController.assetType = .allPhotos
+        multipleImgPickerController.showsCancelButton = true
+        multipleImgPickerController.UIDelegate = CustomUIDelegate()
+        multipleImgPickerController.didSelectAssets = { (assets: [DKAsset]) in
+            print("didSelectAssets")
+            print(assets)
+
+            for asset in assets {
+                asset.fetchOriginalImage(completeBlock: {image,info in
+                    //Gettimg images selected
+                    self.didSelect(image: image)
+//                    self.allDocumentImgs.append(image!)
+//                    print(self.allDocumentImgs)
+//                    if self.allDocumentImgs.count == assets.count {
+//
+//                        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
+//                                                       "document_id": self.selectedDocumentId]
+//                        self.apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.UPLOAD_MULTIPLE_DOCS, image: self.allDocumentImgs, isImg: true, isMultipleImg: true, imgParameter: "image", imgExtension: "jpg")
+//                    }
+                })
+            }
+        }
+        self.present(multipleImgPickerController, animated: true) {}
+        
+    }
+}
+
+extension NewSwapVehicleVC: MultipleImagePickerDelegate {
+    func didSelect(images: [UIImage], imgExtension: String) {
+        print(images.count)
+    }
+      
 }

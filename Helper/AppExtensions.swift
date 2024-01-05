@@ -68,6 +68,15 @@ extension Notification.Name {
 }
 extension UIViewController {
     
+    func showAlertWithAction(title: String ,messsage: String, isOkClicked: @escaping (() -> Void)) {
+        //Diksha Rattan:Function for alert messages
+        let alertController = UIAlertController(title: title, message: messsage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: { _ in
+            isOkClicked()
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func showAlert(title: String ,messsage: String) {
         //Diksha Rattan:Function for alert messages
         let alertController = UIAlertController(title: title, message: messsage, preferredStyle: .alert)
