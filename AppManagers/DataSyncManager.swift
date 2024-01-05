@@ -212,6 +212,20 @@ class DataSyncManager :NSObject {
                 print(resp)
                 if let mainDict = resp.value as? [String : AnyObject] {
                     let status = mainDict["status"] as? Int ?? 0
+                    
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        if let topController = UIApplication.topViewController() {
+                            topController.showAlertWithAction(title: alert_title, messsage: message) {
+                                self.logout()
+                            }
+                        }
+                        
+                        return
+                    }
+                    
                     if status == 1 {
                         CommonObject.sharedInstance.stopProgress()
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
@@ -297,6 +311,20 @@ class DataSyncManager :NSObject {
                 print(resp)
                 if let mainDict = resp.value as? [String : AnyObject] {
                     let status = mainDict["status"] as? Int ?? 0
+                    
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        if let topController = UIApplication.topViewController() {
+                            topController.showAlertWithAction(title: alert_title, messsage: message) {
+                                self.logout()
+                            }
+                        }
+                        
+                        return
+                    }
+                    
                     if status == 1 {
                         CommonObject.sharedInstance.stopProgress()
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
@@ -409,6 +437,18 @@ extension DataSyncManager {
                 print(response)
                 if let mainDict = response.value as? [String : AnyObject] {
                     let status = mainDict["status"] as? Int ?? 0
+                    let statusCode = mainDict["statusCode"] as? Int ?? 0
+                    let message = mainDict["msg"] as? String ?? ""
+                    
+                    if statusCode == 5001 {
+                        if let topController = UIApplication.topViewController() {
+                            topController.showAlertWithAction(title: alert_title, messsage: message) {
+                                self.logout()
+                            }
+                        }
+                        
+                        return
+                    }
                     if status == 1 {
                         CommonObject.sharedInstance.stopProgress()
                         let dict = mainDict["data"] as? Dictionary<String, Any> ?? [:]
