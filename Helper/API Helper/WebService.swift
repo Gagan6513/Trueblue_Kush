@@ -32,7 +32,7 @@ class WebService {
     
     // MARK: - PERFORM API CALLS
     func performWebService(model: WebServiceModel, complition: @escaping ((Data?, String?) -> Void)) {
-
+        
         AF.request(model.url, method: model.method, parameters: model.parameters, encoding: JSONEncoding.default, headers: model.headers).response(completionHandler: { (response) in
             switch response.result {
             case .success:
@@ -48,22 +48,18 @@ class WebService {
                 
                 DispatchQueue.main.async {
                     
-                if let mainDict = response.value as? [String : AnyObject] {
-                    print(mainDict)
-                    let statusCode = mainDict["statusCode"] as? Int ?? 0
-                    let message = mainDict["msg"] as? String ?? ""
-                    
-                    if statusCode == 5001 {
-                        if let topController = UIApplication.topViewController() {
-                            topController.showAlertWithAction(title: alert_title, messsage: message) {
-                                self.logout()
+                    if let mainDict = response.data?.convertData(StatusCodeModel.self){
+                        if let data = mainDict as? StatusCodeModel {
+                            if data.statusCode == 5001 {
+                                if let topController = UIApplication.topViewController() {
+                                    topController.showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
+                                        self.logout()
+                                    }
+                                }
+                                return
                             }
                         }
-                        return
                     }
-                }
-                
-              
                     switch response.response?.statusCode {
                     default:
                         complition(response.data ?? Data(), nil)
@@ -150,18 +146,16 @@ class WebService {
                     print("\n======================== END =========================\n")
                 }
                 DispatchQueue.main.async {
-                    if let mainDict = response.value as? [String : AnyObject] {
-                        print(mainDict)
-                        let statusCode = mainDict["statusCode"] as? Int ?? 0
-                        let message = mainDict["msg"] as? String ?? ""
-                        
-                        if statusCode == 5001 {
-                            if let topController = UIApplication.topViewController() {
-                                topController.showAlertWithAction(title: alert_title, messsage: message) {
-                                    self.logout()
+                    if let mainDict = response.data?.convertData(StatusCodeModel.self){
+                        if let data = mainDict as? StatusCodeModel {
+                            if data.statusCode == 5001 {
+                                if let topController = UIApplication.topViewController() {
+                                    topController.showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
+                                        self.logout()
+                                    }
                                 }
+                                return
                             }
-                            return
                         }
                     }
                     
@@ -201,4 +195,10 @@ extension Encodable {
         return try! JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
     }
     
+}
+
+class StatusCodeModel : Codable {
+    var statusCode: Int?
+    var status: Int?
+    var msg: String?
 }
