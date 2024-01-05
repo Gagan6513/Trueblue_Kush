@@ -46,6 +46,8 @@ class WebService {
                     print("\n======================== END =========================\n")
                 }
                 
+                DispatchQueue.main.async {
+                    
                 if let mainDict = response.value as? [String : AnyObject] {
                     print(mainDict)
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
@@ -61,7 +63,7 @@ class WebService {
                     }
                 }
                 
-                DispatchQueue.main.async {
+              
                     switch response.response?.statusCode {
                     default:
                         complition(response.data ?? Data(), nil)
@@ -148,6 +150,21 @@ class WebService {
                     print("\n======================== END =========================\n")
                 }
                 DispatchQueue.main.async {
+                    if let mainDict = response.value as? [String : AnyObject] {
+                        print(mainDict)
+                        let statusCode = mainDict["statusCode"] as? Int ?? 0
+                        let message = mainDict["msg"] as? String ?? ""
+                        
+                        if statusCode == 5001 {
+                            if let topController = UIApplication.topViewController() {
+                                topController.showAlertWithAction(title: alert_title, messsage: message) {
+                                    self.logout()
+                                }
+                            }
+                            return
+                        }
+                    }
+                    
                     switch response.response?.statusCode {
                     default:
                         complition(response.data ?? Data(), nil)
