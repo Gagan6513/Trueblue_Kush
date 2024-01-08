@@ -187,7 +187,7 @@ class NewSwapVehicleVC: UIViewController {
     @IBAction func btnOldVehicleRightImage(_ sender: Any) {
         self.selectedImage = "old_right"
 
-        if let img = self.imgOldLeft.image {
+        if let img = self.imgOldRight.image {
             let images = self.getOldImageArray(currentImage: img)
             self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
