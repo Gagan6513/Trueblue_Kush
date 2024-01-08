@@ -84,102 +84,174 @@ class NewSwapVehicleVC: UIViewController {
     
     // Upload Image ================
     
-    @IBAction func btnOldVehicleFrontImage(_ sender: Any) {
-        if self.imgOldFront.image == nil {
-            self.selectedImage = "old_front"
-//            self.imagePicker?.openPhotoOptions()
+    func showViewImageOption(currentImg: UIImage, arrImage: [UIImage], currentIndex: Int) {
+        let alert = UIAlertController(title: nil, message: "Please Select an Option", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "View Picture", style: .default , handler:{ (UIAlertAction)in
+            self.setAllImages(currentImg: currentImg, allImages: arrImage, currentIndex: currentIndex)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Retake Picture", style: .default , handler:{ (UIAlertAction)in
             self.selectImage()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getOldImageArray(currentImage: UIImage) -> ([UIImage], Int) {
+        
+        var images = [UIImage]()
+         
+        if let img = self.imgOldFront.image {
+            images.append(img)
+        }
+        if let img = self.imgOldBack.image {
+            images.append(img)
+        }
+        if let img = self.imgOldLeft.image {
+            images.append(img)
+        }
+        if let img = self.imgOldRight.image {
+            images.append(img)
+        }
+        if let img = self.imgOldMeter.image {
+            images.append(img)
+        }
+        
+        let index = images.firstIndex(of: currentImage) ?? 0
+        
+        return (images, index)
+    }
+    
+    func getNewImageArray(currentImage: UIImage) -> ([UIImage], Int) {
+        var images = [UIImage]()
+
+        if let img = self.imgNewFront.image {
+            images.append(img)
+        }
+        if let img = self.imgNewBack.image {
+            images.append(img)
+        }
+        if let img = self.imgNewLeft.image {
+            images.append(img)
+        }
+        if let img = self.imgNewRight.image {
+            images.append(img)
+        }
+        if let img = self.imgNewMeter.image {
+            images.append(img)
+        }
+
+        let index = images.firstIndex(of: currentImage) ?? 0
+        
+        return (images, index)
+    }
+    
+    @IBAction func btnOldVehicleFrontImage(_ sender: Any) {
+        self.selectedImage = "old_front"
+        
+        if let img = self.imgOldFront.image {
+            let images = self.getOldImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgOldFront.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnOldVehicleBackImage(_ sender: Any) {
-        if self.imgOldBack.image == nil {
-            self.selectedImage = "old_back"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "old_back"
+
+        if let img = self.imgOldBack.image {
+            let images = self.getOldImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgOldBack.image ?? UIImage())
+            self.selectImage()
         }
+        
     }
     
     @IBAction func btnOldVehicleLeftImage(_ sender: Any) {
-        if self.imgOldLeft.image == nil {
-            self.selectedImage = "old_left"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "old_left"
+
+        if let img = self.imgOldLeft.image {
+            let images = self.getOldImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgOldLeft.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnOldVehicleRightImage(_ sender: Any) {
-        if self.imgOldRight.image == nil {
-            self.selectedImage = "old_right"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "old_right"
+
+        if let img = self.imgOldLeft.image {
+            let images = self.getOldImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgOldRight.image ?? UIImage())
+            self.selectImage()
         }
     }
     @IBAction func btnOldVehicleMeterImage(_ sender: Any) {
-        if self.imgOldMeter.image == nil {
-            self.selectedImage = "odometer_img"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "odometer_img"
+
+        if let img = self.imgOldMeter.image {
+            let images = self.getOldImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgOldMeter.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnNewVehicleFrontImage(_ sender: Any) {
-        if self.imgNewFront.image == nil {
-            self.selectedImage = "new_front"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "new_front"
+        if let img = self.imgNewFront.image {
+            let images = self.getNewImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgNewFront.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnNewVehicleBackImage(_ sender: Any) {
-        if self.imgNewBack.image == nil {
-            self.selectedImage = "new_back"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "new_back"
+        if let img = self.imgNewBack.image {
+            let images = self.getNewImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgNewBack.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnNewVehicleLeftImage(_ sender: Any) {
-        if self.imgNewLeft.image == nil {
-            self.selectedImage = "new_left"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "new_left"
+        if let img = self.imgNewLeft.image {
+            let images = self.getNewImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgNewLeft.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnNewVehicleRightImage(_ sender: Any) {
-        if self.imgNewRight.image == nil {
-            self.selectedImage = "new_right"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "new_right"
+        if let img = self.imgNewRight.image {
+            let images = self.getNewImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgNewRight.image ?? UIImage())
+            self.selectImage()
         }
     }
     
     @IBAction func btnNewVehicleMeterImage(_ sender: Any) {
-        if self.imgNewMeter.image == nil {
-            self.selectedImage = "newodometer_img"
-//            self.imagePicker?.openPhotoOptions()
-            self.selectImage()
+        self.selectedImage = "newodometer_img"
+        if let img = self.imgNewMeter.image {
+            let images = self.getNewImageArray(currentImage: img)
+            self.showViewImageOption(currentImg: img, arrImage: images.0, currentIndex: images.1)
         } else {
-            self.displayImageOnFullScreen(img: self.imgNewMeter.image ?? UIImage())
+            self.selectImage()
         }
     }
     

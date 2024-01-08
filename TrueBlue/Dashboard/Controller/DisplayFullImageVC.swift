@@ -19,8 +19,11 @@ class DisplayFullImageVC: UIViewController {
     private var downSwipeGestureRecognizer: UISwipeGestureRecognizer!
     private var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
     private var RightSwipeGestureRecognizer: UISwipeGestureRecognizer!
+    
     var imageArray = [String]()
+    var imageArr = [UIImage]()
     var currenIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
@@ -54,26 +57,41 @@ class DisplayFullImageVC: UIViewController {
                // Hide the image view or perform any other action
                dismiss(animated: true, completion: nil)
            } else if gesture.direction == .left {
-               
-               if(currenIndex < imageArray.count){
-                   currenIndex += 1
-                   if imageArray.indices.contains(currenIndex) {
-                       imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
+               if imageArr.count == 0 {
+                   if(currenIndex < imageArray.count){
+                       currenIndex += 1
+                       if imageArray.indices.contains(currenIndex) {
+                           imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
+                       }
                    }
-                   
+               } else {
+                   if(currenIndex < imageArr.count){
+                       currenIndex += 1
+                       if imageArr.indices.contains(currenIndex) {
+                           imageView.image = imageArr[currenIndex]
+                       }
+                   }
                }
            } else {
                
-               if(currenIndex > 0){
-                   currenIndex -= 1
-                   if imageArray.indices.contains(currenIndex) {
-                       imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
+               if imageArr.count == 0 {
+                   if(currenIndex > 0){
+                       currenIndex -= 1
+                       if imageArray.indices.contains(currenIndex) {
+                           imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
+                       }
                    }
-                   
+               } else {
+                   if(currenIndex > 0){
+                       currenIndex -= 1
+                       if imageArr.indices.contains(currenIndex) {
+                           imageView.image = imageArr[currenIndex]
+                       }
+                   }
                }
-               
            }
        }
+    
     override func viewWillAppear(_ animated: Bool) {
         if imageUrlForDisplay.isEmpty {
             //Img is sent from previous view controller

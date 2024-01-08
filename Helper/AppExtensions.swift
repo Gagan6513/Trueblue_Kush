@@ -233,6 +233,7 @@ extension UIViewController {
         view.endEditing(true)//To remove any keyboard that were open on other texfield
         present(alertVc, animated: true, completion: nil)
     }
+    
     func displayImageOnFullScreen(img: UIImage) {
         let storyboard = UIStoryboard(name: AppStoryboards.DASHBOARD, bundle: .main)
         let alertVc = storyboard.instantiateViewController(identifier: AppStoryboardId.DISPLAY_FULL_IMAGE) as! DisplayFullImageVC
@@ -248,6 +249,17 @@ extension UIViewController {
         alertVc.imageUrlForDisplay =  currentImg
         
         alertVc.imageArray = allImages
+        alertVc.currenIndex = currentIndex
+        alertVc.modalPresentationStyle = .overFullScreen
+        view.endEditing(true)//To remove any keyboard that were open on other texfield
+        present(alertVc, animated: true, completion: nil)
+    }
+    
+    func setAllImages(currentImg: UIImage, allImages: [UIImage], currentIndex: Int) {
+        let storyboard = UIStoryboard(name: AppStoryboards.DASHBOARD, bundle: .main)
+        let alertVc = storyboard.instantiateViewController(identifier: AppStoryboardId.DISPLAY_FULL_IMAGE) as! DisplayFullImageVC
+        alertVc.imgForDisplay =  currentImg
+        alertVc.imageArr = allImages
         alertVc.currenIndex = currentIndex
         alertVc.modalPresentationStyle = .overFullScreen
         view.endEditing(true)//To remove any keyboard that were open on other texfield
