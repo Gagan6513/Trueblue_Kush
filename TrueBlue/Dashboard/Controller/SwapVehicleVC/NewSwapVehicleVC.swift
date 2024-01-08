@@ -85,7 +85,7 @@ class NewSwapVehicleVC: UIViewController {
     // Upload Image ================
     
     func showViewImageOption(currentImg: UIImage, arrImage: [UIImage], currentIndex: Int) {
-        let alert = UIAlertController(title: nil, message: "Please Select an Option", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: "Please Select an Option", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "View Picture", style: .default , handler:{ (UIAlertAction)in
             self.setAllImages(currentImg: currentImg, allImages: arrImage, currentIndex: currentIndex)
