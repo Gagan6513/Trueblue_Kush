@@ -32,4 +32,10 @@ class AllUserListData: Codable {
     var LOGOUT_ID: String?
     var group_name: String?
     
+    var todo_task: String?
+    var collection_notes: String?
+    var delivery_notes: String?
+    
+    var lastLoggedIn: String?
+    
 }
