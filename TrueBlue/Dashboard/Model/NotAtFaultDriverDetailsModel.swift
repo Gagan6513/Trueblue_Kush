@@ -39,7 +39,7 @@ class NotAtFaultDriverDetailsModel : NSObject {
         dictResult.referralName = dict["referral_name"] as? String ?? ""
         dictResult.repairerName = dict["repairer_name"] as? String ?? ""
         dictResult.repairerId = dict["repairer_id"] as? String ?? ""
-        dictResult.referralId = dict["id"] as? String ?? ""
+        dictResult.referralId = dict["ref_id"] as? String ?? ""
         dictResult.expectedDeliveryTime = dict["expected_delivery_time"] as? String ?? ""
         dictResult.dropLocation = dict["drop_location"] as? String ?? ""
         dictResult.deliveredBy = dict["delivered_by"] as? String ?? ""

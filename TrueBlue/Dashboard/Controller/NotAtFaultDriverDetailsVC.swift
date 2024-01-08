@@ -892,8 +892,8 @@ extension NotAtFaultDriverDetailsVC : NotAtFaultDriverDetailsVMDelegate {
             proposedVehicleLbl.textColor = UIColor(named: AppColors.BLACK)
             selectedProposedVehicleId = dictDetails.proposedVehicleId
             CommonObject.sharedInstance.vehicleId = dictDetails.proposedVehicleId
-        
         }
+   
         //Expected delivery time
         let expectedDeliveryTime = dictDetails.expectedDeliveryTime
         deliveryTimeSegmentedControl.setUpAmPM(time: expectedDeliveryTime)
