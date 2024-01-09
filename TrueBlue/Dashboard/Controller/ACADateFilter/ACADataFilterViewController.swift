@@ -87,8 +87,8 @@ class ACADataFilterViewController: UIViewController {
         
         self.txtFrom.delegate = self
         self.txtTo.delegate = self
-        self.txtFrom.inputView = self.fromDatePicker
-        self.txtTo.inputView = self.toDatePicker
+//        self.txtFrom.inputView = self.fromDatePicker
+//        self.txtTo.inputView = self.toDatePicker
         
         self.fromDatePicker.preferredDatePickerStyle = .wheels
         self.toDatePicker.preferredDatePickerStyle = .wheels
@@ -112,11 +112,24 @@ class ACADataFilterViewController: UIViewController {
 
 extension ACADataFilterViewController: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == self.txtFrom {
-            self.txtFrom.text = self.dateFormater.string(from: self.fromDatePicker.date)
-        } else if textField == self.txtTo {
-            self.txtTo.text = self.dateFormater.string(from: self.toDatePicker.date)
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if textField == self.txtFrom {
+//            self.txtFrom.text = self.dateFormater.string(from: self.fromDatePicker.date)
+//        } else if textField == self.txtTo {
+//            self.txtTo.text = self.dateFormater.string(from: self.toDatePicker.date)
+//        }
+//    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var isAllowed = true
+        switch textField {
+        case txtFrom, txtTo:
+            isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
+//        case txtEventTime :
+//            isAllowed = textField.validateTimeTyped(shouldChangeCharactersInRange: range, replacementString: string)
+        default:
+            print("TextField without restriction")
         }
+        return isAllowed
     }
 }
