@@ -19,6 +19,7 @@ class ACAViewController: UIViewController {
     var endDate = ""
     var dateFormater = DateFormatter()
     let refreshControl = UIRefreshControl()
+    var isFromFilter = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +42,22 @@ class ACAViewController: UIViewController {
     }
     
     @IBAction func btnFilter(_ sender: Any) {
-        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "ACAFilterPopupVC") as! ACAFilterPopupVC
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "ACADataFilterViewController") as! ACADataFilterViewController
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.view.isOpaque = false
+        ctrl.dateClosure = {fromdate, todate in
+            self.isFromFilter = true
+            self.startDate = fromdate
+            self.endDate = todate
+            self.getACAList()
+        }
         self.present(ctrl, animated: false)
     }
     
     func setupTableView() {
         self.txtSearch.delegate = self
         
-        self.btnFilter.isHidden = true
+//        self.btnFilter.isHidden = true
         self.tableView.isHidden = true
         
         self.dateFormater.dateFormat = "dd-MM-YYYY"
@@ -118,7 +125,7 @@ extension ACAViewController {
         webService.method = .post
         
         var param = [String: Any]()
-        if self.txtSearch.text == "" {
+        if self.txtSearch.text == "" || self.isFromFilter {
             param["fromDate"] = self.startDate
             param["toDate"] = self.endDate
         } else {
@@ -158,6 +165,7 @@ extension ACAViewController {
                 }
             }
         }
+        self.isFromFilter = false
     }
     
 }

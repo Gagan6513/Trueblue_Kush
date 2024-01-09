@@ -99,7 +99,9 @@ extension UserVC: UITableViewDelegate, UITableViewDataSource {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
                     }
-                    self.getUserData()
+                    showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
+                        self.getUserData()
+                    }
                 }
             }
         }
