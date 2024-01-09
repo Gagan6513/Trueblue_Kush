@@ -86,7 +86,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
         case 2:
             performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
         case 3:
-            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
+//            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         case 4:
             CommonObject.sharedInstance.isNewEntry = true
             performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)

@@ -47,7 +47,11 @@ extension UserVC: UITableViewDelegate, UITableViewDataSource {
             
             cell.isLogoutClicked = { [weak self] in
                 guard let self else { return }
-                self.logoutUser(data: data)
+                showAlert(message: "Are you sure you want to logout this user?", yesTitle: "No", noTitle: "Yes", yesAction: {
+                    
+                }, noAction: {
+                    self.logoutUser(data: data)
+                })
             }
         }
         return cell
