@@ -47,7 +47,8 @@ extension UserVC: UITableViewDelegate, UITableViewDataSource {
             
             cell.isLogoutClicked = { [weak self] in
                 guard let self else { return }
-                showAlert(message: "Are you sure you want to logout this user?", yesTitle: "No", noTitle: "Yes", yesAction: {
+                let msg = (data.LOGOUT_ID ?? "").lowercased() == "0" ? "Are you sure you want to logout this user?" : "Are you sure you want to login this user?"
+                showAlert(message: msg, yesTitle: "No", noTitle: "Yes", yesAction: {
                     
                 }, noAction: {
                     self.logoutUser(data: data)
@@ -68,7 +69,7 @@ extension UserVC: UITableViewDelegate, UITableViewDataSource {
         param["userId"] = data.username ?? ""
         param["requestFrom"] = request_from
         param["createdBy"] = "1"
-        param["isForceLogout"] = "1"
+        param["isForceLogout"] = (data.LOGOUT_ID ?? "").lowercased() == "0" ? "1" : "0"
         webService.parameters = param
         
         /* API CALLS */

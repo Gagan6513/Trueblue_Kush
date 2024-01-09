@@ -51,9 +51,21 @@ class UserListTVC: UITableViewCell {
         collectionNotesLabel.text = data.collection_notes
         todoNotesLabel.text = data.todo_task
         
-        self.btnLogin.isSelected = (data.status ?? "").lowercased() == "active"
+//        self.btnLogin.isSelected = (data.LOGOUT_ID ?? "").lowercased() == "0"
+        let image = (data.LOGOUT_ID ?? "").lowercased() == "0" ? UIImage(named: "logout-1") : UIImage(named: "Login-1")
+        self.btnLogin.setImage(image, for: .normal)
         
-        lastLogin.text = "Last logged in: \((data.lastLoggedIn ?? ""))"
+        // LOGOUT_ID == 0 means Login
+        // LOGOUT_ID != 0 means Logout
+        let msg = data.lastLoggedIn != nil ? convertToDate(str: data.lastLoggedIn ?? "") : "Not Available"
+        lastLogin.text = "Last logged in: \(msg)"
+    }
+    
+    func convertToDate(str: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        let date = dateFormatter.date(from: str) ?? Date()
+        return date.timeAgoDisplay()
     }
 }
 
