@@ -19360,8 +19360,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frc-P2-Hw5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-CX-Yiz">
-                                        <rect key="frame" x="172.66666666666666" y="12.666666666666664" width="68.666666666666657" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRM users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-CX-Yiz">
+                                        <rect key="frame" x="164.66666666666666" y="12.666666666666664" width="84.666666666666657" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" name="F5F5F5"/>
                                         <nil key="highlightedColor"/>
@@ -20851,13 +20851,13 @@
             <size key="intrinsicContentSize" width="105" height="38"/>
         </designable>
         <designable name="5Tx-Lb-99Z">
-            <size key="intrinsicContentSize" width="155.66666666666666" height="18"/>
+            <size key="intrinsicContentSize" width="155.66666666666666" height="34.666666666666664"/>
         </designable>
         <designable name="5vD-tU-J3j">
             <size key="intrinsicContentSize" width="105" height="38"/>
         </designable>
         <designable name="5wz-2D-DyI">
-            <size key="intrinsicContentSize" width="103" height="18"/>
+            <size key="intrinsicContentSize" width="103" height="34.666666666666664"/>
         </designable>
         <designable name="62k-0A-aGB">
             <size key="intrinsicContentSize" width="182.66666666666666" height="38"/>
@@ -20875,7 +20875,7 @@
             <size key="intrinsicContentSize" width="96" height="34.666666666666664"/>
         </designable>
         <designable name="7sv-FM-wAQ">
-            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="64.666666666666671" height="34.666666666666664"/>
         </designable>
         <designable name="81G-dR-xLE">
             <size key="intrinsicContentSize" width="81" height="38"/>
@@ -20893,7 +20893,7 @@
             <size key="intrinsicContentSize" width="218" height="38"/>
         </designable>
         <designable name="E3Z-rH-a1L">
-            <size key="intrinsicContentSize" width="145" height="18"/>
+            <size key="intrinsicContentSize" width="145" height="34.666666666666664"/>
         </designable>
         <designable name="G9r-92-vge">
             <size key="intrinsicContentSize" width="73" height="38"/>
@@ -21022,7 +21022,7 @@
             <size key="intrinsicContentSize" width="230.33333333333334" height="38"/>
         </designable>
         <designable name="enm-fN-i4f">
-            <size key="intrinsicContentSize" width="75.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="75.666666666666671" height="34.666666666666664"/>
         </designable>
         <designable name="f44-Oo-p0V">
             <size key="intrinsicContentSize" width="203" height="38"/>
@@ -21145,7 +21145,7 @@
             <size key="intrinsicContentSize" width="73" height="38"/>
         </designable>
         <designable name="wYy-Kb-R12">
-            <size key="intrinsicContentSize" width="114" height="18"/>
+            <size key="intrinsicContentSize" width="114" height="34.666666666666664"/>
         </designable>
         <designable name="who-Cf-Xht">
             <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
@@ -21182,8 +21182,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar 1" width="170.66667175292969" height="170.66667175292969"/>
         <image name="checkUnselected" width="170.66667175292969" height="170.66667175292969"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
