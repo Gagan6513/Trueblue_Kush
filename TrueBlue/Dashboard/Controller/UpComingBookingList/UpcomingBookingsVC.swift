@@ -47,11 +47,11 @@ class UpcomingBookingsVC: UIViewController{
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
         
-//        tblUpcomingBookingsList.emptyDataSetSource = self;
-//        tblUpcomingBookingsList.emptyDataSetDelegate = self;
-        self.tblUpcomingBookingsList.delegate = self
-        self.tblUpcomingBookingsList.dataSource = self
-        self.tblUpcomingBookingsList.registerNib(for: "UpcomingBookingTableViewCell")
+        tblUpcomingBookingsList.emptyDataSetSource = self;
+        tblUpcomingBookingsList.emptyDataSetDelegate = self;
+//        self.tblUpcomingBookingsList.delegate = self
+//        self.tblUpcomingBookingsList.dataSource = self
+//        self.tblUpcomingBookingsList.registerNib(for: "UpcomingBookingListCell")
 
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -217,13 +217,13 @@ class UpcomingBookingsVC: UIViewController{
 
 extension UpcomingBookingsVC : UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
 }
 extension UpcomingBookingsVC : UITableViewDataSource {
@@ -235,54 +235,55 @@ extension UpcomingBookingsVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.UPCOMING_BOOKING_LIST_CELL, for: indexPath as IndexPath) as! UpcomingBookingTableViewCell
-        cell.selectionStyle = .none
-        cell.setData(data: self.arrCollectionList[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.UPCOMING_BOOKING_LIST_CELL, for: indexPath as IndexPath) as! UpcomingBookingListCell
+        //        cell.selectionStyle = .none
+        //        cell.setData(data: self.arrCollectionList[indexPath.row])
+        //        return cell
+        //                let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTION_NOTES_LIST_CELL, for: indexPath as IndexPath) as! CollectionNotesListTableViewCell
+        //        if indexPath.row == 0 {
+        //            let headerCell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTIONS_LIST_HEADER, for: indexPath as IndexPath) as! CollectionsHeaderTblViewCell
+        //            return headerCell
+        //        } else {
+        //            cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
+        //            cell.viewMainBorder.layer.borderWidth =  1
+        //            cell.viewMainBorder.backgroundColor = .white
+        
+        
+        let intRandom = Int.random(in: 0 ... 4)
+        print(intRandom)
+        cell.lblColor.backgroundColor = arrColor[intRandom]
+        cell.viewColor.backgroundColor = arrColor[intRandom]?.withAlphaComponent(0.2)
+        
+        cell.MakeModelLbl.text = "\(arrCollectionList[indexPath.row].vehicle_make.trimmingCharacters(in: .whitespaces)) / \(arrCollectionList[indexPath.row].vehicle_model)"
+        
+        cell.RefNoLbl.text = arrCollectionList[indexPath.row].application_id
+        cell.AssociateLbl.text = arrCollectionList[indexPath.row].associate_name
+        cell.ClientNameLbl.text = "\(arrCollectionList[indexPath.row].owner_firstname) \(arrCollectionList[indexPath.row].owner_lastname)"
+        cell.VehicleRegoLbl.text = arrCollectionList[indexPath.row].registration_no
+        
+        let stringDate = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd")
+        
+        let stringMonthYear = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "MMM, yyyy")
+        
+        let stringB = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd MMM, yyyy")
+        
+        cell.dateLbl.text = stringDate
+        cell.dateMonthYearLbl.text = stringMonthYear
+        
+//        cell.RefNoLbl.text = arrCollectionList[indexPath.row-1].
+        
+//        cell.applicationIdLbl.text = arrCollectionList[indexPath.row-1].application_id
+//        cell.regoNoLbl.text = arrCollectionList[indexPath.row-1].registration_no
+//        cell.clientNameLbl.text = "\(arrCollectionList[indexPath.row-1].vehicle_make) \(arrCollectionList[indexPath.row-1].vehicle_model)".trimmingCharacters(in: .whitespaces)
+//        cell.serialNumberLbl.text = String(indexPath.row)
+//        cell.clientNameLbl.text = arrCollectionList[indexPath.row-1].clientName
+//        cell.applicationIdLbl.text = arrCollectionList[indexPath.row-1].regoNo
+//        print(arrCollectionList[indexPath.row-1].regoName)
+//        cell.regoNoLbl.text = arrCollectionList[indexPath.row-1].regoName
+//        cell.editcollectionNoteBtn.tag = indexPath.row-1
+//        cell.editcollectionNoteBtn.addTarget(self, action: #selector(editcollectionNoteBtnTapped(sender: )), for: .touchUpInside)
         return cell
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTION_NOTES_LIST_CELL, for: indexPath as IndexPath) as! CollectionNotesListTableViewCell
-//        if indexPath.row == 0 {
-//            let headerCell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTIONS_LIST_HEADER, for: indexPath as IndexPath) as! CollectionsHeaderTblViewCell
-//            return headerCell
-//        } else {
-//            cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
-//            cell.viewMainBorder.layer.borderWidth =  1
-//            cell.viewMainBorder.backgroundColor = .white
-        
-//
-//        let intRandom = Int.random(in: 0 ... 4)
-//        print(intRandom)
-//        cell.lblColor.backgroundColor = arrColor[intRandom]
-//        cell.viewColor.backgroundColor = arrColor[intRandom]?.withAlphaComponent(0.2)
-//            
-//        cell.MakeModelLbl.text = "\(arrCollectionList[indexPath.row].vehicle_make.trimmingCharacters(in: .whitespaces)) / \(arrCollectionList[indexPath.row].vehicle_model)"
-//            
-//            cell.RefNoLbl.text = arrCollectionList[indexPath.row].application_id
-//            cell.AssociateLbl.text = arrCollectionList[indexPath.row].associate_name
-//            cell.ClientNameLbl.text = "\(arrCollectionList[indexPath.row].owner_firstname) \(arrCollectionList[indexPath.row].owner_lastname)"
-//            cell.VehicleRegoLbl.text = arrCollectionList[indexPath.row].registration_no
-        
-//            let stringDate = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd")
-//        
-//            let stringMonthYear = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "MMM, yyyy")
-        
-//            let stringB = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd MMM, yyyy")
-        
-//            cell.dateLbl.text = stringDate
-//            cell.dateMonthYearLbl.text = stringMonthYear
-
-//            cell.RefNoLbl.text = arrCollectionList[indexPath.row-1].
-            
-//            cell.applicationIdLbl.text = arrCollectionList[indexPath.row-1].application_id
-//            cell.regoNoLbl.text = arrCollectionList[indexPath.row-1].registration_no
-//            cell.clientNameLbl.text = "\(arrCollectionList[indexPath.row-1].vehicle_make) \(arrCollectionList[indexPath.row-1].vehicle_model)".trimmingCharacters(in: .whitespaces)
-//            cell.serialNumberLbl.text = String(indexPath.row)
-//            cell.clientNameLbl.text = arrCollectionList[indexPath.row-1].clientName
-//            cell.applicationIdLbl.text = arrCollectionList[indexPath.row-1].regoNo
-//            print(arrCollectionList[indexPath.row-1].regoName)
-//            cell.regoNoLbl.text = arrCollectionList[indexPath.row-1].regoName
-//            cell.editcollectionNoteBtn.tag = indexPath.row-1
-//            cell.editcollectionNoteBtn.addTarget(self, action: #selector(editcollectionNoteBtnTapped(sender: )), for: .touchUpInside)
-//        }
+   
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
