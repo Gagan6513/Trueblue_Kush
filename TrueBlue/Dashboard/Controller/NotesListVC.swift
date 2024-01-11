@@ -69,7 +69,8 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let application_id = CommonObject.sharedInstance.currentReferenceId.replacingOccurrences(of: "IV000", with: "")
         print(application_id)
         let requestURL = newAPIPATH + "getAllNotes"
-        let parameters : Parameters = ["application_id" : application_id]
+        let parameters : Parameters = ["notesForId" : application_id,
+                                       "notesFor"   : "reference"]
         let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
@@ -156,12 +157,11 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         print(application_id)
         
         let requestURL = newAPIPATH + "saveNotes"
-        let parameters : Parameters = ["notesForId" : application_id,
+        let parameters : Parameters = ["application_id" : application_id,
                                        "user_id" : UserDefaults.standard.userId(),
                                        "user_name" : UserDefaults.standard.username(),
                                        "notes" : notesTextView.text!,
-                                       "request_from": "App",
-                                       "notesFor" : "reference"]
+                                       "request_from": "App"]
         let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
