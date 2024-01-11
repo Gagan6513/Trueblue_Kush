@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import DZNEmptyDataSet
+import Applio
 
 class UpcomingBookingsVC: UIViewController{
 
@@ -38,6 +39,7 @@ class UpcomingBookingsVC: UIViewController{
         searchView.layer.borderColor = UIColor(named: "AppBlue")?.cgColor
         searchView.layer.borderWidth = 1
         searchView.layer.cornerRadius = 5
+        self.searchView.isHidden = true
         
         btnFilter.layer.cornerRadius = btnFilter.frame.size.height/2
         
@@ -45,8 +47,11 @@ class UpcomingBookingsVC: UIViewController{
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
         
-        tblUpcomingBookingsList.emptyDataSetSource = self;
-        tblUpcomingBookingsList.emptyDataSetDelegate = self;
+//        tblUpcomingBookingsList.emptyDataSetSource = self;
+//        tblUpcomingBookingsList.emptyDataSetDelegate = self;
+        self.tblUpcomingBookingsList.delegate = self
+        self.tblUpcomingBookingsList.dataSource = self
+        self.tblUpcomingBookingsList.registerNib(for: "UpcomingBookingTableViewCell")
 
         let currentDate = Date()
         let dateFormatter = DateFormatter()
@@ -134,12 +139,20 @@ class UpcomingBookingsVC: UIViewController{
         showDatePickerPopUp(textField: dateToTxtFld, notificationName: .collectionDate, _isFromUpcomingBooking: true)
     }
     
-    @IBAction func btnSearchClicked(_ sender: UIButton) {
-        self.view.endEditing(true)
-        if ((searchTxtFld.text?.isEmpty) != nil){
+    @IBAction func searchInnerAction(_ sender: Any) {
+        self.searchView.isHidden = true
+        if (searchTxtFld.text?.isEmpty ?? false) {
+            self.CallAPIWhenPageLoad()
+        } else {
             let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
             apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
         }
+    }
+    
+    @IBAction func btnSearchClicked(_ sender: UIButton) {
+//        self.view.endEditing(true)
+        self.searchView.isHidden = false
+        self.searchTxtFld.becomeFirstResponder()
     }
     
     @IBAction func btnCloseClicked(_ sender: UIButton) {
@@ -204,6 +217,14 @@ class UpcomingBookingsVC: UIViewController{
 
 extension UpcomingBookingsVC : UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }
 extension UpcomingBookingsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -214,38 +235,40 @@ extension UpcomingBookingsVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.UPCOMING_BOOKING_LIST_CELL, for: indexPath as IndexPath) as! UpcomingBookingTableViewCell
+        cell.selectionStyle = .none
+        cell.setData(data: self.arrCollectionList[indexPath.row])
+        return cell
         //        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTION_NOTES_LIST_CELL, for: indexPath as IndexPath) as! CollectionNotesListTableViewCell
 //        if indexPath.row == 0 {
 //            let headerCell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.COLLECTIONS_LIST_HEADER, for: indexPath as IndexPath) as! CollectionsHeaderTblViewCell
 //            return headerCell
 //        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.UPCOMING_BOOKING_LIST_CELL, for: indexPath as IndexPath) as! UpcomingBookingListCell
-            cell.selectionStyle = .none
-            cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
-            cell.viewMainBorder.layer.borderWidth =  1
-            cell.viewMainBorder.backgroundColor = .white
+//            cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
+//            cell.viewMainBorder.layer.borderWidth =  1
+//            cell.viewMainBorder.backgroundColor = .white
         
 //
-        let intRandom = Int.random(in: 0 ... 4)
-        print(intRandom)
-        cell.lblColor.backgroundColor = arrColor[intRandom]
-        cell.viewColor.backgroundColor = arrColor[intRandom]?.withAlphaComponent(0.2)
-            
-        cell.MakeModelLbl.text = "\(arrCollectionList[indexPath.row].vehicle_make.trimmingCharacters(in: .whitespaces)) / \(arrCollectionList[indexPath.row].vehicle_model)"
-            
-            cell.RefNoLbl.text = arrCollectionList[indexPath.row].application_id
-            cell.AssociateLbl.text = arrCollectionList[indexPath.row].associate_name
-            cell.ClientNameLbl.text = "\(arrCollectionList[indexPath.row].owner_firstname) \(arrCollectionList[indexPath.row].owner_lastname)"
-            cell.VehicleRegoLbl.text = arrCollectionList[indexPath.row].registration_no
+//        let intRandom = Int.random(in: 0 ... 4)
+//        print(intRandom)
+//        cell.lblColor.backgroundColor = arrColor[intRandom]
+//        cell.viewColor.backgroundColor = arrColor[intRandom]?.withAlphaComponent(0.2)
+//            
+//        cell.MakeModelLbl.text = "\(arrCollectionList[indexPath.row].vehicle_make.trimmingCharacters(in: .whitespaces)) / \(arrCollectionList[indexPath.row].vehicle_model)"
+//            
+//            cell.RefNoLbl.text = arrCollectionList[indexPath.row].application_id
+//            cell.AssociateLbl.text = arrCollectionList[indexPath.row].associate_name
+//            cell.ClientNameLbl.text = "\(arrCollectionList[indexPath.row].owner_firstname) \(arrCollectionList[indexPath.row].owner_lastname)"
+//            cell.VehicleRegoLbl.text = arrCollectionList[indexPath.row].registration_no
         
-            let stringDate = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd")
-        
-            let stringMonthYear = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "MMM, yyyy")
+//            let stringDate = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd")
+//        
+//            let stringMonthYear = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "MMM, yyyy")
         
 //            let stringB = formattedDateFromString(dateString: arrCollectionList[indexPath.row].expected_delivery_date, withFormat: "dd MMM, yyyy")
         
-            cell.dateLbl.text = stringDate
-            cell.dateMonthYearLbl.text = stringMonthYear
+//            cell.dateLbl.text = stringDate
+//            cell.dateMonthYearLbl.text = stringMonthYear
 
 //            cell.RefNoLbl.text = arrCollectionList[indexPath.row-1].
             
@@ -259,7 +282,6 @@ extension UpcomingBookingsVC : UITableViewDataSource {
 //            cell.regoNoLbl.text = arrCollectionList[indexPath.row-1].regoName
 //            cell.editcollectionNoteBtn.tag = indexPath.row-1
 //            cell.editcollectionNoteBtn.addTarget(self, action: #selector(editcollectionNoteBtnTapped(sender: )), for: .touchUpInside)
-            return cell
 //        }
     }
     
@@ -330,14 +352,14 @@ extension UpcomingBookingsVC : UpcomingBookingListVMDelegate {
     func UpcomingBookingListAPISuccess(objData: UpcomingBookingDataModel, strMessage: String, serviceKey: String) {
         objData.arrResult.count > 0 ? arrCollectionList = objData.arrResult : arrCollectionList.removeAll()
         
-        if arrCollectionList.count > 0{
+//        if arrCollectionList.count > 0{
             
-            var dateFormatter = DateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            var ready = arrCollectionList.sorted(by: { (dateFormatter.date(from:$0.expected_delivery_date) ?? Date()).compare((dateFormatter.date(from:$1.expected_delivery_date) ?? Date())) == .orderedAscending })
+            let ready = arrCollectionList.sorted(by: { (dateFormatter.date(from:$0.expected_delivery_date) ?? Date()).compare((dateFormatter.date(from:$1.expected_delivery_date) ?? Date())) == .orderedAscending })
             arrCollectionList = ready
             tblUpcomingBookingsList.reloadData()
-        }
+//        }
         
     }
     

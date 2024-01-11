@@ -9,6 +9,7 @@ import UIKit
 
 class EventViewController: UIViewController {
 
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var navigationTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnFilter: UIButton!
@@ -82,10 +83,10 @@ class EventViewController: UIViewController {
         
         self.dateFormater.dateFormat = "yyyy-MM-dd"
 
-        self.tableView.contentInset = UIEdgeInsets(top: 14, left: 0, bottom: 100, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.registerNib(for: "EventTVC")
+        self.tableView.registerNib(for: "NewEventTVC")
                 
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -103,6 +104,9 @@ class EventViewController: UIViewController {
         datess.dateFormat = "MMMM YYYY"
         
         self.navigationTitle.text = datess.string(from: self.selectedDate)
+        
+        datess.dateFormat = "MMM"
+        self.monthLabel.text = datess.string(from: self.selectedDate)
         
         self.arrDates = self.selectedDate.getMonthDates()
 
@@ -122,24 +126,23 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTVC") as? EventTVC else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewEventTVC") as? NewEventTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         
         let mainDate = self.dateFormater.string(from: self.arrDates[indexPath.row])
         
-        if let data = self.arrEvents.first(where: { $0.EVENT_DATE == mainDate }) {
-            cell.setupData(data: data)
-        } else {
-            cell.viewTotalEvent.isHidden = true
-            cell.viewPendingEvent.isHidden = true
-        }
+        cell.setupData(data: self.arrEvents.first(where: { $0.EVENT_DATE == mainDate }) ?? EventList())
+//        else {
+//            cell.viewTotalEvent.isHidden = true
+//            cell.viewPendingEvent.isHidden = true
+//        }
         
         let datess = DateFormatter()
-        datess.dateFormat = "dd"
+        datess.dateFormat = "EEE-dd"
         cell.lblDate.text = datess.string(from: self.arrDates[indexPath.row])
         
-        datess.dateFormat = "MMM"
-        cell.lblMonth.text = datess.string(from: self.arrDates[indexPath.row])
+//        datess.dateFormat = "MMM"
+//        cell.lblMonth.text = datess.string(from: self.arrDates[indexPath.row])
         
         return cell
     }
@@ -214,5 +217,4 @@ extension EventViewController {
             }
         }
     }
-    
 }

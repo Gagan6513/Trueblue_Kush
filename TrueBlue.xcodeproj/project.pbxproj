@@ -168,10 +168,14 @@
 		53FEE7D226DA566B0088AD05 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEE7D126DA566B0088AD05 /* DashboardViewModel.swift */; };
 		53FEE7D426DA57610088AD05 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FEE7D326DA57610088AD05 /* DashboardModel.swift */; };
 		57300E702B4D2DCD005E8D07 /* ACADataFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57300E6F2B4D2DCD005E8D07 /* ACADataFilterViewController.swift */; };
+		5731CB492B4E59020048A220 /* UpcomingBookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5731CB472B4E59020048A220 /* UpcomingBookingTableViewCell.swift */; };
+		5731CB4A2B4E59020048A220 /* UpcomingBookingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5731CB482B4E59020048A220 /* UpcomingBookingTableViewCell.xib */; };
 		573264372B46790300E1450D /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573264362B46790300E1450D /* UserVC.swift */; };
 		5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5732643B2B467A4A00E1450D /* UserListTVC.swift */; };
 		5732643E2B467A4A00E1450D /* UserListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5732643C2B467A4A00E1450D /* UserListTVC.xib */; };
 		573264412B4683C500E1450D /* AllUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573264402B4683C500E1450D /* AllUserModel.swift */; };
+		579EFDDF2B4E949C0048BDC3 /* NewEventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579EFDDD2B4E949C0048BDC3 /* NewEventTVC.swift */; };
+		579EFDE02B4E949C0048BDC3 /* NewEventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579EFDDE2B4E949C0048BDC3 /* NewEventTVC.xib */; };
 		8127D2E62B2C95F200E731AE /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127D2E52B2C95F200E731AE /* NotesListVC.swift */; };
 		8127D2E82B2C9DCD00E731AE /* NotesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127D2E72B2C9DCD00E731AE /* NotesListTableViewCell.swift */; };
 		81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */; };
@@ -378,10 +382,14 @@
 		53FEE7D126DA566B0088AD05 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		53FEE7D326DA57610088AD05 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		57300E6F2B4D2DCD005E8D07 /* ACADataFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACADataFilterViewController.swift; sourceTree = "<group>"; };
+		5731CB472B4E59020048A220 /* UpcomingBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBookingTableViewCell.swift; sourceTree = "<group>"; };
+		5731CB482B4E59020048A220 /* UpcomingBookingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingBookingTableViewCell.xib; sourceTree = "<group>"; };
 		573264362B46790300E1450D /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		5732643B2B467A4A00E1450D /* UserListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTVC.swift; sourceTree = "<group>"; };
 		5732643C2B467A4A00E1450D /* UserListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTVC.xib; sourceTree = "<group>"; };
 		573264402B4683C500E1450D /* AllUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserModel.swift; sourceTree = "<group>"; };
+		579EFDDD2B4E949C0048BDC3 /* NewEventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventTVC.swift; sourceTree = "<group>"; };
+		579EFDDE2B4E949C0048BDC3 /* NewEventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewEventTVC.xib; sourceTree = "<group>"; };
 		8127D2E52B2C95F200E731AE /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		8127D2E72B2C9DCD00E731AE /* NotesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewCell.swift; sourceTree = "<group>"; };
 		81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -793,6 +801,8 @@
 		57300E6D2B4D2BB0005E8D07 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				5731CB472B4E59020048A220 /* UpcomingBookingTableViewCell.swift */,
+				5731CB482B4E59020048A220 /* UpcomingBookingTableViewCell.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -838,6 +848,15 @@
 				573264402B4683C500E1450D /* AllUserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		579EFDDC2B4E947C0048BDC3 /* NewEventTVC */ = {
+			isa = PBXGroup;
+			children = (
+				579EFDDD2B4E949C0048BDC3 /* NewEventTVC.swift */,
+				579EFDDE2B4E949C0048BDC3 /* NewEventTVC.xib */,
+			);
+			path = NewEventTVC;
 			sourceTree = "<group>";
 		};
 		88EB67466E59C7F5B895502A /* Frameworks */ = {
@@ -958,6 +977,7 @@
 		B392BC792B39444F0002DD69 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				579EFDDC2B4E947C0048BDC3 /* NewEventTVC */,
 				B392BC7A2B39445D0002DD69 /* EventTVC.swift */,
 				B392BC7B2B39445D0002DD69 /* EventTVC.xib */,
 			);
@@ -1101,6 +1121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5731CB4A2B4E59020048A220 /* UpcomingBookingTableViewCell.xib in Resources */,
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
 				B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */,
@@ -1114,6 +1135,7 @@
 				532F6852272AB6D30067C5A7 /* DashboardPhone.storyboard in Resources */,
 				B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */,
 				5344798B26C6813F00380609 /* AppColours.xcassets in Resources */,
+				579EFDE02B4E949C0048BDC3 /* NewEventTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1170,6 +1192,7 @@
 				215341E129EEAB6C00C21BA2 /* CollectedDocumentsListTblCell.swift in Sources */,
 				21AD550B29EFECE100444451 /* ReturnUploadedDocsCollectionViewCell.swift in Sources */,
 				21DF53FA2A03AE270064B1D6 /* SwapVehicleAddMorePicturesCvCell.swift in Sources */,
+				5731CB492B4E59020048A220 /* UpcomingBookingTableViewCell.swift in Sources */,
 				53C5AF3F2701CCD4004F2FC3 /* ReturnVehicleAddMorePicturesCvCell.swift in Sources */,
 				B3366DC82B35797B00F72CE8 /* ACAListModel.swift in Sources */,
 				21F3F7C429B0B16700C3C60B /* SendToEmailModel.swift in Sources */,
@@ -1298,6 +1321,7 @@
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,
 				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
+				579EFDDF2B4E949C0048BDC3 /* NewEventTVC.swift in Sources */,
 				4D9AE14A26DCC8000080D3AB /* HiredVehicleVC.swift in Sources */,
 				5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */,
 				573264412B4683C500E1450D /* AllUserModel.swift in Sources */,

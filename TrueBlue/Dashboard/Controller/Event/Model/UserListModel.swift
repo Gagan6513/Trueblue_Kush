@@ -44,5 +44,7 @@ class EventList: Codable {
     var TOTAL_EVENT: String?
     var PENDING_EVENT: String?
     var EVENT_DATE: String?
-    
+    var COLLECTION_NOTES: String?
+    var DELIVERY_NOTES: String?
+    var TODO_TASK: String?
 }

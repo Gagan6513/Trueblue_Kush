@@ -158,7 +158,7 @@ struct AppTblViewCells {
     static let DELIVERED_COLLECTED_BY_CELL = "deliveredCollectedbyCell"
     static let DELIVERY_NOTES_LIST_CELL = "deliveryNotesListCell"
     static let COLLECTION_NOTES_LIST_CELL = "collectionNotesListCell"
-    static let UPCOMING_BOOKING_LIST_CELL = "UpcomingBookingListCell"
+    static let UPCOMING_BOOKING_LIST_CELL = "UpcomingBookingTableViewCell"
     static let COLLECTED_DOCUMENTS_LIST_CELL = "collectedDocumentsListCell"
     static let COLLECTED_DOC_COLLECTION_NOTE_CELL = "collectedDocCollectionNoteCell"
     static let SWAPPED_VEHICLE_CELL = "swappedVehicleCell"
