@@ -156,7 +156,12 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         print(application_id)
         
         let requestURL = newAPIPATH + "saveNotes"
-        let parameters : Parameters = ["application_id" : application_id, "user_id" : UserDefaults.standard.userId(), "user_name" : UserDefaults.standard.username(), "notes" : notesTextView.text!, "request_from": "App"]
+        let parameters : Parameters = ["notesForId" : application_id,
+                                       "user_id" : UserDefaults.standard.userId(),
+                                       "user_name" : UserDefaults.standard.username(),
+                                       "notes" : notesTextView.text!,
+                                       "request_from": "App",
+                                       "notesFor" : "reference"]
         let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
