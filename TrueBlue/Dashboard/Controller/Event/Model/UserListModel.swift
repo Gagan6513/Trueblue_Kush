@@ -48,3 +48,26 @@ class EventList: Codable {
     var DELIVERY_NOTES: String?
     var TODO_TASK: String?
 }
+
+
+class ReferenceModel: Codable {
+    
+    var data: ReferenceDataModel?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class ReferenceDataModel: Codable {
+    
+    var response: [ReferenceResponseModel]?
+    
+}
+
+class ReferenceResponseModel: Codable {
+    
+    var id: String?
+    var application_id: String?
+    
+}

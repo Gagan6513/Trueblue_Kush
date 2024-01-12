@@ -18,6 +18,7 @@ class AddEventPopupVC: UIViewController {
     @IBOutlet weak var txtEventTime: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var txtReferenceNo: UITextField!
     
     @IBOutlet weak var descTitle: UILabel!
     @IBOutlet weak var viewStatus: UIView!
@@ -25,6 +26,8 @@ class AddEventPopupVC: UIViewController {
     
     var selectedEvent: Events?
     var arrUserList = [UserList]()
+    var arrReferenceModel = [ReferenceResponseModel]()
+    var selectedReference: ReferenceResponseModel?
     var arrType = [["title":"Collection Notes", "type":"collection_notes"],
                    ["title":"Delivery Notes", "type":"delivery_notes"],
                    ["title":"Todo Notes", "type":"todo_task"]]
@@ -38,6 +41,7 @@ class AddEventPopupVC: UIViewController {
     var selectedUserId = ""
     
     var eventType = UIPickerView()
+    var referencePicker = UIPickerView()
     var assign = UIPickerView()
     var status = UIPickerView()
     var eventDate = UIDatePicker()
@@ -50,6 +54,7 @@ class AddEventPopupVC: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.getUserList()
+        self.getRefrenceList()
     }
     
     @IBAction func btnClose(_ sender: Any) {
@@ -133,6 +138,10 @@ class AddEventPopupVC: UIViewController {
         
         self.txtStatus.inputView = self.status
         
+        self.referencePicker.delegate = self
+        self.referencePicker.dataSource = self
+        self.txtReferenceNo.inputView = self.referencePicker
+        
         NotificationCenter.default.addObserver(forName: .searchUser, object: nil, queue: nil, using: { [weak self] data in
             guard let self else { return }
             let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
@@ -161,6 +170,7 @@ class AddEventPopupVC: UIViewController {
         self.txtStatus.text = self.arrStatus.first(where: { $0["type"] == selectedEvent?.STAGE ?? "" })?["title"] ?? ""
         self.viewStatus.isHidden = self.selectedEvent == nil
         self.addEvent.isHidden = self.selectedEvent != nil
+        
     }
         
     func validateTextField() {
@@ -172,6 +182,12 @@ class AddEventPopupVC: UIViewController {
             showAlert(title: "Error!", messsage: "Please selecte assign to.")
             return
         }
+        
+        if (self.selectedReference?.application_id?.isEmpty ?? true) {
+            showAlert(title: "Error!", messsage: "Please selecte reference no.")
+            return
+        }
+        
         if self.txtEventDate.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: "Please selecte event date.")
             return
@@ -242,6 +258,10 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
             self.txtStatus.text = self.arrStatus.first?["title"]
             self.selectedStatus = self.arrStatus.first?["type"] ?? ""
             return self.arrStatus.count
+        } else if pickerView == self.referencePicker {
+            self.txtReferenceNo.text = self.arrReferenceModel.first?.application_id
+            self.selectedReference = self.arrReferenceModel.first
+            return self.arrReferenceModel.count
         } else {
             self.txtAssignTo.text = self.arrUserList.first?.name
             self.selectedUserId = self.arrUserList.first?.id ?? ""
@@ -254,6 +274,8 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
             return self.arrType[row]["title"]
         } else if pickerView == self.status {
             return self.arrStatus[row]["title"]
+        } else if pickerView == self.referencePicker {
+            return self.arrReferenceModel[row].application_id
         } else {
             return self.arrUserList[row].name
         }
@@ -266,6 +288,9 @@ extension AddEventPopupVC: UIPickerViewDelegate, UIPickerViewDataSource {
         } else if pickerView == self.status {
             self.txtStatus.text = self.arrStatus[row]["title"]
             self.selectedStatus = self.arrStatus[row]["type"] ?? ""
+        } else if pickerView == self.referencePicker {
+            self.txtReferenceNo.text = self.arrReferenceModel[row].application_id
+            self.selectedReference = self.arrReferenceModel[row]
         } else {
             self.txtAssignTo.text = self.arrUserList[row].name
             self.selectedUserId = self.arrUserList[row].id ?? ""
@@ -312,6 +337,41 @@ extension AddEventPopupVC {
         })
     }
     
+    func getRefrenceList() {
+        
+        let request = WebServiceModel()
+        request.url = URL(string: API_URL.getReferenceList)!
+        request.method = .post
+        
+        WebService.shared.performWebService(model: request, complition: { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(ReferenceModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? ReferenceModel {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    self.arrReferenceModel = data.data?.response ?? []
+                }
+            }
+        })
+    }
+    
     func addEventType() {
         
         let api_dateFormater = DateFormatter()
@@ -323,6 +383,7 @@ extension AddEventPopupVC {
         let request = WebServiceModel()
         request.url = URL(string: API_URL.save_event)!
         request.parameters = ["userId": UserDefaults.standard.userId(),
+                              "applicationId": self.selectedReference?.application_id ?? "",
                               "assignTo": self.selectedUserId,
                               "eventDate": "\(api_new_date)", // 2023-12-25
                               "eventTime": (self.txtEventTime.text != "") ? (self.txtEventTime.text ?? "") : "", // 10:00
