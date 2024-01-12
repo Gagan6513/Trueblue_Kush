@@ -8,6 +8,35 @@
 import UIKit
 import Alamofire
 
+class NotesResponse: Codable {
+    
+    var data: NotesDataResponse?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class NotesDataResponse: Codable {
+    
+    var response: [NotesResponseObject]?
+}
+
+class NotesResponseObject: Codable {
+    
+    var Created_date: String?
+    var application_id: String?
+    var from: String?
+    var id: String?
+    var ref_no: String?
+    var registration_no: String?
+    var remarks: String?
+    var u_name: String?
+    var url: String?
+    var user_id: String?
+    var vehicle_id: String?
+    
+}
 
 struct ResponseObject {
     let createdDate: String

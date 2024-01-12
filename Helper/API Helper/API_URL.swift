@@ -17,4 +17,5 @@ class API_URL {
     static let update_event = new_path + "saveCalendarEventStage"
     static let get_all_user = new_path + "getAllUsersData"
     static let force_logout_user = new_path + "setforceLogoutUser"
+    static let logSheet = new_path + "getAllNotes"
 }

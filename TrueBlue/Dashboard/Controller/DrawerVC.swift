@@ -26,12 +26,13 @@ class DrawerVC: UIViewController {
             imageNames.append("new")
             self.tableView.reloadData()
         }
+        
+        screenNames.append("Logs sheet")
+        imageNames.append("new")
+
         // Do any additional setup after loading the view.
     }
-//    func clearUserDefaults() {
-//        UserDefaults.standard.setUsername(value: "")
-//        UserDefaults.standard.setIsLoggedIn(value: false)
-//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         usernameLbl.text = UserDefaults.standard.username()
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -78,27 +79,31 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRow = indexPath.row
         tableView.reloadData()
-        switch indexPath.row {
-        case 0:
+        switch screenNames[indexPath.row] {
+        case "Collections":
             performSegue(withIdentifier: AppSegue.COLLECTIONS, sender: nil)
-        case 1:
+        case "Deliveries":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
-        case 2:
+        case "Return Vehicle":
             performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
-        case 3:
+        case "Swap Vehicle":
 //            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-        case 4:
+        case "Create New Entry":
             CommonObject.sharedInstance.isNewEntry = true
             performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
-        case 5:
+        case "ACA List":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "ACAViewController") as! ACAViewController
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-        case 6:
+        case "User List":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "UserVC") as! UserVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Logs sheet":
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "LogsSheetVC") as! LogsSheetVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:

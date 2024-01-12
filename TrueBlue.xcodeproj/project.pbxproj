@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -198,6 +198,9 @@
 		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
 		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
 		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
+		B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */; };
+		B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */; };
+		B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */; };
 		B38DC9152B3D41DA009FD897 /* EventDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */; };
 		B392BC782B39437E0002DD69 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC772B39437E0002DD69 /* EventViewController.swift */; };
 		B392BC7C2B39445D0002DD69 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC7A2B39445D0002DD69 /* EventTVC.swift */; };
@@ -412,6 +415,9 @@
 		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
 		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
 		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
+		B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsSheetVC.swift; sourceTree = "<group>"; };
+		B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSheetTVC.swift; sourceTree = "<group>"; };
+		B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogSheetTVC.xib; sourceTree = "<group>"; };
 		B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModel.swift; sourceTree = "<group>"; };
 		B392BC772B39437E0002DD69 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		B392BC7A2B39445D0002DD69 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
@@ -552,6 +558,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B37FC4932B50FED3009CBA77 /* Logs sheet */,
 				57300E6E2B4D2CF4005E8D07 /* ACADateFilter */,
 				57300E6C2B4D2B76005E8D07 /* UpComingBookingList */,
 				573264382B4679EC00E1450D /* UserList */,
@@ -955,6 +962,24 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		B37FC4932B50FED3009CBA77 /* Logs sheet */ = {
+			isa = PBXGroup;
+			children = (
+				B37FC4962B50FF29009CBA77 /* TVC */,
+				B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */,
+			);
+			path = "Logs sheet";
+			sourceTree = "<group>";
+		};
+		B37FC4962B50FF29009CBA77 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */,
+				B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
 		B38DC9132B3D41CB009FD897 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,6 +1154,7 @@
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
 				B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */,
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
+				B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
 				5732643E2B467A4A00E1450D /* UserListTVC.xib in Resources */,
@@ -1238,6 +1264,7 @@
 				21EAA31C29ED62C200A3A704 /* ReferralsListModel.swift in Sources */,
 				534D4DD5276C5DC500363682 /* CustomUIDelegate.swift in Sources */,
 				215341DB29EE623E00C21BA2 /* CollectedDocumentsModel.swift in Sources */,
+				B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */,
 				21EAA31829ED60EF00A3A704 /* RegoNumberListModel.swift in Sources */,
 				4D9AE15426DCD4FE0080D3AB /* AvailVehicleListModel.swift in Sources */,
 				B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */,
@@ -1367,6 +1394,7 @@
 				B392BC902B3965800002DD69 /* TodaysEventsTVC.swift in Sources */,
 				530F39C626D4FC7000222E5E /* AnyOtherPartyDetailsViewModel.swift in Sources */,
 				530B1A1026CB80EE001ACBBA /* NewBookingEntryTabCvCell.swift in Sources */,
+				B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */,
 				530F39C026D4B84100222E5E /* NewReferenceIdModel.swift in Sources */,
 				212D9B9129E7B937001F31BE /* DeliveryNotesListViewModel.swift in Sources */,
 				537D73CB26CCCD29009591BF /* DataSyncManager.swift in Sources */,
