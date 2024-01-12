@@ -24,6 +24,7 @@ extension Notification.Name {
     static let dateCollections = Notification.Name("dateCollections")
     static let dateDeliveries = Notification.Name("dateDeliveries")
     static let searchUser = Notification.Name("searchUser")
+    static let searchReferenceNo = Notification.Name("searchReferenceNo")
     static let dateReturnVehicle = Notification.Name("dateReturnVehicle")
     static let timeReturnVehicle = Notification.Name("timeReturnVehicle")
     static let searchListReturnVehicle = Notification.Name("searchListReturnVehicle")

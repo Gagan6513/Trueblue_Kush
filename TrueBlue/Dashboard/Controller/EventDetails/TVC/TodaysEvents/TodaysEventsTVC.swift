@@ -37,7 +37,11 @@ class TodaysEventsTVC: UITableViewCell {
         self.events = data
         self.lblBy.text = data.ASSIGNED_BY_USER?.capitalized
         
-        self.lblDescription.text = (data.EVENT_DESC ?? "")
+        if let appId = data.APP_ID {
+            self.lblDescription.text = "#\(appId)/ \(data.EVENT_DESC ?? "")"
+        } else {
+            self.lblDescription.text = "\(data.EVENT_DESC ?? "")"
+        }
         
         self.lblTo.text = data.ASSIGNED_TO_USER?.capitalized
         self.lblTime.text = data.EVENT_TIME

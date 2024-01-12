@@ -37,6 +37,8 @@ class Events: Codable {
     var EVENT_TIME: String?
     var EVENT_DESC: String?
     var IS_DAILY_BASE: String?
+    var APPLICATION_ID: String?
+    var APP_ID: String?
     var ASSIGNED_TO: String?
     var STAGE: String?
     var CREATED_BY: String?
