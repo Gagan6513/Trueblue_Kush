@@ -9,15 +9,18 @@ import UIKit
 
 class UpcomingBookingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var associateLabel: UILabel!
-    @IBOutlet weak var clientLabel: UILabel!
-    @IBOutlet weak var refLabel: UILabel!
-    @IBOutlet weak var regoLabel: UILabel!
-    @IBOutlet weak var carNameLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var carImageView: UIImageView!
+    @IBOutlet weak var clientLabel: UILabel!
+
+    @IBOutlet weak var refNo: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var clientLicense: UILabel!
+    @IBOutlet weak var faultPartyInsurance: UILabel!
+    @IBOutlet weak var faultPartyInsuranceNumber: UILabel!
+    @IBOutlet weak var repairerName: UILabel!
+    
+    @IBOutlet weak var expiresOn: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,31 +28,34 @@ class UpcomingBookingTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        DispatchQueue.main.async {
-            self.nextButton.layer.cornerRadius = self.nextButton.frame.height / 2
-        }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBAction func nextButtonAction(_ sender: Any) {
-    }
-    
     func setData(data: UpcomingBookingData) {
-        self.associateLabel.text = data.associate_name
-        self.clientLabel.text = data.owner_firstname + data.owner_lastname
-        self.refLabel.text = data.application_id
-        self.regoLabel.text = data.registration_no
-        self.carNameLabel.text = data.vehicle_make
         
+        self.clientLabel.text = data.owner_firstname + data.owner_lastname
         let stringDate = formattedDateFromString(dateString: data.expected_delivery_date, withFormat: "dd")
         
         let stringMonthYear = formattedDateFromString(dateString: data.expected_delivery_date, withFormat: "MMM, yyyy")
         
         self.dateLabel.text = stringDate
         self.monthLabel.text = stringMonthYear
+        
+        self.phoneNumber.text = data.owner_phone
+        self.clientLicense.text = data.owner_lic
+        self.faultPartyInsurance.text = data.atfault_insurancecompany
+        self.faultPartyInsuranceNumber.text = data.atfault_lic_no
+        
+        self.repairerName.text = data.repairer_name
+        
+        self.refNo.text = "Ref# \(data.application_id)"
+        
+        self.expiresOn.text = data.expected_delivery_date
+        
     }
     
     func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
