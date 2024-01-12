@@ -165,7 +165,12 @@ class AddEventPopupVC: UIViewController {
         
         self.txtAssignTo.text = selectedEvent?.ASSIGNED_TO_USER
         self.txtEventDate.text = selectedEvent?.EVENT_DATE
-        self.txtEventTime.text = selectedEvent?.EVENT_TIME
+        if (self.selectedEvent?.EVENT_TIME ?? "") == "00:00:00" {
+            self.txtEventTime.text = ""
+        } else {
+            self.txtEventTime.text = selectedEvent?.EVENT_TIME
+        }
+        
         
         self.txtDescription.text = selectedEvent?.EVENT_DESC
         self.txtRemark.text = selectedEvent?.REMARKS
