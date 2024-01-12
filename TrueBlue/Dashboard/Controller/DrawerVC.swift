@@ -27,7 +27,7 @@ class DrawerVC: UIViewController {
             self.tableView.reloadData()
         }
         
-        screenNames.append("Logs sheet")
+        screenNames.append("Log Sheet")
         imageNames.append("new")
 
         // Do any additional setup after loading the view.
@@ -102,7 +102,7 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "UserVC") as! UserVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-        case "Logs sheet":
+        case "Log Sheet":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "LogsSheetVC") as! LogsSheetVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
