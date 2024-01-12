@@ -101,6 +101,7 @@ extension LogsSheetVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LogSheetTVC") as? LogSheetTVC else { return UITableViewCell() }
+        cell.selectionStyle = .none
         cell.setupDetails(data: self.allNotesArray[indexPath.row])
         return cell
     }
