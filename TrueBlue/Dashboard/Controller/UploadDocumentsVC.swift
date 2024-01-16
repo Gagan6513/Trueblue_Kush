@@ -289,11 +289,12 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         var profileImageData: [Dictionary<String, Any>] = []
         var img_data = [Data]()
         imagess.forEach({ img in
-            
-            debugLog("actual size imagess = \((Double(img.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
             if let data = img.jpegData(compressionQuality: 0.6) {
                 img_data.append(data)
+                #if DEBUG
+                debugLog("actual size imagess = \((Double(img.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
                 debugLog("after compression size front_img = \((Double(data.count) / 1000.00).rounded()) KB")
+                #endif
             }
         })
         
