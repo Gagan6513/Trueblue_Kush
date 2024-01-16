@@ -240,7 +240,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         print(allDocumentImgs.count)
         allDocumentImgs.removeAll()
         let multipleImgPickerController = DKImagePickerController()
-        multipleImgPickerController.maxSelectableCount = 10
+        multipleImgPickerController.maxSelectableCount = 5
         multipleImgPickerController.modalPresentationStyle = .fullScreen
         multipleImgPickerController.assetType = .allPhotos
         multipleImgPickerController.showsCancelButton = true
@@ -258,8 +258,6 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
             }
         }
         self.present(multipleImgPickerController, animated: true) {}
-        
-        
         
         //Following code was used when documents were uploaded individually
 //        if selectedDocumentId.isEmpty {
