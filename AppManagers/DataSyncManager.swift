@@ -171,7 +171,10 @@ class DataSyncManager :NSObject {
                             strDate = strDate.appendingFormat("_%i", i)
                             print(strDate)
                             
-                            let data = img[i].jpegData(compressionQuality: 0.7)!
+                            print("actual size = \((Double(img[i].pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+                            let data = img[i].jpegData(compressionQuality: 0.6)!
+                            print("after compression size = \((Double(data.count) / 1000.00).rounded()) KB")
+
                             print(data)
                             
                             print(img[i].size.width)
@@ -183,7 +186,7 @@ class DataSyncManager :NSObject {
                         let strDate = dateFormatter.string(from: date)
                         print(strDate)
                         
-                        let data = img[0].jpegData(compressionQuality: 0.1)!// this is 0.7 before
+                        let data = img[0].jpegData(compressionQuality: 0.6)!// this is 0.7 before
                         print(data)
                         
                         print(img[0].size.width)
