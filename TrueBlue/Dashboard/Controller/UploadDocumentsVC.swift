@@ -142,10 +142,19 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         obj.getUploadDocuments(currentController: self, parameters: parameters, endPoint: endPoint)
     }
     
-    func apiPostMultipartRequest(parameters: Parameters,endPoint: String,image: [UIImage],isImg: Bool,isMultipleImg: Bool,imgParameter: String,imgExtension: String){
+    
+    func apiPostMultipartRequest(parameters: Parameters, endPoint: String, imageData: [Dictionary<String, Any>]){
         CommonObject.sharedInstance.showProgress()
         let obj = UploadDocumentsViewModel()
         obj.delegate = self
+        obj.postMultipartUploadDocuments(currentController: self, parameters: parameters, endPoint: endPoint, imageData: imageData)
+    }
+    
+    func apiPostMultipartRequest(parameters: Parameters, endPoint: String, image: [UIImage], isImg: Bool, isMultipleImg: Bool, imgParameter: String, imgExtension: String){
+        CommonObject.sharedInstance.showProgress()
+        let obj = UploadDocumentsViewModel()
+        obj.delegate = self
+        
         obj.postMultipartUploadDocuments(currentController: self, parameters: parameters, endPoint: endPoint, img: image, isImage: isImg, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension)
     }
     
@@ -247,10 +256,13 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
                     self.allDocumentImgs.append(image!)
                     print(self.allDocumentImgs)
                     if self.allDocumentImgs.count == assets.count {
-
-                        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
-                                                       "document_id": self.selectedDocumentId]
-                        self.apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.UPLOAD_MULTIPLE_DOCS, image: self.allDocumentImgs, isImg: true, isMultipleImg: true, imgParameter: "image", imgExtension: "jpg")
+                        
+                        self.uploadSelectedImages(imagess: self.allDocumentImgs)
+                        
+                        
+//                        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
+//                                                       "document_id": self.selectedDocumentId]
+//                        self.apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.UPLOAD_MULTIPLE_DOCS, image: self.allDocumentImgs, isImg: true, isMultipleImg: true, imgParameter: "image", imgExtension: "jpg")
                     }
                 })
             }
@@ -266,6 +278,29 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
 //        }
 //        currentImgPickedFor = 1
 //        imagePicker.present(from: documentImgView)
+    }
+    
+    func uploadSelectedImages(imagess: [UIImage]) {
+        var parameters: Parameters = [:]
+        
+        parameters["application_id"] = CommonObject.sharedInstance.currentReferenceId
+        parameters["document_id"] = self.selectedDocumentId
+        
+        var profileImageData: [Dictionary<String, Any>] = []
+        var img_data = [Data]()
+        imagess.forEach({ img in
+            
+            debugLog("actual size imagess = \((Double(img.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+            if let data = img.jpegData(compressionQuality: 0.6) {
+                img_data.append(data)
+                debugLog("after compression size front_img = \((Double(data.count) / 1000.00).rounded()) KB")
+            }
+        })
+        
+        profileImageData.append(["title": "image", "image": img_data])
+
+        apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.UPLOAD_MULTIPLE_DOCS, imageData: profileImageData)
+
     }
     
     @IBAction func signatureImgViewTapped(_ sender: UITapGestureRecognizer) {
@@ -839,7 +874,7 @@ extension UploadDocumentsVC : UploadDocumentsVMDelegate {
         case EndPoints.DELETE_ACCIDENT_PIC:
             print("aa")
             getUploadedDocumentDetails()
-        case EndPoints.UPLOAD_DOCUMENT,EndPoints.UPLOAD_MULTIPLE_DOCS:
+        case EndPoints.UPLOAD_DOCUMENT,API_URL.UPLOAD_MULTIPLE_DOCS:
             getUploadedDocumentDetails()
             resetDocumentLblAndTable()
 //            documentImgView.image = .none

@@ -23,69 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "296885A4-9FC5-473F-A426-AAD6BFF9F452"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
-            landmarkName = "ReloadScreenNotificationAction(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "296885A4-9FC5-473F-A426-AAD6BFF9F452 - 4144a6b63366cbb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.NotificationAct(__C.NSNotification) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "386"
-                  endingLineNumber = "386"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  uuid = "296885A4-9FC5-473F-A426-AAD6BFF9F452 - 880c9a5740f49017"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.ReloadScreenNotificationAction(__C.NSNotification) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "386"
-                  endingLineNumber = "386"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "296885A4-9FC5-473F-A426-AAD6BFF9F452 - 880c9a5740f49076"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.ReloadScreenNotificationAction(__C.NSNotification) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "387"
-                  endingLineNumber = "387"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "22D6E189-9E05-4E13-B61A-54F457440CFA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -93,57 +30,10 @@
             filePath = "TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "857"
-            endingLineNumber = "857"
+            startingLineNumber = "892"
+            endingLineNumber = "892"
             landmarkName = "uploadDocumentsAPISuccess(strMessage:serviceKey:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "22D6E189-9E05-4E13-B61A-54F457440CFA - fa25cf5d65730337"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(objData: TrueBlue.DocumentListModel, strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "856"
-                  endingLineNumber = "856"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "22D6E189-9E05-4E13-B61A-54F457440CFA - 9ab9a50a473a5617"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "856"
-                  endingLineNumber = "856"
-                  offsetFromSymbolStart = "1416">
-               </Location>
-               <Location
-                  uuid = "22D6E189-9E05-4E13-B61A-54F457440CFA - 9ab9a50a473a5676"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "857"
-                  endingLineNumber = "857"
-                  offsetFromSymbolStart = "1416">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -156,57 +46,10 @@
             filePath = "TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "837"
-            endingLineNumber = "837"
+            startingLineNumber = "872"
+            endingLineNumber = "872"
             landmarkName = "uploadDocumentsAPISuccess(strMessage:serviceKey:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "50F08E30-775E-49B3-9E4A-C93165E30F29 - 9ab9a50a473a5983"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "836"
-                  endingLineNumber = "836"
-                  offsetFromSymbolStart = "864">
-               </Location>
-               <Location
-                  uuid = "50F08E30-775E-49B3-9E4A-C93165E30F29 - 9ab9a50a473a59e2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "837"
-                  endingLineNumber = "837"
-                  offsetFromSymbolStart = "240">
-               </Location>
-               <Location
-                  uuid = "50F08E30-775E-49B3-9E4A-C93165E30F29 - 9ab9a50a473a59c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.UploadDocumentsVC.uploadDocumentsAPISuccess(strMessage: Swift.String, serviceKey: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/UploadDocumentsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "838"
-                  endingLineNumber = "838"
-                  offsetFromSymbolStart = "240">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,6 +81,70 @@
             startingLineNumber = "614"
             endingLineNumber = "614"
             landmarkName = "SearchListNotificationAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D4A517E-28B9-4510-89F5-B391D5B2922C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppManagers/DataSyncManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
+            landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:currentController:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D4A517E-28B9-4510-89F5-B391D5B2922C - ba7ec42ee6ba5d63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in TrueBlue.DataSyncManager.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, currentController: __C.UIViewController) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/AppManagers/DataSyncManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "490"
+                  endingLineNumber = "490"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "0D4A517E-28B9-4510-89F5-B391D5B2922C - ba7ec42ee6ba5d42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in TrueBlue.DataSyncManager.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, currentController: __C.UIViewController) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/AppManagers/DataSyncManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "491"
+                  endingLineNumber = "491"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAA6BA7B-D494-4101-960B-A6AECAC58146"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppManagers/DataSyncManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
+            landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:currentController:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

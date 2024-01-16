@@ -31,6 +31,13 @@ class UploadDocumentsViewModel : NSObject{
         objCallApi.delegateDataSync = self
         objCallApi.postRequestMultipart(endPoint: endPoint, parameters: parameters,img: img, isImage: isImage, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension, currentController: currentController)
     }
+    
+    func postMultipartUploadDocuments(currentController : UIViewController ,parameters : Parameters,endPoint: String, imageData: [Dictionary<String, Any>]) {
+        let objCallApi = DataSyncManager()
+        objCallApi.delegateDataSync = self
+        
+        objCallApi.performMultipartWebService(endPoint: endPoint, parameters: parameters, imageData: imageData, currentController: currentController)
+    }
 }
 
 
@@ -45,7 +52,7 @@ extension UploadDocumentsViewModel : DataSyncManagerDelegate {
             delegate.uploadDocumentsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
         case EndPoints.DELETE_ACCIDENT_PIC:
             delegate.uploadDocumentsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
-        case EndPoints.UPLOAD_DOCUMENT,EndPoints.UPLOAD_MULTIPLE_DOCS:
+        case EndPoints.UPLOAD_DOCUMENT,API_URL.UPLOAD_MULTIPLE_DOCS:
             delegate.uploadDocumentsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
         case EndPoints.DELETE_UPLOADED_DOCUMENT:
             delegate.uploadDocumentsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
@@ -70,7 +77,7 @@ extension UploadDocumentsViewModel : DataSyncManagerDelegate {
             delegate.uploadDocumentsAPIFailure(strMessage: strMessage, serviceKey: serviceKey)
         case EndPoints.DELETE_ACCIDENT_PIC:
             delegate.uploadDocumentsAPIFailure(strMessage: strMessage, serviceKey: serviceKey)
-        case EndPoints.UPLOAD_DOCUMENT,EndPoints.UPLOAD_MULTIPLE_DOCS:
+        case EndPoints.UPLOAD_DOCUMENT,API_URL.UPLOAD_MULTIPLE_DOCS:
             delegate.uploadDocumentsAPIFailure(strMessage: strMessage, serviceKey: serviceKey)
         case EndPoints.DELETE_UPLOADED_DOCUMENT:
             delegate.uploadDocumentsAPIFailure(strMessage: strMessage, serviceKey: serviceKey)

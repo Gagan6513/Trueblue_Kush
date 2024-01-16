@@ -19,4 +19,8 @@ class API_URL {
     static let force_logout_user = new_path + "setforceLogoutUser"
     static let logSheet = new_path + "getAllNotes"
     static let getReferenceList = new_path + "getReferenceList"
+    
+    static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
+    static let SWAP_VEHICLE = new_path + "swapVehicle"
+
 }

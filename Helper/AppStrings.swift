@@ -45,12 +45,10 @@ struct EndPoints {
     static let DELETE_UPLOADED_DOCUMENT = "deleteuploadeddoc.php"
     static let UPLOAD_SIGN = "uploadsign.php"
     static let DELETE_SIGN = "deletesign.php"
-    static let UPLOAD_MULTIPLE_DOCS = "uploadmultiple_docs.php"
     //static let SAVE_BOOKING_DETAILS = "allocate_vehicle.php"//This was used in Upload Documents previously
     static let GET_UPLOADED_DOCUMENTS_TAB_DETAILS = "getuploaddocuments2.php"//"getuploaddocuments.php"
     static let ADD_HIRER = "hirerinsert.php"
     static let GET_HIRER_DETAILS = "gethirerdetails.php"
-    static let SWAP_VEHICLE = "swapVehicle"
     static let SAVE_CARD_DETAILS = "savecarddetails.php"
     
     static let SAVE_ACCIDENT_DIAGRAM = "upload_accidentdiagram.php"

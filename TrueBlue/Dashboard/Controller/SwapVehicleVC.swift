@@ -174,7 +174,7 @@ class SwapVehicleVC: UIViewController {
                                        "oldmileage_out": mileageOutOldTxtFld.text ?? "",
                                        "olddate_out": dateOutTxtFld.text ?? "",
                                        "user_name": UserDefaults.standard.username()]
-        apiPostRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
+        apiPostRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE)
     }
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
         if let userInfo = notification.userInfo {

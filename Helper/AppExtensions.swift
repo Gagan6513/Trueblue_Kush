@@ -19,6 +19,14 @@ func round(corners: UIRectCorner, cornerRadius: Double) {
     self.layer.mask = shapeLayer
     }
 }
+
+public func debugLog(_ object: Any, functionName: String = #function, fileName: String = #file, lineNumber: Int = #line) {
+  #if DEBUG
+    let className = (fileName as NSString).lastPathComponent
+    debugPrint("<\(className)> \(functionName) [#\(lineNumber)]| \(object)\n")
+  #endif
+}
+
 extension Notification.Name {
     static let logout = Notification.Name("logout")
     static let dateCollections = Notification.Name("dateCollections")

@@ -22,7 +22,7 @@ class DataSyncManager :NSObject {
         let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
         var newHeader = HTTPHeaders(header)
         
-        if endPoint == EndPoints.SWAP_VEHICLE || endPoint == EndPoints.GET_NEW_UPCOMING_BOOKINGS || endPoint == EndPoints.UNDER_MAINTENANCE{
+        if endPoint == API_URL.SWAP_VEHICLE || endPoint == EndPoints.GET_NEW_UPCOMING_BOOKINGS || endPoint == EndPoints.UNDER_MAINTENANCE{
             let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
              requestURL = newAPIPATH + endPoint
         }
@@ -171,9 +171,9 @@ class DataSyncManager :NSObject {
                             strDate = strDate.appendingFormat("_%i", i)
                             print(strDate)
                             
-                            print("actual size = \((Double(img[i].pngData()?.count ?? 0) / 1000.00).rounded()) KB")
+//                            print("actual size = \((Double(img[i].pngData()?.count ?? 0) / 1000.00).rounded()) KB")
                             let data = img[i].jpegData(compressionQuality: 0.6)!
-                            print("after compression size = \((Double(data.count) / 1000.00).rounded()) KB")
+//                            print("after compression size = \((Double(data.count) / 1000.00).rounded()) KB")
 
                             print(data)
                             
@@ -397,10 +397,10 @@ class DataSyncManager :NSObject {
 extension DataSyncManager {
     
     // MARK: - PERFORM API CALLS
-    func performMultipartWebService(endPoint: String, parameters: Parameters, imageData: [Dictionary<String, Any>],currentController : UIViewController) {
+    func performMultipartWebService(endPoint: String, isMultipleImage: Bool = true, parameters: Parameters, imageData: [Dictionary<String, Any>],currentController : UIViewController) {
 
         if NetworkReachabilityManager()!.isReachable {
-            let url = new_path + endPoint
+            let url = endPoint
 
             AF.upload(multipartFormData: { multiPart in
                 for (key, value) in parameters {
@@ -424,14 +424,36 @@ extension DataSyncManager {
                     }
                 }
                 imageData.forEach({ data in
-                    if let imageData = data["image"] as? Data {
-                        let mimeType = ("jpg", "image/jpg")
-                        multiPart.append(imageData, withName: (data["title"] as? String ?? ""),
-                                         fileName: "\((data["title"] as? String ?? "") + "\(Date().timeIntervalSinceNow)").\(mimeType.0)",
-                                         mimeType: mimeType.1)
+                    
+                    if isMultipleImage {
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MMDDYYYHHmmsss"
+                        
+                        if let imageData = data["image"] as? [Data] {
+                            let mimeType = ("jpg", "image/jpg")
+                            imageData.enumerated().forEach({ index, dataa in
+                                
+                                var strDate = dateFormatter.string(from: Date())
+                                strDate = strDate.appendingFormat("_%i", index)
+
+                                multiPart.append(dataa, withName: ((data["title"] as? String ?? "") + "[]"),
+                                                 fileName: "\(strDate + "\(Date().timeIntervalSinceNow)").\(mimeType.0)",
+                                                 mimeType: mimeType.1)
+                            })
+                        }
+                    } else {
+                        if let imageData = data["image"] as? Data {
+                            let mimeType = ("jpg", "image/jpg")
+                            multiPart.append(imageData, withName: (data["title"] as? String ?? ""),
+                                             fileName: "\((data["title"] as? String ?? "") + "\(Date().timeIntervalSinceNow)").\(mimeType.0)",
+                                             mimeType: mimeType.1)
+                        }
                     }
+                    
                 })
-            }, to: url, method: .post , headers: WebServiceModel().headers)
+            }, to: url, method: .post , headers: WebServiceModel().headers){ $0.timeoutInterval = 300 }
+            
             .uploadProgress(queue: .main, closure: { progress in
                 //Current upload progress of file
                 print("Upload Progress: \(progress.fractionCompleted)")

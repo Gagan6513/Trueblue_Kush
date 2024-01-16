@@ -31,7 +31,7 @@ class SwapVehicleViewModel : NSObject{
         let objCallApi = DataSyncManager()
         objCallApi.delegateDataSync = self
         
-        objCallApi.performMultipartWebService(endPoint: endPoint, parameters: parameters, imageData: imageData, currentController: currentController)
+        objCallApi.performMultipartWebService(endPoint: endPoint, isMultipleImage: false, parameters: parameters, imageData: imageData, currentController: currentController)
 //        objCallApi.postRequestMultipartWithMultipleParam(endPoint: endPoint, parameters: parameters, img: img, isImage: isImage, isMultipleImg: isMultipleImg, imgParameter: imgParameter, imgExtension: imgExtension, currentController: currentController)
     }
 }
@@ -50,7 +50,7 @@ extension SwapVehicleViewModel : DataSyncManagerDelegate {
             print(dict)
             delegate.swapVehicleAPISuccess(objData: dict, strMessage: strMessage)
             
-        case EndPoints.SWAP_VEHICLE:
+        case API_URL.SWAP_VEHICLE:
             delegate.swapVehicleAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
             
         case EndPoints.RETURNUPLOADED_DOCS:
@@ -64,7 +64,7 @@ extension SwapVehicleViewModel : DataSyncManagerDelegate {
     
     func requestFailure(serviceKey: String, strMessage: String) {
         switch serviceKey {
-        case EndPoints.HIRED_VEHICLE_DROPDOWN_LIST,EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST,EndPoints.SWAP_VEHICLE:
+        case EndPoints.HIRED_VEHICLE_DROPDOWN_LIST,EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST,API_URL.SWAP_VEHICLE:
             delegate.swapVehicleAPIFailure(strMessage: strMessage, serviceKey: serviceKey)
         default:
             print("Unknown Service Ke")
