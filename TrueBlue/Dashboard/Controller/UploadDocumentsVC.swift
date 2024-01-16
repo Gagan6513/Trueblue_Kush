@@ -246,23 +246,13 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         multipleImgPickerController.showsCancelButton = true
         multipleImgPickerController.UIDelegate = CustomUIDelegate()
         multipleImgPickerController.didSelectAssets = { (assets: [DKAsset]) in
-            print("didSelectAssets")
-            print(assets)
-            print(self.allDocumentImgs.count)
-
             for asset in assets {
                 asset.fetchOriginalImage(completeBlock: {image,info in
                     //Gettimg images selected
                     self.allDocumentImgs.append(image!)
-                    print(self.allDocumentImgs)
                     if self.allDocumentImgs.count == assets.count {
-                        
+                        print(self.allDocumentImgs)
                         self.uploadSelectedImages(imagess: self.allDocumentImgs)
-                        
-                        
-//                        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
-//                                                       "document_id": self.selectedDocumentId]
-//                        self.apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.UPLOAD_MULTIPLE_DOCS, image: self.allDocumentImgs, isImg: true, isMultipleImg: true, imgParameter: "image", imgExtension: "jpg")
                     }
                 })
             }
@@ -289,11 +279,12 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         var profileImageData: [Dictionary<String, Any>] = []
         var img_data = [Data]()
         imagess.forEach({ img in
-            if let data = img.jpegData(compressionQuality: 0.6) {
+            
+            if let data = img.jpeg(.medium) {
                 img_data.append(data)
                 #if DEBUG
-                debugLog("actual size imagess = \((Double(img.pngData()?.count ?? 0) / 1000.00).rounded()) KB")
-                debugLog("after compression size front_img = \((Double(data.count) / 1000.00).rounded()) KB")
+                debugLog("actual size imagess = \(img.getSizeIn(.megabyte)) MB")
+                debugLog("after compression size = \(data.getSizeIn(.megabyte)) MB")
                 #endif
             }
         })
@@ -1019,4 +1010,67 @@ extension UploadDocumentsVC : FinalSubmitVMDelegate {
         showToast(strMessage: strMessage)
     }
     
+}
+
+
+extension UIImage {
+
+    enum JPEGQuality: CGFloat {
+         case lowest  = 0
+         case low     = 0.25
+         case medium  = 0.5
+         case high    = 0.75
+         case highest = 1
+     }
+
+     func jpeg(_ quality: JPEGQuality) -> Data? {
+         return self.jpegData(compressionQuality: quality.rawValue)
+     }
+    
+    func getSizeIn(_ type: DataUnits)-> String {
+
+        guard let data = self.jpeg(.highest) else {
+            return ""
+        }
+
+        var size: Double = 0.0
+
+        switch type {
+        case .byte:
+            size = Double(data.count)
+        case .kilobyte:
+            size = Double(data.count) / 1024
+        case .megabyte:
+            size = Double(data.count) / 1024 / 1024
+        case .gigabyte:
+            size = Double(data.count) / 1024 / 1024 / 1024
+        }
+
+        return String(format: "%.2f", size)
+    }
+}
+
+public enum DataUnits: String {
+    case byte, kilobyte, megabyte, gigabyte
+}
+
+extension Data {
+    
+    func getSizeIn(_ type: DataUnits)-> String {
+        var size: Double = 0.0
+
+        switch type {
+        case .byte:
+            size = Double(self.count)
+        case .kilobyte:
+            size = Double(self.count) / 1024
+        case .megabyte:
+            size = Double(self.count) / 1024 / 1024
+        case .gigabyte:
+            size = Double(self.count) / 1024 / 1024 / 1024
+        }
+
+        return String(format: "%.2f", size)
+        
+    }
 }
