@@ -45,16 +45,16 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         self.dateLabel.text = stringDate
         self.monthLabel.text = stringMonthYear
         
-        self.phoneNumber.text = data.owner_phone
-        self.clientLicense.text = data.owner_lic
-        self.faultPartyInsurance.text = data.atfault_insurancecompany
-        self.faultPartyInsuranceNumber.text = data.atfault_lic_no
+        self.phoneNumber.text = data.owner_phone == "" ? "NA" : data.owner_phone
+        self.clientLicense.text = data.owner_lic == "" ? "NA" : data.owner_lic
+        self.faultPartyInsurance.text = data.insurance_company == "" ? "NA" : data.insurance_company
+        self.faultPartyInsuranceNumber.text = data.atfault_claimno == "" ? "NA" : data.atfault_claimno
         
-        self.repairerName.text = data.repairer_name
+        self.repairerName.text = data.repairer_name == "" ? "NA" : data.repairer_name
         
         self.refNo.text = "Ref# \(data.application_id)"
         
-        self.expiresOn.text = data.expected_delivery_date
+//        self.expiresOn.text = data.expected_delivery_date
         
     }
     

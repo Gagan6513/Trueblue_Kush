@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJr-Ql-zzT">
-                        <rect key="frame" x="0.0" y="8" width="544" height="186"/>
+                        <rect key="frame" x="0.0" y="8" width="544" height="167"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7l-uC-m1h">
                                 <rect key="frame" x="12" y="12" width="6" height="18"/>
@@ -336,32 +336,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expires on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o1-Q2-swf">
-                                <rect key="frame" x="29.999999999999996" y="156" width="56.666666666666657" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="w0u-Dz-sFa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" name="AppGrey"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expires on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXk-z7-jIC">
-                                <rect key="frame" x="92.666666666666671" y="156" width="56.666666666666671" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="7F7-5B-HHQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" name="AppRed"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                </variation>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-Zh-dCk">
-                                <rect key="frame" x="0.0" y="185" width="544" height="1"/>
+                                <rect key="frame" x="0.0" y="166" width="544" height="1"/>
                                 <color key="backgroundColor" name="AppGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="vzU-ZS-yST"/>
@@ -370,16 +346,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hc6-Zh-dCk" firstAttribute="top" secondItem="oTn-72-odx" secondAttribute="bottom" constant="12" id="7MK-rs-bPM"/>
                             <constraint firstAttribute="trailing" secondItem="hc6-Zh-dCk" secondAttribute="trailing" id="8mI-4M-AwN"/>
                             <constraint firstItem="SnM-gt-WX4" firstAttribute="leading" secondItem="o7l-uC-m1h" secondAttribute="trailing" constant="12" id="9rp-n8-2SP"/>
                             <constraint firstItem="Wcc-Nc-SAi" firstAttribute="leading" secondItem="oTn-72-odx" secondAttribute="trailing" constant="6" id="ArN-Ad-eeq"/>
                             <constraint firstAttribute="trailing" secondItem="Wcc-Nc-SAi" secondAttribute="trailing" constant="6" id="DEr-Yq-mOI"/>
                             <constraint firstItem="8LB-PC-oib" firstAttribute="leading" secondItem="SnM-gt-WX4" secondAttribute="trailing" constant="4" id="E4D-P2-Ppn"/>
                             <constraint firstItem="8LB-PC-oib" firstAttribute="bottom" secondItem="SnM-gt-WX4" secondAttribute="bottom" id="EVr-zm-dh6"/>
-                            <constraint firstItem="lXk-z7-jIC" firstAttribute="leading" secondItem="7o1-Q2-swf" secondAttribute="trailing" constant="6" id="IyD-VP-rX9"/>
                             <constraint firstItem="o7l-uC-m1h" firstAttribute="top" secondItem="YJr-Ql-zzT" secondAttribute="top" constant="12" id="LGd-7s-5lO"/>
-                            <constraint firstItem="7o1-Q2-swf" firstAttribute="leading" secondItem="lak-t1-JgC" secondAttribute="leading" id="RIL-bB-ZMp"/>
-                            <constraint firstItem="lXk-z7-jIC" firstAttribute="centerY" secondItem="7o1-Q2-swf" secondAttribute="centerY" id="Stj-uU-N03"/>
                             <constraint firstItem="oTn-72-odx" firstAttribute="top" secondItem="btL-ng-7ZV" secondAttribute="bottom" constant="6" id="TG5-xQ-Ct6"/>
                             <constraint firstItem="btL-ng-7ZV" firstAttribute="top" secondItem="SnM-gt-WX4" secondAttribute="bottom" constant="4" id="YBV-FO-PCN"/>
                             <constraint firstAttribute="bottom" secondItem="hc6-Zh-dCk" secondAttribute="bottom" id="ZBx-0k-Htk"/>
@@ -388,9 +362,7 @@
                             <constraint firstItem="Wcc-Nc-SAi" firstAttribute="centerY" secondItem="oTn-72-odx" secondAttribute="centerY" id="dqx-i7-wx2"/>
                             <constraint firstItem="oTn-72-odx" firstAttribute="leading" secondItem="btL-ng-7ZV" secondAttribute="leading" id="gFJ-Ca-cPm"/>
                             <constraint firstAttribute="trailing" secondItem="btL-ng-7ZV" secondAttribute="trailing" constant="6" id="iL5-wY-9M5"/>
-                            <constraint firstItem="7o1-Q2-swf" firstAttribute="top" secondItem="oTn-72-odx" secondAttribute="bottom" constant="2" id="ogX-ik-Sci"/>
                             <constraint firstItem="hc6-Zh-dCk" firstAttribute="leading" secondItem="YJr-Ql-zzT" secondAttribute="leading" id="rSy-28-4na"/>
-                            <constraint firstAttribute="bottom" secondItem="7o1-Q2-swf" secondAttribute="bottom" constant="10" id="wLL-Th-kSf"/>
                             <constraint firstItem="btL-ng-7ZV" firstAttribute="leading" secondItem="SnM-gt-WX4" secondAttribute="leading" id="xFr-7s-4nN"/>
                         </constraints>
                     </view>
@@ -409,7 +381,6 @@
                 <outlet property="clientLabel" destination="BCX-U0-Xad" id="RV0-j3-PVC"/>
                 <outlet property="clientLicense" destination="R9c-5C-Out" id="7ar-wD-qdC"/>
                 <outlet property="dateLabel" destination="SnM-gt-WX4" id="erV-ri-dIC"/>
-                <outlet property="expiresOn" destination="lXk-z7-jIC" id="fjX-bZ-UmM"/>
                 <outlet property="faultPartyInsurance" destination="Gud-4p-NiU" id="kqb-Hm-OHX"/>
                 <outlet property="faultPartyInsuranceNumber" destination="TrC-Xw-VE4" id="mEm-gC-xBt"/>
                 <outlet property="monthLabel" destination="8LB-PC-oib" id="nwg-JA-PvI"/>
@@ -434,9 +405,6 @@
         </namedColor>
         <namedColor name="AppOrange">
             <color red="0.92156863212585449" green="0.61960786581039429" blue="0.23921570181846619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="AppRed">
-            <color red="0.95294117647058818" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CCCCCC (Stroke)">
             <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

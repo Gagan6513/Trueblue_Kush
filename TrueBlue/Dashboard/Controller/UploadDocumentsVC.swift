@@ -223,6 +223,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
 ////        view.endEditing(true)//To remove any keyboard that were open on other texfield
 //        present(alertVc, animated: true, completion: nil)
 //    }
+    
     @IBAction func documentImgViewTapped(_ sender: UITapGestureRecognizer) {
 //        allDocumentImgs.removeAll()
 //        multipleImgPicker.present(maxSelectableCount: 15)
@@ -230,7 +231,7 @@ class UploadDocumentsVC: UIViewController, NewBookingBackDelegate, GalleryCellDe
         print(allDocumentImgs.count)
         allDocumentImgs.removeAll()
         let multipleImgPickerController = DKImagePickerController()
-        multipleImgPickerController.maxSelectableCount = 15
+        multipleImgPickerController.maxSelectableCount = 10
         multipleImgPickerController.modalPresentationStyle = .fullScreen
         multipleImgPickerController.assetType = .allPhotos
         multipleImgPickerController.showsCancelButton = true
