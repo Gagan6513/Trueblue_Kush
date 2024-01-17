@@ -10,7 +10,7 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement"]//, "Accident Management"]
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
 
@@ -421,6 +421,10 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
 //            performSegue(withIdentifier: AppSegue.UNDER_MAINTENANCE_VEHICLES, sender: nil)
         case "Vehicle Activity Statement":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Accident Management":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:

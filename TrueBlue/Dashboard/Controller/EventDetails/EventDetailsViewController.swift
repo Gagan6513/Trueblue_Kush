@@ -22,6 +22,9 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var tableViewHourlyEvents: UITableView!
     @IBOutlet weak var tableViewTodaysEvents: UITableView!
      
+    @IBOutlet weak var hourlyEventView: UIView!
+    @IBOutlet weak var dailyEventView: UIView!
+    
     var selectedIndex = -1
     var selectedDate = ""
     var eventDetailsData = EventDetailsData()
@@ -39,6 +42,11 @@ class EventDetailsViewController: UIViewController {
     
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: false)
+    }
+    
+    @IBAction func filterSwitch(_ sender: UISwitch) {
+        self.hourlyEventView.isHidden = !sender.isOn
+        self.dailyEventView.isHidden = sender.isOn
     }
     
     @IBAction func btnCalender(_ sender: Any) {
@@ -76,6 +84,8 @@ class EventDetailsViewController: UIViewController {
     }
     
     func setupUI() {
+        
+        self.dailyEventView.isHidden = true
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
