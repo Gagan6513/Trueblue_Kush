@@ -56,6 +56,26 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         
         self.expiresOn.text = data.ownerlic_exp == "" ? "NA" : data.ownerlic_exp
         
+        if (data.ownerlic_exp == "") {
+            self.expiresOn.textColor = .black
+        } else {
+            let date = data.ownerlic_exp.date(from: .ddmmyyyy) ?? Date()
+            if date < Date() {
+                self.expiresOn.textColor = UIColor(named: "FF0000")
+            } else {
+                
+                let dateFormater = DateFormatter()
+                dateFormater.dateFormat = "MM"
+                let monthString = dateFormater.string(from: Date())
+                let expiryMonthString = dateFormater.string(from: date)
+                if monthString == expiryMonthString {
+                    self.expiresOn.textColor = UIColor(named: "FF0000")
+                } else {
+                    self.expiresOn.textColor = UIColor(named: "07B107")
+                }
+            }
+        }
+        
     }
     
     func formattedDateFromString(dateString: String, withFormat format: String) -> String? {

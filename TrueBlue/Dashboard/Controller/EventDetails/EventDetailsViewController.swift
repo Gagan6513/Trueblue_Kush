@@ -48,6 +48,17 @@ class EventDetailsViewController: UIViewController {
         
         self.hourlyEventView.isHidden = !sender.isOn
         self.dailyEventView.isHidden = sender.isOn
+        
+        self.tableViewHourlyEvents.reloadData()
+        self.tableViewTodaysEvents.reloadData()
+        
+        DispatchQueue.main.async {
+            if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
+                self.tableViewHourlyEvents.reloadData()
+                self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+        }
+        
     }
     
     @IBAction func btnCalender(_ sender: Any) {
@@ -233,29 +244,19 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyEventTVC") as? HourlyEventTVC else { return UITableViewCell() }
             cell.selectionStyle = .none
             
-//            cell.tableView.isHidden = self.selectedIndex != indexPath.row
             cell.lblHour.backgroundColor = .clear
             cell.tblMain = tableView
             cell.tableView.reloadData()
 
             cell.needToUpdate = false
             if let data = self.filterEventData.hourEvents?[indexPath.row] {
-//                cell.lblHour.backgroundColor = (data.events?.count ?? 0) != 0 ? .lightGray.withAlphaComponent(0.5) : .clear
                 cell.setupDetails(data: data)
             }
-            
-//            cell.btnExpandClick = { [weak self] in
-//                guard let self else { return }
-//                self.selectedIndex = self.selectedIndex == indexPath.row ? -1 : indexPath.row
-//                self.tableViewHourlyEvents.reloadData()
-//                self.tableViewHourlyEvents.scrollToRow(at: indexPath, at: .top, animated: false)
-//            }
             
             cell.editButtonClicked = { [weak self] data in
                 guard let self else { return }
                 self.editEvent(data: data)
             }
-      
             
             return cell
         } else {
