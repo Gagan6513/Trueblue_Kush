@@ -10,7 +10,7 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note","Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement"]
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
 
@@ -384,46 +384,49 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
+        
+        if indexPath.row == 0 {
+            print("Unkown Selection")
             CommonObject.sharedInstance.isNewEntry = true
-//            CommonObject.sharedInstance.currentReferenceId = ""
             performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
-        case 1:
+            return
+        }
+        
+        switch screenNames[indexPath.row - 1] {
+        case "Collections History":
             performSegue(withIdentifier: AppSegue.COLLECTIONS, sender: nil)
-        case 2:
+        case "Delivery History":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
-        case 3:
+        case "Return\nVehicle":
             performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
-        case 4:
+        case "Swap Vehicle":
 //            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
 
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
             
-        case 5:
+        case "Available\nVehicles":
             performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
-        case 6:
+        case "Hired\nVehicles":
             performSegue(withIdentifier: AppSegue.HIRED_VEHICLE, sender: nil)
-        case 7:
+        case "Collection Note":
             performSegue(withIdentifier: AppSegue.COLLECTION_NOTE_LIST, sender: nil)
-        case 8:
+        case "Delivery Note":
             performSegue(withIdentifier: AppSegue.DELIVERY_NOTE_LIST, sender: nil)
-        case 9:
+        case "Upcoming Bookings":
             performSegue(withIdentifier: AppSegue.UPCOMING_BOOKINGS, sender: nil)
-        case 10:
+        case "Repairer Bookings":
             performSegue(withIdentifier: AppSegue.REPAIRER_BOOKINGS, sender: nil)
 //            performSegue(withIdentifier: AppSegue.UNDER_MAINTENANCE_VEHICLES, sender: nil)
-        case 11:
+        case "Vehicle Activity Statement":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-        case 12:
-            CommonObject.sharedInstance.isNewEntry = true
-            performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
         default:
             print("Unkown Selection")
+            CommonObject.sharedInstance.isNewEntry = true
+            performSegue(withIdentifier: AppSegue.CREATE_NEW_ENTRY, sender: nil)
         }
     }
 }

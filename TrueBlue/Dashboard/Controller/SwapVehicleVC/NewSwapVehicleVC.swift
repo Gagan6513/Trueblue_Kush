@@ -898,22 +898,16 @@ extension NewSwapVehicleVC: ImagePickerDelegate {
             print("")
         }
         
-        if let img = image, let data = img.jpeg(.medium) {
-            #if DEBUG
-            // .resizeImage(image: img, newWidth: 2360, newHeight: 2360)
-            debugLog("actual size front_img = \(img.getSizeIn(.megabyte)) MB")
-            debugLog("after compression size front_img = \(data.getSizeIn(.megabyte)) MB")
-            
-            if let imageSizeInfo = img.getImageSizeInfo() {
-                print("Image size: \(imageSizeInfo.sizeInMB) MB")
-                print("Image width: \(imageSizeInfo.width) pixels")
-                print("Image height: \(imageSizeInfo.height) pixels")
-            } else {
-                print("Failed to get image size info")
-            }
-
-            #endif
-        }
+//        if let img = image, let data = img.jpeg(.high) {
+//            #if DEBUG
+//
+//            // .resizeImage(image: img, newWidth: 2360, newHeight: 2360)
+//            debugLog("actual size = \(img.getSizeIn(.megabyte)) MB")
+//
+//            debugLog("after compression size = \(data.getSizeIn(.megabyte)) MB")
+//
+//            #endif
+//        }
         
         self.selectedImage = ""
     }

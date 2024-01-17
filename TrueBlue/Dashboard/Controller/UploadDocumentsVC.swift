@@ -1027,7 +1027,7 @@ extension UIImage {
     
     func getSizeIn(_ type: DataUnits)-> String {
 
-        guard let data = self.jpeg(.highest) else {
+        guard let data = self.pngData() else {
             return ""
         }
 
