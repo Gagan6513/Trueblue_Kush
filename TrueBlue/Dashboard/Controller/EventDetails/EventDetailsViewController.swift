@@ -85,7 +85,7 @@ class EventDetailsViewController: UIViewController {
     
     func setupUI() {
         
-        self.dailyEventView.isHidden = true
+        self.hourlyEventView.isHidden = true
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
