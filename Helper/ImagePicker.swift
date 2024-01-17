@@ -73,16 +73,14 @@ open class ImagePicker: NSObject {
                         print("authorised")
                         DispatchQueue.main.async {
                             self.pickerController.sourceType = .photoLibrary
+                            self.pickerController.allowsEditing = false
                             self.presentationController?.present(self.pickerController, animated: true)
                         }
-                        //                    self.openPhotoOptions()
                     case .limited:
-                        // The user authorized this app for limited Photos access.
                         print("Limited")
                         DispatchQueue.main.async {
                             self.showLimitedLibraryAlert()
                         }
-                        //                self.openLimitedLibrary()
                     @unknown default:
                         fatalError()
                     }
@@ -205,9 +203,6 @@ open class ImagePicker: NSObject {
         if let action = self.action(for: .camera, title: "Take photo") {
             alertController.addAction(action)
         }
-//        if let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
-//            alertController.addAction(action)
-//        }
         if let action = self.action(for: .photoLibrary, title: "Photo library") {
             alertController.addAction(action)
         }
@@ -215,17 +210,10 @@ open class ImagePicker: NSObject {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.presentationController?.present(alertController, animated: true)
     }
+
     public func present(from sourceView: UIView) {
         openPhotoOptions()
-        //checkPermissions()
-//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
 
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            alertController.popoverPresentationController?.sourceView = sourceView
-//            alertController.popoverPresentationController?.sourceRect = sourceView.bounds
-//            alertController.popoverPresentationController?.permittedArrowDirections = [.down, .up]
-//        }
     }
     
     func showLimitedLibraryAlert() {
@@ -256,11 +244,12 @@ extension ImagePicker: UIImagePickerControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[.originalImage] as? UIImage else {
             return self.pickerController(picker, didSelect: nil)
         }
         self.pickerController(picker, didSelect: image)
     }
+    
 }
 
 extension ImagePicker: UINavigationControllerDelegate {

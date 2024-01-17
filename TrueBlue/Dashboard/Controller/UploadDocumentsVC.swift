@@ -1039,12 +1039,36 @@ extension UIImage {
         case .kilobyte:
             size = Double(data.count) / 1024
         case .megabyte:
-            size = Double(data.count) / 1024 / 1024
+            size =  Double(data.count) / 1024 / 1024
         case .gigabyte:
             size = Double(data.count) / 1024 / 1024 / 1024
         }
+        
+//        guard let imageData = self.pngData() else { return "0.00 MB" } // Use PNG for lossless compression
+//         let sizeInBytes = Double(imageData.count)
+//         let sizeInMB = sizeInBytes / 1048576.0
+//        size = round(100 * sizeInMB) / 100
 
         return String(format: "%.2f", size)
+    }
+    
+    func getImageSizeInfo() -> (sizeInBytes: Int, sizeInMB: Double, width: Int, height: Int)? {
+        guard let cgImage = self.cgImage else {
+            return nil
+        }
+
+        // Get the image dimensions in pixels
+        let width = cgImage.width
+        let height = cgImage.height
+
+        // Get the image data in bytes
+        guard let imageData = cgImage.dataProvider?.data else {
+            return nil
+        }
+        let sizeInBytes = CFDataGetLength(imageData)
+        let sizeInMB = Double(sizeInBytes) / (1024 * 1024)
+
+        return (sizeInBytes, sizeInMB, width, height)
     }
 }
 

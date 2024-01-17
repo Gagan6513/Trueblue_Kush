@@ -54,7 +54,7 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         
         self.refNo.text = "Ref# \(data.application_id)"
         
-//        self.expiresOn.text = data.expected_delivery_date
+        self.expiresOn.text = data.ownerlic_exp == "" ? "NA" : data.ownerlic_exp
         
     }
     

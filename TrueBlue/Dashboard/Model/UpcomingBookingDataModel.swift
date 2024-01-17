@@ -44,6 +44,7 @@ class UpcomingBookingDataModel : NSObject {
                 dictArray.owner_phone = dict["owner_phone"] as? String ?? "NA"
                 dictArray.owner_registration_no = dict["owner_registration_no"] as? String ?? ""
                 dictArray.insurance_company = dict["insurance_company"] as? String ?? "NA"
+                dictArray.ownerlic_exp = dict["ownerlic_exp"] as? String ?? "NA"
                 arrResult.append(dictArray)
             }
         }
@@ -80,5 +81,6 @@ struct UpcomingBookingData {
     var status:String = ""
     var vehicle_make:String = ""
     var vehicle_model:String = ""
+    var ownerlic_exp: String = ""
 }
 

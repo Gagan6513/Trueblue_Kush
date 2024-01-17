@@ -738,9 +738,8 @@ class NewSwapVehicleVC: UIViewController {
             profileImageData.append(["title": "newodometer_img", "image": data])
         }
         
-        apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE, imageData: profileImageData)
+//        apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE, imageData: profileImageData)
         
-//        apiPostSwapeVehicleRequest(parameters: parameters, endPoint: EndPoints.SWAP_VEHICLE)
     }
     
 }
@@ -898,12 +897,34 @@ extension NewSwapVehicleVC: ImagePickerDelegate {
         default:
             print("")
         }
+        
+        if let img = image, let data = img.jpeg(.medium) {
+            #if DEBUG
+            // .resizeImage(image: img, newWidth: 2360, newHeight: 2360)
+            debugLog("actual size front_img = \(img.getSizeIn(.megabyte)) MB")
+            debugLog("after compression size front_img = \(data.getSizeIn(.megabyte)) MB")
+            
+            if let imageSizeInfo = img.getImageSizeInfo() {
+                print("Image size: \(imageSizeInfo.sizeInMB) MB")
+                print("Image width: \(imageSizeInfo.width) pixels")
+                print("Image height: \(imageSizeInfo.height) pixels")
+            } else {
+                print("Failed to get image size info")
+            }
+
+            #endif
+        }
+        
         self.selectedImage = ""
     }
 }
 
 extension NewSwapVehicleVC {
+    
     func selectImage() {
+
+//        self.imagePicker?.openPhotoOptions()
+
         let multipleImgPickerController = DKImagePickerController()
         multipleImgPickerController.maxSelectableCount = 1
         multipleImgPickerController.modalPresentationStyle = .fullScreen
@@ -918,14 +939,6 @@ extension NewSwapVehicleVC {
                 asset.fetchOriginalImage(completeBlock: {image,info in
                     //Gettimg images selected
                     self.didSelect(image: image)
-//                    self.allDocumentImgs.append(image!)
-//                    print(self.allDocumentImgs)
-//                    if self.allDocumentImgs.count == assets.count {
-//
-//                        let parameters : Parameters = ["application_id" : CommonObject.sharedInstance.currentReferenceId,
-//                                                       "document_id": self.selectedDocumentId]
-//                        self.apiPostMultipartRequest(parameters: parameters, endPoint: EndPoints.UPLOAD_MULTIPLE_DOCS, image: self.allDocumentImgs, isImg: true, isMultipleImg: true, imgParameter: "image", imgExtension: "jpg")
-//                    }
                 })
             }
         }
