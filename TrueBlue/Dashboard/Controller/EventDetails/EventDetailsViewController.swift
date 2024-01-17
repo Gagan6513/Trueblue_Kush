@@ -45,6 +45,7 @@ class EventDetailsViewController: UIViewController {
     }
     
     @IBAction func filterSwitch(_ sender: UISwitch) {
+        
         self.hourlyEventView.isHidden = !sender.isOn
         self.dailyEventView.isHidden = sender.isOn
     }

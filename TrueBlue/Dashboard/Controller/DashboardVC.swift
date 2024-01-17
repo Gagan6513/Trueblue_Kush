@@ -518,15 +518,45 @@ extension DashboardVC : DashboardVMDelegate {
     
     func dashboardAPISuccess(objData: DashboardModel, strMessage: String) {
         print(objData.dictResult)
-        arrDashboardCount[0] = objData.dictResult.numOfCollections
-        arrDashboardCount[1] = objData.dictResult.numOfTodayDeliveries
-        arrDashboardCount[4] = objData.dictResult.numOfAvailableVehicle
-        arrDashboardCount[5] = objData.dictResult.numOfHiredVehicle
-        arrDashboardCount[6] = objData.dictResult.todayCollectionNotes
-        arrDashboardCount[7] = objData.dictResult.todayDeliveryNotes
-        arrDashboardCount[8] = objData.dictResult.upcomingbookingcount
-        arrDashboardCount[9] = objData.dictResult.repairerbookingcount
-        arrDashboardCount[10] = "\(objData.dictResult.task_count)"
+        
+        let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement"]//, "Accident Management"]
+
+        if let data = screenNames.firstIndex(where: { $0 == "Collections History" }) {
+            arrDashboardCount[data] = objData.dictResult.numOfCollections
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Delivery History" }) {
+            arrDashboardCount[data] = objData.dictResult.numOfTodayDeliveries
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Available\nVehicles" }) {
+            arrDashboardCount[data] = objData.dictResult.numOfAvailableVehicle
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Hired\nVehicles" }) {
+            arrDashboardCount[data] = objData.dictResult.numOfHiredVehicle
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Upcoming Bookings" }) {
+            arrDashboardCount[data] = objData.dictResult.upcomingbookingcount
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Repairer Bookings" }) {
+            arrDashboardCount[data] = objData.dictResult.repairerbookingcount
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Vehicle Activity Statement" }) {
+            arrDashboardCount[data] = "\(objData.dictResult.task_count)"
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Collection Note" }) {
+            arrDashboardCount[data] = objData.dictResult.repairerbookingcount
+        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Delivery Note" }) {
+            arrDashboardCount[data] = objData.dictResult.todayDeliveryNotes
+        }
+        
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)
