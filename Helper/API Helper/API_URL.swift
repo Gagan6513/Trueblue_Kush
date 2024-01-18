@@ -18,6 +18,15 @@ class API_URL {
     static let get_all_user = new_path + "getAllUsersData"
     static let force_logout_user = new_path + "setforceLogoutUser"
     static let logSheet = new_path + "getAllNotes"
+
+    static let accidentManagementFirst = new_path + "saveAccidentForm"
+
+    static let BRANCH_LIST = API_PATH + "branch_list.php"
+
+    static let INSURANCE_COMPANY_LIST = API_PATH + "insurance_list.php"
+    static let REPAIRER_LIST = API_PATH + "repairer_list.php"
+
+
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
