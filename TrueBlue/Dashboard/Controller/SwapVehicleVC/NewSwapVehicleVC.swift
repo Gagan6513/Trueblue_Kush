@@ -738,7 +738,7 @@ class NewSwapVehicleVC: UIViewController {
             profileImageData.append(["title": "newodometer_img", "image": data])
         }
         
-//        apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE, imageData: profileImageData)
+        apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE, imageData: profileImageData)
         
     }
     
