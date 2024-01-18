@@ -504,7 +504,6 @@
                         <segue destination="0jg-9I-OIm" kind="presentation" identifier="segueCollections" modalPresentationStyle="fullScreen" id="Tse-Id-3tl"/>
                         <segue destination="oxt-fL-6o3" kind="presentation" identifier="segueReturnVehicle" modalPresentationStyle="fullScreen" id="ms2-4A-x4r"/>
                         <segue destination="cY1-qZ-5Vh" kind="presentation" identifier="segueDeliveries" modalPresentationStyle="fullScreen" id="l0t-Mw-rZP"/>
-                        <segue destination="caC-gc-B17" kind="presentation" identifier="segueAvailVehicle" modalPresentationStyle="fullScreen" id="rmX-4A-CVl"/>
                         <segue destination="OtD-dz-DEW" kind="presentation" identifier="segueHiredVehicle" modalPresentationStyle="fullScreen" id="mod-RE-Zba"/>
                         <segue destination="X7k-Jl-1Vd" kind="presentation" identifier="segueDashboardSearchResultDetails" modalPresentationStyle="fullScreen" id="cVI-PT-bOJ"/>
                         <segue destination="ld8-vS-rzi" kind="presentation" identifier="seguedeliveryNoteList" modalPresentationStyle="fullScreen" id="4cW-JC-tZ1"/>
@@ -2567,13 +2566,13 @@
         <!--Available VehicleVC-->
         <scene sceneID="Tej-y3-d6Y">
             <objects>
-                <viewController storyboardIdentifier="idAvailableVehicleVC" id="caC-gc-B17" customClass="AvailableVehicleVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="caC-gc-B17" customClass="AvailableVehicleVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fmk-va-KeC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5Q-3W-NId">
-                                <rect key="frame" x="5" y="50" width="404" height="841"/>
+                                <rect key="frame" x="5" y="94" width="404" height="763"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailVehicleTblCellId" rowHeight="140" id="0rS-Hg-iKJ" customClass="AvailVehicleTblCell" customModule="TrueBlue" customModuleProvider="target">
@@ -2680,7 +2679,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfx-vo-ZzE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-AL-2se">
                                         <rect key="frame" x="15" y="12.666666666666664" width="25" height="20"/>
@@ -2711,7 +2710,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZ5-CU-EQj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <color key="backgroundColor" name="AppBlue"/>
                             </view>
                         </subviews>
@@ -2737,7 +2736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2S3-me-f8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961.875" y="-1271.25"/>
+            <point key="canvasLocation" x="3928" y="-806"/>
         </scene>
         <!--Hired VehicleVC-->
         <scene sceneID="bAV-Fn-aN9">
@@ -9497,12 +9496,11 @@
                         <segue destination="IuZ-VT-rjK" kind="presentation" identifier="segueSwapVehicle" modalPresentationStyle="fullScreen" id="rf7-Fz-DfV"/>
                         <segue destination="Dbe-ht-8W5" kind="presentation" identifier="segueCreateNewEntry" modalPresentationStyle="fullScreen" id="5Ib-mj-SeE"/>
                         <segue destination="OtD-dz-DEW" kind="presentation" identifier="segueHiredVehicle" modalPresentationStyle="fullScreen" id="1qa-oB-NHx"/>
-                        <segue destination="caC-gc-B17" kind="presentation" identifier="segueAvailVehicle" modalPresentationStyle="fullScreen" id="WE5-xV-msZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avl-ON-Q1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2353.6231884057975" y="445.98214285714283"/>
+            <point key="canvasLocation" x="1419" y="455"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="m24-kx-8qM">
@@ -21124,380 +21122,433 @@
             </objects>
             <point key="canvasLocation" x="5665" y="1377"/>
         </scene>
+        <!--Available VehicleVC-->
+        <scene sceneID="iAs-zb-wZk">
+            <objects>
+                <viewController storyboardIdentifier="AvailableVehicleVC" id="XDL-vW-Foq" customClass="AvailableVehicleVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ShQ-li-IYT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-s3-lWh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Vehicles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwk-GV-8qq">
+                                        <rect key="frame" x="139" y="12.666666666666664" width="136.33333333333337" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" name="F5F5F5"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rs7-8P-xJ0">
+                                        <rect key="frame" x="4" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rs7-8P-xJ0" secondAttribute="height" id="hXV-ZS-4U3"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_back"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="XDL-vW-Foq" eventType="touchUpInside" id="c3I-rp-WS0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="3478F6"/>
+                                <constraints>
+                                    <constraint firstItem="rs7-8P-xJ0" firstAttribute="leading" secondItem="6yg-s3-lWh" secondAttribute="leading" constant="4" id="077-rR-6Ta"/>
+                                    <constraint firstItem="fwk-GV-8qq" firstAttribute="centerX" secondItem="6yg-s3-lWh" secondAttribute="centerX" id="3il-Og-hh5"/>
+                                    <constraint firstItem="rs7-8P-xJ0" firstAttribute="top" secondItem="6yg-s3-lWh" secondAttribute="top" id="Eow-hC-gni"/>
+                                    <constraint firstItem="fwk-GV-8qq" firstAttribute="centerY" secondItem="6yg-s3-lWh" secondAttribute="centerY" id="L2C-d0-qB1"/>
+                                    <constraint firstAttribute="height" constant="44" id="Lml-vL-NLJ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="55"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="rs7-8P-xJ0" secondAttribute="bottom" id="jdX-E4-kow"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-mw-A3A">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" name="3478F6"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZF4-JL-pV4">
+                                <rect key="frame" x="0.0" y="96" width="414" height="800"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P09-HP-ASe"/>
+                        <color key="backgroundColor" name="F5F5F5"/>
+                        <constraints>
+                            <constraint firstItem="Oxs-mw-A3A" firstAttribute="leading" secondItem="ShQ-li-IYT" secondAttribute="leading" id="HSi-55-dly"/>
+                            <constraint firstItem="ZF4-JL-pV4" firstAttribute="top" secondItem="6yg-s3-lWh" secondAttribute="bottom" constant="8" id="Hew-cX-94M"/>
+                            <constraint firstItem="Oxs-mw-A3A" firstAttribute="top" secondItem="ShQ-li-IYT" secondAttribute="top" id="O5h-8X-eJL"/>
+                            <constraint firstItem="P09-HP-ASe" firstAttribute="trailing" secondItem="ZF4-JL-pV4" secondAttribute="trailing" id="OGL-sO-FLs"/>
+                            <constraint firstItem="6yg-s3-lWh" firstAttribute="top" secondItem="Oxs-mw-A3A" secondAttribute="bottom" id="Svd-De-z6l"/>
+                            <constraint firstItem="6yg-s3-lWh" firstAttribute="top" secondItem="P09-HP-ASe" secondAttribute="top" id="TUp-Xc-NG8"/>
+                            <constraint firstItem="6yg-s3-lWh" firstAttribute="leading" secondItem="P09-HP-ASe" secondAttribute="leading" id="Ufa-dQ-wEz"/>
+                            <constraint firstAttribute="bottom" secondItem="ZF4-JL-pV4" secondAttribute="bottom" id="Wpi-aq-FkR"/>
+                            <constraint firstItem="P09-HP-ASe" firstAttribute="trailing" secondItem="6yg-s3-lWh" secondAttribute="trailing" id="i6z-1s-Xkl"/>
+                            <constraint firstAttribute="trailing" secondItem="Oxs-mw-A3A" secondAttribute="trailing" id="iOH-2j-561"/>
+                            <constraint firstItem="ZF4-JL-pV4" firstAttribute="leading" secondItem="P09-HP-ASe" secondAttribute="leading" id="yqi-t3-2vu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tblAvailVehicles" destination="ZF4-JL-pV4" id="1g1-tx-B5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufj-uV-93d" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4642" y="-806"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0Co-G9-Gfc">
-            <size key="intrinsicContentSize" width="58" height="38"/>
+            <size key="intrinsicContentSize" width="58" height="20.333333333333332"/>
         </designable>
         <designable name="0VL-9i-Lym">
-            <size key="intrinsicContentSize" width="46.666666666666664" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="46.666666666666664" height="18"/>
         </designable>
         <designable name="0oB-60-FfE">
-            <size key="intrinsicContentSize" width="4" height="23"/>
+            <size key="intrinsicContentSize" width="4" height="18"/>
         </designable>
         <designable name="0uq-ie-fGs">
-            <size key="intrinsicContentSize" width="42.333333333333336" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="42.333333333333336" height="18"/>
         </designable>
         <designable name="1Kf-5w-50I">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="1Uv-SY-n4H">
-            <size key="intrinsicContentSize" width="75.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="75.666666666666671" height="18"/>
         </designable>
         <designable name="1WA-H1-3G9">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="38"/>
+            <size key="intrinsicContentSize" width="102.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="2Cb-Tw-EVq">
-            <size key="intrinsicContentSize" width="50" height="38"/>
+            <size key="intrinsicContentSize" width="50" height="20.333333333333332"/>
         </designable>
         <designable name="2Zy-cm-r8a">
-            <size key="intrinsicContentSize" width="126.33333333333333" height="38"/>
-        </designable>
-        <designable name="2cv-ql-Gvi">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="126.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="2lJ-6T-Bk8">
-            <size key="intrinsicContentSize" width="147" height="38"/>
+            <size key="intrinsicContentSize" width="147" height="20.333333333333332"/>
         </designable>
         <designable name="3Tw-iG-waB">
-            <size key="intrinsicContentSize" width="4" height="22"/>
+            <size key="intrinsicContentSize" width="4" height="17"/>
         </designable>
         <designable name="4X5-7V-Y3Z">
-            <size key="intrinsicContentSize" width="84.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="84.333333333333329" height="18"/>
         </designable>
         <designable name="4ek-Ii-H1q">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="38"/>
+            <size key="intrinsicContentSize" width="102.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="4pK-TC-IMM">
-            <size key="intrinsicContentSize" width="298.33333333333331" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="298.33333333333331" height="18"/>
         </designable>
         <designable name="5GZ-Ui-OuC">
-            <size key="intrinsicContentSize" width="105" height="38"/>
+            <size key="intrinsicContentSize" width="105" height="20.333333333333332"/>
         </designable>
         <designable name="5Tx-Lb-99Z">
-            <size key="intrinsicContentSize" width="155.66666666666666" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="155.66666666666666" height="18"/>
         </designable>
         <designable name="5vD-tU-J3j">
-            <size key="intrinsicContentSize" width="105" height="38"/>
+            <size key="intrinsicContentSize" width="105" height="20.333333333333332"/>
         </designable>
         <designable name="5wz-2D-DyI">
-            <size key="intrinsicContentSize" width="103" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="103" height="18"/>
         </designable>
         <designable name="62k-0A-aGB">
-            <size key="intrinsicContentSize" width="182.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="182.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="6Zy-N0-4VG">
-            <size key="intrinsicContentSize" width="64.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
         </designable>
         <designable name="6gQ-QX-OJK">
-            <size key="intrinsicContentSize" width="141.66666666666666" height="38"/>
-        </designable>
-        <designable name="79r-ix-MB3">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="141.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="7ZO-lt-tyh">
-            <size key="intrinsicContentSize" width="96" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="96" height="18"/>
         </designable>
         <designable name="7sv-FM-wAQ">
-            <size key="intrinsicContentSize" width="64.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
         </designable>
         <designable name="81G-dR-xLE">
-            <size key="intrinsicContentSize" width="81" height="38"/>
+            <size key="intrinsicContentSize" width="81" height="20.333333333333332"/>
         </designable>
         <designable name="8fL-Mv-I6g">
-            <size key="intrinsicContentSize" width="143.33333333333334" height="38"/>
+            <size key="intrinsicContentSize" width="143.33333333333334" height="20.333333333333332"/>
         </designable>
         <designable name="BXF-oQ-D71">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="Cct-Ai-we5">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="Dds-UI-HG1">
-            <size key="intrinsicContentSize" width="218" height="38"/>
+            <size key="intrinsicContentSize" width="218" height="20.333333333333332"/>
         </designable>
         <designable name="E3Z-rH-a1L">
-            <size key="intrinsicContentSize" width="145" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="145" height="18"/>
         </designable>
         <designable name="G9r-92-vge">
-            <size key="intrinsicContentSize" width="73" height="38"/>
+            <size key="intrinsicContentSize" width="73" height="20.333333333333332"/>
         </designable>
         <designable name="GLH-aO-kS2">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="GNF-N6-RvA">
-            <size key="intrinsicContentSize" width="4" height="23"/>
+            <size key="intrinsicContentSize" width="4" height="18"/>
         </designable>
         <designable name="H11-Oz-YnW">
-            <size key="intrinsicContentSize" width="51.666666666666664" height="38"/>
+            <size key="intrinsicContentSize" width="51.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="HX7-3U-Xde">
-            <size key="intrinsicContentSize" width="116.66666666666667" height="38"/>
+            <size key="intrinsicContentSize" width="116.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="Hy8-nY-Wkf">
-            <size key="intrinsicContentSize" width="155.66666666666666" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="155.66666666666666" height="18"/>
         </designable>
         <designable name="IDM-8d-Scc">
-            <size key="intrinsicContentSize" width="210" height="38"/>
+            <size key="intrinsicContentSize" width="210" height="20.333333333333332"/>
         </designable>
         <designable name="IYO-O3-vxh">
-            <size key="intrinsicContentSize" width="51.666666666666664" height="38"/>
+            <size key="intrinsicContentSize" width="51.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="JAk-SE-ghS">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="38"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="KXc-zN-7yc">
-            <size key="intrinsicContentSize" width="51.666666666666664" height="38"/>
+            <size key="intrinsicContentSize" width="51.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="LNo-Zf-LFS">
-            <size key="intrinsicContentSize" width="161" height="38"/>
+            <size key="intrinsicContentSize" width="161" height="20.333333333333332"/>
         </designable>
         <designable name="MgX-5s-dLL">
             <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="Nmx-O8-k0X">
-            <size key="intrinsicContentSize" width="98.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="98.333333333333329" height="18"/>
         </designable>
         <designable name="OsU-bb-eUd">
-            <size key="intrinsicContentSize" width="162" height="38"/>
+            <size key="intrinsicContentSize" width="162" height="20.333333333333332"/>
         </designable>
         <designable name="Px0-bC-u7y">
-            <size key="intrinsicContentSize" width="275.33333333333331" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="275.33333333333331" height="18"/>
         </designable>
         <designable name="Q0q-8i-sQR">
-            <size key="intrinsicContentSize" width="84.666666666666671" height="38"/>
+            <size key="intrinsicContentSize" width="84.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="Qmx-BG-LWr">
-            <size key="intrinsicContentSize" width="42.333333333333336" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="42.333333333333336" height="18"/>
         </designable>
         <designable name="QoS-Ce-R69">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="38"/>
-        </designable>
-        <designable name="RGw-kg-TFj">
-            <size key="intrinsicContentSize" width="-1" height="-1.6666666666666679"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="ReX-oa-8iO">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="101.33333333333333" height="18"/>
         </designable>
         <designable name="Rh5-9g-JJE">
-            <size key="intrinsicContentSize" width="46.666666666666664" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="46.666666666666664" height="18"/>
         </designable>
         <designable name="RjN-MJ-4i5">
-            <size key="intrinsicContentSize" width="145" height="38"/>
+            <size key="intrinsicContentSize" width="145" height="20.333333333333332"/>
         </designable>
         <designable name="S0W-Qp-d4Q">
-            <size key="intrinsicContentSize" width="104.33333333333333" height="38"/>
+            <size key="intrinsicContentSize" width="104.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="SyX-2s-AJI">
-            <size key="intrinsicContentSize" width="90" height="38"/>
+            <size key="intrinsicContentSize" width="90" height="20.333333333333332"/>
         </designable>
         <designable name="TlH-sc-UyU">
-            <size key="intrinsicContentSize" width="99.666666666666671" height="38"/>
+            <size key="intrinsicContentSize" width="99.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="UN6-Yi-7zm">
-            <size key="intrinsicContentSize" width="162" height="38"/>
+            <size key="intrinsicContentSize" width="162" height="20.333333333333332"/>
         </designable>
         <designable name="Viw-H6-SOf">
-            <size key="intrinsicContentSize" width="189.33333333333334" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="189.33333333333334" height="18"/>
         </designable>
         <designable name="Vui-QN-VHi">
-            <size key="intrinsicContentSize" width="95" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="95" height="18"/>
         </designable>
         <designable name="WFj-zf-4h5">
-            <size key="intrinsicContentSize" width="69.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="69.333333333333329" height="18"/>
         </designable>
         <designable name="WIw-C6-keL">
-            <size key="intrinsicContentSize" width="161" height="38"/>
-        </designable>
-        <designable name="Who-r7-fwg">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="161" height="20.333333333333332"/>
         </designable>
         <designable name="Y2a-Gv-kdS">
-            <size key="intrinsicContentSize" width="92.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="92.666666666666671" height="18"/>
         </designable>
         <designable name="Ycz-HU-td0">
-            <size key="intrinsicContentSize" width="40.333333333333336" height="38"/>
+            <size key="intrinsicContentSize" width="40.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="ZWy-8y-lpN">
-            <size key="intrinsicContentSize" width="132.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="132.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="Zdx-0p-XXG">
-            <size key="intrinsicContentSize" width="73" height="38"/>
+            <size key="intrinsicContentSize" width="73" height="20.333333333333332"/>
         </designable>
         <designable name="ZnE-vY-aTn">
-            <size key="intrinsicContentSize" width="4" height="23"/>
+            <size key="intrinsicContentSize" width="4" height="18"/>
         </designable>
         <designable name="ad6-s9-MOw">
-            <size key="intrinsicContentSize" width="114" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="114" height="18"/>
         </designable>
         <designable name="bIg-zX-SfC">
-            <size key="intrinsicContentSize" width="4" height="22"/>
+            <size key="intrinsicContentSize" width="4" height="17"/>
         </designable>
         <designable name="ckH-Nh-pUb">
-            <size key="intrinsicContentSize" width="99.666666666666671" height="38"/>
+            <size key="intrinsicContentSize" width="99.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="dCr-kI-uOn">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="38"/>
+            <size key="intrinsicContentSize" width="102.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="dNI-iS-jLS">
-            <size key="intrinsicContentSize" width="46.333333333333336" height="38"/>
+            <size key="intrinsicContentSize" width="46.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="doz-6B-k66">
-            <size key="intrinsicContentSize" width="230.33333333333334" height="38"/>
+            <size key="intrinsicContentSize" width="230.33333333333334" height="20.333333333333332"/>
         </designable>
         <designable name="enm-fN-i4f">
-            <size key="intrinsicContentSize" width="75.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="75.666666666666671" height="18"/>
         </designable>
         <designable name="f44-Oo-p0V">
-            <size key="intrinsicContentSize" width="203" height="38"/>
+            <size key="intrinsicContentSize" width="203" height="20.333333333333332"/>
         </designable>
         <designable name="fG3-69-Kw0">
-            <size key="intrinsicContentSize" width="147" height="38"/>
+            <size key="intrinsicContentSize" width="147" height="20.333333333333332"/>
         </designable>
         <designable name="fKS-hV-Hmh">
-            <size key="intrinsicContentSize" width="51.666666666666664" height="38"/>
+            <size key="intrinsicContentSize" width="51.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="fuV-hj-hnX">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="38"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="g0W-7L-yny">
-            <size key="intrinsicContentSize" width="94.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="94.333333333333329" height="18"/>
         </designable>
         <designable name="g6l-m7-tA3">
-            <size key="intrinsicContentSize" width="210" height="38"/>
+            <size key="intrinsicContentSize" width="210" height="20.333333333333332"/>
         </designable>
         <designable name="g8e-pi-94G">
-            <size key="intrinsicContentSize" width="145" height="38"/>
+            <size key="intrinsicContentSize" width="145" height="20.333333333333332"/>
         </designable>
         <designable name="gq0-F8-oyl">
-            <size key="intrinsicContentSize" width="43" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="43" height="18"/>
         </designable>
         <designable name="hBq-79-uNv">
-            <size key="intrinsicContentSize" width="105" height="38"/>
+            <size key="intrinsicContentSize" width="105" height="20.333333333333332"/>
         </designable>
         <designable name="hG2-iZ-27Y">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="hVU-P7-jGl">
-            <size key="intrinsicContentSize" width="46.333333333333336" height="38"/>
+            <size key="intrinsicContentSize" width="46.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="hda-ME-7xb">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="iX7-Ug-aME">
-            <size key="intrinsicContentSize" width="116.66666666666667" height="38"/>
-        </designable>
-        <designable name="jAw-gC-4pB">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="116.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="jU1-lB-3nG">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="jZN-in-6Qd">
-            <size key="intrinsicContentSize" width="147" height="38"/>
+            <size key="intrinsicContentSize" width="147" height="20.333333333333332"/>
         </designable>
         <designable name="jzo-zh-cna">
-            <size key="intrinsicContentSize" width="47.666666666666664" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="47.666666666666664" height="18"/>
         </designable>
         <designable name="kh6-ZS-JWq">
-            <size key="intrinsicContentSize" width="96.333333333333329" height="38"/>
-        </designable>
-        <designable name="l0S-PN-qrg">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="96.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="loB-0v-mOy">
-            <size key="intrinsicContentSize" width="107.66666666666667" height="38"/>
+            <size key="intrinsicContentSize" width="107.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="mQU-hR-mRg">
-            <size key="intrinsicContentSize" width="104.33333333333333" height="38"/>
+            <size key="intrinsicContentSize" width="104.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="nn0-2k-lRi">
-            <size key="intrinsicContentSize" width="77.333333333333329" height="34.666666666666664"/>
-        </designable>
-        <designable name="nnI-6t-WTJ">
-            <size key="intrinsicContentSize" width="-1" height="-1.6666666666666679"/>
+            <size key="intrinsicContentSize" width="77.333333333333329" height="18"/>
         </designable>
         <designable name="nrd-hC-Wgg">
-            <size key="intrinsicContentSize" width="145" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="145" height="18"/>
         </designable>
         <designable name="nzb-se-OIz">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="o0o-IJ-f5t">
-            <size key="intrinsicContentSize" width="85" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="85" height="18"/>
         </designable>
         <designable name="oHf-cu-9rO">
-            <size key="intrinsicContentSize" width="231.33333333333334" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="231.33333333333334" height="18"/>
         </designable>
         <designable name="oIb-Z0-b0P">
-            <size key="intrinsicContentSize" width="92.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="92.666666666666671" height="18"/>
         </designable>
         <designable name="pSH-PS-xBo">
-            <size key="intrinsicContentSize" width="87.333333333333329" height="38"/>
+            <size key="intrinsicContentSize" width="87.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="pme-oO-0FM">
-            <size key="intrinsicContentSize" width="114" height="38"/>
+            <size key="intrinsicContentSize" width="114" height="20.333333333333332"/>
         </designable>
         <designable name="q5C-Zu-8fA">
-            <size key="intrinsicContentSize" width="75.666666666666671" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="75.666666666666671" height="18"/>
         </designable>
         <designable name="qlf-Mk-i9L">
-            <size key="intrinsicContentSize" width="77.666666666666671" height="38"/>
+            <size key="intrinsicContentSize" width="77.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="sdN-gA-ZAn">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="tHy-Ym-hdF">
-            <size key="intrinsicContentSize" width="46.333333333333336" height="38"/>
+            <size key="intrinsicContentSize" width="46.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="twP-Zm-KFO">
-            <size key="intrinsicContentSize" width="46.333333333333336" height="38"/>
+            <size key="intrinsicContentSize" width="46.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="uw2-kb-fcB">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="90.333333333333329" height="18"/>
         </designable>
         <designable name="uwG-Da-wra">
-            <size key="intrinsicContentSize" width="78.333333333333329" height="38"/>
+            <size key="intrinsicContentSize" width="78.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="vE8-6x-ZKO">
-            <size key="intrinsicContentSize" width="103" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="103" height="18"/>
         </designable>
         <designable name="vUf-KD-fNU">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="vvn-Lw-kNG">
-            <size key="intrinsicContentSize" width="73" height="38"/>
+            <size key="intrinsicContentSize" width="73" height="20.333333333333332"/>
         </designable>
         <designable name="wYy-Kb-R12">
-            <size key="intrinsicContentSize" width="114" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="114" height="18"/>
         </designable>
         <designable name="who-Cf-Xht">
-            <size key="intrinsicContentSize" width="168.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="168.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="xXF-aJ-LUg">
-            <size key="intrinsicContentSize" width="94.333333333333329" height="34.666666666666664"/>
+            <size key="intrinsicContentSize" width="94.333333333333329" height="18"/>
         </designable>
         <designable name="xYY-Qy-VzW">
-            <size key="intrinsicContentSize" width="105" height="38"/>
-        </designable>
-        <designable name="xnS-gl-PFh">
-            <size key="intrinsicContentSize" width="-1" height="-4.0000000000000036"/>
+            <size key="intrinsicContentSize" width="105" height="20.333333333333332"/>
         </designable>
         <designable name="yBW-0a-Wq4">
-            <size key="intrinsicContentSize" width="285.66666666666669" height="38"/>
+            <size key="intrinsicContentSize" width="285.66666666666669" height="20.333333333333332"/>
         </designable>
         <designable name="yHU-oi-L7H">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="38"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="ylW-tU-Ffl">
-            <size key="intrinsicContentSize" width="4" height="23"/>
+            <size key="intrinsicContentSize" width="4" height="18"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Goz-yg-uwC"/>
         <segue reference="5Ib-mj-SeE"/>
         <segue reference="1qa-oB-NHx"/>
-        <segue reference="WE5-xV-msZ"/>
         <segue reference="076-Tn-Xwc"/>
         <segue reference="rf7-Fz-DfV"/>
         <segue reference="8ua-km-uOW"/>

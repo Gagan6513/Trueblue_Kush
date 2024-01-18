@@ -407,7 +407,11 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             self.present(ctrl, animated: true)
             
         case "Available\nVehicles":
-            performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
+//            performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
+            
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "AvailableVehicleVC") as! AvailableVehicleVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         case "Hired\nVehicles":
             performSegue(withIdentifier: AppSegue.HIRED_VEHICLE, sender: nil)
         case "Collection Note":

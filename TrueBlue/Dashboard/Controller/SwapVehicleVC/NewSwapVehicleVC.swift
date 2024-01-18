@@ -588,14 +588,14 @@ class NewSwapVehicleVC: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd-MM-yyyy"
         
-        if let dateOut = dateFormater.date(from: self.txtDateOut.text ?? "\(Date())") {
-            if let dateIn = dateFormater.date(from: self.txtDateIn.text ?? "\(Date())") {
-                if dateOut > dateIn {
-                    showAlert(title: "Error!", messsage: "Date In should be greater than date out")
-                    return false
-                }
-            }
-        }
+//        if let dateOut = dateFormater.date(from: self.txtDateOut.text ?? "\(Date())") {
+//            if let dateIn = dateFormater.date(from: self.txtDateIn.text ?? "\(Date())") {
+//                if dateOut > dateIn {
+//                    showAlert(title: "Error!", messsage: "Date In should be greater than date out")
+//                    return false
+//                }
+//            }
+//        }
         
         
         if txtNewVehivleRefNo.text?.isEmpty ?? true {

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="305" id="KGk-i7-Jjw" customClass="AvailableVehicleTVC" customModule="TrueBlue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="305"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="456" height="305"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EW8-5Q-NJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="456" height="204.33333333333334"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cb-y2-3GD">
+                                <rect key="frame" x="12" y="22" width="272.66666666666669" height="170.33333333333334"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-JC-vPE">
+                                        <rect key="frame" x="0.0" y="0.0" width="272.66666666666669" height="170.33333333333334"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0cb-y2-3GD" secondAttribute="height" multiplier="1.6" id="1aW-lW-uHM"/>
+                                    <constraint firstAttribute="width" constant="130" id="5lP-n5-s30">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="160"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="qVb-JC-vPE" secondAttribute="trailing" id="7ND-gs-PZF"/>
+                                    <constraint firstItem="qVb-JC-vPE" firstAttribute="leading" secondItem="0cb-y2-3GD" secondAttribute="leading" id="J1R-Xx-B4x"/>
+                                    <constraint firstAttribute="bottom" secondItem="qVb-JC-vPE" secondAttribute="bottom" id="dab-m0-IJq"/>
+                                    <constraint firstItem="qVb-JC-vPE" firstAttribute="top" secondItem="0cb-y2-3GD" secondAttribute="top" id="wHw-Oz-5RE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="AppGrey"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BMW 320i (2018)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2x-Cp-Ghf">
+                                <rect key="frame" x="240.33333333333337" y="28" width="125.66666666666663" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" name="3478F6"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="/ DAP1GV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMG-gc-esn">
+                                <rect key="frame" x="370" y="28" width="74" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" name="AppBlack"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available since:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyl-qP-y0f">
+                                <rect key="frame" x="296.66666666666669" y="77" width="97" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" name="AppGrey"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-bv-HzT">
+                                <rect key="frame" x="397.66666666666669" y="77" width="46.333333333333314" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" name="AppGreen"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compact Elite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-9I-mh5">
+                                <rect key="frame" x="296.66666666666669" y="54" width="147.33333333333331" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" name="AppOrange"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                </variation>
+                            </label>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQR-Qz-bO0">
+                                <rect key="frame" x="0.0" y="203.33333333333334" width="456" height="1"/>
+                                <color key="backgroundColor" name="AppGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="bmM-Z8-AlA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="sQR-Qz-bO0" secondAttribute="bottom" id="4CR-2t-8Jr"/>
+                            <constraint firstItem="dWM-9I-mh5" firstAttribute="top" secondItem="K2x-Cp-Ghf" secondAttribute="bottom" constant="6" id="6Yr-PO-gVT"/>
+                            <constraint firstItem="dWM-9I-mh5" firstAttribute="leading" secondItem="0cb-y2-3GD" secondAttribute="trailing" constant="12" id="A9y-XQ-QEU">
+                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="cMG-gc-esn" firstAttribute="leading" secondItem="K2x-Cp-Ghf" secondAttribute="trailing" constant="4" id="G3t-Pp-bnD"/>
+                            <constraint firstItem="o2k-bv-HzT" firstAttribute="centerY" secondItem="Xyl-qP-y0f" secondAttribute="centerY" id="H6Z-d9-I6d"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o2k-bv-HzT" secondAttribute="trailing" constant="12" id="InJ-6J-TIy"/>
+                            <constraint firstItem="Xyl-qP-y0f" firstAttribute="top" secondItem="dWM-9I-mh5" secondAttribute="bottom" constant="6" id="PuE-s9-eIU"/>
+                            <constraint firstItem="K2x-Cp-Ghf" firstAttribute="leading" secondItem="0cb-y2-3GD" secondAttribute="trailing" constant="12" id="R0E-Nr-kkN">
+                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="0cb-y2-3GD" firstAttribute="leading" secondItem="EW8-5Q-NJ0" secondAttribute="leading" constant="12" id="RkF-91-gKq">
+                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                            </constraint>
+                            <constraint firstItem="Xyl-qP-y0f" firstAttribute="leading" secondItem="0cb-y2-3GD" secondAttribute="trailing" constant="12" id="bEV-vm-xga">
+                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="sQR-Qz-bO0" firstAttribute="leading" secondItem="EW8-5Q-NJ0" secondAttribute="leading" id="bwQ-Lz-rdh"/>
+                            <constraint firstItem="0cb-y2-3GD" firstAttribute="top" secondItem="EW8-5Q-NJ0" secondAttribute="top" constant="22" id="fMr-Pa-the"/>
+                            <constraint firstItem="cMG-gc-esn" firstAttribute="centerY" secondItem="K2x-Cp-Ghf" secondAttribute="centerY" id="hWt-aR-LVR"/>
+                            <constraint firstItem="o2k-bv-HzT" firstAttribute="leading" secondItem="Xyl-qP-y0f" secondAttribute="trailing" constant="4" id="j96-qh-GGc"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cMG-gc-esn" secondAttribute="trailing" constant="12" id="oAS-LY-2Vd"/>
+                            <constraint firstAttribute="bottom" secondItem="0cb-y2-3GD" secondAttribute="bottom" constant="12" id="ocf-Nc-g3d"/>
+                            <constraint firstAttribute="trailing" secondItem="sQR-Qz-bO0" secondAttribute="trailing" id="rQD-9R-Npo"/>
+                            <constraint firstAttribute="trailing" secondItem="dWM-9I-mh5" secondAttribute="trailing" constant="12" id="wNc-oL-sJx"/>
+                            <constraint firstItem="K2x-Cp-Ghf" firstAttribute="top" secondItem="0cb-y2-3GD" secondAttribute="top" constant="6" id="yIZ-Zj-q0c"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EW8-5Q-NJ0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CnJ-Yw-IPK"/>
+                    <constraint firstAttribute="trailing" secondItem="EW8-5Q-NJ0" secondAttribute="trailing" id="F4B-35-vj8"/>
+                    <constraint firstItem="EW8-5Q-NJ0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="boD-Gi-we3"/>
+                    <constraint firstAttribute="bottom" secondItem="EW8-5Q-NJ0" secondAttribute="bottom" id="sDw-RH-I5y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="availableLabel" destination="o2k-bv-HzT" id="7ib-YX-pRw"/>
+                <outlet property="carId" destination="cMG-gc-esn" id="3Sl-bS-he0"/>
+                <outlet property="carImage" destination="qVb-JC-vPE" id="d8O-6S-s5M"/>
+                <outlet property="carNameLabel" destination="K2x-Cp-Ghf" id="veq-g2-2Jg"/>
+                <outlet property="carTypeLabel" destination="dWM-9I-mh5" id="5Z3-ZZ-ZBT"/>
+            </connections>
+            <point key="canvasLocation" x="242.74809160305344" y="111.61971830985917"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="appLogo" width="375" height="97"/>
+        <namedColor name="3478F6">
+            <color red="0.20399999618530273" green="0.47099998593330383" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppGreen">
+            <color red="0.38039215686274508" green="0.71372549019607845" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppGrey">
+            <color red="0.42352941176470588" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppOrange">
+            <color red="0.92156863212585449" green="0.61960786581039429" blue="0.23921570181846619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

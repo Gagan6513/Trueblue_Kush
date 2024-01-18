@@ -22,5 +22,7 @@ class API_URL {
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
     static let SWAP_VEHICLE = new_path + "swapVehicle"
+    
+    static let AVAILABLE_VEHICLE_LIST = new_path + "getAvailableFleets"
 
 }

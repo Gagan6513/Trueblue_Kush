@@ -222,6 +222,9 @@
 		B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */; };
 		B39339F92B43E3EC003EDD35 /* AddNotesPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39339F82B43E3EC003EDD35 /* AddNotesPopupVC.swift */; };
 		B397658D2B42A0FA0016B6C8 /* MonthSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */; };
+		B399CDCC2B58E5B500D84AE4 /* AvailableVehicleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDCA2B58E5B500D84AE4 /* AvailableVehicleTVC.swift */; };
+		B399CDCD2B58E5B500D84AE4 /* AvailableVehicleTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B399CDCB2B58E5B500D84AE4 /* AvailableVehicleTVC.xib */; };
+		B399CDD02B58EA1B00D84AE4 /* AvailableVehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDCF2B58EA1B00D84AE4 /* AvailableVehicleModel.swift */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -447,6 +450,9 @@
 		B392BC8F2B3965800002DD69 /* TodaysEventsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodaysEventsTVC.xib; sourceTree = "<group>"; };
 		B39339F82B43E3EC003EDD35 /* AddNotesPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesPopupVC.swift; sourceTree = "<group>"; };
 		B397658C2B42A0FA0016B6C8 /* MonthSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectionVC.swift; sourceTree = "<group>"; };
+		B399CDCA2B58E5B500D84AE4 /* AvailableVehicleTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableVehicleTVC.swift; sourceTree = "<group>"; };
+		B399CDCB2B58E5B500D84AE4 /* AvailableVehicleTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailableVehicleTVC.xib; sourceTree = "<group>"; };
+		B399CDCF2B58EA1B00D84AE4 /* AvailableVehicleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableVehicleModel.swift; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -575,6 +581,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B399CDC82B58E59800D84AE4 /* AvailableVehicle */,
 				B3660A982B57B4E900AC8F02 /* AccidentManagement */,
 				B37FC4932B50FED3009CBA77 /* Logs sheet */,
 				57300E6E2B4D2CF4005E8D07 /* ACADateFilter */,
@@ -607,7 +614,6 @@
 				530DE59D26E77AF8007F4C4F /* SearchListVC.swift */,
 				532E308026D79EF3006322F0 /* BookingDetailsVC1.swift */,
 				535A71D926DA86F8003FE838 /* AddHirerVC.swift */,
-				4D9AE14726DCC7E80080D3AB /* AvailableVehicleVC.swift */,
 				4D9AE14926DCC8000080D3AB /* HiredVehicleVC.swift */,
 				5355BF0126DEA109007C8A7A /* SearchDashboardResultDetailsVC.swift */,
 				53EE4CF626E33EC2001D3F65 /* DisplayFullImageVC.swift */,
@@ -1142,6 +1148,33 @@
 			path = MonthSelectionVC;
 			sourceTree = "<group>";
 		};
+		B399CDC82B58E59800D84AE4 /* AvailableVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				B399CDCE2B58EA0C00D84AE4 /* Model */,
+				B399CDC92B58E5A300D84AE4 /* TVC */,
+				4D9AE14726DCC7E80080D3AB /* AvailableVehicleVC.swift */,
+			);
+			path = AvailableVehicle;
+			sourceTree = "<group>";
+		};
+		B399CDC92B58E5A300D84AE4 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B399CDCA2B58E5B500D84AE4 /* AvailableVehicleTVC.swift */,
+				B399CDCB2B58E5B500D84AE4 /* AvailableVehicleTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		B399CDCE2B58EA0C00D84AE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B399CDCF2B58EA1B00D84AE4 /* AvailableVehicleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,6 +1253,7 @@
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
 				B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */,
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
+				B399CDCD2B58E5B500D84AE4 /* AvailableVehicleTVC.xib in Resources */,
 				B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
@@ -1339,6 +1373,7 @@
 				4D9AE15426DCD4FE0080D3AB /* AvailVehicleListModel.swift in Sources */,
 				B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */,
 				21AF34AC29E801A500606A8C /* CollectionNotesListTableViewCell.swift in Sources */,
+				B399CDCC2B58E5B500D84AE4 /* AvailableVehicleTVC.swift in Sources */,
 				210AE0C029FB98D900ACC1F9 /* GetAccidentDetailsModel.swift in Sources */,
 				215341DD29EE812F00C21BA2 /* CollectionNoteViewModel.swift in Sources */,
 				B3660AA12B57B68200AC8F02 /* AccidentManagementVC.swift in Sources */,
@@ -1474,6 +1509,7 @@
 				537D73D126CCCE84009591BF /* CommonObject.swift in Sources */,
 				53EE4CF726E33EC2001D3F65 /* DisplayFullImageVC.swift in Sources */,
 				532E307F26D7820C006322F0 /* ImagePicker.swift in Sources */,
+				B399CDD02B58EA1B00D84AE4 /* AvailableVehicleModel.swift in Sources */,
 				DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */,
 				2103AAC729E533EE00DCCB94 /* DeliveryNoteViewModel.swift in Sources */,
 				53346CA426C82F6400807BFB /* DrawerVC.swift in Sources */,

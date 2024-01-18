@@ -115,53 +115,5 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BAA6BA7B-D494-4101-960B-A6AECAC58146"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppManagers/DataSyncManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
-            landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:currentController:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BAA6BA7B-D494-4101-960B-A6AECAC58146 - 6980d031ba66aef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.DataSyncManager.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, currentController: __C.UIViewController) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/AppManagers/DataSyncManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "447"
-                  endingLineNumber = "447"
-                  offsetFromSymbolStart = "1556">
-               </Location>
-               <Location
-                  uuid = "BAA6BA7B-D494-4101-960B-A6AECAC58146 - 6980d031ba66aef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.DataSyncManager.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, currentController: __C.UIViewController) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/AppManagers/DataSyncManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "447"
-                  endingLineNumber = "447"
-                  offsetFromSymbolStart = "1640">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
