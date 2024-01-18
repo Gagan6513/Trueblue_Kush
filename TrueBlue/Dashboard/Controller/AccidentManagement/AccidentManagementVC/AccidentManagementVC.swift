@@ -11,6 +11,7 @@ import Applio
 class AccidentManagementVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var scrollViewPages: UIScrollView!
     
     var arrPage = ["Driver’s Details", "Other Party Details", "Accident Details", "Upload Documents", "Note List"]
     var currentIndex = 0
@@ -31,7 +32,7 @@ class AccidentManagementVC: UIViewController {
     }
 }
 
-extension AccidentManagementVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AccidentManagementVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.arrPage.count
@@ -55,7 +56,21 @@ extension AccidentManagementVC: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.currentIndex = indexPath.row
+        
+        let newX = CGFloat(self.currentIndex) * scrollViewPages.frame.width
+        scrollViewPages.setContentOffset(CGPoint(x: newX, y: 0), animated: true)
+
         collectionView.reloadData()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == scrollViewPages {
+            let pageCGFloat = scrollView.contentOffset.x / scrollView.bounds.width
+            let pageIndexInt = pageCGFloat.rounded(.toNearestOrAwayFromZero)
+            if pageIndexInt >= 0 {
+                self.currentIndex = Int(pageIndexInt)
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }

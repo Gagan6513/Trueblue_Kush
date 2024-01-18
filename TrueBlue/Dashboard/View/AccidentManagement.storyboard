@@ -144,6 +144,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="bhw-fw-2Uf"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="gNT-IO-bUA"/>
+                                <connections>
+                                    <outlet property="delegate" destination="EUt-4G-E6v" id="O6u-YK-35I"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q87-U9-rXL"/>
@@ -167,16 +170,17 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="93P-4D-btK" id="BaB-3K-uZ1"/>
+                        <outlet property="scrollViewPages" destination="6Du-3W-nXe" id="3KE-qi-0Hd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ma-Wr-pSV" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8574" y="98"/>
         </scene>
-        <!--View Controller-->
+        <!--Accident Management FirstVC-->
         <scene sceneID="vTb-Rg-BHc">
             <objects>
-                <viewController id="kal-yW-UNB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccidentManagementFirstVC" id="kal-yW-UNB" customClass="AccidentManagementFirstVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qbG-bG-fdU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -609,7 +613,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Vm-rj-KwT">
                                                                         <rect key="frame" x="0.0" y="23" width="88" height="20"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-DS-3kV">
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-DS-3kV">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="40" id="TNj-YC-VLh"/>
@@ -622,8 +626,11 @@
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRadioVBYes:" destination="kal-yW-UNB" eventType="touchUpInside" id="UWB-QM-Aof"/>
+                                                                                </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kv4-Xb-IJl">
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kv4-Xb-IJl">
                                                                                 <rect key="frame" x="48" y="0.0" width="40" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="40" id="Woy-Ko-yYI"/>
@@ -636,6 +643,9 @@
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRadioVBNo:" destination="kal-yW-UNB" eventType="touchUpInside" id="Td2-gO-Krr"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -672,6 +682,9 @@
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="btnRadioCarDrivable:" destination="kal-yW-UNB" eventType="touchUpInside" id="Zjz-u6-htF"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBq-AE-i5q">
                                                                                         <rect key="frame" x="68" y="0.0" width="80" height="20"/>
@@ -686,6 +699,9 @@
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="btnRadioCarNotDrivable:" destination="kal-yW-UNB" eventType="touchUpInside" id="RXO-kh-0JE"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -768,6 +784,9 @@
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnSaveContinue:" destination="kal-yW-UNB" eventType="touchUpInside" id="efp-Jg-lZC"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-rT-qeI">
                                                 <rect key="frame" x="0.0" y="432" width="375" height="284"/>
@@ -1349,15 +1368,36 @@
                             <constraint firstItem="VBR-Yz-w7q" firstAttribute="top" secondItem="qbG-bG-fdU" secondAttribute="top" id="yRP-oW-FNY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnRadioCarDrivable" destination="1ux-xk-jpy" id="l00-Md-zT8"/>
+                        <outlet property="btnRadioCarNotDrivable" destination="MBq-AE-i5q" id="VNk-KM-jZc"/>
+                        <outlet property="btnRadioVBNo" destination="kv4-Xb-IJl" id="JDG-57-sPH"/>
+                        <outlet property="btnRadioVBYes" destination="XwY-DS-3kV" id="j3N-3h-3T3"/>
+                        <outlet property="txtClaimNo" destination="Emd-ta-PDa" id="oL3-Zb-Rdz"/>
+                        <outlet property="txtCountry" destination="ef0-TU-1i6" id="dle-cc-G86"/>
+                        <outlet property="txtEmail" destination="lpo-Fg-sYL" id="uDg-MR-5F9"/>
+                        <outlet property="txtFirstName" destination="SGO-Vq-OjJ" id="ssw-V6-mj3"/>
+                        <outlet property="txtInsuranceCompany" destination="syQ-sJ-Jb7" id="iG4-4I-3xQ"/>
+                        <outlet property="txtLastName" destination="PhC-C9-DdW" id="ATK-Ve-htG"/>
+                        <outlet property="txtModel" destination="I57-J6-CRc" id="t9Z-nn-DhO"/>
+                        <outlet property="txtPhone" destination="lW5-46-Wnm" id="pDk-Cy-pR8"/>
+                        <outlet property="txtPinCode" destination="qIN-pu-ehh" id="3FL-AK-Fse"/>
+                        <outlet property="txtRecoverFor" destination="u2K-CC-3sW" id="Tym-0j-1d3"/>
+                        <outlet property="txtRegistrationNo" destination="MeF-dX-zKH" id="Id0-cS-TgJ"/>
+                        <outlet property="txtSelectBranch" destination="svQ-Ip-IR7" id="Z9J-nE-iQO"/>
+                        <outlet property="txtState" destination="Nbw-f9-iev" id="JeB-oy-yuS"/>
+                        <outlet property="txtStreet" destination="MNE-mS-rYX" id="YcH-wi-hU5"/>
+                        <outlet property="txtSuburb" destination="Gip-vw-lsY" id="VFN-Dt-BYG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FH5-5d-h8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7109.6000000000004" y="962.96851574212906"/>
         </scene>
-        <!--View Controller-->
+        <!--Accident Management SecondVC-->
         <scene sceneID="JDP-E9-kJF">
             <objects>
-                <viewController id="9QQ-5o-Q1y" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccidentManagementSecondVC" id="9QQ-5o-Q1y" customClass="AccidentManagementSecondVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HSW-8G-cDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1733,6 +1773,9 @@
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRadioVBYes:" destination="9QQ-5o-Q1y" eventType="touchUpInside" id="FW2-cd-atw"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTA-3j-TPV">
                                                                                 <rect key="frame" x="48" y="0.0" width="40" height="20"/>
@@ -1747,6 +1790,9 @@
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <imageReference key="image" image="circlebadge.fill" catalog="system" symbolScale="small"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="btnRadioVBNo:" destination="9QQ-5o-Q1y" eventType="touchUpInside" id="ko1-UA-mDj"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1815,6 +1861,9 @@
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnSaveContinue:" destination="9QQ-5o-Q1y" eventType="touchUpInside" id="8yQ-k2-FDf"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lH5-Jz-1DX">
                                                 <rect key="frame" x="0.0" y="318" width="375" height="284"/>
@@ -2396,15 +2445,33 @@
                             <constraint firstAttribute="trailing" secondItem="zPE-BN-Pvr" secondAttribute="trailing" id="ZK0-rU-CbW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnRadioVBNo" destination="MTA-3j-TPV" id="cnl-Rx-rxa"/>
+                        <outlet property="btnRadioVBYes" destination="rmr-J7-uWR" id="N02-5E-SyB"/>
+                        <outlet property="txtClaimNo" destination="qPq-T2-ACn" id="15m-lP-ad4"/>
+                        <outlet property="txtCountry" destination="ZsL-nV-xLr" id="URX-AK-6W6"/>
+                        <outlet property="txtDateofBirth" destination="7Am-tV-klN" id="JG6-Y2-4aH"/>
+                        <outlet property="txtEmail" destination="fgo-Wx-P7A" id="Ny6-uw-80F"/>
+                        <outlet property="txtFirstName" destination="NoI-tf-EjX" id="Zlv-QB-SxD"/>
+                        <outlet property="txtInsuranceCompany" destination="3Hu-di-pI9" id="QIe-SE-jFT"/>
+                        <outlet property="txtLastName" destination="5SE-m4-M2c" id="xo9-Ec-ucX"/>
+                        <outlet property="txtModel" destination="rSu-CC-asv" id="sA1-6B-tfe"/>
+                        <outlet property="txtPhone" destination="gRO-FM-tiz" id="dKa-i1-7MP"/>
+                        <outlet property="txtPinCode" destination="yuV-mS-fAq" id="cEr-wh-P3m"/>
+                        <outlet property="txtRegistrationNo" destination="sRK-Xc-o96" id="D8G-rG-ab1"/>
+                        <outlet property="txtState" destination="3v1-WN-ZXa" id="i9u-Xz-VeM"/>
+                        <outlet property="txtStreet" destination="Ak3-5M-ImD" id="gg1-gh-l2s"/>
+                        <outlet property="txtSuburb" destination="JP5-cf-wC7" id="sJZ-wZ-ZrQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQn-wh-gaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7845.6000000000004" y="962.96851574212906"/>
         </scene>
-        <!--View Controller-->
+        <!--Accident Management ThirdVC-->
         <scene sceneID="rj5-41-P7O">
             <objects>
-                <viewController id="hYj-Aj-K3w" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccidentManagementThirdVC" id="hYj-Aj-K3w" customClass="AccidentManagementThirdVC" customModule="TrueBlue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TrB-dX-BEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2824,6 +2891,9 @@
                                                         <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnSaveContinue:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="Ea2-ES-rVA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2863,6 +2933,14 @@
                             <constraint firstItem="QjM-oF-p6F" firstAttribute="leading" secondItem="TrB-dX-BEb" secondAttribute="leading" id="gWZ-iq-nL3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtAccidentLocation" destination="kDh-wq-Bti" id="RHH-18-mOU"/>
+                        <outlet property="txtDateofAccident" destination="aU8-p3-1J3" id="cIu-18-vwa"/>
+                        <outlet property="txtReferralName" destination="lTj-1h-XfA" id="hU7-YJ-hhY"/>
+                        <outlet property="txtRepairerName" destination="QXn-36-oN5" id="YPf-pZ-wuQ"/>
+                        <outlet property="txtTimeofAccident" destination="hvq-ql-In9" id="tyY-bF-sL4"/>
+                        <outlet property="txtViewAccidentDescription" destination="bs5-ef-B0E" id="8Q2-Yc-ydd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SfD-nP-Soe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2938,6 +3016,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPreview:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="vw4-IS-gEd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHo-Vu-w9f">
                                 <rect key="frame" x="255" y="453" width="100" height="50"/>
@@ -2956,6 +3037,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnSubmit:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="3a6-ga-zME"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-h7-geW">
                                 <rect key="frame" x="20" y="71" width="80" height="100"/>
@@ -2987,6 +3071,9 @@
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnUpload:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="jmd-wD-PGF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

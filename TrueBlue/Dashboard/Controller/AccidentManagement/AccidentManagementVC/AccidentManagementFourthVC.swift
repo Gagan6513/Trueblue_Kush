@@ -20,6 +20,12 @@ class AccidentManagementFourthVC: UIViewController {
         self.collectionView.registerNib(for: "ImagesCVC")
     }
     
+    @IBAction func btnUpload(_ sender: UIButton) {
+    }
+    @IBAction func btnPreview(_ sender: UIButton) {
+    }
+    @IBAction func btnSubmit(_ sender: UIButton) {
+    }
     
 }
 
