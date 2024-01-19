@@ -54,7 +54,7 @@ class AccidentManagementVC: UIViewController {
             if let doneFormIndex = (noti.userInfo as? NSDictionary)?.value(forKey: "currentIndex") as? Int {
                 
                 if let index = self.completedIndex.first(where: {$0 == doneFormIndex})  {
-                    self.completedIndex.remove(at: index)
+                    self.completedIndex.removeAll(where: {$0 == doneFormIndex})
                 }
                 
                 self.completedIndex.append(doneFormIndex)
