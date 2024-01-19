@@ -20,14 +20,30 @@ class AccidentManagementThirdVC: UIViewController {
     var arrRepaired = [RepairerListResponse]()
     var selectedRepairer: RepairerListResponse?
     
+    var arrReferral = [ReferalListResponse]()
+    var selectedReferral: ReferalListResponse?
+    
+    var applicationId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtDateofAccident.delegate = self
         self.txtTimeofAccident.delegate = self
+        self.getReparierName()
         self.getReferralName()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
-
+        self.setupNotification()
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] noti in
+            guard let self else { return }
+            
+            if let applicationId = (noti.userInfo as? NSDictionary)?.value(forKey: "ApplicationId") as? String {
+                self.applicationId = applicationId
+            }
+        })
     }
     
     func validationTextfield() -> Bool {
@@ -112,11 +128,19 @@ class AccidentManagementThirdVC: UIViewController {
     }
     
     @IBAction func btnReferralName(_ sender: Any) {
+        self.openReferalList()
+    }
+    
+    @IBAction func btnRepairerName(_ sender: Any) {
         self.openRepairerList()
     }
     
     func openRepairerList() {
         showSearchListPopUp(listForSearch: self.arrRepaired.map({ $0.repairer_name ?? "" }), listNameForSearch: AppDropDownLists.REPAIRER,notificationName: .searchListNotAtFault)
+    }
+    
+    func openReferalList() {
+        showSearchListPopUp(listForSearch: self.arrReferral.map({ $0.referral_name ?? "" }), listNameForSearch: AppDropDownLists.REFERRAL,notificationName: .searchListNotAtFault)
     }
     
 }
@@ -144,10 +168,19 @@ extension AccidentManagementThirdVC {
     
     func saveAndSubmit() {
         var parameters: Parameters = [:]
-        parameters["dateofAccident"] = txtDateofAccident.text
+        parameters["app_id"] = self.applicationId
+
+        parameters["dateof_accident"] = txtDateofAccident.text
         parameters["timeofaccident"] = txtTimeofAccident.text
-        parameters["accidentLocation"] = txtAccidentLocation.text
-        parameters["referral_name"] = txtReferralName.text
+        parameters["accident_location"] = txtAccidentLocation.text
+        parameters["referral_name"] = self.selectedReferral?.ref_id
+        parameters["repairer_name"] = self.selectedRepairer?.rep_id
+        
+        // Accident Desctiption
+        
+        parameters["user_id"] = UserDefaults.standard.userId()
+        parameters["user_name"] = UserDefaults.standard.username()
+        parameters["request_from"] = request_from
         
         CommonObject().showProgress()
         
@@ -171,27 +204,30 @@ extension AccidentManagementThirdVC {
             }
             
             /* CONVERT JSON DATA TO MODEL */
-            if let data = responseData?.convertData(NotesResponse.self) {
+            if let data = responseData?.convertData(AccidentModel.self) {
                 if let error = data as? String {
                     /* JSON ERROR */
                     showAlert(title: "Error!", messsage: "\(error)")
                     return
                 }
-                if let data = data as? NotesResponse {
+                if let data = data as? AccidentModel {
                     if (data.status ?? 0) == 0 {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
                     }
-                    showAlertWithAction(title: alert_title, messsage: data.msg ?? "", isOkClicked: {
-                        self.dismiss(animated: true)
-                    })
+                    if let appId = data.data?.app_id {
+                        let dict: [String: Any] = ["ApplicationId" : appId,
+                                                   "currentIndex" : 3 ]
+                        
+                        NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+                    }
                 }
             }
         }
         
     }
     
-    func getReferralName() {
+    func getReparierName() {
         CommonObject().showProgress()
         
         /* Create API Request */
@@ -230,6 +266,45 @@ extension AccidentManagementThirdVC {
         }
     }
     
+    func getReferralName() {
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.REFERRAL_LIST)!
+        webService.method = .post
+        
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(ReferalResponse.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? ReferalResponse {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    
+                    self.arrReferral = data.data?.response ?? []
+                }
+            }
+        }
+    }
+    
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let selectedItem = userInfo["selectedItem"] as! String
@@ -238,7 +313,10 @@ extension AccidentManagementThirdVC {
             switch userInfo["itemSelectedFromList"] as? String {
             case AppDropDownLists.REPAIRER:
                 self.selectedRepairer = self.arrRepaired.first(where: { ($0.repairer_name ?? "") == selectedItem })
-                self.txtReferralName.text = self.selectedRepairer?.repairer_name
+                self.txtRepairerName.text = self.selectedRepairer?.repairer_name
+            case AppDropDownLists.REFERRAL:
+                self.selectedReferral = self.arrReferral.first(where: { ($0.referral_name ?? "") == selectedItem })
+                self.txtReferralName.text = self.selectedReferral?.referral_name
             default : print("")
             }
         }

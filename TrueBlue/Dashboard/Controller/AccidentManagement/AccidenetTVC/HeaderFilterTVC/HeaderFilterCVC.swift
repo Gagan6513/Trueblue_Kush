@@ -23,6 +23,7 @@ class HeaderFilterCVC: UICollectionViewCell {
     func setupDetails(index: Int, title: String) {
         self.pageNumber.text = "\(index)"
         self.pageTitle.text = title
+     
     }
 
 }

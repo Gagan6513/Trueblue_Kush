@@ -25,11 +25,15 @@ class API_URL {
 
     static let INSURANCE_COMPANY_LIST = API_PATH + "insurance_list.php"
     static let REPAIRER_LIST = API_PATH + "repairer_list.php"
-
+    static let REFERRAL_LIST = API_PATH + "referal_list.php"
+    static let getAllNotes = new_path + "getAllNotes"
+    static let saveNotes = new_path + "saveNotes"
 
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
+    static let GET_UPLOADED_DOCUMENTS_TAB_DETAILS = API_PATH + "getuploaddocuments2.php"//"getuploaddocuments.php"
+
     static let SWAP_VEHICLE = new_path + "swapVehicle"
     
     static let AVAILABLE_VEHICLE_LIST = new_path + "getAvailableFleets"

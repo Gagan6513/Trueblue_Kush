@@ -31,17 +31,30 @@ class AccidentManagementSecondVC: UIViewController {
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
+    var applicationId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListAtFault, object: nil)
         self.txtDateofBirth.delegate = self
         getInsuranceCompany()
+        setupNotification()
     }
     
+    func setupNotification() {
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] noti in
+            guard let self else { return }
+            
+            if let applicationId = (noti.userInfo as? NSDictionary)?.value(forKey: "ApplicationId") as? String {
+                self.applicationId = applicationId
+            }
+        })
+    }
+    
+    
     func showInsuranceCompany() {
-        showSearchListPopUp(listForSearch: self.arrInsurance.map({ $0.insurance_company ?? "" }), listNameForSearch: AppDropDownLists.INSURANCE_COMPANY, notificationName: .searchListNotAtFault)
+        showSearchListPopUp(listForSearch: self.arrInsurance.map({ $0.insurance_company ?? "" }), listNameForSearch: AppDropDownLists.INSURANCE_COMPANY, notificationName: .searchListAtFault)
     }
     
     @IBAction func btnDateOfBirth(_ sender: Any) {
@@ -185,21 +198,27 @@ extension AccidentManagementSecondVC {
     
     func saveAndSubmit() {
         var parameters: Parameters = [:]
-        parameters["ownerFirstname"] = self.txtFirstName.text
-        parameters["ownerLastname"] = self.txtLastName.text
-        parameters["ownerEmail"] = self.txtEmail.text
-        parameters["ownerPhone"] = self.txtPhone.text
-        parameters["atfaultDob"] = self.txtDateofBirth.text
-        parameters["is_business_registered"] = isYourVehicleBusinessRegistered
-        parameters["ownerStreet"] = self.txtStreet.text
-        parameters["ownerSuburb"] = self.txtSuburb.text
-        parameters["ownerState"] = self.txtState.text
-        parameters["ownerCountry"] = self.txtCountry.text
-        parameters["atfaultPostcode"] = self.txtPinCode.text
-        parameters["atfaultMakeModel"] = self.txtModel.text
-        parameters["atfaultRegistration_no"] = self.txtRegistrationNo.text
-        parameters["atfaultInsurancecompany"] = self.selectedInsurance?.ins_id
-        parameters["atfaultClaimno"] = self.txtClaimNo.text
+        parameters["app_id"] = self.applicationId
+        
+        parameters["atfault_firstname"] = self.txtFirstName.text
+        parameters["atfault_lastname"] = self.txtLastName.text
+//        parameters["ownerEmail"] = self.txtEmail.text
+        parameters["atfault_phone"] = self.txtPhone.text
+        parameters["atfault_dob"] = self.txtDateofBirth.text
+//        parameters["is_business_registered"] = isYourVehicleBusinessRegistered
+        parameters["atfault_street"] = self.txtStreet.text
+        parameters["atfault_suburb"] = self.txtSuburb.text
+        parameters["atfault_state"] = self.txtState.text
+        parameters["atfault_country"] = self.txtCountry.text
+        parameters["atfault_postcode"] = self.txtPinCode.text
+        parameters["atfault_make_model"] = self.txtModel.text
+        parameters["atfault_registration_no"] = self.txtRegistrationNo.text
+        parameters["atfault_insurancecompany"] = self.selectedInsurance?.ins_id
+        parameters["atfault_claimno"] = self.txtClaimNo.text
+        
+        parameters["user_id"] = UserDefaults.standard.userId()
+        parameters["user_name"] = UserDefaults.standard.username()
+        parameters["request_from"] = request_from
         
         CommonObject().showProgress()
         
@@ -223,20 +242,23 @@ extension AccidentManagementSecondVC {
             }
             
             /* CONVERT JSON DATA TO MODEL */
-            if let data = responseData?.convertData(NotesResponse.self) {
+            if let data = responseData?.convertData(AccidentModel.self) {
                 if let error = data as? String {
                     /* JSON ERROR */
                     showAlert(title: "Error!", messsage: "\(error)")
                     return
                 }
-                if let data = data as? NotesResponse {
+                if let data = data as? AccidentModel {
                     if (data.status ?? 0) == 0 {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
                     }
-                    showAlertWithAction(title: alert_title, messsage: data.msg ?? "", isOkClicked: {
-                        self.dismiss(animated: true)
-                    })
+                    if let appId = data.data?.app_id {
+                        let dict: [String: Any] = ["ApplicationId" : appId,
+                                                   "currentIndex" : 2 ]
+                        
+                        NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+                    }
                 }
             }
         }
@@ -280,6 +302,7 @@ extension AccidentManagementSecondVC {
                     
                 }
             }
+            
         }
     }
     

@@ -210,6 +210,7 @@
 		B388B26D2B580812007EA2E8 /* ImagesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B388B26B2B580812007EA2E8 /* ImagesCVC.xib */; };
 		B388B26F2B58093A007EA2E8 /* AccidentManagementFifthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */; };
 		B38DC9152B3D41DA009FD897 /* EventDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */; };
+		B3926BE52B5A493800C1BAC3 /* AccidentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3926BE42B5A493700C1BAC3 /* AccidentModel.swift */; };
 		B392BC782B39437E0002DD69 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC772B39437E0002DD69 /* EventViewController.swift */; };
 		B392BC7C2B39445D0002DD69 /* EventTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC7A2B39445D0002DD69 /* EventTVC.swift */; };
 		B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392BC7B2B39445D0002DD69 /* EventTVC.xib */; };
@@ -441,6 +442,7 @@
 		B388B26B2B580812007EA2E8 /* ImagesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesCVC.xib; sourceTree = "<group>"; };
 		B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementFifthVC.swift; sourceTree = "<group>"; };
 		B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModel.swift; sourceTree = "<group>"; };
+		B3926BE42B5A493700C1BAC3 /* AccidentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentModel.swift; sourceTree = "<group>"; };
 		B392BC772B39437E0002DD69 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		B392BC7A2B39445D0002DD69 /* EventTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTVC.swift; sourceTree = "<group>"; };
 		B392BC7B2B39445D0002DD69 /* EventTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTVC.xib; sourceTree = "<group>"; };
@@ -977,6 +979,7 @@
 		B3660A982B57B4E900AC8F02 /* AccidentManagement */ = {
 			isa = PBXGroup;
 			children = (
+				B3926BE32B5A492D00C1BAC3 /* Model */,
 				B3660A9F2B57B66C00AC8F02 /* AccidentManagementVC */,
 				B3660A992B57B4F300AC8F02 /* AccidenetTVC */,
 			);
@@ -1063,6 +1066,14 @@
 			isa = PBXGroup;
 			children = (
 				B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3926BE32B5A492D00C1BAC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3926BE42B5A493700C1BAC3 /* AccidentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1467,6 +1478,7 @@
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,
 				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
+				B3926BE52B5A493800C1BAC3 /* AccidentModel.swift in Sources */,
 				579EFDDF2B4E949C0048BDC3 /* NewEventTVC.swift in Sources */,
 				4D9AE14A26DCC8000080D3AB /* HiredVehicleVC.swift in Sources */,
 				5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */,

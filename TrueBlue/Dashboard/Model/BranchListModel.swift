@@ -70,6 +70,29 @@ class InsuranceListResponse: Codable {
     
 }
 
+class ReferalResponse: Codable {
+    
+    var data: ReferalDataResponse?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class ReferalDataResponse: Codable {
+    
+    var response: [ReferalListResponse]?
+}
+
+class ReferalListResponse: Codable {
+    
+    var ref_id: String?
+    var referral_name: String?
+    
+}
+
+
+
 class RepairerResponse: Codable {
     
     var data: RepairerDataResponse?

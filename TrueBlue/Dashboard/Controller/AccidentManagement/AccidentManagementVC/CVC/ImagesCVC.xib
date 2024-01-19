@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,8 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="149" height="121"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collections" translatesAutoresizingMaskIntoConstraints="NO" id="Wc1-74-VK5">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wc1-74-VK5">
                         <rect key="frame" x="0.0" y="0.0" width="149" height="121"/>
+                        <color key="backgroundColor" name="E7E2E2"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
             </view>
@@ -30,10 +37,15 @@
                 <constraint firstAttribute="bottom" secondItem="Wc1-74-VK5" secondAttribute="bottom" id="rO6-ex-g2n"/>
             </constraints>
             <size key="customSize" width="149" height="121"/>
+            <connections>
+                <outlet property="docImage" destination="Wc1-74-VK5" id="6CW-Cg-Ag2"/>
+            </connections>
             <point key="canvasLocation" x="-3.8167938931297707" y="44.718309859154935"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="collections" width="145" height="149"/>
+        <namedColor name="E7E2E2">
+            <color red="0.90600001811981201" green="0.88599997758865356" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

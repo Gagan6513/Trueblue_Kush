@@ -95,31 +95,31 @@
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mva-s5-8lH">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                                                         <connections>
-                                                            <segue destination="kal-yW-UNB" kind="embed" id="7K2-Wb-YcT"/>
+                                                            <segue destination="kal-yW-UNB" kind="embed" identifier="AccidentManagementFirstVC" id="7K2-Wb-YcT"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwb-80-eC5">
                                                         <rect key="frame" x="375" y="0.0" width="375" height="523"/>
                                                         <connections>
-                                                            <segue destination="9QQ-5o-Q1y" kind="embed" id="gtc-RX-ILY"/>
+                                                            <segue destination="9QQ-5o-Q1y" kind="embed" identifier="AccidentManagementSecondVC" id="gtc-RX-ILY"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbz-jY-RZg">
                                                         <rect key="frame" x="750" y="0.0" width="375" height="523"/>
                                                         <connections>
-                                                            <segue destination="hYj-Aj-K3w" kind="embed" id="9qH-xZ-Pwa"/>
+                                                            <segue destination="hYj-Aj-K3w" kind="embed" identifier="AccidentManagementThirdVC" id="9qH-xZ-Pwa"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPJ-AV-yk7">
                                                         <rect key="frame" x="1125" y="0.0" width="375" height="523"/>
                                                         <connections>
-                                                            <segue destination="ymK-wn-AbZ" kind="embed" id="XQA-cj-ZXk"/>
+                                                            <segue destination="ymK-wn-AbZ" kind="embed" identifier="AccidentManagementFourthVC" id="XQA-cj-ZXk"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2O4-rn-JE7">
                                                         <rect key="frame" x="1500" y="0.0" width="375" height="523"/>
                                                         <connections>
-                                                            <segue destination="djR-gX-zko" kind="embed" id="pPf-no-L9w"/>
+                                                            <segue destination="djR-gX-zko" kind="embed" identifier="AccidentManagementFifthVC" id="pPf-no-L9w"/>
                                                         </connections>
                                                     </containerView>
                                                 </subviews>
@@ -2580,7 +2580,6 @@
                                                                         <state key="normal" image="ic_calender"/>
                                                                         <connections>
                                                                             <action selector="btnDateOfAccident:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="Cjj-BQ-Fmi"/>
-                                                                            <action selector="btnReferralName:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="OPS-R1-83Y"/>
                                                                         </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN1-at-Q3W">
@@ -2639,7 +2638,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -2653,9 +2652,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="ic_clock"/>
                                                                         <connections>
-                                                                            <action selector="btnDateOfAccident:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="F9J-Ms-sr9"/>
-                                                                            <action selector="btnReferralName:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="mTl-L6-9Eh"/>
-                                                                            <action selector="btnTimeOfAccident:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="6lB-qB-usR"/>
+                                                                            <action selector="btnTimeOfAccident:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="NTS-ma-buc"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -2765,6 +2762,13 @@
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                                         </variation>
                                                                     </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmZ-So-hzs">
+                                                                        <rect key="frame" x="0.0" y="15" width="179.5" height="50"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnRepairerName:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="fb6-5J-WI0"/>
+                                                                        </connections>
+                                                                    </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Soc-pE-Q5N">
                                                                         <rect key="frame" x="0.0" y="52" width="159.5" height="1"/>
                                                                         <color key="backgroundColor" name="CCCCCC (Stroke)"/>
@@ -2775,14 +2779,18 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="KmZ-So-hzs" firstAttribute="top" secondItem="iQm-E6-gad" secondAttribute="bottom" id="7qG-Vk-2vK"/>
                                                                     <constraint firstItem="iQm-E6-gad" firstAttribute="leading" secondItem="0p1-Fb-JbC" secondAttribute="leading" id="ETc-QE-K0h"/>
                                                                     <constraint firstItem="QXn-36-oN5" firstAttribute="top" secondItem="iQm-E6-gad" secondAttribute="bottom" id="Ilw-52-0NL"/>
                                                                     <constraint firstItem="Soc-pE-Q5N" firstAttribute="bottom" secondItem="QXn-36-oN5" secondAttribute="bottom" id="Jjv-VB-p8f"/>
                                                                     <constraint firstItem="iQm-E6-gad" firstAttribute="top" secondItem="0p1-Fb-JbC" secondAttribute="top" id="b3X-Q8-QTK"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="KmZ-So-hzs" secondAttribute="trailing" id="bCs-vD-gZ3"/>
                                                                     <constraint firstItem="Soc-pE-Q5N" firstAttribute="leading" secondItem="QXn-36-oN5" secondAttribute="leading" id="ew0-WJ-vDh"/>
                                                                     <constraint firstAttribute="trailing" secondItem="QXn-36-oN5" secondAttribute="trailing" constant="20" id="iqI-gE-r1G"/>
                                                                     <constraint firstItem="QXn-36-oN5" firstAttribute="leading" secondItem="iQm-E6-gad" secondAttribute="leading" id="ka9-rf-WZd"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="KmZ-So-hzs" secondAttribute="bottom" id="lsi-A4-V02"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Soc-pE-Q5N" secondAttribute="trailing" constant="20" id="ng8-uk-fTW"/>
+                                                                    <constraint firstItem="KmZ-So-hzs" firstAttribute="leading" secondItem="0p1-Fb-JbC" secondAttribute="leading" id="xu6-11-yUe"/>
                                                                     <constraint firstAttribute="trailing" secondItem="iQm-E6-gad" secondAttribute="trailing" constant="20" id="zdO-Hs-NlD"/>
                                                                 </constraints>
                                                             </view>
@@ -2833,7 +2841,7 @@
                                                                         <rect key="frame" x="0.0" y="15" width="179.5" height="37"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <connections>
-                                                                            <action selector="btnReferralName:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="HJf-pf-gdy"/>
+                                                                            <action selector="btnReferralName:" destination="hYj-Aj-K3w" eventType="touchUpInside" id="yWg-Gm-RIP"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -3056,48 +3064,6 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyw-mt-apr">
-                                <rect key="frame" x="20" y="453" width="100" height="50"/>
-                                <color key="backgroundColor" name="3478F6"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="gga-bB-cKk"/>
-                                    <constraint firstAttribute="width" constant="100" id="tA1-uV-PWp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Preview">
-                                    <color key="titleColor" name="F5F5F5"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnPreview:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="vw4-IS-gEd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHo-Vu-w9f">
-                                <rect key="frame" x="255" y="453" width="100" height="50"/>
-                                <color key="backgroundColor" name="3478F6"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="cdY-8P-vwu"/>
-                                    <constraint firstAttribute="height" constant="50" id="grx-JF-4MO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" name="F5F5F5"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnSubmit:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="3a6-ga-zME"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-h7-geW">
                                 <rect key="frame" x="20" y="71" width="80" height="100"/>
                                 <subviews>
@@ -3160,7 +3126,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-Lk-DS7">
-                                <rect key="frame" x="20" y="183" width="335" height="258"/>
+                                <rect key="frame" x="20" y="183" width="335" height="340"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wzL-hK-pEq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -3186,17 +3152,13 @@
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="leading" secondItem="U1s-Qi-dNj" secondAttribute="leading" id="4ab-3Y-2cH"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="top" secondItem="uOQ-sH-oBn" secondAttribute="top" constant="10" id="5JK-Xv-HV7"/>
                             <constraint firstItem="iTY-h7-geW" firstAttribute="top" secondItem="ofM-Sc-Mba" secondAttribute="bottom" constant="12" id="6I3-qt-Sl9"/>
-                            <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="HHo-Vu-w9f" secondAttribute="bottom" constant="20" id="7VZ-Ph-Ffc"/>
+                            <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="EQi-Lk-DS7" secondAttribute="bottom" id="AUK-sy-Aad"/>
                             <constraint firstItem="iTY-h7-geW" firstAttribute="leading" secondItem="19L-gm-1Yz" secondAttribute="leading" id="BYA-8Z-84O"/>
                             <constraint firstItem="EQi-Lk-DS7" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" constant="20" id="CzD-LP-YaP"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="EQi-Lk-DS7" secondAttribute="trailing" constant="20" id="R2k-CR-hLh"/>
-                            <constraint firstItem="Dyw-mt-apr" firstAttribute="top" secondItem="EQi-Lk-DS7" secondAttribute="bottom" constant="12" id="Uu7-sq-3CL"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" id="WJa-u6-53H"/>
-                            <constraint firstItem="Dyw-mt-apr" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" constant="20" id="ZRV-hd-KPb"/>
-                            <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="Dyw-mt-apr" secondAttribute="bottom" constant="20" id="hMa-Wr-PYF"/>
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="top" secondItem="jZn-qV-Fjr" secondAttribute="bottom" id="n2A-dw-D1b"/>
                             <constraint firstItem="EQi-Lk-DS7" firstAttribute="top" secondItem="iTY-h7-geW" secondAttribute="bottom" constant="12" id="xzq-yU-lVk"/>
-                            <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="HHo-Vu-w9f" secondAttribute="trailing" constant="20" id="yqG-RS-HPO"/>
                             <constraint firstAttribute="trailing" secondItem="jZn-qV-Fjr" secondAttribute="trailing" id="ytQ-bX-uka"/>
                         </constraints>
                     </view>
@@ -3220,13 +3182,34 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pO-9X-8dn">
+                                <rect key="frame" x="311" y="459" width="44" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6pO-9X-8dn" secondAttribute="height" multiplier="1:1" id="kfA-A7-fY7"/>
+                                    <constraint firstAttribute="width" constant="44" id="lxQ-en-28G"/>
+                                </constraints>
+                                <color key="tintColor" name="3478F6"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showNotesView:" destination="djR-gX-zko" eventType="touchUpInside" id="oI9-0z-bgv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eoZ-El-dDc"/>
                         <color key="backgroundColor" name="F5F5F5"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Yc5-qe-X3T" secondAttribute="bottom" id="IOz-vd-7zm"/>
+                            <constraint firstItem="eoZ-El-dDc" firstAttribute="bottom" secondItem="6pO-9X-8dn" secondAttribute="bottom" constant="20" id="JN7-tQ-ULD"/>
                             <constraint firstItem="Yc5-qe-X3T" firstAttribute="leading" secondItem="o1r-7B-jND" secondAttribute="leading" id="bFx-xK-Ckc"/>
                             <constraint firstItem="Yc5-qe-X3T" firstAttribute="top" secondItem="o1r-7B-jND" secondAttribute="top" id="jxE-og-hxi"/>
+                            <constraint firstItem="eoZ-El-dDc" firstAttribute="trailing" secondItem="6pO-9X-8dn" secondAttribute="trailing" constant="20" id="nGQ-L3-j6L"/>
                             <constraint firstAttribute="trailing" secondItem="Yc5-qe-X3T" secondAttribute="trailing" id="pPu-OE-8sO"/>
                         </constraints>
                     </view>
@@ -3246,6 +3229,7 @@
         <image name="ic_clock" width="12" height="12"/>
         <image name="ic_cloud" width="35" height="35"/>
         <image name="ic_dropdown" width="13" height="8"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="3478F6">
             <color red="0.20399999618530273" green="0.47099998593330383" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

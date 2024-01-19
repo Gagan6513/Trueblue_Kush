@@ -39,6 +39,8 @@ class AccidentManagementFirstVC: UIViewController {
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
+    var applicationId: String?
+    
     var recoveryForArr = ["Trueblue", "Repairer"]
     
     override func viewDidLoad() {
@@ -48,6 +50,17 @@ class AccidentManagementFirstVC: UIViewController {
 
         self.getBranchList()
         self.getInsuranceCompany()
+        
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] noti in
+            guard let self else { return }
+            
+            if let applicationId = (noti.userInfo as? NSDictionary)?.value(forKey: "ApplicationId") as? String {
+                self.applicationId = applicationId
+            }
+        })
     }
    
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
@@ -71,9 +84,11 @@ class AccidentManagementFirstVC: UIViewController {
         isYourCarDrivable = "no"
     }
     @IBAction func btnSaveContinue(_ sender: UIButton) {
+//        self.appId?("")
         if validationTextfield() {
             saveAndSubmit()
         }
+        
     }
     @IBAction func btnSelectBranch(_ sender: UIButton) {
         showBranchList()
@@ -215,23 +230,29 @@ extension AccidentManagementFirstVC {
     
     func saveAndSubmit() {
         var parameters: Parameters = [:]
+        parameters["app_id"] = self.applicationId
         parameters["branch"] = self.selectedBranch?.branch_id
-        parameters["ownerFirstname"] = self.txtFirstName.text
-        parameters["ownerLastname"] = self.txtLastName.text
-        parameters["ownerEmail"] = self.txtEmail.text
-        parameters["ownerPhone"] = self.txtPhone.text
-        parameters["recoveryFor"] = self.txtRecoverFor.text
+        parameters["is_accident_ref"] = 1
+        parameters["owner_firstname"] = self.txtFirstName.text
+        parameters["owner_lastname"] = self.txtLastName.text
+        parameters["owner_email"] = self.txtEmail.text
+        parameters["owner_phone"] = self.txtPhone.text
+        parameters["recovery_for"] = self.txtRecoverFor.text?.lowercased()
         parameters["is_business_registered"] = isYourVehicleBusinessRegistered
-        parameters["vehicleDrivable"] = isYourCarDrivable
-        parameters["ownerStreet"] = self.txtStreet.text
-        parameters["ownerSuburb"] = self.txtSuburb.text
-        parameters["ownerState"] = self.txtState.text
-        parameters["ownerCountry"] = self.txtCountry.text
-        parameters["atfaultPostcode"] = self.txtPinCode.text
-        parameters["atfaultMakeModel"] = self.txtModel.text
-        parameters["atfaultRegistration_no"] = self.txtRegistrationNo.text
-        parameters["atfaultInsurancecompany"] = self.selectedInsurance?.ins_id
-        parameters["atfaultClaimno"] = self.txtClaimNo.text
+        parameters["vehicle_drivable"] = isYourCarDrivable
+        parameters["owner_street"] = self.txtStreet.text
+        parameters["owner_suburb"] = self.txtSuburb.text
+        parameters["owner_state"] = self.txtState.text
+        parameters["owner_country"] = self.txtCountry.text
+        parameters["owner_postcode"] = self.txtPinCode.text
+        parameters["owner_make_model"] = self.txtModel.text
+//        parameters["atfaultRegistration_no"] = self.txtRegistrationNo.text
+        parameters["insurance"] = self.selectedInsurance?.ins_id
+        parameters["owner_claimno"] = self.txtClaimNo.text
+        
+        parameters["user_id"] = UserDefaults.standard.userId()
+        parameters["user_name"] = UserDefaults.standard.username()
+        parameters["request_from"] = request_from
         
         CommonObject().showProgress()
         
@@ -255,20 +276,23 @@ extension AccidentManagementFirstVC {
             }
             
             /* CONVERT JSON DATA TO MODEL */
-            if let data = responseData?.convertData(NotesResponse.self) {
+            if let data = responseData?.convertData(AccidentModel.self) {
                 if let error = data as? String {
                     /* JSON ERROR */
                     showAlert(title: "Error!", messsage: "\(error)")
                     return
                 }
-                if let data = data as? NotesResponse {
+                if let data = data as? AccidentModel {
                     if (data.status ?? 0) == 0 {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
                     }
-                    showAlertWithAction(title: alert_title, messsage: data.msg ?? "", isOkClicked: {
-                        self.dismiss(animated: true)
-                    })
+                    if let appId = data.data?.app_id {
+                        let dict: [String: Any] = ["ApplicationId" : appId,
+                                                   "currentIndex" : 1 ]
+                        
+                        NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+                    }
                 }
             }
         }

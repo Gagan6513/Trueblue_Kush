@@ -74,6 +74,13 @@ extension Notification.Name {
     static let deliveryNoteListRefresh = Notification.Name("deliveryNoteListRefresh")
     static let collectionNoteListRefresh = Notification.Name("collectionNoteListRefresh")
     //    static let returnVehicleDetails = Notification.Name("returnVehicleDetails")
+    
+    
+    static let AccidentDetails = Notification.Name("AccidentDetails")
+
+    
+    
+    
 }
 extension UIViewController {
     

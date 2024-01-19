@@ -18,11 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="196" height="115"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFC-Ga-TU8">
-                        <rect key="frame" x="83" y="30.666666666666671" width="30" height="30"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFC-Ga-TU8">
+                        <rect key="frame" x="81" y="28.666666666666671" width="34" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0B-lt-Q8w">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -35,19 +35,19 @@
                         <constraints>
                             <constraint firstItem="b0B-lt-Q8w" firstAttribute="leading" secondItem="gFC-Ga-TU8" secondAttribute="leading" id="5V3-FO-PVa"/>
                             <constraint firstAttribute="trailing" secondItem="b0B-lt-Q8w" secondAttribute="trailing" id="HHL-Hq-ZwG"/>
-                            <constraint firstAttribute="width" constant="30" id="NX3-Wb-xxe">
-                                <variation key="heightClass=regular-widthClass=regular" constant="35"/>
-                            </constraint>
+                            <constraint firstAttribute="width" constant="34" id="NX3-Wb-xxe"/>
                             <constraint firstAttribute="width" secondItem="gFC-Ga-TU8" secondAttribute="height" id="RqH-rS-OsI"/>
                             <constraint firstItem="b0B-lt-Q8w" firstAttribute="top" secondItem="gFC-Ga-TU8" secondAttribute="top" id="j2r-K5-TGS"/>
                             <constraint firstAttribute="bottom" secondItem="b0B-lt-Q8w" secondAttribute="bottom" id="uFP-B0-ADm"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="17"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver’s Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-Di-eWh">
-                        <rect key="frame" x="4" y="64.666666666666671" width="188" height="20"/>
+                        <rect key="frame" x="4" y="66.666666666666671" width="188" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="v4T-Zy-Sx4"/>
                         </constraints>
@@ -59,14 +59,14 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQL-kX-6K9">
-                        <rect key="frame" x="113" y="44.666666666666664" width="83" height="2"/>
+                        <rect key="frame" x="115" y="44.666666666666664" width="81" height="2"/>
                         <color key="backgroundColor" name="07B107"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="Nik-eB-eko"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1Z-vx-IRm">
-                        <rect key="frame" x="0.0" y="44.666666666666664" width="83" height="2"/>
+                        <rect key="frame" x="0.0" y="44.666666666666664" width="81" height="2"/>
                         <color key="backgroundColor" name="07B107"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="Ez4-dW-gmh"/>
