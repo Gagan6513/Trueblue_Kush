@@ -12,6 +12,7 @@ class AccidentManagementFirstVC: UIViewController {
 
     @IBOutlet weak var btnRadioVBYes: UIButton!
     
+    @IBOutlet weak var txtRefNumber: UILabel!
     @IBOutlet weak var btnRadioVBNo: UIButton!
     @IBOutlet weak var btnRadioCarDrivable: UIButton!
     @IBOutlet weak var btnRadioCarNotDrivable: UIButton!
@@ -309,6 +310,9 @@ extension AccidentManagementFirstVC {
                     if (data.status ?? 0) == 0 {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
+                    }
+                    if let appId = data.data?.application_id {
+                        self.txtRefNumber.text = "Ref# " + appId
                     }
                     if let appId = data.data?.app_id {
                         let dict: [String: Any] = ["ApplicationId" : appId,

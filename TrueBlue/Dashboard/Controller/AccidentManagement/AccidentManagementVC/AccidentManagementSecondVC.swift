@@ -31,6 +31,10 @@ class AccidentManagementSecondVC: UIViewController {
     @IBOutlet weak var btnAccessPaid: UIButton!
     @IBOutlet weak var btnAcessUnpaid: UIButton!
     
+    @IBOutlet weak var txtAviablityStatus: UITextField!
+    @IBOutlet weak var txtLicenseNo: UITextField!
+    @IBOutlet weak var txtExpiry: UITextField!
+    
     var isClientAtFault = ""
     var isAccess = ""
     var arrInsurance = [InsuranceListResponse]()
@@ -48,7 +52,10 @@ class AccidentManagementSecondVC: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListAtFault, object: nil)
+        
         self.txtDateofBirth.delegate = self
+        self.txtExpiry.delegate = self
+        
         getInsuranceCompany()
         setupNotification()
         self.getCountryList()
@@ -69,6 +76,26 @@ class AccidentManagementSecondVC: UIViewController {
     
     func showInsuranceCompany() {
         showSearchListPopUp(listForSearch: self.arrInsurance.map({ $0.insurance_company ?? "" }), listNameForSearch: AppDropDownLists.INSURANCE_COMPANY, notificationName: .searchListAtFault)
+    }
+    
+    @IBAction func btnExpiry(_ sender: Any) {
+        var storyboardName = String()
+        var vcId = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+            vcId = AppStoryboardId.SELECT_DATE
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.selectedDate = { [weak self] date in
+            guard let self else { return }
+            self.txtExpiry.text = date
+        }
+        self.present(ctrl, animated: false)
     }
     
     @IBAction func btnDateOfBirth(_ sender: Any) {
@@ -111,6 +138,31 @@ class AccidentManagementSecondVC: UIViewController {
         
         if txtPhone.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: phone)
+            return false
+        }
+        
+        if txtDateofBirth.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: dateofBirth)
+            return false
+        }
+        
+        if txtAviablityStatus.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please enter liability status")
+            return false
+        }
+        
+        if txtLicenseNo.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please enter license number")
+            return false
+        }
+        
+        if txtExpiry.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please enter expiry date")
+            return false
+        }
+        
+        if txtDateofBirth.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: dateofBirth)
             return false
         }
         
@@ -265,7 +317,10 @@ extension AccidentManagementSecondVC {
         parameters["atfault_country"] = self.txtCountry.text
         parameters["atfault_postcode"] = self.txtPinCode.text
         parameters["atfault_make_model"] = self.txtModel.text
-        parameters["atfault_registration_no"] = self.txtRegistrationNo.text
+        parameters["atfault_registration_no"] = self.selectedRego?.registration_no
+        parameters["liability_status"] = self.txtAviablityStatus.text?.uppercased()
+        parameters["atfault_lic_no"] = self.txtLicenseNo.text
+        parameters["atfault_exp"] = self.txtExpiry.text
         parameters["atfault_insurancecompany"] = self.selectedInsurance?.ins_id
         parameters["atfault_claimno"] = self.txtClaimNo.text
         
@@ -447,7 +502,7 @@ extension AccidentManagementSecondVC: UITextFieldDelegate {
         
         var isAllowed = true
         switch textField {
-        case txtDateofBirth:
+        case txtDateofBirth, txtExpiry:
             isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
         default:
             print("TextField without restriction")

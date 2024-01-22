@@ -19,6 +19,7 @@ class AccidentModel: Codable {
 class AccidentDataModel: Codable {
     
     var app_id: String?
+    var application_id: String?
 }
 
 
