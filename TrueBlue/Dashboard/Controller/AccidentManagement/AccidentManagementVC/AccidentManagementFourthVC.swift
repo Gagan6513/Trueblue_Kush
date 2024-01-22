@@ -47,8 +47,24 @@ class AccidentManagementFourthVC: UIViewController {
         self.openPicker()
     }
     @IBAction func btnPreview(_ sender: UIButton) {
+        if self.arrImages.count != 0 {
+            var tempArray = [String]()
+            for item in arrImages {
+                tempArray.append(item.image_url ?? "")
+            }
+            setAllImages(currentImg: arrImages.first?.image_url ?? "", allImages: tempArray, currentIndex: 0)
+        } else {
+            showAlert(title: "Error!", messsage: "Please add documnet images.")
+        }
     }
+    
     @IBAction func btnSubmit(_ sender: UIButton) {
+        if self.arrImages.count != 0 {
+            let dict: [String: Any] = ["currentIndex" : 4 ]
+            NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+        } else {
+            showAlert(title: "Error!", messsage: "Please add documnet images.")
+        }
     }
     
     func openPicker() {
@@ -158,8 +174,6 @@ extension AccidentManagementFourthVC {
                         showAlert(title: "Error!", messsage: data.msg ?? "")
                         return
                     }
-                    let dict: [String: Any] = ["currentIndex" : 4 ]
-                    NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
                     self.getUploadedDoc()
                 }
             }

@@ -20,7 +20,7 @@ class AccidentManagementVC: UIViewController {
     
     var doneFormIndex = 0 {
         didSet {
-            if doneFormIndex != 4 && doneFormIndex != 5 {
+            if doneFormIndex != 5 {
                 let newX = CGFloat(self.doneFormIndex) * scrollViewPages.frame.width
                 self.scrollViewPages.setContentOffset(CGPoint(x: newX, y: 0), animated: true)
                 self.collectionView.reloadData()
