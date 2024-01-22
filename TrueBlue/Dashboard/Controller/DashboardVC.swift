@@ -428,7 +428,7 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         case "Accident Management":
-            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentMaintenanceVC") as! AccidentMaintenanceVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:

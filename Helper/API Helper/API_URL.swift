@@ -39,5 +39,7 @@ class API_URL {
     static let SWAP_VEHICLE = new_path + "swapVehicle"
     
     static let AVAILABLE_VEHICLE_LIST = new_path + "getAvailableFleets"
+    
+    static let accidentMaintenanceFirst = new_path + "getFleetsList"
 
 }
