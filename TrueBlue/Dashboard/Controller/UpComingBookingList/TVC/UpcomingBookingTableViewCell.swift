@@ -35,6 +35,18 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBAction func btnCall(_ sender: Any) {
+        
+        if let urlMobile = NSURL(string: "tel://\(self.phoneNumber.text ?? "")"), UIApplication.shared.canOpenURL(urlMobile as URL) {
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(urlMobile as URL, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(urlMobile as URL)
+            }
+        }
+    }
+    
     func setData(data: UpcomingBookingData) {
         
         self.clientLabel.text = data.owner_firstname + data.owner_lastname
