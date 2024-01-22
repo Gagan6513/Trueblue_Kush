@@ -44,6 +44,7 @@ extension Notification.Name {
     static let dateNotAtFault = Notification.Name("dateNotAtFault")
     static let timeNotAtFault = Notification.Name("timeNotAtFault")
     static let searchListNotAtFault = Notification.Name("searchListNotAtFault")
+    static let searchListState = Notification.Name("searchListState")
 //    static let listAtFault = Notification.Name("listAtFault")
     static let dateAtFault = Notification.Name("dateAtFault")
     static let searchListAtFault = Notification.Name("searchListAtFault")

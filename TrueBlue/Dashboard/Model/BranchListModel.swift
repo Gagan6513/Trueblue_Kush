@@ -113,3 +113,27 @@ class RepairerListResponse: Codable {
     var repairer_name: String?
     
 }
+
+
+class StateResponse: Codable {
+    
+    var data: StateDataResponse?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class StateDataResponse: Codable {
+    
+    var response: [StateListResponse]?
+}
+
+class StateListResponse: Codable {
+    
+    var id: String?
+    var state: String?
+    var state_code: String?
+    var status: String?
+    var created_date: String?
+}

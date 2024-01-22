@@ -175,6 +175,7 @@ extension AccidentManagementThirdVC {
         parameters["accident_location"] = txtAccidentLocation.text
         parameters["referral_name"] = self.selectedReferral?.ref_id
         parameters["repairer_name"] = self.selectedRepairer?.rep_id
+        parameters["description"] = self.txtViewAccidentDescription.text
         
         // Accident Desctiption
         

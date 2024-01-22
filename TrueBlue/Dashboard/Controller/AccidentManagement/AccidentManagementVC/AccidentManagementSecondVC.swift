@@ -31,6 +31,9 @@ class AccidentManagementSecondVC: UIViewController {
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
+    var arrState = [StateListResponse]()
+    var selectedState: StateListResponse?
+    
     var applicationId: String?
     
     override func viewDidLoad() {
@@ -40,6 +43,7 @@ class AccidentManagementSecondVC: UIViewController {
         self.txtDateofBirth.delegate = self
         getInsuranceCompany()
         setupNotification()
+        self.getCountryList()
     }
     
     func setupNotification() {
@@ -90,10 +94,10 @@ class AccidentManagementSecondVC: UIViewController {
             return false
         }
         
-        if txtEmail.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: email)
-            return false
-        }
+//        if txtEmail.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: email)
+//            return false
+//        }
         
         if txtPhone.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: phone)
@@ -179,6 +183,10 @@ class AccidentManagementSecondVC: UIViewController {
             saveAndSubmit()
         }
     }
+    
+    @IBAction func btnStatePicker(_ sender: Any) {
+        showSearchListPopUp(listForSearch: self.arrState.map({ $0.state ?? "" }), listNameForSearch: AppDropDownLists.State_Name, notificationName: .searchListAtFault)
+    }
 }
 
 extension AccidentManagementSecondVC {
@@ -191,6 +199,9 @@ extension AccidentManagementSecondVC {
             case AppDropDownLists.INSURANCE_COMPANY:
                 self.selectedInsurance = self.arrInsurance.first(where: { ($0.insurance_company ?? "") == selectedItem })
                 self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
+            case AppDropDownLists.State_Name:
+                self.selectedState = self.arrState.first(where: { ($0.state ?? "") == selectedItem })
+                self.txtState.text = self.selectedState?.state
             default : print("")
             }
         }
@@ -208,7 +219,7 @@ extension AccidentManagementSecondVC {
 //        parameters["is_business_registered"] = isYourVehicleBusinessRegistered
         parameters["atfault_street"] = self.txtStreet.text
         parameters["atfault_suburb"] = self.txtSuburb.text
-        parameters["atfault_state"] = self.txtState.text
+        parameters["atfault_state"] = self.selectedState?.id
         parameters["atfault_country"] = self.txtCountry.text
         parameters["atfault_postcode"] = self.txtPinCode.text
         parameters["atfault_make_model"] = self.txtModel.text
@@ -303,6 +314,46 @@ extension AccidentManagementSecondVC {
                 }
             }
             
+        }
+    }
+    
+    func getCountryList() {
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.stateList)!
+        webService.method = .post
+                
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(StateResponse.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? StateResponse {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    
+                    self.arrState = data.data?.response ?? []
+                    
+                }
+            }
         }
     }
     

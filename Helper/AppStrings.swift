@@ -277,6 +277,7 @@ struct AppDropDownLists {
     static let DELIVERED_BY = "Delivered By"
     static let COLLECTED_BY = "Collected By"
     static let BRANCH_NAME = "Branch"
+    static let State_Name = "State"
     static let REGO_NUMBER = "Rego Number"
     static let RANUNBER_NUMBER = "RA"
     static let RECOVERY_FOR = "Recovery For"
