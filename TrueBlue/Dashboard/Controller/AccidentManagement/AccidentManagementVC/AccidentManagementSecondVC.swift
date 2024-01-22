@@ -27,12 +27,20 @@ class AccidentManagementSecondVC: UIViewController {
     @IBOutlet weak var txtInsuranceCompany: UITextField!
     @IBOutlet weak var txtClaimNo: UITextField!
     
-    var isYourVehicleBusinessRegistered = ""
+    @IBOutlet weak var txtAmount: UITextField!
+    @IBOutlet weak var btnAccessPaid: UIButton!
+    @IBOutlet weak var btnAcessUnpaid: UIButton!
+    
+    var isClientAtFault = ""
+    var isAccess = ""
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
     var arrState = [StateListResponse]()
     var selectedState: StateListResponse?
+    
+    var arrRego = [RegoListResponse]()
+    var selectedRego: RegoListResponse?
     
     var applicationId: String?
     
@@ -44,6 +52,8 @@ class AccidentManagementSecondVC: UIViewController {
         getInsuranceCompany()
         setupNotification()
         self.getCountryList()
+        self.getRegoList()
+
     }
     
     func setupNotification() {
@@ -109,11 +119,20 @@ class AccidentManagementSecondVC: UIViewController {
             return false
         }
         
-        if isYourVehicleBusinessRegistered.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: isVehicleBusinessRegistered)
+        if isClientAtFault.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please select client at fault")
             return false
         }
         
+        if isAccess.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please select acess")
+            return false
+        }
+        
+        if txtAmount.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: "Please enter amount")
+            return false
+        }
         
         if txtStreet.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: street)
@@ -167,15 +186,32 @@ class AccidentManagementSecondVC: UIViewController {
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
         sender.tintColor = .systemGreen
         btnRadioVBNo.tintColor = UIColor(named: "D9D9D9")
-        isYourVehicleBusinessRegistered = "yes"
+        isClientAtFault = "yes"
     }
     @IBAction func btnRadioVBNo(_ sender: UIButton) {
         sender.tintColor = .systemGreen
         btnRadioVBYes.tintColor = UIColor(named: "D9D9D9")
-        isYourVehicleBusinessRegistered = "no"
+        isClientAtFault = "no"
     }
+    
+    @IBAction func btnAcessPaid(_ sender: UIButton) {
+        sender.tintColor = .systemGreen
+        btnAcessUnpaid.tintColor = UIColor(named: "D9D9D9")
+        isAccess = "paid"
+    }
+    
+    @IBAction func btnAcessUnpaid(_ sender: UIButton) {
+        sender.tintColor = .systemGreen
+        btnAccessPaid.tintColor = UIColor(named: "D9D9D9")
+        isAccess = "unpaid"
+    }
+    
     @IBAction func btnSelecteInsurance(_ sender: UIButton) {
         self.showInsuranceCompany()
+    }
+    
+    @IBAction func btnRegistrationNumber(_ sender: Any) {
+        showSearchListPopUp(listForSearch: self.arrRego.map({ $0.registration_no ?? "" }), listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListAtFault)
     }
     
     @IBAction func btnSaveContinue(_ sender: UIButton) {
@@ -202,6 +238,10 @@ extension AccidentManagementSecondVC {
             case AppDropDownLists.State_Name:
                 self.selectedState = self.arrState.first(where: { ($0.state ?? "") == selectedItem })
                 self.txtState.text = self.selectedState?.state
+            case AppDropDownLists.REGO_NUMBER:
+                self.selectedRego = self.arrRego.first(where: { ($0.registration_no ?? "") == selectedItem })
+                self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
             default : print("")
             }
         }
@@ -216,7 +256,9 @@ extension AccidentManagementSecondVC {
 //        parameters["ownerEmail"] = self.txtEmail.text
         parameters["atfault_phone"] = self.txtPhone.text
         parameters["atfault_dob"] = self.txtDateofBirth.text
-//        parameters["is_business_registered"] = isYourVehicleBusinessRegistered
+        parameters["ourdriver_atfault"] = isClientAtFault
+        parameters["excess"] = isAccess
+        parameters["excess_amount"] = self.txtAmount.text
         parameters["atfault_street"] = self.txtStreet.text
         parameters["atfault_suburb"] = self.txtSuburb.text
         parameters["atfault_state"] = self.selectedState?.id
@@ -351,6 +393,46 @@ extension AccidentManagementSecondVC {
                     }
                     
                     self.arrState = data.data?.response ?? []
+                    
+                }
+            }
+        }
+    }
+    
+    func getRegoList() {
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.getAllFleets)!
+        webService.method = .post
+                
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(RegoResponse.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? RegoResponse {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    
+                    self.arrRego = data.data ?? []
                     
                 }
             }

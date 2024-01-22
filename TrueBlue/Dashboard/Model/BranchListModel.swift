@@ -137,3 +137,58 @@ class StateListResponse: Codable {
     var status: String?
     var created_date: String?
 }
+
+
+class RegoResponse: Codable {
+    
+    var data: [RegoListResponse]?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class RegoListResponse: Codable {
+    
+    var available_date: String?
+    var available_location: String?
+    var available_status: String?
+    var available_time: String?
+    var basemilage: String?
+    var basemilage_date: String?
+    var chassis_no: String?
+    var color: String?
+    var created_date: String?
+    var cron_status: String?
+    var dealer_name: String?
+    var description: String?
+    var engine_no: String?
+    var entry_type: String?
+    var fleet_no: String?
+    var fleet_status: String?
+    var fuel_type: String?
+    var id: String?
+    var image_url: String?
+    var key_no: String?
+    var ownedbycompany: String?
+    var purchase_date: String?
+    var purchase_from: String?
+    var radio_code: String?
+    var registration_no: String?
+    var registration_state: String?
+    var status: String?
+    var transmission: String?
+    var type: String?
+    var vehicle_category: String?
+    var vehicle_cat_id: String?
+    var vehicle_make: String?
+    var vehicle_make_id: String?
+    var vehicle_model: String?
+    var vehicle_model_id: String?
+    var vehicle_type: String?
+    var vehicle_types: String?
+    var vin: String?
+    var yearof_manufacture: String?
+    var yearof_purchase: String?
+}
+

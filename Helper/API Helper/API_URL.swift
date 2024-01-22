@@ -30,6 +30,7 @@ class API_URL {
     static let saveNotes = new_path + "saveNotes"
 
     static let stateList = new_path + "stateList"
+    static let getAllFleets = new_path + "getAllFleets"
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
