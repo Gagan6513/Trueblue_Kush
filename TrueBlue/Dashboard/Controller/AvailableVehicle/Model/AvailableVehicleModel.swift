@@ -59,5 +59,6 @@ class AvailableVehicle: Codable {
     var vehicle_make: String?
     var vehicle_model: String?
     var vehicle_category: String?
+    var status_modified_on: String?
     
 }

@@ -60,8 +60,11 @@ class AccidentManagementFourthVC: UIViewController {
     
     @IBAction func btnSubmit(_ sender: UIButton) {
         if self.arrImages.count != 0 {
-            let dict: [String: Any] = ["currentIndex" : 4 ]
-            NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+            showAlertWithAction(title: alert_title, messsage: "Your application has been submitted", isOkClicked: {
+                let dict: [String: Any] = ["currentIndex" : 4 ]
+                NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+            })
+            
         } else {
             showAlert(title: "Error!", messsage: "Please add documnet images.")
         }
