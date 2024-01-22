@@ -37,7 +37,8 @@ class AddEventPopupVC: UIViewController {
     
     var arrStatus = [["title":"Pending", "type":"pending"],
                    ["title":"Collected", "type":"collected"],
-                   ["title":"Overdue", "type":"overdue"]]
+                     ["title":"Overdue", "type":"overdue"],
+                     ["title":"Delivered", "type":"delivered"]]
     var selectedStatus = ""
     
     var selectedType = ""
