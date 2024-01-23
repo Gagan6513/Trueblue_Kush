@@ -46,15 +46,15 @@ class EventDetailsViewController: UIViewController {
     
     @IBAction func filterSwitch(_ sender: UISwitch) {
         
-        self.hourlyEventView.isHidden = !sender.isOn
-        self.dailyEventView.isHidden = sender.isOn
+        self.hourlyEventView.isHidden = sender.isOn
+        self.dailyEventView.isHidden = !sender.isOn
         
-        self.tableViewHourlyEvents.reloadData()
-        self.tableViewTodaysEvents.reloadData()
+//        self.tableViewHourlyEvents.reloadData()
+//        self.tableViewTodaysEvents.reloadData()
         
         DispatchQueue.main.async {
             if let count = self.eventDetailsData.hourEvents?.count, count != 0 {
-                self.tableViewHourlyEvents.reloadData()
+//                self.tableViewHourlyEvents.reloadData()
                 self.tableViewHourlyEvents.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             }
         }
@@ -97,7 +97,8 @@ class EventDetailsViewController: UIViewController {
     
     func setupUI() {
         
-        self.hourlyEventView.isHidden = true
+        self.hourlyEventView.isHidden = false
+        self.dailyEventView.isHidden = true
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self

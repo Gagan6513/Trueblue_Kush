@@ -340,10 +340,24 @@
                                                     </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                <color key="textColor" name="AppBlack"/>
+                                                <color key="textColor" name="3478F6"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-en-a8J">
+                                                <rect key="frame" x="62.666666666666671" y="50" width="7" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="jO1-gB-RwE">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" name="AppBlack"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18-Dec-2023 / 25-Dec-2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tU-8z-HiG">
@@ -385,6 +399,8 @@
                                             <constraint firstItem="0tU-8z-HiG" firstAttribute="leading" secondItem="c6a-4K-TQl" secondAttribute="trailing" constant="6" id="f6O-mp-o7g"/>
                                             <constraint firstAttribute="bottom" secondItem="n0c-eE-PKi" secondAttribute="bottom" id="fHC-Xw-nEy"/>
                                             <constraint firstItem="C0U-1H-8cC" firstAttribute="trailing" secondItem="0tU-8z-HiG" secondAttribute="trailing" id="fOd-Ta-hpr"/>
+                                            <constraint firstItem="mRa-en-a8J" firstAttribute="leading" secondItem="n0c-eE-PKi" secondAttribute="trailing" constant="5" id="nwV-S6-bgd"/>
+                                            <constraint firstItem="mRa-en-a8J" firstAttribute="top" secondItem="n0c-eE-PKi" secondAttribute="top" id="rQF-O5-XsH"/>
                                             <constraint firstAttribute="trailing" secondItem="0tU-8z-HiG" secondAttribute="trailing" constant="6" id="x6R-bi-6Ay"/>
                                         </constraints>
                                     </view>

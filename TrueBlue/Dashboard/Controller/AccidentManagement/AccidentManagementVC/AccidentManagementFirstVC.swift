@@ -50,12 +50,15 @@ class AccidentManagementFirstVC: UIViewController {
     var applicationId: String?
     
     var recoveryForArr = ["Trueblue", "Repairer"]
-    
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
 
+        self.txtClaimNo.delegate = self
+        
         self.getBranchList()
         self.getInsuranceCompany()
         self.getCountryList()
@@ -223,6 +226,19 @@ class AccidentManagementFirstVC: UIViewController {
     
 }
 
+extension AccidentManagementFirstVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case txtClaimNo:
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+        default: return true
+        }
+    }
+}
+
 extension AccidentManagementFirstVC {
 
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
@@ -270,7 +286,7 @@ extension AccidentManagementFirstVC {
         parameters["owner_country"] = self.txtCountry.text
         parameters["owner_postcode"] = self.txtPinCode.text
         parameters["owner_make_model"] = self.txtModel.text
-        parameters["accident_rego"] = self.txtRegistrationNo.text
+        parameters["accident_rego"] = self.selectedRego?.id // self.txtRegistrationNo.text
         parameters["insurance"] = self.selectedInsurance?.ins_id
         parameters["owner_claimno"] = self.txtClaimNo.text
         

@@ -35,6 +35,7 @@ class AccidentManagementSecondVC: UIViewController {
     @IBOutlet weak var txtLicenseNo: UITextField!
     @IBOutlet weak var txtExpiry: UITextField!
     
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     var isClientAtFault = ""
     var isAccess = ""
     var arrInsurance = [InsuranceListResponse]()
@@ -53,6 +54,7 @@ class AccidentManagementSecondVC: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListAtFault, object: nil)
         
+        self.txtClaimNo.delegate = self
         self.txtDateofBirth.delegate = self
         self.txtExpiry.delegate = self
         
@@ -504,6 +506,10 @@ extension AccidentManagementSecondVC: UITextFieldDelegate {
         switch textField {
         case txtDateofBirth, txtExpiry:
             isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
+        case txtClaimNo:
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            isAllowed = (string == filtered)
         default:
             print("TextField without restriction")
         }
