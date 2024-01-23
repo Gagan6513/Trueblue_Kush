@@ -128,98 +128,8 @@ class AccidentManagementSecondVC: UIViewController {
             return false
         }
         
-        if txtLastName.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: lastName)
-            return false
-        }
-        
-//        if txtEmail.text?.isEmpty ?? true {
-//            showAlert(title: "Error!", messsage: email)
-//            return false
-//        }
-        
         if txtPhone.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: phone)
-            return false
-        }
-        
-        if txtDateofBirth.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: dateofBirth)
-            return false
-        }
-        
-        if txtAviablityStatus.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter liability status")
-            return false
-        }
-        
-        if txtLicenseNo.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter license number")
-            return false
-        }
-        
-        if txtExpiry.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter expiry date")
-            return false
-        }
-        
-        if txtDateofBirth.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: dateofBirth)
-            return false
-        }
-        
-        if txtDateofBirth.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: dateofBirth)
-            return false
-        }
-        
-        if isClientAtFault.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please select client at fault")
-            return false
-        }
-        
-        if isAccess.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please select acess")
-            return false
-        }
-        
-        if txtAmount.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter amount")
-            return false
-        }
-        
-        if txtStreet.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: street)
-            return false
-        }
-        
-        if txtSuburb.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: suburb)
-            return false
-        }
-        
-        if txtState.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: state)
-            return false
-        }
-        
-        if txtCountry.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: country)
-            return false
-        }
-        
-        if txtPinCode.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: pinCode)
-            return false
-        }
-        
-        if txtModel.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: makeModel)
-            return false
-        }
-        
-        if txtRegistrationNo.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: registrationNo)
             return false
         }
         
@@ -228,10 +138,102 @@ class AccidentManagementSecondVC: UIViewController {
             return false
         }
         
-        if txtClaimNo.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: claimNo)
+        if isAccess.isEmpty {
+            showAlert(title: "Error!", messsage: "Please select acess")
             return false
         }
+        
+        if isAccess.lowercased() == "paid" {
+            if txtAmount.text?.isEmpty ?? true {
+                showAlert(title: "Error!", messsage: "Please enter amount")
+                return false
+            }
+        }
+        
+        if isClientAtFault.isEmpty {
+            showAlert(title: "Error!", messsage: "Please select client at fault")
+            return false
+        }
+//
+//        if txtLastName.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: lastName)
+//            return false
+//        }
+//
+//        if txtDateofBirth.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: dateofBirth)
+//            return false
+//        }
+//
+//        if txtAviablityStatus.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter liability status")
+//            return false
+//        }
+//
+//        if txtLicenseNo.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter license number")
+//            return false
+//        }
+//
+//        if txtExpiry.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter expiry date")
+//            return false
+//        }
+//
+//        if txtDateofBirth.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: dateofBirth)
+//            return false
+//        }
+//
+//        if txtDateofBirth.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: dateofBirth)
+//            return false
+//        }
+//
+//        if txtAmount.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter amount")
+//            return false
+//        }
+//
+//        if txtStreet.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: street)
+//            return false
+//        }
+//
+//        if txtSuburb.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: suburb)
+//            return false
+//        }
+//
+//        if txtState.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: state)
+//            return false
+//        }
+//
+//        if txtCountry.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: country)
+//            return false
+//        }
+//
+//        if txtPinCode.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: pinCode)
+//            return false
+//        }
+//
+//        if txtModel.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: makeModel)
+//            return false
+//        }
+//
+//        if txtRegistrationNo.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: registrationNo)
+//            return false
+//        }
+//
+//        if txtClaimNo.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: claimNo)
+//            return false
+//        }
         
         return true
     }

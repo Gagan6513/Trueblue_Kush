@@ -75,7 +75,7 @@ class AccidentManagementFourthVC: UIViewController {
         var arrNewImages = [UIImage]()
         
         let multipleImgPickerController = DKImagePickerController()
-        multipleImgPickerController.maxSelectableCount = 1
+        multipleImgPickerController.maxSelectableCount = 3
         multipleImgPickerController.modalPresentationStyle = .fullScreen
         multipleImgPickerController.assetType = .allPhotos
         multipleImgPickerController.showsCancelButton = true

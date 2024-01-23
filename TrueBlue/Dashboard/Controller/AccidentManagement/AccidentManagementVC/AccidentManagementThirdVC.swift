@@ -48,30 +48,30 @@ class AccidentManagementThirdVC: UIViewController {
     
     func validationTextfield() -> Bool {
         
-        if txtDateofAccident.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: dateofAccident)
-            return false
-        }
+//        if txtDateofAccident.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: dateofAccident)
+//            return false
+//        }
+//        
+//        if txtTimeofAccident.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: timeofAccident)
+//            return false
+//        }
+//        
+//        if txtAccidentLocation.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: accidentLocation)
+//            return false
+//        }
         
-        if txtTimeofAccident.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: timeofAccident)
-            return false
-        }
+//        if txtReferralName.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: referralName)
+//            return false
+//        }
         
-        if txtAccidentLocation.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: accidentLocation)
-            return false
-        }
-        
-        if txtReferralName.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: referralName)
-            return false
-        }
-        
-        if txtRepairerName.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: referralName)
-            return false
-        }
+//        if txtRepairerName.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: referralName)
+//            return false
+//        }
         
         if txtViewAccidentDescription.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: viewAccidentDescription)

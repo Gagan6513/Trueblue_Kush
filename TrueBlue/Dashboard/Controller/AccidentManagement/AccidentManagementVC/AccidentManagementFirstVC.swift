@@ -135,8 +135,8 @@ class AccidentManagementFirstVC: UIViewController {
     
     func validationTextfield() -> Bool {
         
-        if txtSelectBranch.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: selectBranch)
+        if txtRegistrationNo.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: registrationNo)
             return false
         }
         
@@ -145,69 +145,8 @@ class AccidentManagementFirstVC: UIViewController {
             return false
         }
         
-        if txtLastName.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: lastName)
-            return false
-        }
-        
-        if txtEmail.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: email)
-            return false
-        }
-        
         if txtPhone.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: phone)
-            return false
-        }
-        
-        if txtRecoverFor.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: recoverFor)
-            return false
-        }
-        
-        if isYourVehicleBusinessRegistered.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: isVehicleBusinessRegistered)
-            return false
-        }
-        
-        if isYourCarDrivable.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: isCarDrivable)
-            return false
-        }
-        
-        
-        if txtStreet.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: street)
-            return false
-        }
-        
-        if txtSuburb.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: suburb)
-            return false
-        }
-        
-        if txtState.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: state)
-            return false
-        }
-        
-        if txtCountry.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: country)
-            return false
-        }
-        
-        if txtPinCode.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: pinCode)
-            return false
-        }
-        
-        if txtModel.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: makeModel)
-            return false
-        }
-        
-        if txtRegistrationNo.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: registrationNo)
             return false
         }
         
@@ -216,10 +155,71 @@ class AccidentManagementFirstVC: UIViewController {
             return false
         }
         
-        if txtClaimNo.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: claimNo)
+        if isYourVehicleBusinessRegistered.isEmpty {
+            showAlert(title: "Error!", messsage: isVehicleBusinessRegistered)
             return false
         }
+        
+        if isYourCarDrivable.isEmpty {
+            showAlert(title: "Error!", messsage: isCarDrivable)
+            return false
+        }
+        
+        
+//        if txtSelectBranch.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: selectBranch)
+//            return false
+//        }
+//
+//        if txtLastName.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: lastName)
+//            return false
+//        }
+//
+//        if txtEmail.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: email)
+//            return false
+//        }
+//
+//        if txtRecoverFor.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: recoverFor)
+//            return false
+//        }
+//
+//        if txtStreet.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: street)
+//            return false
+//        }
+//
+//        if txtSuburb.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: suburb)
+//            return false
+//        }
+//
+//        if txtState.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: state)
+//            return false
+//        }
+//
+//        if txtCountry.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: country)
+//            return false
+//        }
+//
+//        if txtPinCode.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: pinCode)
+//            return false
+//        }
+//
+//        if txtModel.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: makeModel)
+//            return false
+//        }
+//
+//        if txtClaimNo.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: claimNo)
+//            return false
+//        }
         
         return true
     }
