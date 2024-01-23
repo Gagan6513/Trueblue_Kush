@@ -17,6 +17,16 @@ class AccidentMaintenanceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.getAvaiableVehicleList()
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         self.getAvaiableVehicleList()
     }
     
