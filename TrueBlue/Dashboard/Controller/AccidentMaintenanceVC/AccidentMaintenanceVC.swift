@@ -62,7 +62,20 @@ extension AccidentMaintenanceVC : UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AccidentMaintenanceTVC") as? AccidentMaintenanceTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.setupDetails(data: self.arrAvailVehicles[indexPath.row])
+        
+        cell.refClicked = { [weak self] in
+            guard let self else { return }
+            self.openReferance(data: self.arrAvailVehicles[indexPath.row])
+        }
+        
         return cell
+    }
+    
+    func openReferance(data: AccidentMaintenance) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "ViewReferenceVC") as! ViewReferenceVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.vehicleDetails = data
+        self.present(ctrl, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -79,8 +92,6 @@ extension AccidentMaintenanceVC {
         let webService = WebServiceModel()
         webService.url = URL(string: API_URL.accidentMaintenanceFirst)!
         webService.method = .post
-        
-        let application_id = CommonObject.sharedInstance.currentReferenceId.replacingOccurrences(of: "IV000", with: "")
         
         var param = [String: Any]()
         param["status"] = "Maintenance"

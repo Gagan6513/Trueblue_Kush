@@ -64,3 +64,42 @@ class AccidentMaintenance: Codable {
     var vehicle_model: String?
     var vehicle_category: String?
 }
+
+
+
+
+class AccidentReferanceModel: Codable {
+    
+    var data: AccidentReferanceData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentReferanceData: Codable {
+    var response : [AccidentReferance]?
+}
+
+class AccidentReferance: Codable {
+    let application_id : String?
+    let app_id : String?
+    let is_accident_ref : String?
+    let accident_rego : String?
+    let ourdriver_atfault : String?
+    let excess : String?
+    let excess_amount : String?
+    let atfault_phone : String?
+    let accident_location : String?
+    let dateof_accident : String?
+    let timeofaccident : String?
+    let status : String?
+    let owner_firstname : String?
+    let owner_lastname : String?
+    let atfault_firstname : String?
+    let registration_no : String?
+    let repairer_name : String?
+    let date_out : String?
+    let date_in : String?
+    
+}
