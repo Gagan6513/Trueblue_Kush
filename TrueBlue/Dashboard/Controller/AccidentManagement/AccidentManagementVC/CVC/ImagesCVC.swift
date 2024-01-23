@@ -10,6 +10,9 @@ import UIKit
 class ImagesCVC: UICollectionViewCell {
 
     @IBOutlet weak var docImage: UIImageView!
+    
+    var deleteButtonClicked: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,12 @@ class ImagesCVC: UICollectionViewCell {
             self.docImage.sd_setImage(with: url)
         }
     }
-
+    
+    @IBAction func btnDelete(_ sender: Any) {
+        showGlobelAlert(title: alert_title, msg: "Are you sure you want to delete this document.", doneButtonTitle: "No", cancelButtonTitle: "Yes", cancelAction: { [weak self] _ in
+            guard let self else { return }
+            self.deleteButtonClicked?()
+        })
+    }
+    
 }

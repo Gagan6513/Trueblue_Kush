@@ -101,5 +101,7 @@ class AccidentReferance: Codable {
     let repairer_name : String?
     let date_out : String?
     let date_in : String?
+    let owner_phone: String?
+    let atfault_claimno: String?
     
 }

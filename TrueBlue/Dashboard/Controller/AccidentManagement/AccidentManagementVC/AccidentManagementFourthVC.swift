@@ -106,6 +106,10 @@ extension AccidentManagementFourthVC: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagesCVC", for: indexPath) as? ImagesCVC else { return UICollectionViewCell() }
         cell.setupDetails(data: self.arrImages[indexPath.row])
+        cell.deleteButtonClicked = { [weak self] in
+            guard let self else { return }
+            self.deleteImages(data: self.arrImages[indexPath.row])
+        }
         return cell
     }
     
@@ -155,6 +159,53 @@ extension AccidentManagementFourthVC {
         
         /* API CALLS */
         WebService.shared.performMultipartWebService(endPoint: API_URL.UPLOAD_MULTIPLE_DOCS, parameters: parameters, imageData: profileImageData) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(DocModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? DocModel {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    self.getUploadedDoc()
+                }
+            }
+            
+        }
+    }
+    
+    
+    func deleteImages(data: uploadedImagesModel) {
+        
+        
+        var parameters: Parameters = [:]
+        parameters["doc_id"] = data.doc_id
+        parameters["user_id"] = UserDefaults.standard.userId()
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.DELETE_UPLOADED_DOCUMENT)!
+        webService.method = .post
+        
+        webService.parameters = parameters
+        
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
             guard let self else { return }
             
             CommonObject().stopProgress()

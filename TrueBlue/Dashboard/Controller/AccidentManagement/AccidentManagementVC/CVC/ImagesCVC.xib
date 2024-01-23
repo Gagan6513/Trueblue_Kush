@@ -27,13 +27,34 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhn-kD-k0a">
+                        <rect key="frame" x="93" y="12" width="44" height="44"/>
+                        <color key="backgroundColor" name="AppRed"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="1kI-bJ-SfD"/>
+                            <constraint firstAttribute="height" constant="44" id="oKy-2J-ged"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="multiply" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="btnDelete:" destination="gTV-IL-0wX" eventType="touchUpInside" id="inr-u1-Grb"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Wc1-74-VK5" secondAttribute="trailing" id="2oO-bB-aQF"/>
+                <constraint firstAttribute="trailing" secondItem="Rhn-kD-k0a" secondAttribute="trailing" constant="12" id="5b2-rF-f0K"/>
                 <constraint firstItem="Wc1-74-VK5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R56-1R-bzr"/>
                 <constraint firstItem="Wc1-74-VK5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ahc-sh-Ln9"/>
+                <constraint firstItem="Rhn-kD-k0a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="hg2-0A-ier"/>
                 <constraint firstAttribute="bottom" secondItem="Wc1-74-VK5" secondAttribute="bottom" id="rO6-ex-g2n"/>
             </constraints>
             <size key="customSize" width="149" height="121"/>
@@ -44,6 +65,10 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="multiply" catalog="system" width="128" height="111"/>
+        <namedColor name="AppRed">
+            <color red="0.95294117647058818" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="E7E2E2">
             <color red="0.90600001811981201" green="0.88599997758865356" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

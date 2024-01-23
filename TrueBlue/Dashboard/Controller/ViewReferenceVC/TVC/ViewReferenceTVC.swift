@@ -33,8 +33,8 @@ class ViewReferenceTVC: UITableViewCell {
         self.idLabel.text = "Ref# \((data.application_id ?? "") == "" ? "NA" : (data.application_id ?? ""))"
         self.clientNameLabel.text = "\(data.owner_firstname ?? "") \(data.owner_lastname ?? "")"
         self.insuranceCompanyNameLabel.text = (data.atfault_firstname ?? "") == "" ? "NA" : (data.atfault_firstname ?? "")
-        self.claimNoLabel.text = "------"
-        self.phoneNumberLabel.text = "------"
+        self.claimNoLabel.text = (data.atfault_claimno ?? "") == "" ? "NA" : (data.atfault_claimno ?? "")
+        self.phoneNumberLabel.text = (data.owner_phone ?? "") == "" ? "NA" : (data.owner_phone ?? "")
         
         let date_out = (data.date_out ?? "") == "" ? "NA" : (data.date_out ?? "")
         let date_in = (data.date_in ?? "") == "" ? "NA" : (data.date_in ?? "")

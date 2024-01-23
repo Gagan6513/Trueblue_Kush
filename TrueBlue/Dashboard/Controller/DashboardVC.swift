@@ -559,6 +559,10 @@ extension DashboardVC : DashboardVMDelegate {
             arrDashboardCount[data] = objData.dictResult.todayDeliveryNotes
         }
         
+        if let data = screenNames.firstIndex(where: { $0 == "Accident Management" }) {
+            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
+        }
+        
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)

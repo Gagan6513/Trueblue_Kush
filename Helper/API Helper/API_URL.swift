@@ -34,6 +34,8 @@ class API_URL {
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
+    static let DELETE_UPLOADED_DOCUMENT = API_PATH + "deleteuploadeddoc.php"
+
     static let GET_UPLOADED_DOCUMENTS_TAB_DETAILS = API_PATH + "getuploaddocuments2.php"//"getuploaddocuments.php"
 
     static let SWAP_VEHICLE = new_path + "swapVehicle"
