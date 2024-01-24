@@ -17,6 +17,8 @@ class AccidentManagementThirdVC: UIViewController {
     @IBOutlet weak var txtReferralName: UITextField!
     @IBOutlet weak var txtViewAccidentDescription: UITextView!
     
+    @IBOutlet weak var btnSave: UIButton!
+    
     var arrRepaired = [RepairerListResponse]()
     var selectedRepairer: RepairerListResponse?
     
@@ -26,7 +28,8 @@ class AccidentManagementThirdVC: UIViewController {
     var applicationId: String?
     
     var accidentDetails: AccidentDetailsResponse?
-
+    var isFromView = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtDateofAccident.delegate = self
@@ -59,6 +62,23 @@ class AccidentManagementThirdVC: UIViewController {
     func setupDetails() {
         if let data = self.accidentDetails {
             self.applicationId = data.id
+            
+            self.txtDateofAccident.isUserInteractionEnabled = !isFromView
+            self.txtTimeofAccident.isUserInteractionEnabled = !isFromView
+            self.txtAccidentLocation.isUserInteractionEnabled = !isFromView
+            self.txtViewAccidentDescription.isUserInteractionEnabled = !isFromView
+            self.txtReferralName.isUserInteractionEnabled = !isFromView
+            self.txtRepairerName.isUserInteractionEnabled = !isFromView
+
+            if isFromView {
+                self.btnSave.isHidden = true
+                self.txtDateofAccident.textColor = UIColor(named: "7D7D7D")
+                self.txtTimeofAccident.textColor = UIColor(named: "7D7D7D")
+                self.txtAccidentLocation.textColor = UIColor(named: "7D7D7D")
+                self.txtViewAccidentDescription.textColor = UIColor(named: "7D7D7D")
+                self.txtReferralName.textColor = UIColor(named: "7D7D7D")
+                self.txtRepairerName.textColor = UIColor(named: "7D7D7D")
+            }
             
             self.txtDateofAccident.text = data.dateof_accident
             self.txtTimeofAccident.text = data.timeofaccident
@@ -109,57 +129,69 @@ class AccidentManagementThirdVC: UIViewController {
     }
     
     @IBAction func btnSaveContinue(_ sender: UIButton) {
-        if validationTextfield() {
-            saveAndSubmit()
+        if !isFromView {
+            if validationTextfield() {
+                saveAndSubmit()
+            }
         }
     }
     
     @IBAction func btnDateOfAccident(_ sender: Any) {
-        var storyboardName = String()
-        var vcId = String()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            storyboardName = AppStoryboards.DASHBOARD
-            vcId = AppStoryboardId.SELECT_DATE
-        } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
-            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        if !isFromView {
+            
+            var storyboardName = String()
+            var vcId = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                storyboardName = AppStoryboards.DASHBOARD
+                vcId = AppStoryboardId.SELECT_DATE
+            } else {
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+                vcId = AppStoryboardId.SELECT_DATE_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.selectedDate = { [weak self] date in
+                guard let self else { return }
+                self.txtDateofAccident.text = date
+            }
+            self.present(ctrl, animated: false)
         }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.selectedDate = { [weak self] date in
-            guard let self else { return }
-            self.txtDateofAccident.text = date
-        }
-        self.present(ctrl, animated: false)
     }
     
     @IBAction func btnTimeOfAccident(_ sender: Any) {
-        var storyboardName = String()
-        var vcId = String()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            storyboardName = AppStoryboards.DASHBOARD
-            vcId = AppStoryboardId.SELECT_TIME
-        } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
-            vcId = AppStoryboardId.SELECT_TIME_PHONE
+        if !isFromView {
+            
+            var storyboardName = String()
+            var vcId = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                storyboardName = AppStoryboards.DASHBOARD
+                vcId = AppStoryboardId.SELECT_TIME
+            } else {
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+                vcId = AppStoryboardId.SELECT_TIME_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let ctrl = storyboard.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.selectedDate = { [weak self] date in
+                guard let self else { return }
+                self.txtTimeofAccident.text = date
+            }
+            self.present(ctrl, animated: false)
         }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = storyboard.instantiateViewController(withIdentifier: vcId) as! SelectTimeVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.selectedDate = { [weak self] date in
-            guard let self else { return }
-            self.txtTimeofAccident.text = date
-        }
-        self.present(ctrl, animated: false)
     }
     
     @IBAction func btnReferralName(_ sender: Any) {
-        self.openReferalList()
+        if !isFromView {
+            self.openReferalList()
+        }
     }
     
     @IBAction func btnRepairerName(_ sender: Any) {
-        self.openRepairerList()
+        if !isFromView {
+            self.openRepairerList()
+        }
     }
     
     func openRepairerList() {

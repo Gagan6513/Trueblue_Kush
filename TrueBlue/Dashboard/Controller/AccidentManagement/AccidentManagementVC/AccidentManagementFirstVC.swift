@@ -33,6 +33,8 @@ class AccidentManagementFirstVC: UIViewController {
     @IBOutlet weak var txtInsuranceCompany: UITextField!
     @IBOutlet weak var txtClaimNo: UITextField!
     
+    @IBOutlet weak var btnSave: UIButton!
+    
     var accidentData: AccidentDetailsResponse?
     var isFromView = false
     
@@ -83,14 +85,20 @@ class AccidentManagementFirstVC: UIViewController {
     }
     
     @IBAction func btnStatePicker(_ sender: Any) {
-        showSearchListPopUp(listForSearch: self.arrState.map({ $0.state ?? "" }), listNameForSearch: AppDropDownLists.State_Name, notificationName: .searchListNotAtFault)
+        if !isFromView {
+            showSearchListPopUp(listForSearch: self.arrState.map({ $0.state ?? "" }), listNameForSearch: AppDropDownLists.State_Name, notificationName: .searchListNotAtFault)
+        }
     }
     
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
-        self.setupBussinessRegisterd(str: "yes")
+        if !isFromView {
+            self.setupBussinessRegisterd(str: "yes")
+        }
     }
     @IBAction func btnRadioVBNo(_ sender: UIButton) {
-        self.setupBussinessRegisterd(str: "no")
+        if !isFromView {
+            self.setupBussinessRegisterd(str: "no")
+        }
     }
     
     func setupBussinessRegisterd(str: String) {
@@ -100,10 +108,15 @@ class AccidentManagementFirstVC: UIViewController {
     }
     
     @IBAction func btnRadioCarDrivable(_ sender: UIButton) {
-        self.setupisYourCarDrivable(str: "yes")
+        if !isFromView {
+            self.setupisYourCarDrivable(str: "yes")
+        }
     }
+    
     @IBAction func btnRadioCarNotDrivable(_ sender: UIButton) {
-        self.setupisYourCarDrivable(str: "no")
+        if !isFromView {
+            self.setupisYourCarDrivable(str: "no")
+        }
     }
     
     func setupisYourCarDrivable(str: String) {
@@ -164,6 +177,25 @@ class AccidentManagementFirstVC: UIViewController {
             self.txtPinCode.isUserInteractionEnabled = !isFromView
             self.txtInsuranceCompany.isUserInteractionEnabled = !isFromView
             self.txtRegistrationNo.isUserInteractionEnabled = !isFromView
+            
+            if isFromView {
+                self.btnSave.isHidden = true
+                self.txtFirstName.textColor = UIColor(named: "7D7D7D")
+                self.txtLastName.textColor = UIColor(named: "7D7D7D")
+                self.txtEmail.textColor = UIColor(named: "7D7D7D")
+                self.txtPhone.textColor = UIColor(named: "7D7D7D")
+                self.txtRecoverFor.textColor = UIColor(named: "7D7D7D")
+                self.txtClaimNo.textColor = UIColor(named: "7D7D7D")
+                self.txtStreet.textColor = UIColor(named: "7D7D7D")
+                self.txtSuburb.textColor = UIColor(named: "7D7D7D")
+                self.txtPinCode.textColor = UIColor(named: "7D7D7D")
+                self.txtInsuranceCompany.textColor = UIColor(named: "7D7D7D")
+                self.txtRegistrationNo.textColor = UIColor(named: "7D7D7D")
+                self.txtSelectBranch.textColor = UIColor(named: "7D7D7D")
+                self.txtModel.textColor = UIColor(named: "7D7D7D")
+                self.txtCountry.textColor = UIColor(named: "7D7D7D")
+                self.txtState.textColor = UIColor(named: "7D7D7D")
+            }
             
             self.selectedBranch = self.arrBranch.first(where: { ($0.id ?? "") == data.branch })
             self.txtSelectBranch.text = self.selectedBranch?.name

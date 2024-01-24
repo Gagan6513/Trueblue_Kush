@@ -1493,6 +1493,7 @@
                         <outlet property="btnRadioCarNotDrivable" destination="MBq-AE-i5q" id="VNk-KM-jZc"/>
                         <outlet property="btnRadioVBNo" destination="kv4-Xb-IJl" id="JDG-57-sPH"/>
                         <outlet property="btnRadioVBYes" destination="XwY-DS-3kV" id="j3N-3h-3T3"/>
+                        <outlet property="btnSave" destination="5y5-GW-SAE" id="BVB-AL-xNw"/>
                         <outlet property="txtClaimNo" destination="OHI-Ad-bwW" id="cMW-bD-F7u"/>
                         <outlet property="txtCountry" destination="ef0-TU-1i6" id="dle-cc-G86"/>
                         <outlet property="txtEmail" destination="lpo-Fg-sYL" id="uDg-MR-5F9"/>
@@ -3020,6 +3021,7 @@
                         <outlet property="btnAcessUnpaid" destination="WU7-gQ-U3L" id="aOM-NJ-zHb"/>
                         <outlet property="btnRadioVBNo" destination="MTA-3j-TPV" id="cnl-Rx-rxa"/>
                         <outlet property="btnRadioVBYes" destination="rmr-J7-uWR" id="N02-5E-SyB"/>
+                        <outlet property="btnSave" destination="Wq8-bt-4XU" id="1dR-b2-XCV"/>
                         <outlet property="txtAmount" destination="dCq-mk-mtc" id="mQj-hQ-2a8"/>
                         <outlet property="txtAviablityStatus" destination="Czu-83-L74" id="0LH-kn-OcO"/>
                         <outlet property="txtClaimNo" destination="z3O-zK-S70" id="AGN-5Q-Kpd"/>
@@ -3576,6 +3578,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="nU5-lN-td4" id="Swq-o1-rqS"/>
                         <outlet property="txtAccidentLocation" destination="kDh-wq-Bti" id="RHH-18-mOU"/>
                         <outlet property="txtDateofAccident" destination="aU8-p3-1J3" id="cIu-18-vwa"/>
                         <outlet property="txtReferralName" destination="lTj-1h-XfA" id="hU7-YJ-hhY"/>
@@ -3641,67 +3644,72 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-h7-geW">
-                                <rect key="frame" x="20" y="71" width="80" height="100"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-sU-9Mt">
+                                <rect key="frame" x="0.0" y="71" width="80" height="100"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cloud" translatesAutoresizingMaskIntoConstraints="NO" id="5mK-xz-PN9">
-                                        <rect key="frame" x="26" y="24" width="28" height="28"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-h7-geW">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cloud" translatesAutoresizingMaskIntoConstraints="NO" id="5mK-xz-PN9">
+                                                <rect key="frame" x="26" y="24" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5mK-xz-PN9" secondAttribute="height" id="SzW-T4-Uuv"/>
+                                                    <constraint firstAttribute="width" constant="28" id="wUx-ed-Vef">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="32"/>
+                                                    </constraint>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNw-YX-Z3I">
+                                                <rect key="frame" x="12" y="64" width="56" height="24"/>
+                                                <color key="backgroundColor" name="3478F6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="IOe-kZ-qPz">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="28"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Upload">
+                                                    <color key="titleColor" name="Color"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnUpload:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="jmd-wD-PGF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="5mK-xz-PN9" secondAttribute="height" id="SzW-T4-Uuv"/>
-                                            <constraint firstAttribute="width" constant="28" id="wUx-ed-Vef">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="32"/>
+                                            <constraint firstItem="5mK-xz-PN9" firstAttribute="centerY" secondItem="iTY-h7-geW" secondAttribute="centerY" constant="-12" id="8qL-bd-65M"/>
+                                            <constraint firstAttribute="height" constant="100" id="NZ0-4X-8Zt">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                            </constraint>
+                                            <constraint firstItem="YNw-YX-Z3I" firstAttribute="leading" secondItem="iTY-h7-geW" secondAttribute="leading" constant="12" id="mzI-wI-4vY"/>
+                                            <constraint firstItem="5mK-xz-PN9" firstAttribute="centerX" secondItem="iTY-h7-geW" secondAttribute="centerX" id="pEb-t6-S3f"/>
+                                            <constraint firstAttribute="trailing" secondItem="YNw-YX-Z3I" secondAttribute="trailing" constant="12" id="t1M-pb-Lle"/>
+                                            <constraint firstItem="YNw-YX-Z3I" firstAttribute="top" secondItem="5mK-xz-PN9" secondAttribute="bottom" constant="12" id="wJx-J7-9iw"/>
+                                            <constraint firstAttribute="width" constant="80" id="yxd-Hj-hsV">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                                             </constraint>
                                         </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNw-YX-Z3I">
-                                        <rect key="frame" x="12" y="64" width="56" height="24"/>
-                                        <color key="backgroundColor" name="3478F6"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="IOe-kZ-qPz">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="28"/>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Upload">
-                                            <color key="titleColor" name="Color"/>
-                                        </state>
                                         <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="AppGrey"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="btnUpload:" destination="ymK-wn-AbZ" eventType="touchUpInside" id="jmd-wD-PGF"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="5mK-xz-PN9" firstAttribute="centerY" secondItem="iTY-h7-geW" secondAttribute="centerY" constant="-12" id="8qL-bd-65M"/>
-                                    <constraint firstAttribute="height" constant="100" id="NZ0-4X-8Zt">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                                    </constraint>
-                                    <constraint firstItem="YNw-YX-Z3I" firstAttribute="leading" secondItem="iTY-h7-geW" secondAttribute="leading" constant="12" id="mzI-wI-4vY"/>
-                                    <constraint firstItem="5mK-xz-PN9" firstAttribute="centerX" secondItem="iTY-h7-geW" secondAttribute="centerX" id="pEb-t6-S3f"/>
-                                    <constraint firstAttribute="trailing" secondItem="YNw-YX-Z3I" secondAttribute="trailing" constant="12" id="t1M-pb-Lle"/>
-                                    <constraint firstItem="YNw-YX-Z3I" firstAttribute="top" secondItem="5mK-xz-PN9" secondAttribute="bottom" constant="12" id="wJx-J7-9iw"/>
-                                    <constraint firstAttribute="width" constant="80" id="yxd-Hj-hsV">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                                    </constraint>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="AppGrey"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.59999999999999998"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-Lk-DS7">
                                 <rect key="frame" x="20" y="183" width="335" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3770,22 +3778,24 @@
                         <constraints>
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="leading" secondItem="U1s-Qi-dNj" secondAttribute="leading" id="4ab-3Y-2cH"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="top" secondItem="uOQ-sH-oBn" secondAttribute="top" constant="10" id="5JK-Xv-HV7"/>
-                            <constraint firstItem="iTY-h7-geW" firstAttribute="top" secondItem="ofM-Sc-Mba" secondAttribute="bottom" constant="12" id="6I3-qt-Sl9"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="EQi-Lk-DS7" secondAttribute="bottom" constant="100" id="AUK-sy-Aad"/>
-                            <constraint firstItem="iTY-h7-geW" firstAttribute="leading" secondItem="19L-gm-1Yz" secondAttribute="leading" id="BYA-8Z-84O"/>
                             <constraint firstItem="EQi-Lk-DS7" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" constant="20" id="CzD-LP-YaP"/>
+                            <constraint firstItem="EQi-Lk-DS7" firstAttribute="top" secondItem="KYd-sU-9Mt" secondAttribute="bottom" constant="12" id="D5Z-tY-MUz"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="NE8-JI-09r" secondAttribute="bottom" constant="20" id="Nrb-5M-4cc"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="Epe-xD-Pjy" secondAttribute="trailing" constant="20" id="Pm0-2U-36v"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="EQi-Lk-DS7" secondAttribute="trailing" constant="20" id="R2k-CR-hLh"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" id="WJa-u6-53H"/>
                             <constraint firstItem="NE8-JI-09r" firstAttribute="leading" secondItem="uOQ-sH-oBn" secondAttribute="leading" constant="20" id="YFd-Ak-7m5"/>
+                            <constraint firstItem="KYd-sU-9Mt" firstAttribute="leading" secondItem="jZn-qV-Fjr" secondAttribute="leading" id="evt-MK-JTD"/>
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="top" secondItem="jZn-qV-Fjr" secondAttribute="bottom" id="n2A-dw-D1b"/>
+                            <constraint firstItem="KYd-sU-9Mt" firstAttribute="top" secondItem="ofM-Sc-Mba" secondAttribute="bottom" constant="12" id="rTs-7n-lTW"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="Epe-xD-Pjy" secondAttribute="bottom" constant="20" id="t82-O7-5hd"/>
-                            <constraint firstItem="EQi-Lk-DS7" firstAttribute="top" secondItem="iTY-h7-geW" secondAttribute="bottom" constant="12" id="xzq-yU-lVk"/>
                             <constraint firstAttribute="trailing" secondItem="jZn-qV-Fjr" secondAttribute="trailing" id="ytQ-bX-uka"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnPreview" destination="NE8-JI-09r" id="mtb-KI-MUj"/>
+                        <outlet property="btnSubmit" destination="Epe-xD-Pjy" id="lUR-Lg-D6p"/>
                         <outlet property="collectionView" destination="EQi-Lk-DS7" id="GH0-Qz-3EL"/>
                     </connections>
                 </viewController>
@@ -3837,6 +3847,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAdd" destination="6pO-9X-8dn" id="h0p-nw-mif"/>
                         <outlet property="tableView" destination="Yc5-qe-X3T" id="Q1e-vw-Hfh"/>
                     </connections>
                 </viewController>

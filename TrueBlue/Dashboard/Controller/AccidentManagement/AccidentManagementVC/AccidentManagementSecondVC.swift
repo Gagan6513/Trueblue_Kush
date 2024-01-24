@@ -34,7 +34,10 @@ class AccidentManagementSecondVC: UIViewController {
     @IBOutlet weak var txtAviablityStatus: UITextField!
     @IBOutlet weak var txtLicenseNo: UITextField!
     @IBOutlet weak var txtExpiry: UITextField!
+    @IBOutlet weak var btnSave: UIButton!
     
+    var isFromView = false
+
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     var isClientAtFault = ""
     var isAccess = ""
@@ -88,6 +91,46 @@ class AccidentManagementSecondVC: UIViewController {
         if let data = self.accidentDetails {
             self.applicationId = data.id
             
+            self.txtFirstName.isUserInteractionEnabled = !isFromView
+            self.txtLastName.isUserInteractionEnabled = !isFromView
+            self.txtPhone.isUserInteractionEnabled = !isFromView
+            self.txtDateofBirth.isUserInteractionEnabled = !isFromView
+            self.txtAmount.isUserInteractionEnabled = !isFromView
+            self.txtStreet.isUserInteractionEnabled = !isFromView
+            self.txtSuburb.isUserInteractionEnabled = !isFromView
+            self.txtState.isUserInteractionEnabled = !isFromView
+            self.txtPinCode.isUserInteractionEnabled = !isFromView
+            self.txtRegistrationNo.isUserInteractionEnabled = !isFromView
+            self.txtModel.isUserInteractionEnabled = !isFromView
+            self.txtAviablityStatus.isUserInteractionEnabled = !isFromView
+            self.txtLicenseNo.isUserInteractionEnabled = !isFromView
+            self.txtExpiry.isUserInteractionEnabled = !isFromView
+            self.txtInsuranceCompany.isUserInteractionEnabled = !isFromView
+            self.txtClaimNo.isUserInteractionEnabled = !isFromView
+
+            if isFromView {
+                self.btnSave.isHidden = true
+
+                self.txtFirstName.textColor = UIColor(named: "7D7D7D")
+                self.txtLastName.textColor = UIColor(named: "7D7D7D")
+                self.txtPhone.textColor = UIColor(named: "7D7D7D")
+                self.txtDateofBirth.textColor = UIColor(named: "7D7D7D")
+                self.txtAmount.textColor = UIColor(named: "7D7D7D")
+                self.txtStreet.textColor = UIColor(named: "7D7D7D")
+                self.txtSuburb.textColor = UIColor(named: "7D7D7D")
+                self.txtState.textColor = UIColor(named: "7D7D7D")
+                self.txtPinCode.textColor = UIColor(named: "7D7D7D")
+                self.txtRegistrationNo.textColor = UIColor(named: "7D7D7D")
+                self.txtModel.textColor = UIColor(named: "7D7D7D")
+                self.txtAviablityStatus.textColor = UIColor(named: "7D7D7D")
+                self.txtLicenseNo.textColor = UIColor(named: "7D7D7D")
+                self.txtExpiry.textColor = UIColor(named: "7D7D7D")
+                self.txtInsuranceCompany.textColor = UIColor(named: "7D7D7D")
+                self.txtClaimNo.textColor = UIColor(named: "7D7D7D")
+                self.txtCountry.textColor = UIColor(named: "7D7D7D")
+                
+            }
+            
             self.txtFirstName.text = data.atfault_firstname
             self.txtLastName.text = data.atfault_lastname
             self.txtPhone.text = data.atfault_phone
@@ -117,7 +160,6 @@ class AccidentManagementSecondVC: UIViewController {
             self.txtAviablityStatus.text = data.liability_status
             self.txtLicenseNo.text = data.atfault_lic_no
             self.txtExpiry.text = data.atfault_exp
-            self.txtExpiry.text = data.atfault_exp
             
             self.selectedInsurance = self.arrInsurance.first(where: { ($0.ins_id ?? "") == data.atfault_insurancecompany })
             self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
@@ -131,43 +173,48 @@ class AccidentManagementSecondVC: UIViewController {
     }
     
     @IBAction func btnExpiry(_ sender: Any) {
-        var storyboardName = String()
-        var vcId = String()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            storyboardName = AppStoryboards.DASHBOARD
-            vcId = AppStoryboardId.SELECT_DATE
-        } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
-            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        if !isFromView {
+            var storyboardName = String()
+            var vcId = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                storyboardName = AppStoryboards.DASHBOARD
+                vcId = AppStoryboardId.SELECT_DATE
+            } else {
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+                vcId = AppStoryboardId.SELECT_DATE_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.selectedDate = { [weak self] date in
+                guard let self else { return }
+                self.txtExpiry.text = date
+            }
+            self.present(ctrl, animated: false)
         }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.selectedDate = { [weak self] date in
-            guard let self else { return }
-            self.txtExpiry.text = date
-        }
-        self.present(ctrl, animated: false)
     }
     
     @IBAction func btnDateOfBirth(_ sender: Any) {
-        var storyboardName = String()
-        var vcId = String()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            storyboardName = AppStoryboards.DASHBOARD
-            vcId = AppStoryboardId.SELECT_DATE
-        } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
-            vcId = AppStoryboardId.SELECT_DATE_PHONE
+        if !isFromView {
+            
+            var storyboardName = String()
+            var vcId = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                storyboardName = AppStoryboards.DASHBOARD
+                vcId = AppStoryboardId.SELECT_DATE
+            } else {
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+                vcId = AppStoryboardId.SELECT_DATE_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.selectedDate = { [weak self] date in
+                guard let self else { return }
+                self.txtDateofBirth.text = date
+            }
+            self.present(ctrl, animated: false)
         }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
-        let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.selectedDate = { [weak self] date in
-            guard let self else { return }
-            self.txtDateofBirth.text = date
-        }
-        self.present(ctrl, animated: false)
     }
     
 
@@ -295,10 +342,14 @@ class AccidentManagementSecondVC: UIViewController {
     
     
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
-        self.setupisClientAtFault(str: "yes")
+        if !isFromView {
+            self.setupisClientAtFault(str: "yes")
+        }
     }
     @IBAction func btnRadioVBNo(_ sender: UIButton) {
-        self.setupisClientAtFault(str: "no")
+        if !isFromView {
+            self.setupisClientAtFault(str: "no")
+        }
     }
     
     func setupisClientAtFault(str: String) {
@@ -308,11 +359,15 @@ class AccidentManagementSecondVC: UIViewController {
     }
     
     @IBAction func btnAcessPaid(_ sender: UIButton) {
-        self.setupisAccess(str: "paid")
+        if !isFromView {
+            self.setupisAccess(str: "paid")
+        }
     }
     
     @IBAction func btnAcessUnpaid(_ sender: UIButton) {
-        self.setupisAccess(str: "unpaid")
+        if !isFromView {
+            self.setupisAccess(str: "unpaid")
+        }
     }
     
     func setupisAccess(str: String) {
@@ -322,7 +377,9 @@ class AccidentManagementSecondVC: UIViewController {
     }
     
     @IBAction func btnSelecteInsurance(_ sender: UIButton) {
-        self.showInsuranceCompany()
+        if !isFromView {
+            self.showInsuranceCompany()
+        }
     }
     
     @IBAction func btnRegistrationNumber(_ sender: Any) {
@@ -330,13 +387,17 @@ class AccidentManagementSecondVC: UIViewController {
     }
     
     @IBAction func btnSaveContinue(_ sender: UIButton) {
-        if validationTextfield() {
-            saveAndSubmit()
+        if !isFromView {
+            if validationTextfield() {
+                saveAndSubmit()
+            }
         }
     }
     
     @IBAction func btnStatePicker(_ sender: Any) {
-        showSearchListPopUp(listForSearch: self.arrState.map({ $0.state ?? "" }), listNameForSearch: AppDropDownLists.State_Name, notificationName: .searchListAtFault)
+        if !isFromView {
+            showSearchListPopUp(listForSearch: self.arrState.map({ $0.state ?? "" }), listNameForSearch: AppDropDownLists.State_Name, notificationName: .searchListAtFault)
+        }
     }
 }
 

@@ -12,10 +12,13 @@ import Alamofire
 
 class AccidentManagementFourthVC: UIViewController {
 
+    @IBOutlet weak var btnPreview: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var btnSubmit: UIButton!
+    
     var arrImages = [uploadedImagesModel]()
     var accidentData: AccidentMaintenance?
+    var isFromView = false
     
     var applicationId: String? {
         didSet {
@@ -28,11 +31,13 @@ class AccidentManagementFourthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.btnPreview.isHidden = true
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.registerNib(for: "ImagesCVC")
         
         self.setupNotification()
+        self.btnSubmit.isHidden = self.isFromView
     }
     
     
@@ -47,7 +52,9 @@ class AccidentManagementFourthVC: UIViewController {
     }
     
     @IBAction func btnUpload(_ sender: UIButton) {
-        self.openPicker()
+        if !isFromView {
+            self.openPicker()
+        }
     }
     @IBAction func btnPreview(_ sender: UIButton) {
         if self.arrImages.count != 0 {
@@ -62,10 +69,12 @@ class AccidentManagementFourthVC: UIViewController {
     }
     
     @IBAction func btnSubmit(_ sender: UIButton) {
-        showAlertWithAction(title: alert_title, messsage: "Your application has been submitted", isOkClicked: {
-            let dict: [String: Any] = ["currentIndex" : 4 ]
-            NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
-        })
+        if !isFromView {
+            showAlertWithAction(title: alert_title, messsage: "Your application has been submitted", isOkClicked: {
+                let dict: [String: Any] = ["currentIndex" : 4 ]
+                NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+            })
+        }
     }
     
     func openPicker() {
@@ -108,6 +117,7 @@ extension AccidentManagementFourthVC: UICollectionViewDelegate, UICollectionView
             guard let self else { return }
             self.deleteImages(data: self.arrImages[indexPath.row])
         }
+        cell.btnDelete.isHidden = self.isFromView
         return cell
     }
     
@@ -267,6 +277,9 @@ extension AccidentManagementFourthVC {
                     }
                     
                     self.arrImages = data.data?.document_details ?? []
+                    
+                    self.btnPreview.isHidden = self.arrImages.count == 0 
+                    
                     self.collectionView.reloadData()
                 }
             }

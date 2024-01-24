@@ -74,6 +74,16 @@ extension ViewReferenceVC: UITableViewDelegate, UITableViewDataSource {
             ctrl.accidentData = self.arrReferace[indexPath.row]
             self.present(ctrl, animated: true)
         }
+        
+        cell.viewButtonClicked = { [weak self] in
+            guard let self else { return }
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.accidentData = self.arrReferace[indexPath.row]
+            ctrl.isFromView = true
+            self.present(ctrl, animated: true)
+        }
+        
         return cell
     }
     

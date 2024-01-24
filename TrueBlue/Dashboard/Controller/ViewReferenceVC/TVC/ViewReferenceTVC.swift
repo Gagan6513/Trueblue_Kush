@@ -18,6 +18,7 @@ class ViewReferenceTVC: UITableViewCell {
     @IBOutlet weak var totalDaysLabel: UILabel!
     
     var detailsButtonClicked: (() -> Void)?
+    var viewButtonClicked: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,6 +62,10 @@ class ViewReferenceTVC: UITableViewCell {
     
     @IBAction func btnOpenDetailsScreen(_ sender: Any) {
         self.detailsButtonClicked?()
+    }
+    
+    @IBAction func btnOpenRefView(_ sender: Any) {
+        self.viewButtonClicked?()
     }
     
     func getTimeComponentString(olderDate older: Date,newerDate newer: Date) -> (String?)  {

@@ -10,11 +10,12 @@ import Applio
 
 class AccidentManagementFifthVC: UIViewController {
 
+    @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var allNotesArray: [NotesResponseObject] = []
     var accidentData: AccidentMaintenance?
-    
+    var isFromView = false
     var applicationId: String? {
         didSet {
             if let _ = self.applicationId {
@@ -29,6 +30,7 @@ class AccidentManagementFifthVC: UIViewController {
         self.tableView.dataSource = self
         self.tableView.registerNib(for: "LogSheetTVC")
         self.setupNotification()
+        self.btnAdd.isHidden = isFromView
     }
     
     func setupNotification() {

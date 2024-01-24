@@ -87,19 +87,24 @@ class AccidentManagementVC: UIViewController {
         if (segue.identifier == "AccidentManagementFirstVC") {
             let ctrl = segue.destination as! AccidentManagementFirstVC
             ctrl.applicationId = self.accidentData?.app_id
+            ctrl.isFromView = self.isFromView
         } else if (segue.identifier == "AccidentManagementSecondVC") {
             let ctrl = segue.destination as! AccidentManagementSecondVC
             ctrl.applicationId = self.accidentData?.app_id
+            ctrl.isFromView = self.isFromView
             print("AccidentManagementSecondVC")
         } else if (segue.identifier == "AccidentManagementThirdVC") {
             let ctrl = segue.destination as! AccidentManagementThirdVC
             ctrl.applicationId = self.accidentData?.app_id
+            ctrl.isFromView = self.isFromView
         } else if (segue.identifier == "AccidentManagementFourthVC") {
             let ctrl = segue.destination as! AccidentManagementFourthVC
             ctrl.applicationId = self.accidentData?.app_id
+            ctrl.isFromView = self.isFromView
         } else if (segue.identifier == "AccidentManagementFifthVC") {
             let ctrl = segue.destination as! AccidentManagementFifthVC
             ctrl.applicationId = self.accidentData?.app_id
+            ctrl.isFromView = self.isFromView
         }
     }
     

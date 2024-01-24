@@ -68,6 +68,7 @@
             </constraints>
             <size key="customSize" width="149" height="121"/>
             <connections>
+                <outlet property="btnDelete" destination="Rhn-kD-k0a" id="fmV-jm-T8J"/>
                 <outlet property="docImage" destination="Wc1-74-VK5" id="6CW-Cg-Ag2"/>
             </connections>
             <point key="canvasLocation" x="-3.8167938931297707" y="44.718309859154935"/>

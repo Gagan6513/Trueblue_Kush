@@ -10,6 +10,7 @@ import UIKit
 class ImagesCVC: UICollectionViewCell {
 
     @IBOutlet weak var docImage: UIImageView!
+    @IBOutlet weak var btnDelete: UIButton!
     
     var deleteButtonClicked: (() -> Void)?
     
