@@ -255,6 +255,11 @@ class NewSwapVehicleVC: UIViewController {
         }
     }
     
+    @IBAction func btnFullScreenNewVehicle(_ sender: Any) {
+        if let img = self.newcarImage.image {
+            self.setAllImages(currentImg: img, allImages: [img], currentIndex: 0)
+        }
+    }
     // =============================
     
     @IBAction func btnChooseRefNo(_ sender: Any) {

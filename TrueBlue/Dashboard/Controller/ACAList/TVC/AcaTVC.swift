@@ -30,9 +30,9 @@ class AcaTVC: UITableViewCell {
     func setupDetails(data: ACAList) {
         
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "YYYY-MM-dd hh:mm:ss"
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         let created_date = dateFormater.date(from: data.CREATED_ON ?? "") ?? Date()
-        dateFormater.dateFormat = "dd-MM-YYYY"
+        dateFormater.dateFormat = "dd-MM-yyyy"
 
         self.lblACANo.text = data.ACA_ID
         self.lblCreatedDate.text = "\(dateFormater.string(from: created_date))"

@@ -139,7 +139,7 @@ class AccidentManagementSecondVC: UIViewController {
         }
         
         if isAccess.isEmpty {
-            showAlert(title: "Error!", messsage: "Please select acess")
+            showAlert(title: "Error!", messsage: "Please select excess")
             return false
         }
         
