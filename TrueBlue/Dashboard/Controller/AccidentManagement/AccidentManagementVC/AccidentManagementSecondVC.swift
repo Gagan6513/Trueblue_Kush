@@ -170,37 +170,42 @@ class AccidentManagementSecondVC: UIViewController {
 
     func validationTextfield() -> Bool {
         
-        if txtFirstName.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: firstName)
-            return false
-        }
+        // ====  // // ====  // // ====  // // ====  // // ====  //
         
-        if txtPhone.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: phone)
-            return false
-        }
+//        if txtFirstName.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: firstName)
+//            return false
+//        }
+//
+//        if txtPhone.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: phone)
+//            return false
+//        }
+//
+//        if txtInsuranceCompany.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: insurancecompany)
+//            return false
+//        }
+//
+//        if isAccess.isEmpty {
+//            showAlert(title: "Error!", messsage: "Please select excess")
+//            return false
+//        }
+//
+//        if isAccess.lowercased() == "paid" {
+//            if txtAmount.text?.isEmpty ?? true {
+//                showAlert(title: "Error!", messsage: "Please enter amount")
+//                return false
+//            }
+//        }
+//
+//        if isClientAtFault.isEmpty {
+//            showAlert(title: "Error!", messsage: "Please select client at fault")
+//            return false
+//        }
         
-        if txtInsuranceCompany.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: insurancecompany)
-            return false
-        }
         
-        if isAccess.isEmpty {
-            showAlert(title: "Error!", messsage: "Please select excess")
-            return false
-        }
-        
-        if isAccess.lowercased() == "paid" {
-            if txtAmount.text?.isEmpty ?? true {
-                showAlert(title: "Error!", messsage: "Please enter amount")
-                return false
-            }
-        }
-        
-        if isClientAtFault.isEmpty {
-            showAlert(title: "Error!", messsage: "Please select client at fault")
-            return false
-        }
+        // ====  // // ====  // // ====  // // ====  // // ====  //
 //
 //        if txtLastName.text?.isEmpty ?? true {
 //            showAlert(title: "Error!", messsage: lastName)

@@ -76,7 +76,9 @@ class AccidentManagementFirstVC: UIViewController {
     }
    
     @IBAction func btnRegoNumber(_ sender: Any) {
-        showSearchListPopUp(listForSearch: self.arrRego.map({ $0.registration_no ?? "" }), listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListNotAtFault)
+        if self.accidentData == nil {
+            showSearchListPopUp(listForSearch: self.arrRego.map({ $0.registration_no ?? "" }), listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListNotAtFault)
+        }
     }
     
     @IBAction func btnStatePicker(_ sender: Any) {

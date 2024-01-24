@@ -28,11 +28,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhn-kD-k0a">
-                        <rect key="frame" x="93" y="12" width="44" height="44"/>
+                        <rect key="frame" x="115" y="4" width="30" height="30"/>
                         <color key="backgroundColor" name="AppRed"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="1kI-bJ-SfD"/>
-                            <constraint firstAttribute="height" constant="44" id="oKy-2J-ged"/>
+                            <constraint firstAttribute="width" constant="30" id="1kI-bJ-SfD">
+                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                            </constraint>
+                            <constraint firstAttribute="width" secondItem="Rhn-kD-k0a" secondAttribute="height" multiplier="1:1" id="8B9-Yp-5sb"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -40,7 +42,10 @@
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                         </state>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="btnDelete:" destination="gTV-IL-0wX" eventType="touchUpInside" id="inr-u1-Grb"/>
@@ -51,10 +56,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Wc1-74-VK5" secondAttribute="trailing" id="2oO-bB-aQF"/>
-                <constraint firstAttribute="trailing" secondItem="Rhn-kD-k0a" secondAttribute="trailing" constant="12" id="5b2-rF-f0K"/>
+                <constraint firstAttribute="trailing" secondItem="Rhn-kD-k0a" secondAttribute="trailing" constant="4" id="5b2-rF-f0K">
+                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                </constraint>
                 <constraint firstItem="Wc1-74-VK5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="R56-1R-bzr"/>
                 <constraint firstItem="Wc1-74-VK5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ahc-sh-Ln9"/>
-                <constraint firstItem="Rhn-kD-k0a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="hg2-0A-ier"/>
+                <constraint firstItem="Rhn-kD-k0a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="hg2-0A-ier">
+                    <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                </constraint>
                 <constraint firstAttribute="bottom" secondItem="Wc1-74-VK5" secondAttribute="bottom" id="rO6-ex-g2n"/>
             </constraints>
             <size key="customSize" width="149" height="121"/>
