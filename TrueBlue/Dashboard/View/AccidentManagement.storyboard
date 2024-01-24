@@ -3645,7 +3645,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KYd-sU-9Mt">
-                                <rect key="frame" x="0.0" y="71" width="80" height="100"/>
+                                <rect key="frame" x="20" y="71" width="80" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-h7-geW">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
@@ -3711,7 +3711,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-Lk-DS7">
-                                <rect key="frame" x="20" y="183" width="335" height="240"/>
+                                <rect key="frame" x="20" y="183" width="335" height="258"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wzL-hK-pEq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -3731,11 +3731,11 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-JI-09r">
-                                <rect key="frame" x="20" y="463" width="80" height="40"/>
+                                <rect key="frame" x="20" y="453" width="80" height="50"/>
                                 <color key="backgroundColor" name="3478F6"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="egm-ss-E00"/>
-                                    <constraint firstAttribute="height" constant="40" id="hLp-Ta-LHc"/>
+                                    <constraint firstAttribute="height" constant="50" id="hLp-Ta-LHc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3752,15 +3752,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epe-xD-Pjy">
-                                <rect key="frame" x="275" y="463" width="80" height="40"/>
+                                <rect key="frame" x="20" y="453" width="335" height="50"/>
                                 <color key="backgroundColor" name="3478F6"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="a9K-Ba-uhi"/>
-                                    <constraint firstAttribute="height" constant="40" id="xyy-Vs-QlV"/>
+                                    <constraint firstAttribute="height" constant="50" id="xyy-Vs-QlV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Save &amp; Add Notes (Optional)">
                                     <color key="titleColor" name="F5F5F5"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -3778,20 +3777,26 @@
                         <constraints>
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="leading" secondItem="U1s-Qi-dNj" secondAttribute="leading" id="4ab-3Y-2cH"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="top" secondItem="uOQ-sH-oBn" secondAttribute="top" constant="10" id="5JK-Xv-HV7"/>
-                            <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="EQi-Lk-DS7" secondAttribute="bottom" constant="100" id="AUK-sy-Aad"/>
                             <constraint firstItem="EQi-Lk-DS7" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" constant="20" id="CzD-LP-YaP"/>
                             <constraint firstItem="EQi-Lk-DS7" firstAttribute="top" secondItem="KYd-sU-9Mt" secondAttribute="bottom" constant="12" id="D5Z-tY-MUz"/>
+                            <constraint firstItem="Epe-xD-Pjy" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" constant="20" id="G7u-1m-F0A"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="NE8-JI-09r" secondAttribute="bottom" constant="20" id="Nrb-5M-4cc"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="Epe-xD-Pjy" secondAttribute="trailing" constant="20" id="Pm0-2U-36v"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="trailing" secondItem="EQi-Lk-DS7" secondAttribute="trailing" constant="20" id="R2k-CR-hLh"/>
                             <constraint firstItem="jZn-qV-Fjr" firstAttribute="leading" secondItem="Oe5-wN-sLF" secondAttribute="leading" id="WJa-u6-53H"/>
                             <constraint firstItem="NE8-JI-09r" firstAttribute="leading" secondItem="uOQ-sH-oBn" secondAttribute="leading" constant="20" id="YFd-Ak-7m5"/>
-                            <constraint firstItem="KYd-sU-9Mt" firstAttribute="leading" secondItem="jZn-qV-Fjr" secondAttribute="leading" id="evt-MK-JTD"/>
+                            <constraint firstItem="Epe-xD-Pjy" firstAttribute="top" secondItem="EQi-Lk-DS7" secondAttribute="bottom" constant="12" id="gZJ-PF-UUy"/>
                             <constraint firstItem="ofM-Sc-Mba" firstAttribute="top" secondItem="jZn-qV-Fjr" secondAttribute="bottom" id="n2A-dw-D1b"/>
+                            <constraint firstItem="KYd-sU-9Mt" firstAttribute="leading" secondItem="19L-gm-1Yz" secondAttribute="leading" id="pxk-df-jVo"/>
                             <constraint firstItem="KYd-sU-9Mt" firstAttribute="top" secondItem="ofM-Sc-Mba" secondAttribute="bottom" constant="12" id="rTs-7n-lTW"/>
                             <constraint firstItem="Oe5-wN-sLF" firstAttribute="bottom" secondItem="Epe-xD-Pjy" secondAttribute="bottom" constant="20" id="t82-O7-5hd"/>
                             <constraint firstAttribute="trailing" secondItem="jZn-qV-Fjr" secondAttribute="trailing" id="ytQ-bX-uka"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NE8-JI-09r"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="btnPreview" destination="NE8-JI-09r" id="mtb-KI-MUj"/>
