@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="16" id="4f2-Bp-8wc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" name="AppBlack"/>
+                                <color key="textColor" name="3478F6"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
@@ -417,7 +417,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyA-Ax-Jau">
                                 <rect key="frame" x="23.999999999999993" y="24" width="84.333333333333314" height="1"/>
-                                <color key="backgroundColor" name="AppBlack"/>
+                                <color key="backgroundColor" name="3478F6"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="dty-Iz-YV2"/>
                                 </constraints>
