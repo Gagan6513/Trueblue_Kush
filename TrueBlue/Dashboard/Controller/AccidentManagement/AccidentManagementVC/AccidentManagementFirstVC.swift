@@ -179,6 +179,8 @@ class AccidentManagementFirstVC: UIViewController {
             self.txtInsuranceCompany.isUserInteractionEnabled = !isFromView
             self.txtRegistrationNo.isUserInteractionEnabled = !isFromView
             
+            self.txtRegistrationNo.textColor = UIColor(named: "7D7D7D")
+            
             if isFromView {
                 self.btnSave.isHidden = true
                 self.txtFirstName.textColor = UIColor(named: "7D7D7D")

@@ -141,9 +141,6 @@ class AccidentManagementSecondVC: UIViewController {
             self.setupisAccess(str: self.isAccess)
             self.setupisClientAtFault(str: self.isClientAtFault)
             
-            self.txtRegistrationNo.isUserInteractionEnabled = false
-            self.txtModel.isUserInteractionEnabled = false
-            
             self.txtAmount.text = data.excess_amount
             self.txtStreet.text = data.atfault_street
             self.txtSuburb.text = data.atfault_suburb
