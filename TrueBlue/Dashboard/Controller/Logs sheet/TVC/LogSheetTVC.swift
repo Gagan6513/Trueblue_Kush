@@ -32,7 +32,7 @@ class LogSheetTVC: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: data.Created_date ?? "") {
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
             self.dateLabel.text = dateFormatter.string(from: date)
         }
         self.notesImageView.image = (data.from == "App") ? UIImage(named: "App") : UIImage(named: "website")

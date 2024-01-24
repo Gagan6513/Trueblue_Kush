@@ -258,7 +258,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let date = dateFormatter.date(from: allNotesArray[indexPath.row].createdDate) {
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
             
             cell.dateLabel.text = dateFormatter.string(from: date)
         }
