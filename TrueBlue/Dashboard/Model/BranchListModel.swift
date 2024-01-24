@@ -162,6 +162,7 @@ class RegoListResponse: Codable {
     var basemilage_date: String?
     var chassis_no: String?
     var color: String?
+    var accident_rego: String?
     var created_date: String?
     var cron_status: String?
     var dealer_name: String?

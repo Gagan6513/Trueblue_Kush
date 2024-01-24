@@ -16,6 +16,8 @@ class AccidentManagementVC: UIViewController {
     var arrPage = ["Driver’s Details", "Other Party Details", "Accident Details", "Upload Documents", "Note List"]
     var currentIndex = 0
     
+    var isFromView = false
+    
     var completedIndex = [0]
     
     var doneFormIndex = 0 {

@@ -34,6 +34,7 @@ class AccidentManagementFirstVC: UIViewController {
     @IBOutlet weak var txtClaimNo: UITextField!
     
     var accidentData: AccidentDetailsResponse?
+    var isFromView = false
     
     var isYourVehicleBusinessRegistered = ""
     var isYourCarDrivable = ""
@@ -113,20 +114,27 @@ class AccidentManagementFirstVC: UIViewController {
     
     @IBAction func btnSaveContinue(_ sender: UIButton) {
 //        self.appId?("")
-        if validationTextfield() {
-            saveAndSubmit()
+        if !isFromView {
+            if validationTextfield() {
+                saveAndSubmit()
+            }
         }
-        
     }
     @IBAction func btnSelectBranch(_ sender: UIButton) {
-        showBranchList()
+        if !isFromView {
+            showBranchList()
+        }
     }
     @IBAction func btnSelecteInsurance(_ sender: Any) {
-        self.showInsuranceCompany()
+        if !isFromView {
+            self.showInsuranceCompany()
+        }
     }
     
     @IBAction func btnRecoveryFor(_ sender: Any) {
-        self.showRecoveryFor()
+        if !isFromView {
+            self.showRecoveryFor()
+        }
     }
     func showBranchList() {
         showSearchListPopUp(listForSearch: self.arrBranch.map({ $0.name ?? "" }), listNameForSearch: AppDropDownLists.BRANCH_NAME, notificationName: .searchListNotAtFault)
@@ -143,6 +151,19 @@ class AccidentManagementFirstVC: UIViewController {
     func setupDetails() {
         if let data = self.accidentData {
             self.applicationId = data.id
+            
+            self.txtFirstName.isUserInteractionEnabled = !isFromView
+            self.txtLastName.isUserInteractionEnabled = !isFromView
+            self.txtEmail.isUserInteractionEnabled = !isFromView
+            self.txtPhone.isUserInteractionEnabled = !isFromView
+            self.txtRecoverFor.isUserInteractionEnabled = !isFromView
+            self.txtClaimNo.isUserInteractionEnabled = !isFromView
+            
+            self.txtStreet.isUserInteractionEnabled = !isFromView
+            self.txtSuburb.isUserInteractionEnabled = !isFromView
+            self.txtPinCode.isUserInteractionEnabled = !isFromView
+            self.txtInsuranceCompany.isUserInteractionEnabled = !isFromView
+            self.txtRegistrationNo.isUserInteractionEnabled = !isFromView
             
             self.selectedBranch = self.arrBranch.first(where: { ($0.id ?? "") == data.branch })
             self.txtSelectBranch.text = self.selectedBranch?.name
@@ -168,7 +189,7 @@ class AccidentManagementFirstVC: UIViewController {
             
             self.txtPinCode.text = data.owner_postcode
             
-            self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.accident_rego })
+            self.selectedRego = self.arrRego.first(where: { ($0.vehicle_make_id ?? "") == data.accident_rego })
             self.txtRegistrationNo.text = self.selectedRego?.registration_no
             self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
          
