@@ -39,8 +39,8 @@ class AccidentMaintenanceTVC: UITableViewCell {
     }
     
     func setupDetails(data: AccidentMaintenance) {
-        self.carNameLabel.text = self.convertString(str: (data.vehicle_model ?? ""))
-        self.carId.text = "/ \(self.convertString(str: (data.registration_no ?? "")))"
+        self.carNameLabel.text = self.convertString(str: (data.vehicle_make ?? "")) + " (\(self.convertString(str: (data.vehicle_model ?? ""))))"
+        self.carId.text = "\(self.convertString(str: (data.registration_no ?? "")))"
         self.carTypeLabel.text = self.convertString(str: (data.vehicle_category ?? ""))
         
         let timeLabel = self.convertToDate(str: (data.status_modified_on ?? ""))

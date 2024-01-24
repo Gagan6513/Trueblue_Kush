@@ -59,7 +59,8 @@ class AccidentManagementFirstVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.txtModel.textColor = UIColor(named: "7D7D7D")
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
 
         self.txtClaimNo.delegate = self
