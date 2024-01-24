@@ -191,6 +191,7 @@ class AccidentDetailsResponse: Codable {
         let state : String?
         let insurance_company : String?
         let atfault_insurance_company : String?
+        let registration_no: String?
 }
 
 class AccidentMaintenance: Codable {

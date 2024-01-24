@@ -65,7 +65,7 @@ class AccidentManagementSecondVC: UIViewController {
         getInsuranceCompany()
         setupNotification()
         self.getCountryList()
-        self.getRegoList()
+//        self.getRegoList()
 
     }
     

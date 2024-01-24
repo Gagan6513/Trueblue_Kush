@@ -222,9 +222,9 @@ class AccidentManagementFirstVC: UIViewController {
             
             self.txtPinCode.text = data.owner_postcode
             
-            self.selectedRego = self.arrRego.first(where: { ($0.vehicle_make_id ?? "") == data.accident_rego })
-            self.txtRegistrationNo.text = self.selectedRego?.registration_no
-            self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+            self.txtRegistrationNo.text = data.registration_no
+            
+            self.txtModel.text = "\(data.owner_make_model ?? "")"
          
             self.selectedInsurance = self.arrInsurance.first(where: { ($0.ins_id ?? "") == data.insurance })
             self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
@@ -563,6 +563,10 @@ extension AccidentManagementFirstVC {
     
     
     func getRegoList() {
+        if self.accidentData != nil {
+            self.getAccidentDetialsForEditProfile()
+            return
+        }
         CommonObject().showProgress()
         
         /* Create API Request */
