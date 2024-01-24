@@ -28,6 +28,19 @@ class AccidentManagementVC: UIViewController {
         }
     }
     
+    var accidentData: AccidentReferance? {
+        didSet {
+            DispatchQueue.main.async {
+                self.completedIndex = [0, 1, 2, 3, 4, 5]
+                self.applicationId = self.accidentData?.app_id
+                self.collectionView.reloadData()
+                
+                let dict: [String: Any] = ["ApplicationId" : self.applicationId ?? "" ]
+                NotificationCenter.default.post(name: .AccidentDetails, object: nil, userInfo: dict)
+            }
+        }
+    }
+    
     var applicationId: String? {
         didSet {
             DispatchQueue.main.async {
@@ -70,19 +83,21 @@ class AccidentManagementVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AccidentManagementFirstVC") {
-            
             let ctrl = segue.destination as! AccidentManagementFirstVC
-            
+            ctrl.applicationId = self.accidentData?.app_id
         } else if (segue.identifier == "AccidentManagementSecondVC") {
-            let _ = segue.destination as! AccidentManagementSecondVC
+            let ctrl = segue.destination as! AccidentManagementSecondVC
+            ctrl.applicationId = self.accidentData?.app_id
             print("AccidentManagementSecondVC")
         } else if (segue.identifier == "AccidentManagementThirdVC") {
-            let _ = segue.destination as! AccidentManagementThirdVC
+            let ctrl = segue.destination as! AccidentManagementThirdVC
+            ctrl.applicationId = self.accidentData?.app_id
         } else if (segue.identifier == "AccidentManagementFourthVC") {
-            let _ = segue.destination as! AccidentManagementFourthVC
+            let ctrl = segue.destination as! AccidentManagementFourthVC
+            ctrl.applicationId = self.accidentData?.app_id
         } else if (segue.identifier == "AccidentManagementFifthVC") {
             let ctrl = segue.destination as! AccidentManagementFifthVC
-            ctrl.applicationId = "0"
+            ctrl.applicationId = self.accidentData?.app_id
         }
     }
     

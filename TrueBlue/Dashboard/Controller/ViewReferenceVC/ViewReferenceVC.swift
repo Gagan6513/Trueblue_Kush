@@ -67,7 +67,19 @@ extension ViewReferenceVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ViewReferenceTVC") as? ViewReferenceTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.setupDetails(data: self.arrReferace[indexPath.row])
+        cell.detailsButtonClicked = { [weak self] in
+            guard let self else { return }
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.accidentData = self.arrReferace[indexPath.row]
+            self.present(ctrl, animated: true)
+        }
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   
     }
     
 }

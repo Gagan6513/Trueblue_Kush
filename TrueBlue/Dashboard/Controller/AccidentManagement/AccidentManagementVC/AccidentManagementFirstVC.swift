@@ -33,6 +33,8 @@ class AccidentManagementFirstVC: UIViewController {
     @IBOutlet weak var txtInsuranceCompany: UITextField!
     @IBOutlet weak var txtClaimNo: UITextField!
     
+    var accidentData: AccidentDetailsResponse?
+    
     var isYourVehicleBusinessRegistered = ""
     var isYourCarDrivable = ""
     var arrBranch = [BranchListResponse]()
@@ -60,9 +62,7 @@ class AccidentManagementFirstVC: UIViewController {
         self.txtClaimNo.delegate = self
         
         self.getBranchList()
-        self.getInsuranceCompany()
-        self.getCountryList()
-        self.getRegoList()
+        
     }
     
     func setupNotification() {
@@ -84,25 +84,31 @@ class AccidentManagementFirstVC: UIViewController {
     }
     
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioVBNo.tintColor = UIColor(named: "D9D9D9")
-        isYourVehicleBusinessRegistered = "yes"
+        self.setupBussinessRegisterd(str: "yes")
     }
     @IBAction func btnRadioVBNo(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioVBYes.tintColor = UIColor(named: "D9D9D9")
-        isYourVehicleBusinessRegistered = "no"
+        self.setupBussinessRegisterd(str: "no")
     }
+    
+    func setupBussinessRegisterd(str: String) {
+        btnRadioVBNo.tintColor = str == "no" ? .systemGreen : UIColor(named: "D9D9D9")
+        btnRadioVBYes.tintColor = str == "yes" ? .systemGreen : UIColor(named: "D9D9D9")
+        isYourVehicleBusinessRegistered = str
+    }
+    
     @IBAction func btnRadioCarDrivable(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioCarNotDrivable.tintColor = UIColor(named: "D9D9D9")
-        isYourCarDrivable = "yes"
+        self.setupisYourCarDrivable(str: "yes")
     }
     @IBAction func btnRadioCarNotDrivable(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioCarDrivable.tintColor = UIColor(named: "D9D9D9")
-        isYourCarDrivable = "no"
+        self.setupisYourCarDrivable(str: "no")
     }
+    
+    func setupisYourCarDrivable(str: String) {
+        btnRadioCarNotDrivable.tintColor = str == "no" ? .systemGreen : UIColor(named: "D9D9D9")
+        btnRadioCarDrivable.tintColor = str == "yes" ? .systemGreen : UIColor(named: "D9D9D9")
+        isYourCarDrivable = str
+    }
+    
     @IBAction func btnSaveContinue(_ sender: UIButton) {
 //        self.appId?("")
         if validationTextfield() {
@@ -121,7 +127,7 @@ class AccidentManagementFirstVC: UIViewController {
         self.showRecoveryFor()
     }
     func showBranchList() {
-        showSearchListPopUp(listForSearch: self.arrBranch.map({ $0.branch_name ?? "" }), listNameForSearch: AppDropDownLists.BRANCH_NAME, notificationName: .searchListNotAtFault)
+        showSearchListPopUp(listForSearch: self.arrBranch.map({ $0.name ?? "" }), listNameForSearch: AppDropDownLists.BRANCH_NAME, notificationName: .searchListNotAtFault)
     }
     
     func showRecoveryFor() {
@@ -132,6 +138,43 @@ class AccidentManagementFirstVC: UIViewController {
         showSearchListPopUp(listForSearch: self.arrInsurance.map({ $0.insurance_company ?? "" }), listNameForSearch: AppDropDownLists.INSURANCE_COMPANY, notificationName: .searchListNotAtFault)
     }
     
+    func setupDetails() {
+        if let data = self.accidentData {
+            self.applicationId = data.id
+            
+            self.selectedBranch = self.arrBranch.first(where: { ($0.id ?? "") == data.branch })
+            self.txtSelectBranch.text = self.selectedBranch?.name
+
+            self.txtFirstName.text = data.owner_firstname
+            self.txtLastName.text = data.owner_lastname
+            self.txtEmail.text = data.owner_email
+            self.txtPhone.text = data.owner_phone
+            self.txtRecoverFor.text = data.recovery_for?.capitalized
+            self.txtClaimNo.text = data.owner_claimno
+            
+            self.isYourVehicleBusinessRegistered = data.is_business_registered?.lowercased() ?? ""
+            self.setupBussinessRegisterd(str: self.isYourVehicleBusinessRegistered)
+            
+            self.isYourCarDrivable = data.vehicle_drivable?.lowercased() ?? ""
+            self.setupisYourCarDrivable(str: self.isYourCarDrivable)
+            
+            self.txtStreet.text = data.owner_street
+            self.txtSuburb.text = data.owner_suburb
+
+            self.selectedState = self.arrState.first(where: { ($0.id ?? "") == data.owner_state })
+            self.txtState.text = self.selectedState?.state
+            
+            self.txtPinCode.text = data.owner_postcode
+            
+            self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.accident_rego })
+            self.txtRegistrationNo.text = self.selectedRego?.registration_no
+            self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+         
+            self.selectedInsurance = self.arrInsurance.first(where: { ($0.ins_id ?? "") == data.insurance })
+            self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
+            
+        }
+    }
     
     func validationTextfield() -> Bool {
         
@@ -248,8 +291,8 @@ extension AccidentManagementFirstVC {
             CommonObject.sharedInstance.isDataChangedInCurrentTab = true
             switch userInfo["itemSelectedFromList"] as? String {
             case AppDropDownLists.BRANCH_NAME:
-                self.selectedBranch = self.arrBranch.first(where: { ($0.branch_name ?? "") == selectedItem })
-                self.txtSelectBranch.text = self.selectedBranch?.branch_name
+                self.selectedBranch = self.arrBranch.first(where: { ($0.name ?? "") == selectedItem })
+                self.txtSelectBranch.text = self.selectedBranch?.name
             case AppDropDownLists.RECOVERY_FOR:
                 self.txtRecoverFor.text = selectedItem
             case AppDropDownLists.INSURANCE_COMPANY:
@@ -271,7 +314,7 @@ extension AccidentManagementFirstVC {
     func saveAndSubmit() {
         var parameters: Parameters = [:]
         parameters["app_id"] = self.applicationId
-        parameters["branch"] = self.selectedBranch?.branch_id
+        parameters["branch"] = self.selectedBranch?.id
         parameters["is_accident_ref"] = 1
         parameters["owner_firstname"] = self.txtFirstName.text
         parameters["owner_lastname"] = self.txtLastName.text
@@ -376,12 +419,11 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrBranch = data.data?.response ?? []
-                    
+                    self.getInsuranceCompany()
                 }
             }
         }
     }
-    
     
     func getInsuranceCompany() {
         CommonObject().showProgress()
@@ -417,7 +459,7 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrInsurance = data.data?.response ?? []
-                    
+                    self.getCountryList()
                 }
             }
         }
@@ -457,7 +499,7 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrState = data.data?.response ?? []
-                    
+                    self.getRegoList()
                 }
             }
         }
@@ -498,7 +540,54 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrRego = data.data ?? []
+                    self.applicationId != nil ? self.getAccidentDetialsForEditProfile() : nil
+                }
+            }
+        }
+    }
+    
+    func getAccidentDetialsForEditProfile() {
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.getReferenceDetails)!
+        webService.method = .post
+        webService.parameters = ["app_id": self.applicationId ?? ""]
+        
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(AccidentDetailsModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? AccidentDetailsModel {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
                     
+                    self.accidentData = data.data?.response
+                    
+                    if let data = self.accidentData {
+                        let data: [String: Any] = ["data": data]
+                        NotificationCenter.default.post(name: .AccidentDetailsEdit, object: nil, userInfo: data)
+                    }
+                    
+                    self.setupDetails()
                 }
             }
         }

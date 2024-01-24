@@ -43,8 +43,12 @@ class BranchDataResponse: Codable {
 
 class BranchListResponse: Codable {
     
-    var branch_id: String?
-    var branch_name: String?
+    var id: String?
+    var name: String?
+    var city: String?
+    var address: String?
+    var status: String?
+    var created_date: String?
     
 }
 

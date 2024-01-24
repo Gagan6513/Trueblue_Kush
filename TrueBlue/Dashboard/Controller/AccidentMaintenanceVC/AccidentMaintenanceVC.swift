@@ -87,10 +87,7 @@ extension AccidentMaintenanceVC : UITableViewDataSource, UITableViewDelegate {
         ctrl.vehicleDetails = data
         self.present(ctrl, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+ 
 }
 
 extension AccidentMaintenanceVC {

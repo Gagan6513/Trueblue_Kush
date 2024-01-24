@@ -21,7 +21,8 @@ class API_URL {
 
     static let accidentManagementFirst = new_path + "saveAccidentForm"
 
-    static let BRANCH_LIST = API_PATH + "branch_list.php"
+    static let BRANCH_LIST = new_path + "branchList"
+    static let getReferenceDetails = new_path + "getReferenceDetails"
 
     static let INSURANCE_COMPANY_LIST = API_PATH + "insurance_list.php"
     static let REPAIRER_LIST = API_PATH + "repairer_list.php"

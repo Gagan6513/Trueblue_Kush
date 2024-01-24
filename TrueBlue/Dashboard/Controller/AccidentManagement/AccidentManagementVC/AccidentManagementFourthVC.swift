@@ -15,10 +15,13 @@ class AccidentManagementFourthVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     var arrImages = [uploadedImagesModel]()
+    var accidentData: AccidentMaintenance?
     
     var applicationId: String? {
         didSet {
-            self.getUploadedDoc()
+            if let _ = self.applicationId {
+                self.getUploadedDoc()
+            }
         }
     }
     

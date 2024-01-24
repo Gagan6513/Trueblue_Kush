@@ -78,7 +78,7 @@ extension Notification.Name {
     
     
     static let AccidentDetails = Notification.Name("AccidentDetails")
-
+    static let AccidentDetailsEdit = Notification.Name("AccidentDetailsEdit")
     
     
     

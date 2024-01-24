@@ -13,10 +13,13 @@ class AccidentManagementFifthVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var allNotesArray: [NotesResponseObject] = []
+    var accidentData: AccidentMaintenance?
     
     var applicationId: String? {
         didSet {
-            self.getAllNotes()
+            if let _ = self.applicationId {
+                self.getAllNotes()
+            }
         }
     }
 

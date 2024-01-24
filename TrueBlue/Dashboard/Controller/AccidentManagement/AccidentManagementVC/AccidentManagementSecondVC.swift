@@ -48,6 +48,7 @@ class AccidentManagementSecondVC: UIViewController {
     var selectedRego: RegoListResponse?
     
     var applicationId: String?
+    var accidentDetails: AccidentDetailsResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,52 @@ class AccidentManagementSecondVC: UIViewController {
                 self.applicationId = applicationId
             }
         })
+        
+        NotificationCenter.default.addObserver(forName: .AccidentDetailsEdit, object: nil, queue: nil, using: { [weak self] noti in
+            guard let self else { return }
+            
+            let userInfo = (noti.userInfo as? NSDictionary)?.value(forKey: "data") as? AccidentDetailsResponse
+            self.accidentDetails = userInfo
+            self.setupDetails()
+        })
+    }
+    
+    func setupDetails() {
+        if let data = self.accidentDetails {
+            self.applicationId = data.id
+            
+            self.txtFirstName.text = data.atfault_firstname
+            self.txtLastName.text = data.atfault_lastname
+            self.txtPhone.text = data.atfault_phone
+            self.txtDateofBirth.text = data.atfault_dob
+            self.isClientAtFault = data.ourdriver_atfault?.lowercased() ?? ""
+            self.isAccess = data.excess?.lowercased() ?? ""
+            
+            self.setupisAccess(str: self.isAccess)
+            self.setupisClientAtFault(str: self.isClientAtFault)
+            
+            self.txtAmount.text = data.excess_amount
+            self.txtStreet.text = data.atfault_street
+            self.txtSuburb.text = data.atfault_suburb
+            
+            self.selectedState = self.arrState.first(where: { ($0.state ?? "") == data.atfault_state })
+            self.txtState.text = self.selectedState?.state
+            
+            self.txtPinCode.text = data.atfault_postcode
+            
+//            self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.atfault_registration_no })
+            self.txtRegistrationNo.text = data.atfault_registration_no //self.selectedRego?.registration_no
+            
+            self.txtModel.text = data.atfault_make_model // "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+            self.txtAviablityStatus.text = data.liability_status
+            self.txtLicenseNo.text = data.atfault_lic_no
+            self.txtExpiry.text = data.atfault_exp
+            self.txtExpiry.text = data.atfault_exp
+            
+            self.selectedInsurance = self.arrInsurance.first(where: { ($0.ins_id ?? "") == data.atfault_insurancecompany })
+            self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
+            self.txtClaimNo.text = data.atfault_claimno
+        }
     }
     
     
@@ -240,26 +287,30 @@ class AccidentManagementSecondVC: UIViewController {
     
     
     @IBAction func btnRadioVBYes(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioVBNo.tintColor = UIColor(named: "D9D9D9")
-        isClientAtFault = "yes"
+        self.setupisClientAtFault(str: "yes")
     }
     @IBAction func btnRadioVBNo(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnRadioVBYes.tintColor = UIColor(named: "D9D9D9")
-        isClientAtFault = "no"
+        self.setupisClientAtFault(str: "no")
+    }
+    
+    func setupisClientAtFault(str: String) {
+        btnRadioVBNo.tintColor = str == "no" ? .systemGreen : UIColor(named: "D9D9D9")
+        btnRadioVBYes.tintColor = str == "yes" ? .systemGreen : UIColor(named: "D9D9D9")
+        isClientAtFault = str
     }
     
     @IBAction func btnAcessPaid(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnAcessUnpaid.tintColor = UIColor(named: "D9D9D9")
-        isAccess = "paid"
+        self.setupisAccess(str: "paid")
     }
     
     @IBAction func btnAcessUnpaid(_ sender: UIButton) {
-        sender.tintColor = .systemGreen
-        btnAccessPaid.tintColor = UIColor(named: "D9D9D9")
-        isAccess = "unpaid"
+        self.setupisAccess(str: "unpaid")
+    }
+    
+    func setupisAccess(str: String) {
+        btnAcessUnpaid.tintColor = str == "unpaid" ? .systemGreen : UIColor(named: "D9D9D9")
+        btnAccessPaid.tintColor = str == "paid" ? .systemGreen : UIColor(named: "D9D9D9")
+        isAccess = str
     }
     
     @IBAction func btnSelecteInsurance(_ sender: UIButton) {
@@ -321,7 +372,7 @@ extension AccidentManagementSecondVC {
         parameters["atfault_country"] = self.txtCountry.text
         parameters["atfault_postcode"] = self.txtPinCode.text
         parameters["atfault_make_model"] = self.txtModel.text
-        parameters["atfault_registration_no"] = self.selectedRego?.registration_no
+        parameters["atfault_registration_no"] = self.txtRegistrationNo.text // self.selectedRego?.registration_no
         parameters["liability_status"] = self.txtAviablityStatus.text?.uppercased()
         parameters["atfault_lic_no"] = self.txtLicenseNo.text
         parameters["atfault_exp"] = self.txtExpiry.text
@@ -411,7 +462,10 @@ extension AccidentManagementSecondVC {
                     }
                     
                     self.arrInsurance = data.data?.response ?? []
-                    
+                    if let data = self.accidentDetails {
+                        self.selectedInsurance = self.arrInsurance.first(where: { ($0.ins_id ?? "") == data.atfault_insurancecompany })
+                        self.txtInsuranceCompany.text = self.selectedInsurance?.insurance_company
+                    }
                 }
             }
             
@@ -453,6 +507,12 @@ extension AccidentManagementSecondVC {
                     
                     self.arrState = data.data?.response ?? []
                     
+                    
+                    if let data = self.accidentDetails {
+                        self.selectedState = self.arrState.first(where: { ($0.id ?? "") == data.atfault_state })
+                        self.txtState.text = self.selectedState?.state
+                    }
+                    
                 }
             }
         }
@@ -492,7 +552,10 @@ extension AccidentManagementSecondVC {
                     }
                     
                     self.arrRego = data.data ?? []
-                    
+                    if let data = self.accidentDetails {
+                        self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.atfault_registration_no })
+                        self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                    }
                 }
             }
         }

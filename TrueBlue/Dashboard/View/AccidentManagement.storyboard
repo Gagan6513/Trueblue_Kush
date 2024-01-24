@@ -591,7 +591,7 @@
                                                                         </variation>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2K-CC-3sW">
-                                                                        <rect key="frame" x="20" y="15" width="123.5" height="38"/>
+                                                                        <rect key="frame" x="20" y="15" width="143.5" height="38"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="38" id="ZC6-JV-Kye">
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
@@ -605,21 +605,21 @@
                                                                         </variation>
                                                                     </textField>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="Asz-KZ-iOA">
-                                                                        <rect key="frame" x="147.5" y="28" width="12" height="12"/>
+                                                                        <rect key="frame" x="167.5" y="28" width="12" height="12"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Asz-KZ-iOA" secondAttribute="height" multiplier="1:1" id="ETO-Cz-TXk"/>
                                                                             <constraint firstAttribute="width" constant="12" id="vCP-TT-Sq9"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDs-Af-yeo">
-                                                                        <rect key="frame" x="20" y="51" width="139.5" height="1"/>
+                                                                        <rect key="frame" x="20" y="51" width="159.5" height="1"/>
                                                                         <color key="backgroundColor" name="CCCCCC (Stroke)"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="Kl5-U9-Axy"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-EF-LnO">
-                                                                        <rect key="frame" x="20" y="15" width="139.5" height="39"/>
+                                                                        <rect key="frame" x="20" y="15" width="159.5" height="39"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <connections>
                                                                             <action selector="btnRecoveryFor:" destination="kal-yW-UNB" eventType="touchUpInside" id="guU-1g-kZI"/>
@@ -634,7 +634,7 @@
                                                                     <constraint firstItem="u2K-CC-3sW" firstAttribute="top" secondItem="Tk0-Bv-qlP" secondAttribute="bottom" id="LCf-yE-gMd"/>
                                                                     <constraint firstItem="GbF-EF-LnO" firstAttribute="bottom" secondItem="u2K-CC-3sW" secondAttribute="bottom" constant="1" id="MVW-93-grE"/>
                                                                     <constraint firstAttribute="bottom" secondItem="YDs-Af-yeo" secondAttribute="bottom" constant="46" id="SIg-F7-Ls3"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Asz-KZ-iOA" secondAttribute="trailing" constant="20" id="ccC-ju-g9w"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Asz-KZ-iOA" secondAttribute="trailing" id="ccC-ju-g9w"/>
                                                                     <constraint firstItem="Tk0-Bv-qlP" firstAttribute="top" secondItem="d8l-Mh-U7a" secondAttribute="top" id="eXi-b4-yIu"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Tk0-Bv-qlP" secondAttribute="trailing" constant="20" id="jMW-ms-Flf"/>
                                                                     <constraint firstItem="Tk0-Bv-qlP" firstAttribute="leading" secondItem="d8l-Mh-U7a" secondAttribute="leading" constant="20" id="jeu-rT-cOp"/>
@@ -3676,7 +3676,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5mK-xz-PN9" firstAttribute="centerY" secondItem="iTY-h7-geW" secondAttribute="centerY" constant="-12" id="8qL-bd-65M"/>
                                     <constraint firstAttribute="height" constant="100" id="NZ0-4X-8Zt">

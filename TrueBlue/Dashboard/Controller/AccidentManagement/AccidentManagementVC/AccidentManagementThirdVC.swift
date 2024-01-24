@@ -25,6 +25,8 @@ class AccidentManagementThirdVC: UIViewController {
     
     var applicationId: String?
     
+    var accidentDetails: AccidentDetailsResponse?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtDateofAccident.delegate = self
@@ -44,6 +46,31 @@ class AccidentManagementThirdVC: UIViewController {
                 self.applicationId = applicationId
             }
         })
+        
+        NotificationCenter.default.addObserver(forName: .AccidentDetailsEdit, object: nil, queue: nil, using: { [weak self] noti in
+            guard let self else { return }
+            
+            let userInfo = (noti.userInfo as? NSDictionary)?.value(forKey: "data") as? AccidentDetailsResponse
+            self.accidentDetails = userInfo
+            self.setupDetails()
+        })
+    }
+    
+    func setupDetails() {
+        if let data = self.accidentDetails {
+            self.applicationId = data.id
+            
+            self.txtDateofAccident.text = data.dateof_accident
+            self.txtTimeofAccident.text = data.timeofaccident
+            self.txtAccidentLocation.text = data.accident_location
+            self.txtViewAccidentDescription.text = data.description
+            
+            self.selectedReferral = self.arrReferral.first(where: { ($0.referral_name ?? "") == data.referral_name })
+            self.txtReferralName.text = self.selectedReferral?.referral_name
+            
+            self.selectedRepairer = self.arrRepaired.first(where: { ($0.repairer_name ?? "") == data.repairer_name })
+            self.txtRepairerName.text = self.selectedRepairer?.repairer_name
+        }
     }
     
     func validationTextfield() -> Bool {
@@ -262,6 +289,12 @@ extension AccidentManagementThirdVC {
                     }
                     
                     self.arrRepaired = data.data?.response ?? []
+                    
+                    
+                    if let data = self.accidentDetails {
+                        self.selectedRepairer = self.arrRepaired.first(where: { ($0.repairer_name ?? "") == data.repairer_name })
+                        self.txtRepairerName.text = self.selectedRepairer?.repairer_name
+                    }
                 }
             }
         }
@@ -301,6 +334,12 @@ extension AccidentManagementThirdVC {
                     }
                     
                     self.arrReferral = data.data?.response ?? []
+                    
+                    if let data = self.accidentDetails {
+                        
+                        self.selectedReferral = self.arrReferral.first(where: { ($0.referral_name ?? "") == data.referral_name })
+                        self.txtReferralName.text = self.selectedReferral?.referral_name
+                    }
                 }
             }
         }
