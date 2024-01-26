@@ -251,10 +251,10 @@ class AccidentManagementFirstVC: UIViewController {
             return false
         }
         
-        if txtInsuranceCompany.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: insurancecompany)
-            return false
-        }
+//        if txtInsuranceCompany.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: insurancecompany)
+//            return false
+//        }
         
         if isYourVehicleBusinessRegistered.isEmpty {
             showAlert(title: "Error!", messsage: isVehicleBusinessRegistered)
