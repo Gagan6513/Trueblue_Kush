@@ -107,21 +107,21 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gvs-4u-3VD">
-                                <rect key="frame" x="0.0" y="84" width="130" height="31"/>
+                                <rect key="frame" x="0.0" y="84" width="170" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj7-JL-brK">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="3Rt-Im-5MQ">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="160"/>
+                                            <constraint firstAttribute="width" constant="80" id="3Rt-Im-5MQ">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                                             </constraint>
-                                            <constraint firstAttribute="height" constant="35" id="maw-bP-cMe">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                            <constraint firstAttribute="height" constant="28" id="maw-bP-cMe">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="32"/>
                                             </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Accident References"/>
+                                        <state key="normal" title="Accidents"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -140,11 +140,11 @@
                                             <action selector="btnReference:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="639-ml-DmZ"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwF-bg-9i9">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwF-bg-9i9">
+                                        <rect key="frame" x="90" y="0.0" width="80" height="31"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Service History"/>
+                                        <state key="normal" title="History"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -164,7 +164,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Jp-HQ1">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                        <rect key="frame" x="170" y="0.0" width="0.0" height="31"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="New Booking"/>

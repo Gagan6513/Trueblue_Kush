@@ -279,3 +279,37 @@ class AccidentReferance: Codable {
     let atfault_claimno: String?
     
 }
+
+
+class AccidentServiceModel: Codable {
+    
+    var data: AccidentServiceData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentServiceData: Codable {
+    var response : [AccidentService]?
+}
+
+class AccidentService: Codable {
+    let amount_paid : String?
+    let amount_paid_date : String?
+    let created_date : String?
+    let id : String?
+    let invoice_number : String?
+    let model_id : String?
+    let nextserviceduekm : String?
+    let Notes : String?
+    let repairer_id : String?
+    let repairer_name : String?
+    let service_date : String?
+    let service_mileage : String?
+    let service_slip : String?
+    let vehicle_id : String?
+    let vehicle_make : String?
+    let vehicle_model : String?
+    
+}

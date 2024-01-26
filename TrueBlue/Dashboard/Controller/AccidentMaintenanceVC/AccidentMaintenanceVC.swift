@@ -78,11 +78,23 @@ extension AccidentMaintenanceVC : UITableViewDataSource, UITableViewDelegate {
             self.openReferance(data: self.arrAvailVehicles[indexPath.row])
         }
         
+        cell.serviceClicked = { [weak self] in
+            guard let self else { return }
+            self.openService(data: self.arrAvailVehicles[indexPath.row])
+        }
+        
         return cell
     }
     
     func openReferance(data: AccidentMaintenance) {
         let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "ViewReferenceVC") as! ViewReferenceVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.vehicleDetails = data
+        self.present(ctrl, animated: true)
+    }
+    
+    func openService(data: AccidentMaintenance) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "ServicesHistoryVC") as! ServicesHistoryVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.vehicleDetails = data
         self.present(ctrl, animated: true)

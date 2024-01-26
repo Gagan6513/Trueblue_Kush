@@ -236,6 +236,9 @@
 		B399CDD22B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD12B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift */; };
 		B399CDD42B58FBC100D84AE4 /* AccidentManagementSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */; };
 		B399CDD62B58FBE900D84AE4 /* AccidentManagementThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */; };
+		B3F7AE5B2B636EE3002D49B7 /* ServicesHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */; };
+		B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */; };
+		B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */; };
 		DC0568902B2951040080CB37 /* UnderMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */; };
 		DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */; };
 		DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */; };
@@ -475,6 +478,9 @@
 		B399CDD12B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementFirstVC.swift; sourceTree = "<group>"; };
 		B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementSecondVC.swift; sourceTree = "<group>"; };
 		B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementThirdVC.swift; sourceTree = "<group>"; };
+		B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesHistoryVC.swift; sourceTree = "<group>"; };
+		B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTVC.swift; sourceTree = "<group>"; };
+		B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTVC.xib; sourceTree = "<group>"; };
 		DC05688F2B2951040080CB37 /* UnderMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceVC.swift; sourceTree = "<group>"; };
 		DC0568912B295ECE0080CB37 /* UnderMaintenanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceModel.swift; sourceTree = "<group>"; };
 		DC0568932B2962910080CB37 /* UnderMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderMaintenanceViewModel.swift; sourceTree = "<group>"; };
@@ -603,6 +609,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */,
 				B357B0CE2B5E91A5004C71DF /* ViewReferenceVC */,
 				B357B0C12B5E72D8004C71DF /* AccidentMaintenanceVC */,
 				B399CDC82B58E59800D84AE4 /* AvailableVehicle */,
@@ -1256,6 +1263,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				B3F7AE5C2B6376A1002D49B7 /* TVC */,
+				B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */,
+			);
+			path = ServicesHistoryVC;
+			sourceTree = "<group>";
+		};
+		B3F7AE5C2B6376A1002D49B7 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */,
+				B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
 		F71C931646A4CB86B4AE89CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1337,6 +1362,7 @@
 				B357B0D52B5E970A004C71DF /* ViewReferenceTVC.xib in Resources */,
 				B399CDCD2B58E5B500D84AE4 /* AvailableVehicleTVC.xib in Resources */,
 				B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */,
+				B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
 				B357B0CA2B5E7440004C71DF /* AccidentMaintenanceTVC.xib in Resources */,
@@ -1584,6 +1610,7 @@
 				4D9AE15626DCD5200080D3AB /* HiredVehicleDropdownListModel.swift in Sources */,
 				534B1D2326CF721B00E3907C /* UploadDocumentsVC.swift in Sources */,
 				21AF34AE29E801D200606A8C /* CollectionNotesListVC.swift in Sources */,
+				B3F7AE5B2B636EE3002D49B7 /* ServicesHistoryVC.swift in Sources */,
 				53193D2E26DFD8F900E86CED /* SearchDashboardResultDetailsViewModel.swift in Sources */,
 				35A3252D26CBFA1E000B4457 /* AddItemCell.swift in Sources */,
 				530DE5A426E7820C007F4C4F /* SearchListTblViewCell.swift in Sources */,
@@ -1594,6 +1621,7 @@
 				530B1A1026CB80EE001ACBBA /* NewBookingEntryTabCvCell.swift in Sources */,
 				B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */,
 				530F39C026D4B84100222E5E /* NewReferenceIdModel.swift in Sources */,
+				B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */,
 				212D9B9129E7B937001F31BE /* DeliveryNotesListViewModel.swift in Sources */,
 				537D73CB26CCCD29009591BF /* DataSyncManager.swift in Sources */,
 				217CF5C629B5ACC700F02E02 /* AddMoreDetailsVC.swift in Sources */,

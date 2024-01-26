@@ -16,6 +16,7 @@ class AccidentMaintenanceTVC: UITableViewCell {
     @IBOutlet weak var availableLabel: UILabel!
     
     var refClicked: (() -> Void)?
+    var serviceClicked: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,7 @@ class AccidentMaintenanceTVC: UITableViewCell {
     }
     
     @IBAction func btnServiceHistory(_ sender: Any) {
+        self.serviceClicked?()
     }
     
     @IBAction func btnNewBooking(_ sender: Any) {

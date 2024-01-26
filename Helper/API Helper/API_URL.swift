@@ -44,6 +44,7 @@ class API_URL {
     static let AVAILABLE_VEHICLE_LIST = new_path + "getAvailableFleets"
     
     static let accidentMaintenanceFirst = new_path + "getFleetsList"
+    static let getRegoServiceHistory = new_path + "getRegoServiceHistory"
     static let accidentBookings = new_path + "accidentBookings"
 
 }
