@@ -14,7 +14,7 @@ class FleetsVC: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentPage = 1
+    var currentPage = 0
     var isPaginationAvailable = false
     
     override func viewDidLoad() {
@@ -123,7 +123,7 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
 extension FleetsVC {
     
     func getAvaiableVehicleList() {
-        if self.currentPage == 1 {
+        if self.currentPage == 0 {
             CommonObject().showProgress()
         }
         

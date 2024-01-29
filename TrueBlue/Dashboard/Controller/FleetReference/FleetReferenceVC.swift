@@ -19,7 +19,7 @@ class FleetReferenceVC: UIViewController {
     var vehicleDetails: AccidentMaintenance?
     var arrReferace: [AccidentReferance] = []
     
-    var currentPage = 1
+    var currentPage = 0
     var isPaginationAvailable = false
     
     override func viewDidLoad() {
@@ -111,7 +111,7 @@ extension FleetReferenceVC: UITableViewDelegate, UITableViewDataSource {
 extension FleetReferenceVC {
     
     func getRefList() {
-        if self.currentPage == 1 {
+        if self.currentPage == 0 {
             CommonObject().showProgress()
         }
         

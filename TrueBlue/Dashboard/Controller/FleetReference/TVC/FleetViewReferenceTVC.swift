@@ -61,11 +61,11 @@ class FleetViewReferenceTVC: UITableViewCell {
     }
     
     @IBAction func btnOpenDetailsScreen(_ sender: Any) {
-        self.detailsButtonClicked?()
+//        self.detailsButtonClicked?()
     }
     
     @IBAction func btnOpenRefView(_ sender: Any) {
-        self.viewButtonClicked?()
+//        self.viewButtonClicked?()
     }
     
     func getTimeComponentString(olderDate older: Date,newerDate newer: Date) -> (String?)  {
