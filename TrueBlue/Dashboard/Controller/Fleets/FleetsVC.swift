@@ -88,7 +88,7 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastItem = self.arrAvailVehicles.count - 3
+        let lastItem = self.arrAvailVehicles.count - 10
         if indexPath.row == lastItem {
             if isPaginationAvailable {
                 self.currentPage += 1
@@ -123,7 +123,9 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
 extension FleetsVC {
     
     func getAvaiableVehicleList() {
-        CommonObject().showProgress()
+        if self.currentPage == 1 {
+            CommonObject().showProgress()
+        }
         
         /* Create API Request */
         let webService = WebServiceModel()
@@ -131,7 +133,7 @@ extension FleetsVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "10"
+        param["limitRecord"] = "50"
         param["pageNo"] = self.currentPage
         
         webService.parameters = param
@@ -163,7 +165,7 @@ extension FleetsVC {
                     }
                     
                     if let dataList = data.data?.response {
-                        self.isPaginationAvailable = !(dataList.count < 10)
+                        self.isPaginationAvailable = !(dataList.count < 50)
                         self.arrAvailVehicles.append(contentsOf: dataList)
                         self.tableView.reloadData()
                     }
