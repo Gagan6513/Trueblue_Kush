@@ -96,7 +96,7 @@ extension FleetReferenceVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastItem = self.arrReferace.count - 3
+        let lastItem = self.arrReferace.count - 10
         if indexPath.row == lastItem {
             if isPaginationAvailable {
                 self.currentPage += 1
@@ -111,7 +111,9 @@ extension FleetReferenceVC: UITableViewDelegate, UITableViewDataSource {
 extension FleetReferenceVC {
     
     func getRefList() {
-        CommonObject().showProgress()
+        if self.currentPage == 1 {
+            CommonObject().showProgress()
+        }
         
         /* Create API Request */
         let webService = WebServiceModel()
@@ -119,7 +121,7 @@ extension FleetReferenceVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "10"
+        param["limitRecord"] = "50"
         param["pageNo"] = self.currentPage
         param["vehicle_id"] = vehicleDetails?.id
         
@@ -152,7 +154,7 @@ extension FleetReferenceVC {
                     }
 //                    print("Before Filter Count", (data.data?.response ?? []).count)
                     if let dataList = data.data?.response {
-                        self.isPaginationAvailable = !(dataList.count < 10)
+                        self.isPaginationAvailable = !(dataList.count < 50)
                         self.arrReferace.append(contentsOf: dataList)
                         self.tableView.reloadData()
                     }
