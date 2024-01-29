@@ -52,6 +52,6 @@ public enum NoData: String {
     case vehicle_empty = "Vehicle not found!"
     case note_list_empty = "Notes not found!"
     case referance_list_empty = "Accident references not found!"
-    case service_list_empty = "Accident service not found!"
+    case service_list_empty = "Service history not found!"
     
 }
