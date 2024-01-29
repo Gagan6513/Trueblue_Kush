@@ -90,8 +90,8 @@ extension ServicesHistoryVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["referenceFor"] = "rego"
-        param["regoId"] = vehicleDetails?.id
+//        param["referenceFor"] = "rego"
+        param["vehicle_id"] = vehicleDetails?.id
         
         webService.parameters = param
         

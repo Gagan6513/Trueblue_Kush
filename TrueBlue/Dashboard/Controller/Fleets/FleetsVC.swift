@@ -11,6 +11,7 @@ class FleetsVC: UIViewController {
     
     var arrAvailVehicles = [AccidentMaintenance]()
 
+    @IBOutlet weak var filterCollectionView: UICollectionView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,6 +49,9 @@ class FleetsVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerNib(for: "FleetsTVC")
+        
+//        self.filterCollectionView.delegate = self
+//        self.filterCollectionView.dataSource = self
     }
     
 }
