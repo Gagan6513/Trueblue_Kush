@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccidentMaintenanceTVC: UITableViewCell {
+class FleetsTVC: UITableViewCell {
 
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var carNameLabel: UILabel!

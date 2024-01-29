@@ -10,9 +10,9 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", "Accident Management"]
-    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
-    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", "Accident Management", "Fleets"]
+    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle"]
+    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0"]
 
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
     var searchbyPicker = UIPickerView()
@@ -431,6 +431,10 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentMaintenanceVC") as! AccidentMaintenanceVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
+        case "Fleets":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetsVC") as! FleetsVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         default:
             print("Unkown Selection")
             CommonObject.sharedInstance.isNewEntry = true
@@ -563,6 +567,10 @@ extension DashboardVC : DashboardVMDelegate {
             arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
         }
         
+        if let data = screenNames.firstIndex(where: { $0 == "Fleets" }) {
+            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
+        }
+                
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)
