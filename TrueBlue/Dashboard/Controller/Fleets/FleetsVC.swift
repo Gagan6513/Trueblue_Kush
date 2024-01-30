@@ -210,7 +210,7 @@ extension FleetsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventDetailsNavigation", for: indexPath) as? EventDetailsNavigation else { return UICollectionViewCell() }
-        
+            
         cell.lblTitle.text = self.arrNavigation[indexPath.row]["title"]
         cell.imgIcon.isHidden = (self.arrNavigation[indexPath.row]["icon"] ?? "") == ""
         if (self.arrNavigation[indexPath.row]["icon"] ?? "") != "" {

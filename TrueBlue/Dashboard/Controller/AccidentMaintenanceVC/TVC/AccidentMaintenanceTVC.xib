@@ -210,18 +210,29 @@
                             <constraint firstItem="Ymt-ii-E07" firstAttribute="centerY" secondItem="3dz-Nb-hC4" secondAttribute="centerY" id="xON-us-KiL"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBu-hf-i9K">
+                        <rect key="frame" x="20" y="20.000000000000004" width="80" height="53.333333333333343"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="btnFullScreen:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="va3-sh-omQ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="5UI-Xf-UC8" firstAttribute="leading" secondItem="wfW-iQ-cXh" secondAttribute="trailing" constant="20" id="0VB-f8-3Ig"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="leading" secondItem="wfW-iQ-cXh" secondAttribute="leading" id="5p7-zV-jPg"/>
                     <constraint firstItem="wfW-iQ-cXh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="6Mt-Kw-S7g"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="trailing" secondItem="wfW-iQ-cXh" secondAttribute="trailing" id="8SF-RM-aep"/>
                     <constraint firstAttribute="trailing" secondItem="Lxk-wy-ibl" secondAttribute="trailing" id="9Sl-sj-oFd"/>
                     <constraint firstAttribute="bottom" secondItem="Lxk-wy-ibl" secondAttribute="bottom" id="JPd-wJ-wsa"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="top" secondItem="wfW-iQ-cXh" secondAttribute="top" id="MiO-OP-N69"/>
                     <constraint firstItem="Lxk-wy-ibl" firstAttribute="top" secondItem="5UI-Xf-UC8" secondAttribute="bottom" constant="20" id="Pts-yl-ho6"/>
                     <constraint firstItem="5UI-Xf-UC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Sng-WE-6I0"/>
                     <constraint firstAttribute="trailing" secondItem="5UI-Xf-UC8" secondAttribute="trailing" constant="20" id="T1h-cn-U5m"/>
                     <constraint firstItem="wfW-iQ-cXh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cgQ-fj-Ysy"/>
                     <constraint firstItem="Lxk-wy-ibl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dAC-ZD-kcG"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="bottom" secondItem="wfW-iQ-cXh" secondAttribute="bottom" id="ucJ-5Z-PFu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

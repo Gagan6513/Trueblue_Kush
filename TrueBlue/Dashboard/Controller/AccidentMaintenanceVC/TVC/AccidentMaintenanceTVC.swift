@@ -44,6 +44,10 @@ class AccidentMaintenanceTVC: UITableViewCell {
         self.btnReferanceClicked?()
     }
     
+    @IBAction func btnFullScreen(_ sender: Any) {
+        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
+    }
+    
     func setupDetails(data: AccidentMaintenance) {
         self.carNameLabel.text = self.convertString(str: (data.vehicle_make ?? "")) + " (\(self.convertString(str: (data.vehicle_model ?? ""))))"
         self.carId.text = "\(self.convertString(str: (data.registration_no ?? "")))"

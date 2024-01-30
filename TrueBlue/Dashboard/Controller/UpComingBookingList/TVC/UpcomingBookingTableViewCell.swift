@@ -56,6 +56,18 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         
         self.dateLabel.text = stringDate
         self.monthLabel.text = stringMonthYear
+        self.dateLabel.textColor = UIColor(named: "AppGray")
+        self.monthLabel.textColor = UIColor(named: "AppGray")
+        
+        let dateee = data.expected_delivery_date.date(from: .yyyymmdd) ?? Date()
+        
+        if dateee < Date() {
+            self.dateLabel.textColor = UIColor(named: "FF0000")
+            self.monthLabel.textColor = UIColor(named: "FF0000")
+        } else {
+            self.dateLabel.textColor = UIColor(named: "AppGray")
+            self.monthLabel.textColor = UIColor(named: "AppGray")
+        }
         
         self.phoneNumber.text = data.owner_phone == "" ? "NA" : data.owner_phone
         self.clientLicense.text = data.owner_lic == "" ? "NA" : data.owner_lic
