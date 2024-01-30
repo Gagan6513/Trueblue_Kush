@@ -10,6 +10,7 @@ import UIKit
 class FleetsVC: UIViewController {
     
     var arrAvailVehicles = [AccidentMaintenance]()
+    var arrFilteredVehicles = [AccidentMaintenance]()
 
     @IBOutlet weak var filterCollectionView: UICollectionView!
     @IBOutlet weak var addButton: UIButton!
@@ -17,7 +18,12 @@ class FleetsVC: UIViewController {
     
     var currentPage = 0
     var isPaginationAvailable = false
-    
+    var arrNavigation = [["title": "All", "icon": "", "type": "All"],
+                         ["title": "Available", "icon": "image 56", "type": "Available"],
+                         ["title": "On Hire", "icon": "delivery-truck-svgrepo-com 1", "type": "On Hire"],
+                         ["title": "Maintenance", "icon": "image 57", "type": "Maintenance"]]
+    var selectedFilter = "All"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
@@ -50,8 +56,8 @@ class FleetsVC: UIViewController {
         self.tableView.dataSource = self
         self.tableView.registerNib(for: "FleetsTVC")
         
-//        self.filterCollectionView.delegate = self
-//        self.filterCollectionView.dataSource = self
+        self.filterCollectionView.delegate = self
+        self.filterCollectionView.dataSource = self
     }
     
 }
@@ -60,39 +66,39 @@ class FleetsVC: UIViewController {
 extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.arrAvailVehicles.count != 0 {
+        if self.arrFilteredVehicles.count != 0 {
             tableView.removeBackgroundView()
-            return self.arrAvailVehicles.count
+            return self.arrFilteredVehicles.count
         }
-        tableView.setBackgroundView(msg: .vehicle_empty)
+        tableView.setBackgroundView(msg: .fleets_empty)
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FleetsTVC") as? FleetsTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.setupDetails(data: self.arrAvailVehicles[indexPath.row])
+        cell.setupDetails(data: self.arrFilteredVehicles[indexPath.row])
         
         cell.refClicked = { [weak self] in
             guard let self else { return }
-            self.openReferance(data: self.arrAvailVehicles[indexPath.row])
+            self.openReferance(data: self.arrFilteredVehicles[indexPath.row])
         }
         
         cell.serviceClicked = { [weak self] in
             guard let self else { return }
-            self.openService(data: self.arrAvailVehicles[indexPath.row])
+            self.openService(data: self.arrFilteredVehicles[indexPath.row])
         }
         
         cell.btnReferanceClicked = { [weak self] in
             guard let self else { return }
-            self.openFleetReferance(data: self.arrAvailVehicles[indexPath.row])
+            self.openFleetReferance(data: self.arrFilteredVehicles[indexPath.row])
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastItem = self.arrAvailVehicles.count - 10
+        let lastItem = self.arrFilteredVehicles.count - 1
         if indexPath.row == lastItem {
             if isPaginationAvailable {
                 self.currentPage += 1
@@ -171,12 +177,79 @@ extension FleetsVC {
                     if let dataList = data.data?.response {
                         self.isPaginationAvailable = !(dataList.count < 50)
                         self.arrAvailVehicles.append(contentsOf: dataList)
-                        self.tableView.reloadData()
+//                        self.arrFilteredVehicles.append(contentsOf: dataList)
+                        self.filterData()
                     }
                 }
             }
         }
     }
     
+    func filterData() {
+        
+        if selectedFilter == "All" {
+            self.arrFilteredVehicles = self.arrAvailVehicles
+        } else if selectedFilter == "Available" {
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active" && ($0.fleet_status == "Returned" || $0.fleet_status == "Free")  })
+        } else if selectedFilter == "On Hire" {
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active" && ($0.fleet_status == "Hired")  })
+        } else if selectedFilter == "Maintenance" {
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Maintenance" })
+        }
+        
+        self.tableView.reloadData()
+    }
+    
 }
 
+extension FleetsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrNavigation.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventDetailsNavigation", for: indexPath) as? EventDetailsNavigation else { return UICollectionViewCell() }
+        
+        cell.lblTitle.text = self.arrNavigation[indexPath.row]["title"]
+        cell.imgIcon.isHidden = (self.arrNavigation[indexPath.row]["icon"] ?? "") == ""
+        if (self.arrNavigation[indexPath.row]["icon"] ?? "") != "" {
+            cell.imgIcon.image = UIImage(named: self.arrNavigation[indexPath.row]["icon"] ?? "")
+        }
+        
+        if selectedFilter == (self.arrNavigation[indexPath.row]["type"] ?? "") {
+            cell.imgIcon.tintColor = .black
+            cell.lblTitle.textColor = .black
+            
+            if selectedFilter == "All" {
+                cell.bgView.backgroundColor = .darkGray
+                cell.imgIcon.tintColor = .white
+                cell.lblTitle.textColor = .white
+            } else {
+                cell.bgView.backgroundColor = UIColor(named: "FAD9A9")
+            }
+            
+        } else {
+            cell.imgIcon.tintColor = .black
+            cell.lblTitle.textColor = .black
+            cell.bgView.backgroundColor = .clear
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width / 4), height: collectionView.frame.height)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.currentPage = 0
+        self.isPaginationAvailable = false
+        self.arrAvailVehicles = []
+        self.arrFilteredVehicles = []
+        self.selectedFilter = (self.arrNavigation[indexPath.row]["title"] ?? "")
+        
+        self.filterCollectionView.reloadData()
+        self.getAvaiableVehicleList()
+    }
+}
