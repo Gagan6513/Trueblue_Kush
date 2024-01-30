@@ -15,14 +15,17 @@ class FleetsVC: UIViewController {
     @IBOutlet weak var filterCollectionView: UICollectionView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var txtSearch: UITextField!
     
     var currentPage = 0
+    var isSearchEnable = false
     var isPaginationAvailable = false
     var arrNavigation = [["title": "All", "icon": "", "type": "All"],
                          ["title": "Available", "icon": "image 56", "type": "Available"],
                          ["title": "On Hire", "icon": "delivery-truck-svgrepo-com 1", "type": "On Hire"],
                          ["title": "Maintenance", "icon": "image 57", "type": "Maintenance"]]
     var selectedFilter = "All"
+    var search = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,10 @@ class FleetsVC: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func btnSearch(_ sender: Any) {
+        self.txtSearch.resignFirstResponder()
+    }
+    
     @IBAction func btnAdd(_ sender: Any) {
 
         let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
@@ -52,6 +59,8 @@ class FleetsVC: UIViewController {
     }
     
     func setupTableView() {
+        self.txtSearch.delegate = self
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerNib(for: "FleetsTVC")
@@ -62,6 +71,30 @@ class FleetsVC: UIViewController {
     
 }
 
+extension FleetsVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        search = (string.isEmpty ? String(search.dropLast()) : (textField.text! + string)).lowercased()
+        self.filterData()
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        self.search = ""
+        self.filterData()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+//        self.getACAList()
+    }
+    
+}
 
 extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     
@@ -100,7 +133,7 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = self.arrFilteredVehicles.count - 1
         if indexPath.row == lastItem {
-            if isPaginationAvailable {
+            if isPaginationAvailable && search.isEmpty {
                 self.currentPage += 1
                 self.getAvaiableVehicleList()
             }
@@ -143,7 +176,7 @@ extension FleetsVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "50"
+        param["limitRecord"] = "\(numberOfItemPerPage * (self.currentPage + 1))"
         param["pageNo"] = self.currentPage
         
         webService.parameters = param
@@ -188,15 +221,31 @@ extension FleetsVC {
     func filterData() {
         
         if selectedFilter == "All" {
+            
             self.arrFilteredVehicles = self.arrAvailVehicles
+            
         } else if selectedFilter == "Available" {
-            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active" && ($0.fleet_status == "Returned" || $0.fleet_status == "Free")  })
+            
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ search.isEmpty ? true : $0.status == "Active"
+                && ($0.fleet_status == "Returned" || $0.fleet_status == "Free")})
+            
+
         } else if selectedFilter == "On Hire" {
-            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active" && ($0.fleet_status == "Hired")  })
+            
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active"
+                                                                    && ($0.fleet_status == "Hired") })
+            
         } else if selectedFilter == "Maintenance" {
+            
             self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Maintenance" })
         }
         
+        self.arrFilteredVehicles = self.arrFilteredVehicles.filter({ search.isEmpty ? true :
+               (($0.vehicle_make?.lowercased().contains(search.lowercased()) ?? false)
+            || ($0.vehicle_model?.lowercased().contains(search.lowercased()) ?? false))
+            || ($0.registration_no?.lowercased().contains(search.lowercased()) ?? false)
+        })
+
         self.tableView.reloadData()
     }
     
