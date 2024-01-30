@@ -8,6 +8,8 @@
 import UIKit
 import Applio
 
+var numberOfItemPerPage = 50
+
 class FleetReferenceVC: UIViewController {
 
     @IBOutlet weak var carModelLabel: UILabel!
@@ -121,7 +123,7 @@ extension FleetReferenceVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "50"
+        param["limitRecord"] = "\(numberOfItemPerPage * (self.currentPage + 1))"
         param["pageNo"] = self.currentPage
         param["vehicle_id"] = vehicleDetails?.id
         
