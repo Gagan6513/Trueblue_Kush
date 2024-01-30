@@ -123,8 +123,9 @@ extension FleetReferenceVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "\(numberOfItemPerPage * (self.currentPage + 1))"
-        param["pageNo"] = self.currentPage
+        param["limitRecord"] = "\(numberOfItemPerPage)"
+        param["pageNo"] = "\(numberOfItemPerPage * (self.currentPage))"
+        
         param["vehicle_id"] = vehicleDetails?.id
         
         webService.parameters = param
