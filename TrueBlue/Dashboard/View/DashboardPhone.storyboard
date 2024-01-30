@@ -16110,7 +16110,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZa-cm-QBI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="992"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="998"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIU-dM-s5v">
                                                 <rect key="frame" x="0.0" y="10" width="414" height="35"/>
@@ -16131,7 +16131,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                         </variation>
                                                     </label>
                                                 </subviews>
@@ -16149,7 +16149,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gLi-Vc-HNT">
-                                                <rect key="frame" x="0.0" y="45" width="414" height="446"/>
+                                                <rect key="frame" x="0.0" y="51" width="414" height="446"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PB-hc-OOG">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
@@ -16161,11 +16161,11 @@
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                     </constraint>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                 <color key="textColor" name="3478F6"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                 </variation>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5g-WE-0g4">
@@ -16176,10 +16176,10 @@
                                                                     </constraint>
                                                                 </constraints>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                 </variation>
                                                             </textField>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="0o2-X3-voH">
@@ -16237,11 +16237,11 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </label>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6js-z4-ec3">
@@ -16252,10 +16252,10 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         </variation>
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HC3-WO-DdP">
@@ -16290,11 +16290,11 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ2-wf-e1T">
@@ -16312,10 +16312,10 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         </variation>
                                                                     </textField>
                                                                 </subviews>
@@ -16347,11 +16347,11 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </label>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4IF-2V-Sqp">
@@ -16362,10 +16362,10 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         </variation>
                                                                     </textField>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mile" translatesAutoresizingMaskIntoConstraints="NO" id="Vvu-u5-NXt">
@@ -16373,7 +16373,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Vvu-u5-NXt" secondAttribute="height" multiplier="1:1" id="Bhh-R1-o9l"/>
                                                                             <constraint firstAttribute="width" constant="18" id="k2F-U8-Nqi">
-                                                                                <variation key="heightClass=regular-widthClass=regular" constant="24"/>
+                                                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                                                             </constraint>
                                                                         </constraints>
                                                                     </imageView>
@@ -16411,11 +16411,11 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wR-5a-Ikw">
@@ -16426,10 +16426,10 @@
                                                                             </constraint>
                                                                         </constraints>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         </variation>
                                                                     </textField>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_speed" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-dT-RHE">
@@ -16437,7 +16437,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="RUS-dT-RHE" secondAttribute="height" multiplier="1:1" id="HyB-sR-l2G"/>
                                                                             <constraint firstAttribute="width" constant="18" id="kit-Cq-R8M">
-                                                                                <variation key="heightClass=regular-widthClass=regular" constant="24"/>
+                                                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                                                             </constraint>
                                                                         </constraints>
                                                                     </imageView>
@@ -16448,11 +16448,14 @@
                                                                             <constraint firstAttribute="height" constant="1" id="h7s-6y-K7D"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Consumed: 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9a-Z8-EXx">
+                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Consumed: 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="w9a-Z8-EXx">
                                                                         <rect key="frame" x="0.0" y="53" width="199" height="12"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                                         <color key="textColor" name="FF0000"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -16498,11 +16501,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjZ-TV-9fb">
@@ -16513,10 +16516,10 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calender" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-Pk-OX4">
@@ -16524,7 +16527,7 @@
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="HNM-Pk-OX4" secondAttribute="height" multiplier="1:1" id="hg4-jW-rzK"/>
                                                                                                     <constraint firstAttribute="width" constant="12" id="zvX-DF-2sU">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                             </imageView>
@@ -16573,11 +16576,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="api-Dx-1zn">
@@ -16588,10 +16591,10 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="uOg-2h-2tq">
@@ -16599,7 +16602,7 @@
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="uOg-2h-2tq" secondAttribute="height" multiplier="1:1" id="Jam-qi-nO0"/>
                                                                                                     <constraint firstAttribute="width" constant="12" id="s1s-oM-oA3">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                             </imageView>
@@ -16642,6 +16645,7 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
+                                                                                <variation key="heightClass=regular-widthClass=regular" spacing="10"/>
                                                                             </stackView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -16668,11 +16672,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XP-d1-Wyf">
@@ -16683,10 +16687,10 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calender" translatesAutoresizingMaskIntoConstraints="NO" id="BQo-dN-3eD">
@@ -16694,7 +16698,7 @@
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="BQo-dN-3eD" secondAttribute="height" multiplier="1:1" id="LCg-je-FkO"/>
                                                                                                     <constraint firstAttribute="width" constant="12" id="b6S-gX-0oj">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                             </imageView>
@@ -16743,11 +16747,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yD-sN-QV6">
@@ -16758,10 +16762,10 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="DPX-cc-j6T">
@@ -16769,7 +16773,7 @@
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="DPX-cc-j6T" secondAttribute="height" multiplier="1:1" id="3qN-ap-C2k"/>
                                                                                                     <constraint firstAttribute="width" constant="12" id="zrQ-44-Gtz">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                             </imageView>
@@ -16812,12 +16816,16 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
+                                                                                <variation key="heightClass=regular-widthClass=regular" spacing="10"/>
                                                                             </stackView>
-                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Out: 11 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-4E-RTq">
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Out: 11 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-4E-RTq">
                                                                                 <rect key="frame" x="0.0" y="53" width="179" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                                                 <color key="textColor" name="FF0000"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                </variation>
                                                                             </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -16869,11 +16877,11 @@
                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                     </constraint>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                 <color key="textColor" name="3478F6"/>
                                                                                 <nil key="highlightedColor"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                 </variation>
                                                                             </label>
                                                                         </subviews>
@@ -16898,11 +16906,11 @@
                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                     </constraint>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                 <color key="textColor" name="3478F6"/>
                                                                                 <nil key="highlightedColor"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                 </variation>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="VqN-eP-pg7">
@@ -16917,7 +16925,7 @@
                                                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hae-oP-WRL">
@@ -16973,7 +16981,7 @@
                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pFl-t7-lCb">
@@ -17030,7 +17038,7 @@
                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j5L-0z-Tbp">
@@ -17088,7 +17096,7 @@
                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="weW-av-WMx">
@@ -17147,7 +17155,7 @@
                                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="naj-CH-433">
@@ -17229,11 +17237,11 @@
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                     </constraint>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                 <color key="textColor" name="3478F6"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                 </variation>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whb-YW-vU7">
@@ -17243,7 +17251,7 @@
                                                                         <rect key="frame" x="8" y="4" width="358" height="42"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Reason for Replacement"/>
@@ -17252,7 +17260,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </textView>
                                                                 </subviews>
@@ -17294,7 +17302,7 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="22"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELH-QO-jFf">
-                                                <rect key="frame" x="0.0" y="511" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="517" width="414" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1I-0N-nL9">
                                                         <rect key="frame" x="20" y="7.6666666666666288" width="8" height="15"/>
@@ -17312,7 +17320,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                         </variation>
                                                     </label>
                                                 </subviews>
@@ -17328,18 +17336,18 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csi-pv-xSZ">
-                                                <rect key="frame" x="0.0" y="549" width="414" height="53"/>
+                                                <rect key="frame" x="0.0" y="555" width="414" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose REGO or Ref no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-gM-EDZ">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="DP1-8T-cg8"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <color key="textColor" name="3478F6"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         </variation>
                                                     </label>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GAN-EZ-LZE">
@@ -17350,17 +17358,17 @@
                                                             </constraint>
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                         </variation>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="n72-BX-ODE">
                                                         <rect key="frame" x="382" y="28" width="12" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="12" id="oT1-nA-vBC">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="14"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                             <constraint firstAttribute="width" secondItem="n72-BX-ODE" secondAttribute="height" multiplier="1:1" id="oXb-sb-uTn"/>
                                                         </constraints>
@@ -17401,7 +17409,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CFM-e5-T7p">
-                                                <rect key="frame" x="20" y="622" width="374" height="250"/>
+                                                <rect key="frame" x="20" y="628" width="374" height="250"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upC-Gc-MoP">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="250"/>
@@ -17440,11 +17448,11 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="Bem-2y-haZ"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                                         <color key="textColor" name="3478F6"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                                         </variation>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Y4J-pO-Qqu">
@@ -17465,7 +17473,7 @@
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                         </variation>
                                                                                                     </label>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7oN-Xg-tG2">
@@ -17520,7 +17528,7 @@
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                         </variation>
                                                                                                     </label>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-rO-0Xy">
@@ -17577,7 +17585,7 @@
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                         </variation>
                                                                                                     </label>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-Od-clm">
@@ -17629,7 +17637,7 @@
                                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                                         </variation>
                                                                                                     </label>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwO-Eh-3jU">
@@ -17685,7 +17693,7 @@
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                                         </variation>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sdk-ay-V95">
@@ -17779,11 +17787,11 @@
                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                     </constraint>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                 <color key="textColor" name="3478F6"/>
                                                                                 <nil key="highlightedColor"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                 </variation>
                                                                             </label>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qv3-t0-l58">
@@ -17794,10 +17802,10 @@
                                                                                     </constraint>
                                                                                 </constraints>
                                                                                 <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                 </variation>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBt-Ss-Im5">
@@ -17832,11 +17840,11 @@
                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                     </constraint>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                 <color key="textColor" name="3478F6"/>
                                                                                 <nil key="highlightedColor"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                 </variation>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cN7-se-h6c">
@@ -17847,10 +17855,10 @@
                                                                                     </constraint>
                                                                                 </constraints>
                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                                                 </variation>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mile" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-GT-HqL">
@@ -17858,7 +17866,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="7ra-GT-HqL" secondAttribute="height" multiplier="1:1" id="93P-Pt-AEf"/>
                                                                                     <constraint firstAttribute="width" constant="18" id="O1K-14-GZm">
-                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
+                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                                                                     </constraint>
                                                                                 </constraints>
                                                                             </imageView>
@@ -17902,11 +17910,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAW-ag-XoY">
@@ -17917,17 +17925,17 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calender" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-oq-6rp">
                                                                                                 <rect key="frame" x="0.0" y="28" width="12" height="12"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="12" id="Kdn-RF-zKV">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                     <constraint firstAttribute="width" secondItem="XKr-oq-6rp" secondAttribute="height" multiplier="1:1" id="SRZ-SI-6dE"/>
                                                                                                 </constraints>
@@ -17977,11 +17985,11 @@
                                                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                                                                     </constraint>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                                 <color key="textColor" name="3478F6"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AY1-aG-cAz">
@@ -17992,17 +18000,17 @@
                                                                                                     </constraint>
                                                                                                 </constraints>
                                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                                                 </variation>
                                                                                             </textField>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-Eo-rvA">
                                                                                                 <rect key="frame" x="68" y="28" width="12" height="12"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="12" id="CUl-y4-ZZD">
-                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                                                                                        <variation key="heightClass=regular-widthClass=regular" constant="22"/>
                                                                                                     </constraint>
                                                                                                     <constraint firstAttribute="width" secondItem="hlx-Eo-rvA" secondAttribute="height" multiplier="1:1" id="gQt-bd-shd"/>
                                                                                                 </constraints>
@@ -18046,6 +18054,7 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
+                                                                                <variation key="heightClass=regular-widthClass=regular" spacing="10"/>
                                                                             </stackView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -18069,12 +18078,12 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="RRB-q5-1aI">
-                                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="340"/>
                                                     </constraint>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcJ-hr-lHi">
-                                                <rect key="frame" x="20" y="922" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="928" width="374" height="50"/>
                                                 <color key="backgroundColor" name="3478F6"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="MgM-Yu-gdj"/>
@@ -18113,7 +18122,7 @@
                                             <constraint firstItem="csi-pv-xSZ" firstAttribute="leading" secondItem="iZa-cm-QBI" secondAttribute="leading" id="ayn-1T-8Et"/>
                                             <constraint firstAttribute="trailing" secondItem="gLi-Vc-HNT" secondAttribute="trailing" id="bf7-uF-3Kc"/>
                                             <constraint firstItem="ELH-QO-jFf" firstAttribute="leading" secondItem="iZa-cm-QBI" secondAttribute="leading" id="dAa-dI-cTL"/>
-                                            <constraint firstItem="gLi-Vc-HNT" firstAttribute="top" secondItem="XIU-dM-s5v" secondAttribute="bottom" id="dy3-4j-ChG">
+                                            <constraint firstItem="gLi-Vc-HNT" firstAttribute="top" secondItem="XIU-dM-s5v" secondAttribute="bottom" constant="6" id="dy3-4j-ChG">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="12"/>
                                             </constraint>
                                             <constraint firstAttribute="bottom" secondItem="PcJ-hr-lHi" secondAttribute="bottom" constant="20" id="mC1-FP-DyB"/>
