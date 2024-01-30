@@ -176,9 +176,9 @@ extension FleetsVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["limitRecord"] = "\(numberOfItemPerPage * (self.currentPage + 1))"
-        param["pageNo"] = self.currentPage
-        
+        param["limitRecord"] = "\(numberOfItemPerPage)"
+        param["pageNo"] = "\(numberOfItemPerPage * (self.currentPage))"
+
         webService.parameters = param
         
         /* API CALLS */
