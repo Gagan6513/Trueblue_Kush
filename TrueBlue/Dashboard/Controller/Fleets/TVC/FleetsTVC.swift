@@ -32,6 +32,10 @@ class FleetsTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func btnShowFullscreen(_ sender: Any) {
+        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
+    }
+    
     @IBAction func btnReference(_ sender: Any) {
         self.refClicked?()
     }
