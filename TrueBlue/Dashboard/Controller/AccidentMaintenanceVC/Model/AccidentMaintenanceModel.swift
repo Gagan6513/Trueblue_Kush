@@ -311,5 +311,21 @@ class AccidentService: Codable {
     let vehicle_id : String?
     let vehicle_make : String?
     let vehicle_model : String?
+    let last_service_mileage : String?
+    let last_service_date : String?
+    let registration_no : String?
     
+}
+
+class AccidentServiceDetailsModel: Codable {
+    
+    var data: AccidentServiceDetailsData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentServiceDetailsData: Codable {
+    var response : AccidentService?
 }

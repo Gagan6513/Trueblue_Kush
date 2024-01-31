@@ -72,6 +72,7 @@ extension AvailableVehicleVC {
         var param = [String: Any]()
         param["notesForId"] = application_id
         param["notesFor"] = "all"
+//        param["status"] = "available"
         
         webService.parameters = param
         
