@@ -14,6 +14,8 @@ class ServiceTVC: UITableViewCell {
     @IBOutlet weak var lastServiceMileage: UILabel!
     @IBOutlet weak var nextServiceDue: UILabel!
     
+    var btnViewClicked: ((Bool) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,11 +28,11 @@ class ServiceTVC: UITableViewCell {
     }
     
     @IBAction func btnEdit(_ sender: Any) {
-        
+        self.btnViewClicked?(false)
     }
     
     @IBAction func btnView(_ sender: Any) {
-        
+        self.btnViewClicked?(true)
     }
     
     func setupDetails(data: AccidentService) {

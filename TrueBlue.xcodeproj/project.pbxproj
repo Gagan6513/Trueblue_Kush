@@ -195,6 +195,7 @@
 		B3366DCF2B358C5E00F72CE8 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */; };
 		B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */; };
 		B3366DD32B358CEA00F72CE8 /* TableView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */; };
+		B34B3C1C2B6A0C860051986B /* FleetServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */; };
 		B357B0C52B5E734C004C71DF /* AccidentMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */; };
 		B357B0C92B5E7440004C71DF /* AccidentMaintenanceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */; };
 		B357B0CA2B5E7440004C71DF /* AccidentMaintenanceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B357B0C82B5E7440004C71DF /* AccidentMaintenanceTVC.xib */; };
@@ -443,6 +444,7 @@
 		B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+Extention.swift"; sourceTree = "<group>"; };
+		B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetServiceVC.swift; sourceTree = "<group>"; };
 		B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceVC.swift; sourceTree = "<group>"; };
 		B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceTVC.swift; sourceTree = "<group>"; };
 		B357B0C82B5E7440004C71DF /* AccidentMaintenanceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccidentMaintenanceTVC.xib; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B34B3C1A2B6A0C760051986B /* FleetService */,
 				B38D86632B6783BE006CC28E /* FleetReference */,
 				B38D865B2B676D5D006CC28E /* Fleets */,
 				B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */,
@@ -1011,6 +1014,14 @@
 				B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		B34B3C1A2B6A0C760051986B /* FleetService */ = {
+			isa = PBXGroup;
+			children = (
+				B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */,
+			);
+			path = FleetService;
 			sourceTree = "<group>";
 		};
 		B357B0C12B5E72D8004C71DF /* AccidentMaintenanceVC */ = {
@@ -1532,6 +1543,7 @@
 				B38DC9152B3D41DA009FD897 /* EventDetailsModel.swift in Sources */,
 				537D73C926CCCBB7009591BF /* DeliveriesVC.swift in Sources */,
 				21EAA31C29ED62C200A3A704 /* ReferralsListModel.swift in Sources */,
+				B34B3C1C2B6A0C860051986B /* FleetServiceVC.swift in Sources */,
 				534D4DD5276C5DC500363682 /* CustomUIDelegate.swift in Sources */,
 				215341DB29EE623E00C21BA2 /* CollectedDocumentsModel.swift in Sources */,
 				B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */,

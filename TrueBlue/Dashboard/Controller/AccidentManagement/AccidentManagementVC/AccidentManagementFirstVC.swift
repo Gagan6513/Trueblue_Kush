@@ -575,7 +575,7 @@ extension AccidentManagementFirstVC {
         let webService = WebServiceModel()
         webService.url = URL(string: API_URL.getAllFleets)!
         webService.method = .post
-                
+        webService.parameters = ["status": "active"]
         /* API CALLS */
         WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
             guard let self else { return }
