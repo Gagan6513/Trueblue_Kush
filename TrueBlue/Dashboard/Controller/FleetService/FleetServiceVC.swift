@@ -82,6 +82,10 @@ class FleetServiceVC: UIViewController {
         self.selectDate(txt: self.txtServiceDate)
     }
     
+    @IBAction func btnLastServiceDate(_ sender: Any) {
+        self.selectDate(txt: self.txtLastServiceDate)
+    }
+    
     @IBAction func btnUploadImage(_ sender: Any) {
         self.openPicker()
     }
