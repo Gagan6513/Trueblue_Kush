@@ -78,6 +78,7 @@ extension Notification.Name {
     
     
     static let AccidentDetails = Notification.Name("AccidentDetails")
+    static let refreshFleetList = Notification.Name("refreshFleetList")
     static let AccidentDetailsEdit = Notification.Name("AccidentDetailsEdit")
     
     

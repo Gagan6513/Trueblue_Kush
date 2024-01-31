@@ -23,11 +23,14 @@ class ServicesHistoryVC: UIViewController {
         super.viewDidLoad()
         self.setupTableview()
         self.setupDetails()
+        DispatchQueue.main.async {
+            self.getRefList()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getRefList()
+        
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -40,6 +43,13 @@ class ServicesHistoryVC: UIViewController {
         self.tableView.registerNib(for: "ServiceTVC")
     }
     
+    @IBAction func btnAdd(_ sender: Any) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetServiceVC") as! FleetServiceVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.isFromView = false
+        self.present(ctrl, animated: true)
+    }
+    
     func setupDetails() {
         if let data = vehicleDetails {
             self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\(data.yearof_manufacture ?? ""))"
@@ -49,6 +59,13 @@ class ServicesHistoryVC: UIViewController {
                 self.carImage.sd_setImage(with: url)
             }
         }
+        
+        
+        NotificationCenter.default.addObserver(forName: .refreshFleetList, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.getRefList()
+        })
+        
     }
 }
 
