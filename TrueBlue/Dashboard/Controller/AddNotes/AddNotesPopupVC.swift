@@ -26,7 +26,7 @@ class AddNotesPopupVC: UIViewController {
     
     @IBAction func btnSave(_ sender: Any) {
         
-        if self.txtNoteDescription.text.isEmpty {
+        if let text = self.txtNoteDescription.text, text.trimmingCharacters(in: .whitespaces).isEmpty {
             showAlert(title: "Error!", messsage: "Please enter note description.")
             return
         }

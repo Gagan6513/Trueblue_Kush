@@ -110,23 +110,25 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FleetsTVC") as? FleetsTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.setupDetails(data: self.arrFilteredVehicles[indexPath.row])
-        
-        cell.refClicked = { [weak self] in
-            guard let self else { return }
-            self.openReferance(data: self.arrFilteredVehicles[indexPath.row])
+        if let data = self.arrFilteredVehicles[safe: indexPath.row] {
+            cell.setupDetails(data: data)
+            
+            cell.refClicked = { [weak self] in
+                guard let self else { return }
+                self.openReferance(data: data)
+            }
+            
+            cell.serviceClicked = { [weak self] in
+                guard let self else { return }
+                self.openService(data: data)
+            }
+            
+            cell.btnReferanceClicked = { [weak self] in
+                guard let self else { return }
+                self.openFleetReferance(data: data)
+            }
         }
-        
-        cell.serviceClicked = { [weak self] in
-            guard let self else { return }
-            self.openService(data: self.arrFilteredVehicles[indexPath.row])
-        }
-        
-        cell.btnReferanceClicked = { [weak self] in
-            guard let self else { return }
-            self.openFleetReferance(data: self.arrFilteredVehicles[indexPath.row])
-        }
-        
+ 
         return cell
     }
     
@@ -226,9 +228,8 @@ extension FleetsVC {
             
         } else if selectedFilter == "Available" {
             
-            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ search.isEmpty ? true : $0.status == "Active"
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active"
                 && ($0.fleet_status == "Returned" || $0.fleet_status == "Free")})
-            
 
         } else if selectedFilter == "On Hire" {
             
@@ -300,5 +301,15 @@ extension FleetsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
         
         self.filterCollectionView.reloadData()
         self.getAvaiableVehicleList()
+    }
+}
+
+public extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+
+    subscript (infinityIdx idx: Index) -> Element where Index == Int {
+        return self[ abs(idx) % self.count ]
     }
 }
