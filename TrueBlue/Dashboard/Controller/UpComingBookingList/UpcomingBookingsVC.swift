@@ -47,8 +47,8 @@ class UpcomingBookingsVC: UIViewController{
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
         
-        tblUpcomingBookingsList.emptyDataSetSource = self;
-        tblUpcomingBookingsList.emptyDataSetDelegate = self;
+//        tblUpcomingBookingsList.emptyDataSetSource = self;
+//        tblUpcomingBookingsList.emptyDataSetDelegate = self;
         
         
         self.tblUpcomingBookingsList.delegate = self
@@ -230,8 +230,14 @@ extension UpcomingBookingsVC : UITableViewDelegate {
 }
 extension UpcomingBookingsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arrCollectionList.count > 0 {
-            return arrCollectionList.count
+        if self.arrCollectionList.count != 0 {
+            tableView.removeBackgroundView()
+            return self.arrCollectionList.count
+        }
+        if dateFromTxtFld.text?.isEmpty ?? true {
+            tableView.setBackgroundView(msg: "No Records found")
+        } else {
+            tableView.setBackgroundView(msg: "No Records found for\n\(dateFromTxtFld.text ?? "") to \(dateToTxtFld.text ?? "")")
         }
         return 0
     }

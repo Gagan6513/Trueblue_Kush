@@ -26,7 +26,11 @@ class FleetServiceVC: UIViewController {
     @IBOutlet weak var txtLastServiceDate: UITextField!
     @IBOutlet weak var txtLastServiceBy: UITextField!
     
-    @IBOutlet weak var serviceSleepImage: UIImageView!
+    @IBOutlet weak var imgSlip1: UIImageView!
+    @IBOutlet weak var imgSlip2: UIImageView!
+    @IBOutlet weak var imgSlip3: UIImageView!
+    @IBOutlet weak var imgSlip4: UIImageView!
+    
     @IBOutlet weak var btnSubmit: UIButton!
     
     var isFromView = false
@@ -86,8 +90,20 @@ class FleetServiceVC: UIViewController {
         self.selectDate(txt: self.txtLastServiceDate)
     }
     
-    @IBAction func btnUploadImage(_ sender: Any) {
-        self.openPicker()
+    @IBAction func btnSlip1(_ sender: Any) {
+        self.openPicker(imgView: self.imgSlip1)
+    }
+    
+    @IBAction func btnSlip2(_ sender: Any) {
+        self.openPicker(imgView: self.imgSlip2)
+    }
+    
+    @IBAction func btnSlip3(_ sender: Any) {
+        self.openPicker(imgView: self.imgSlip3)
+    }
+    
+    @IBAction func btnSlip4(_ sender: Any) {
+        self.openPicker(imgView: self.imgSlip4)
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
@@ -138,10 +154,10 @@ class FleetServiceVC: UIViewController {
             return false
         }
         
-        if serviceSleepImage.image == nil {
-            showAlert(title: "Error!", messsage: "Please select service sleep image")
-            return false
-        }
+//        if serviceSleepImage.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select service sleep image")
+//            return false
+//        }
         
         if txtKms.text?.isEmpty ?? true {
             showAlert(title: "Error!", messsage: "Please enter kms")
@@ -161,7 +177,7 @@ class FleetServiceVC: UIViewController {
         return true
     }
     
-    func openPicker() {
+    func openPicker(imgView: UIImageView) {
         if isFromView { return }
         let multipleImgPickerController = DKImagePickerController()
         multipleImgPickerController.maxSelectableCount = 1
@@ -173,7 +189,7 @@ class FleetServiceVC: UIViewController {
             for asset in assets {
                 asset.fetchOriginalImage(completeBlock: {image,info in
                     guard let img = image else { return }
-                    self.serviceSleepImage.image = img
+                    imgView.image = img
                 })
             }
         }
@@ -262,9 +278,9 @@ class FleetServiceVC: UIViewController {
         self.txtKms.text = self.serviceData?.last_service_mileage
         self.txtLastServiceDate.text = self.serviceData?.last_service_date
         
-        if let url = URL(string: self.serviceData?.service_slip ?? "") {
-            self.serviceSleepImage.sd_setImage(with: url)
-        }
+//        if let url = URL(string: self.serviceData?.service_slip ?? "") {
+//            self.serviceSleepImage.sd_setImage(with: url)
+//        }
     }
     
 }
@@ -440,13 +456,19 @@ extension FleetServiceVC {
         
         var profileImageData: [Dictionary<String, Any>] = []
 //
-        if let img = self.serviceSleepImage.image, let data = img.jpeg(.medium) {
-            profileImageData.append(["title": "service_slip", "image": data])
+        if let img = self.imgSlip1.image, let data = img.jpeg(.medium) {
+            profileImageData.append(["title": "service_slip1", "image": data])
+        }
+        if let img = self.imgSlip2.image, let data = img.jpeg(.medium) {
+            profileImageData.append(["title": "service_slip2", "image": data])
+        }
+        if let img = self.imgSlip3.image, let data = img.jpeg(.medium) {
+            profileImageData.append(["title": "service_slip3", "image": data])
+        }
+        if let img = self.imgSlip4.image, let data = img.jpeg(.medium) {
+            profileImageData.append(["title": "service_slip4", "image": data])
         }
         
-        /* API CALLS */
-//        WebService.shared.performMultipartWebService(model: webService, imageData: profileImageData) { [weak self] responseData, error in
-            
         WebService.shared.performMultipartWebService(endPoint: API_URL.saveServiceDetails, parameters: parameters, imageData: profileImageData) { [weak self] responseData, error in
             
             guard let self else { return }
