@@ -121,7 +121,7 @@ class WebService {
             }
             imageData.forEach({ data in
                 if let imageData = data["image"] as? Data {
-                    let mimeType = ("png", "image/png")
+                    let mimeType = ("jpg", "image/jpg")
                     multiPart.append(imageData, withName: (data["title"] as? String ?? ""),
                                      fileName: "\((data["title"] as? String ?? "") + "\(Date().timeIntervalSinceNow)").\(mimeType.0)",
                                      mimeType: mimeType.1)

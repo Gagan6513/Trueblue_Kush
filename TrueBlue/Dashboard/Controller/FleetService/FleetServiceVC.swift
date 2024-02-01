@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import DKImagePickerController
 import Alamofire
+import SDWebImage
 
 class FleetServiceVC: UIViewController {
 
@@ -278,9 +279,22 @@ class FleetServiceVC: UIViewController {
         self.txtKms.text = self.serviceData?.last_service_mileage
         self.txtLastServiceDate.text = self.serviceData?.last_service_date
         
-//        if let url = URL(string: self.serviceData?.service_slip ?? "") {
-//            self.serviceSleepImage.sd_setImage(with: url)
-//        }
+        if let url = URL(string: self.serviceData?.service_slip1 ?? "") {
+            self.imgSlip1.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.imgSlip1.sd_setImage(with: url)
+        }
+        if let url = URL(string: self.serviceData?.service_slip2 ?? "") {
+            self.imgSlip2.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.imgSlip2.sd_setImage(with: url)
+        }
+        if let url = URL(string: self.serviceData?.service_slip3 ?? "") {
+            self.imgSlip3.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.imgSlip3.sd_setImage(with: url)
+        }
+        if let url = URL(string: self.serviceData?.service_slip4 ?? "") {
+            self.imgSlip4.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.imgSlip4.sd_setImage(with: url)
+        }
     }
     
 }
@@ -469,7 +483,9 @@ extension FleetServiceVC {
             profileImageData.append(["title": "service_slip4", "image": data])
         }
         
-        WebService.shared.performMultipartWebService(endPoint: API_URL.saveServiceDetails, parameters: parameters, imageData: profileImageData) { [weak self] responseData, error in
+        WebService.shared.performMultipartWebService(model: webService, imageData: profileImageData) { [weak self] responseData, error in
+        
+//        WebService.shared.performMultipartWebService(endPoint: API_URL.saveServiceDetails, isMultipleImage: false, parameters: parameters, imageData: profileImageData) { [weak self] responseData, error in
             
             guard let self else { return }
             

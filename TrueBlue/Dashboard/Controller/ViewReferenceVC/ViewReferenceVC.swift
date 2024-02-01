@@ -23,11 +23,23 @@ class ViewReferenceVC: UIViewController {
         super.viewDidLoad()
         self.setupTableview()
         self.setupDetails()
+        
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.getRefList()
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getRefList()
+    }
+    
+    @IBAction func btnAddAccident(_ sender: Any) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        self.present(ctrl, animated: true)
     }
     
     @IBAction func btnBack(_ sender: Any) {

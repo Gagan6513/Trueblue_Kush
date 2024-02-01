@@ -10,7 +10,7 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", "Accident Management", "Fleet"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet"]
     let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0"]
 
@@ -563,9 +563,9 @@ extension DashboardVC : DashboardVMDelegate {
             arrDashboardCount[data] = objData.dictResult.todayDeliveryNotes
         }
         
-        if let data = screenNames.firstIndex(where: { $0 == "Accident Management" }) {
-            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
-        }
+//        if let data = screenNames.firstIndex(where: { $0 == "Accident Management" }) {
+//            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
+//        }
         
         if let data = screenNames.firstIndex(where: { $0 == "Fleets" }) {
             arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count

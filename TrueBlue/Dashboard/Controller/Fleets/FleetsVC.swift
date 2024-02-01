@@ -247,6 +247,13 @@ extension FleetsVC {
             || ($0.registration_no?.lowercased().contains(search.lowercased()) ?? false)
         })
 
+        if self.isPaginationAvailable && search.isEmpty {
+            if self.arrFilteredVehicles.count == 0 {
+                self.currentPage += 1
+                self.getAvaiableVehicleList()
+            }
+        }
+        
         self.tableView.reloadData()
     }
     
