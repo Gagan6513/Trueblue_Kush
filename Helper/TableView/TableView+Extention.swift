@@ -26,6 +26,14 @@ extension UITableView {
         self.backgroundView = bgView
     }
     
+    /* for set background view ( No data view ) */
+    public func setBackgroundView(msg: String) {
+        let bgView = NoDataView(frame: self.frame)
+        bgView.frame = self.frame
+        bgView.details = (msg)
+        self.backgroundView = bgView
+    }
+    
     /* for remove background view ( No data view ) */
     public func removeBackgroundView() {
         self.backgroundView = nil

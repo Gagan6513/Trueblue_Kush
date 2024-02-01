@@ -297,7 +297,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         showDatePickerPopUp(textField: licenceExpiryTxtFld, notificationName: .dateNotAtFault)
     }
     @IBAction func dateOfBirthCalenderBtn(_ sender: UIButton) {
-        showDatePickerPopUp(textField: dateOfBirthTxtFld, notificationName: .dateNotAtFault)
+        showDatePickerPopUp(textField: dateOfBirthTxtFld, notificationName: .dateNotAtFault, isFromDateOfBirth: true)
     }
     
     @IBAction func diliveryDateCalenderBtn(_ sender: UIButton) {

@@ -195,7 +195,7 @@ extension UIViewController {
         present(alertVc, animated: true, completion: nil)
     }
     
-    func showDatePickerPopUp(textField: UITextField,notificationName: Notification.Name, _isFromUpcomingBooking:Bool = false, _isThreeYearsValidation:Bool = false) {
+    func showDatePickerPopUp(textField: UITextField,notificationName: Notification.Name, _isFromUpcomingBooking:Bool = false, _isThreeYearsValidation:Bool = false, isFromDateOfBirth:Bool = false) {
         var storyboardName = String()
         var vcId = String()
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -210,6 +210,8 @@ extension UIViewController {
         alertVc.dateTextField = textField
         alertVc.modalPresentationStyle = .overFullScreen
         alertVc.currentNotification = notificationName
+        alertVc.isFromDateOfBirth = isFromDateOfBirth
+
 //        alertVc.isFromUpcomingBooking = _isFromUpcomingBooking
         alertVc.isThreeYearsValidation = _isThreeYearsValidation
         view.endEditing(true)//To remove any keyboard that were open on other texfield
