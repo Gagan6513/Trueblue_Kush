@@ -314,6 +314,10 @@ class AccidentService: Codable {
     let last_service_mileage : String?
     let last_service_date : String?
     let registration_no : String?
+    let service_slip1 : String?
+    let service_slip2 : String?
+    let service_slip3 : String?
+    let service_slip4 : String?
     
 }
 

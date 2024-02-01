@@ -4659,6 +4659,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iP4-hd-SQl">
+                                <rect key="frame" x="300" y="592" width="55" height="55"/>
+                                <color key="backgroundColor" name="AppBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="MSu-pr-ezw"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large" weight="semibold"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnAddAccident:" destination="DyM-Ql-36n" eventType="touchUpInside" id="YHd-Yj-WBZ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ErM-Wp-HCc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="95"/>
                                 <subviews>
@@ -4760,12 +4778,15 @@
                             <constraint firstItem="W6c-e8-v48" firstAttribute="top" secondItem="zUq-Qi-qa9" secondAttribute="bottom" id="3eq-xN-d1P"/>
                             <constraint firstItem="ErM-Wp-HCc" firstAttribute="leading" secondItem="yLg-PH-Hfr" secondAttribute="leading" id="G6n-db-IbZ"/>
                             <constraint firstItem="yLg-PH-Hfr" firstAttribute="trailing" secondItem="w2x-Oh-a7k" secondAttribute="trailing" id="JhJ-79-MiD"/>
+                            <constraint firstItem="yLg-PH-Hfr" firstAttribute="trailing" secondItem="iP4-hd-SQl" secondAttribute="trailing" constant="20" id="LZw-J0-YWo"/>
+                            <constraint firstItem="iP4-hd-SQl" firstAttribute="width" secondItem="iP4-hd-SQl" secondAttribute="height" multiplier="1:1" id="MJH-4z-kTm"/>
                             <constraint firstItem="w2x-Oh-a7k" firstAttribute="top" secondItem="ErM-Wp-HCc" secondAttribute="bottom" constant="12" id="Mv1-yl-k8j"/>
                             <constraint firstItem="yLg-PH-Hfr" firstAttribute="trailing" secondItem="W6c-e8-v48" secondAttribute="trailing" id="OVO-Us-Tux"/>
                             <constraint firstItem="W6c-e8-v48" firstAttribute="leading" secondItem="yLg-PH-Hfr" secondAttribute="leading" id="Ut3-kV-CP3"/>
                             <constraint firstItem="ErM-Wp-HCc" firstAttribute="top" secondItem="W6c-e8-v48" secondAttribute="bottom" id="VAV-Z5-9lo"/>
                             <constraint firstItem="w2x-Oh-a7k" firstAttribute="leading" secondItem="yLg-PH-Hfr" secondAttribute="leading" id="VTK-tC-JfX"/>
                             <constraint firstItem="zUq-Qi-qa9" firstAttribute="leading" secondItem="fUp-aa-BNt" secondAttribute="leading" id="Whp-ai-0KM"/>
+                            <constraint firstItem="yLg-PH-Hfr" firstAttribute="bottom" secondItem="iP4-hd-SQl" secondAttribute="bottom" constant="20" id="feI-w5-Fqn"/>
                             <constraint firstItem="yLg-PH-Hfr" firstAttribute="trailing" secondItem="ErM-Wp-HCc" secondAttribute="trailing" id="mSf-Ro-DxL"/>
                             <constraint firstItem="zUq-Qi-qa9" firstAttribute="top" secondItem="fUp-aa-BNt" secondAttribute="top" id="t10-x2-FAi"/>
                             <constraint firstAttribute="trailing" secondItem="zUq-Qi-qa9" secondAttribute="trailing" id="wLH-uJ-HQY"/>
