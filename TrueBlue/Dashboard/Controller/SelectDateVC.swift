@@ -14,6 +14,7 @@ class SelectDateVC: UIViewController {
     var currentNotification = NSNotification.Name(String())
     var isFromUpcomingBooking = false
     var isThreeYearsValidation = false
+    var isFromDateOfBirth = false
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -29,6 +30,18 @@ class SelectDateVC: UIViewController {
         
         if isThreeYearsValidation{
             datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 3, to: Date())
+        }
+        
+        if isFromDateOfBirth {
+            
+            let dateString = "1910-01-01"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            if let minDate = dateFormatter.date(from: dateString) {
+                datePicker.minimumDate = minDate
+            }
+            datePicker.maximumDate = Date()
+            
         }
         
 //        if isOnlyMonthYearDatePicker {

@@ -53,6 +53,7 @@ class AtFaultDriverDetailsVC: UIViewController {
     func setViews() {
         dateOfBirthTxtFld.keyboardType = .numberPad
         phoneTxtFld.keyboardType = .numberPad
+        phoneTxtFld.delegate = self
     }
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)//Removes all notifications being observed
@@ -127,6 +128,13 @@ class AtFaultDriverDetailsVC: UIViewController {
 //            dateOfBirthTxtFld.text = ""
 //            showToast(strMessage: futureDobEntered)
 //        }
+        
+        let result = isDateGreaterThan1910(dateString: self.dateOfBirthTxtFld.text ?? "")
+        if !result {
+            showToast(strMessage: "Date of birth should be greater than 01-01-1910")
+            self.dateOfBirthTxtFld.text = ""
+            return
+        }
         
         let strDate = dateOfBirthTxtFld.text ?? ""
         let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)

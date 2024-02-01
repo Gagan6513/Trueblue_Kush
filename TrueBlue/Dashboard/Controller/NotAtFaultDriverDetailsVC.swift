@@ -84,6 +84,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     var picker = UIPickerView()
     
     var recoveryForArr = ["Trueblue", "Repairer"]
+    let ACCEPTABLE_CHARACTERS_FOR_MOBILE = "0123456789"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,7 @@ class NotAtFaultDriverDetailsVC: UIViewController {
         self.picker.delegate = self
         self.picker.dataSource = self
         self.txtRecoveryView.inputView = self.picker
-        
+        self.phoneTxtFld.delegate = self
         
         referenceIDTxtFld.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
@@ -540,6 +541,14 @@ class NotAtFaultDriverDetailsVC: UIViewController {
     }
     
     @objc func dateOfBirthAlert() {
+        
+        let result = isDateGreaterThan1910(dateString: self.dateOfBirthTxtFld.text ?? "")
+        if !result {
+            showToast(strMessage: "Date of birth should be greater than 01-01-1910")
+            self.dateOfBirthTxtFld.text = ""
+            return
+        }
+
         let strDate = dateOfBirthTxtFld.text ?? ""
         let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
         print(age)
@@ -548,7 +557,6 @@ class NotAtFaultDriverDetailsVC: UIViewController {
             showToast(strMessage: futureDobEntered)
         } else if (age.year == 0 && (age.month >= 0 || age.day >= 0)) ||  (age.year >= 0 && age.year < 21) {
             showAlert(message: requiredHirerAge, yesTitle: "Yes", noTitle: "No", yesAction: {
-
             }, noAction: {
                 self.dateOfBirthTxtFld.text = ""
             })

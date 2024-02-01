@@ -95,15 +95,15 @@ class AccidentManagementThirdVC: UIViewController {
     
     func validationTextfield() -> Bool {
         
-//        if txtDateofAccident.text?.isEmpty ?? true {
-//            showAlert(title: "Error!", messsage: dateofAccident)
-//            return false
-//        }
-//        
-//        if txtTimeofAccident.text?.isEmpty ?? true {
-//            showAlert(title: "Error!", messsage: timeofAccident)
-//            return false
-//        }
+        if txtDateofAccident.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: dateofAccident)
+            return false
+        }
+        
+        if txtTimeofAccident.text?.isEmpty ?? true {
+            showAlert(title: "Error!", messsage: timeofAccident)
+            return false
+        }
 //        
 //        if txtAccidentLocation.text?.isEmpty ?? true {
 //            showAlert(title: "Error!", messsage: accidentLocation)
@@ -151,6 +151,7 @@ class AccidentManagementThirdVC: UIViewController {
             let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
             let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
             ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.isFromDateOfBirth = true
             ctrl.selectedDate = { [weak self] date in
                 guard let self else { return }
                 self.txtDateofAccident.text = date

@@ -228,9 +228,8 @@ extension FleetsVC {
             
         } else if selectedFilter == "Available" {
             
-            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ search.isEmpty ? true : $0.status == "Active"
+            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Active"
                 && ($0.fleet_status == "Returned" || $0.fleet_status == "Free")})
-            
 
         } else if selectedFilter == "On Hire" {
             

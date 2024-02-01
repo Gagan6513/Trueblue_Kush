@@ -56,6 +56,7 @@ class AccidentManagementFirstVC: UIViewController {
     
     var recoveryForArr = ["Trueblue", "Repairer"]
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let ACCEPTABLE_CHARACTERS_FOR_MOBILE = "0123456789"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,7 @@ class AccidentManagementFirstVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
 
         self.txtClaimNo.delegate = self
-        
+        self.txtPhone.delegate = self
         self.getBranchList()
         
     }
@@ -333,6 +334,10 @@ extension AccidentManagementFirstVC: UITextFieldDelegate {
         switch textField {
         case txtClaimNo:
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+        case txtPhone:
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_MOBILE).inverted
             let filtered = string.components(separatedBy: cs).joined(separator: "")
             return (string == filtered)
         default: return true
