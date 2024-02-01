@@ -92,25 +92,58 @@ class FleetServiceVC: UIViewController {
     }
     
     @IBAction func btnSlip1(_ sender: Any) {
-        self.openPicker(imgView: self.imgSlip1)
+        if let img = self.imgSlip1.image {
+            self.showViewImageOption(currentImg: img, arrImage: [img], currentIndex: 0, imageView: self.imgSlip1)
+        } else {
+            self.openPicker(imgView: self.imgSlip1)
+        }
     }
     
     @IBAction func btnSlip2(_ sender: Any) {
-        self.openPicker(imgView: self.imgSlip2)
+        if let img = self.imgSlip2.image {
+            self.showViewImageOption(currentImg: img, arrImage: [img], currentIndex: 0, imageView: self.imgSlip2)
+        } else {
+            self.openPicker(imgView: self.imgSlip2)
+        }
     }
     
     @IBAction func btnSlip3(_ sender: Any) {
-        self.openPicker(imgView: self.imgSlip3)
+        if let img = self.imgSlip3.image {
+            self.showViewImageOption(currentImg: img, arrImage: [img], currentIndex: 0, imageView: self.imgSlip3)
+        } else {
+            self.openPicker(imgView: self.imgSlip3)
+        }
     }
     
     @IBAction func btnSlip4(_ sender: Any) {
-        self.openPicker(imgView: self.imgSlip4)
+        if let img = self.imgSlip4.image {
+            self.showViewImageOption(currentImg: img, arrImage: [img], currentIndex: 0, imageView: self.imgSlip4)
+        } else {
+            self.openPicker(imgView: self.imgSlip4)
+        }
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
         if self.validation() {
             self.saveAndSubmit()
         }
+    }
+    
+    func showViewImageOption(currentImg: UIImage, arrImage: [UIImage], currentIndex: Int, imageView: UIImageView) {
+        let alert = UIAlertController(title: nil, message: "Please Select an Option", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "View Picture", style: .default , handler:{ (UIAlertAction)in
+            self.setAllImages(currentImg: currentImg, allImages: arrImage, currentIndex: currentIndex)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Change Picture", style: .default , handler:{ (UIAlertAction)in
+            self.openPicker(imgView: imageView)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func validation() -> Bool {
@@ -451,7 +484,7 @@ extension FleetServiceVC {
         parameters["service_date"] = self.txtServiceDate.text
         parameters["service_mileage"] = self.txtServiceMileage.text
         parameters["notes"] = self.txtNote.text
-//        parameters["service_slip"] = isYourVehicleBusinessRegistered
+        parameters["service_slip_ids"] = self.serviceData?.service_slip ?? ""
         parameters["nextserviceduekm"] = self.txtNextServiceDue.text
         parameters["service_id"] = self.serviceData?.id ?? ""
         
