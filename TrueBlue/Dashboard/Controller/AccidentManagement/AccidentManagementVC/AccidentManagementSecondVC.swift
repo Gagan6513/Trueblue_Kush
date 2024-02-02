@@ -43,6 +43,7 @@ class AccidentManagementSecondVC: UIViewController {
 
     var isClientAtFault = ""
     var isAccess = ""
+    var regoNumber = ""
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
@@ -626,6 +627,13 @@ extension AccidentManagementSecondVC {
                         self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.atfault_registration_no })
                         self.txtRegistrationNo.text = self.selectedRego?.registration_no
                     }
+                    
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego
+                        self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                        self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                    }
+                    
                 }
             }
         }

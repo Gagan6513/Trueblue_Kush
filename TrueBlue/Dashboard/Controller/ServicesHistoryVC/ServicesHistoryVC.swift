@@ -47,6 +47,7 @@ class ServicesHistoryVC: UIViewController {
         let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetServiceVC") as! FleetServiceVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.isFromView = false
+        ctrl.regoNumber = self.vehicleDetails?.registration_no ?? ""
         self.present(ctrl, animated: true)
     }
     

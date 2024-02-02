@@ -39,7 +39,7 @@ class FleetServiceVC: UIViewController {
     var serviceId: String?
     var lastServiceData: LastAccidentServiceData?
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-
+    var regoNumber = ""
     var arrRego = [RegoListResponse]()
     var selectedRego: RegoListResponse? {
         didSet {
@@ -492,6 +492,13 @@ extension FleetServiceVC {
                         self.txtRegoNo.text = data.registration_no
                         self.txtMakeModel.text = "\(data.vehicle_make ?? "") / \(data.vehicle_model ?? "")"
                     }
+                    
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego
+                        self.txtRegoNo.text = self.selectedRego?.registration_no
+                        self.txtMakeModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                    }
+                    
                     self.getReparierName()
                 }
             }
@@ -612,6 +619,7 @@ extension FleetServiceVC {
                     }
                     
                     NotificationCenter.default.post(name: .refreshFleetList, object: nil)
+                    NotificationCenter.default.post(name: .AccidentDetails, object: nil)
                     
                     self.dismiss(animated: true)
                     

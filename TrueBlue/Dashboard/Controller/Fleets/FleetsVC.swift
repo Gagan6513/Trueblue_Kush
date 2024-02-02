@@ -33,7 +33,7 @@ class FleetsVC: UIViewController {
         
         NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
             guard let self else { return }
-            self.getAvaiableVehicleList()
+            self.refreshPage()
         })
     }
     

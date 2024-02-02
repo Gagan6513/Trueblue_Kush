@@ -39,6 +39,7 @@ class ViewReferenceVC: UIViewController {
     @IBAction func btnAddAccident(_ sender: Any) {
         let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
         ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.regoNumber = self.vehicleDetails?.registration_no ?? ""
         self.present(ctrl, animated: true)
     }
     
