@@ -59,6 +59,16 @@ class FleetServiceVC: UIViewController {
         self.txtServiceDate.delegate = self
         self.txtLastServiceDate.delegate = self
         self.txtInvoiceNo.delegate = self
+        
+        self.txtKms.isUserInteractionEnabled = false
+        self.txtLastServiceDate.isUserInteractionEnabled = false
+        self.txtLastServiceBy.isUserInteractionEnabled = false
+        
+        self.txtKms.textColor = UIColor(named: "7D7D7D")
+        self.txtLastServiceDate.textColor = UIColor(named: "7D7D7D")
+        self.txtLastServiceBy.textColor = UIColor(named: "7D7D7D")
+        
+        
         DispatchQueue.main.async {
             self.getServiceDetails()
         }
@@ -95,7 +105,7 @@ class FleetServiceVC: UIViewController {
     }
     
     @IBAction func btnLastServiceDate(_ sender: Any) {
-        self.selectDate(txt: self.txtLastServiceDate)
+//        self.selectDate(txt: self.txtLastServiceDate)
     }
     
     @IBAction func btnSlip1(_ sender: Any) {
@@ -204,7 +214,7 @@ class FleetServiceVC: UIViewController {
 //            showAlert(title: "Error!", messsage: "Please enter kms")
 //            return false
 //        }
-//        
+//
 //        if txtLastServiceDate.text?.isEmpty ?? true {
 //            showAlert(title: "Error!", messsage: "Please enter last service date")
 //            return false
@@ -287,13 +297,7 @@ class FleetServiceVC: UIViewController {
         self.txtServiceMileage.isUserInteractionEnabled = !isFromView
         self.txtNextServiceDue.isUserInteractionEnabled = !isFromView
         self.txtNote.isUserInteractionEnabled = !isFromView
-        self.txtKms.isUserInteractionEnabled = true
-        self.txtLastServiceDate.isUserInteractionEnabled = true
-        self.txtLastServiceBy.isUserInteractionEnabled = true
-        
-        self.txtKms.textColor = UIColor(named: "7D7D7D")
-        self.txtLastServiceDate.textColor = UIColor(named: "7D7D7D")
-        self.txtLastServiceBy.textColor = UIColor(named: "7D7D7D")
+
         
         if isFromView {
             self.btnSubmit.isHidden = true
