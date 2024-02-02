@@ -36,16 +36,23 @@ class FleetServiceVC: UIViewController {
     
     var isFromView = false
     var serviceData: AccidentService?
+    var serviceId: String?
+    var lastServiceData: LastAccidentServiceData?
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
     var arrRego = [RegoListResponse]()
-    var selectedRego: RegoListResponse?
+    var selectedRego: RegoListResponse? {
+        didSet {
+            self.getLastServiceDetials()
+        }
+    }
     
     var arrRepaired = [RepairerListResponse]()
     var selectedRepairer: RepairerListResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.txtMakeModel.textColor = UIColor(named: "7D7D7D")
         self.setupNotification()
         self.txtAmountPaidDate.delegate = self
@@ -193,20 +200,20 @@ class FleetServiceVC: UIViewController {
 //            return false
 //        }
         
-        if txtKms.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter kms")
-            return false
-        }
-        
-        if txtLastServiceDate.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter last service date")
-            return false
-        }
-        
-        if txtLastServiceBy.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please enter last service by")
-            return false
-        }
+//        if txtKms.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter kms")
+//            return false
+//        }
+//        
+//        if txtLastServiceDate.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter last service date")
+//            return false
+//        }
+//
+//        if txtLastServiceBy.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please enter last service by")
+//            return false
+//        }
         
         return true
     }
@@ -243,7 +250,6 @@ class FleetServiceVC: UIViewController {
             case AppDropDownLists.REPAIRER:
                 self.selectedRepairer = self.arrRepaired.first(where: { ($0.repairer_name ?? "") == selectedItem })
                 self.txtRepairer.text = self.selectedRepairer?.repairer_name
-                self.txtLastServiceBy.text = self.selectedRepairer?.repairer_name
             default : print("")
             }
         }
@@ -281,9 +287,13 @@ class FleetServiceVC: UIViewController {
         self.txtServiceMileage.isUserInteractionEnabled = !isFromView
         self.txtNextServiceDue.isUserInteractionEnabled = !isFromView
         self.txtNote.isUserInteractionEnabled = !isFromView
-        self.txtKms.isUserInteractionEnabled = !isFromView
-        self.txtLastServiceDate.isUserInteractionEnabled = !isFromView
-        self.txtLastServiceBy.isUserInteractionEnabled = !isFromView
+        self.txtKms.isUserInteractionEnabled = true
+        self.txtLastServiceDate.isUserInteractionEnabled = true
+        self.txtLastServiceBy.isUserInteractionEnabled = true
+        
+        self.txtKms.textColor = UIColor(named: "7D7D7D")
+        self.txtLastServiceDate.textColor = UIColor(named: "7D7D7D")
+        self.txtLastServiceBy.textColor = UIColor(named: "7D7D7D")
         
         if isFromView {
             self.btnSubmit.isHidden = true
@@ -384,6 +394,61 @@ extension FleetServiceVC {
         }
     }
     
+    func getLastServiceDetials() {
+        CommonObject().showProgress()
+        
+        /* Create API Request */
+        let webService = WebServiceModel()
+        webService.url = URL(string: API_URL.getLastServiceDetail)!
+        webService.method = .post
+        
+        var dict = [String: Any]()
+        if self.serviceId == self.selectedRego?.registration_no {
+            dict["service_id"] = self.serviceData?.id ?? "0"
+        }
+        dict["vehicle_id"] = self.selectedRego?.id ?? "0"
+        webService.parameters = dict
+        /* API CALLS */
+        WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+            
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(LastServiceDetailsModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? LastServiceDetailsModel {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    
+                    if let serviceDataa = data.data?.response {
+                        
+                        self.serviceId = self.serviceData?.registration_no
+                        
+                        self.lastServiceData = serviceDataa
+                        
+                        self.txtLastServiceDate.text = self.lastServiceData?.last_service_date
+                        self.txtKms.text = self.lastServiceData?.last_service_mileage
+                        self.txtLastServiceBy.text = self.lastServiceData?.repairer_name
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     func getRegoList() {
 //        CommonObject().showProgress()
         
@@ -419,9 +484,9 @@ extension FleetServiceVC {
                     
                     self.arrRego = data.data ?? []
                     if let data = self.serviceData {
-                        self.selectedRego = self.arrRego.first(where: { ($0.registration_no ?? "") == self.serviceData?.registration_no })
-                        self.txtRegoNo.text = self.selectedRego?.registration_no
-                        self.txtMakeModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                        self.selectedRego = self.arrRego.first(where: { ($0.registration_no ?? "") == data.registration_no })
+                        self.txtRegoNo.text = data.registration_no
+                        self.txtMakeModel.text = "\(data.vehicle_make ?? "") / \(data.vehicle_model ?? "")"
                     }
                     self.getReparierName()
                 }
@@ -467,7 +532,6 @@ extension FleetServiceVC {
                     if let data = self.serviceData {
                         self.selectedRepairer = self.arrRepaired.first(where: { ($0.rep_id ?? "") == data.repairer_id })
                         self.txtRepairer.text = self.selectedRepairer?.repairer_name
-                        self.txtLastServiceBy.text = self.selectedRepairer?.repairer_name
                     }
                 }
             }

@@ -421,7 +421,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircleOn" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyA-Ax-Jau">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyA-Ax-Jau">
                                 <rect key="frame" x="23.999999999999993" y="25" width="84.333333333333314" height="1"/>
                                 <color key="backgroundColor" name="3478F6"/>
                                 <constraints>

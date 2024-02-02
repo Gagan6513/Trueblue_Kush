@@ -34,6 +34,7 @@ class API_URL {
     static let stateList = new_path + "stateList"
     static let getAllFleets = new_path + "getAllFleets"
     static let getServiceDetails = new_path + "getServiceDetails"
+    static let getLastServiceDetail = new_path + "getLastServiceDetail"
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
