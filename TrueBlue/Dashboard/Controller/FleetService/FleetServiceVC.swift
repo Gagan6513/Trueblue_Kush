@@ -205,6 +205,11 @@ class FleetServiceVC: UIViewController {
             return false
         }
         
+        if (txtServiceDate.text?.date(from: .ddmmyyyy) ?? Date()) < (txtLastServiceDate.text?.date(from: .yyyymmdd) ?? Date()) {
+            showAlert(title: "Error!", messsage: "Current Service due needs to be greater than before")
+            return false
+        }
+        
 //        if serviceSleepImage.image == nil {
 //            showAlert(title: "Error!", messsage: "Please select service sleep image")
 //            return false
