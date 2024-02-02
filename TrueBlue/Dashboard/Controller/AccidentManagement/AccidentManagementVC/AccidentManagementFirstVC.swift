@@ -40,6 +40,7 @@ class AccidentManagementFirstVC: UIViewController {
     
     var isYourVehicleBusinessRegistered = ""
     var isYourCarDrivable = ""
+    var regoNumber = ""
     var arrBranch = [BranchListResponse]()
     var selectedBranch: BranchListResponse?
     
@@ -607,6 +608,13 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrRego = data.data ?? []
+                    
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego
+                        self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                        self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                    }
+                    
                     self.applicationId != nil ? self.getAccidentDetialsForEditProfile() : nil
                 }
             }

@@ -17,6 +17,7 @@ class AccidentManagementVC: UIViewController {
     var currentIndex = 0
     
     var isFromView = false
+    var regoNumber = ""
     
     var completedIndex = [0]
     
@@ -88,10 +89,12 @@ class AccidentManagementVC: UIViewController {
             let ctrl = segue.destination as! AccidentManagementFirstVC
             ctrl.applicationId = self.accidentData?.app_id
             ctrl.isFromView = self.isFromView
+            ctrl.regoNumber = self.regoNumber
         } else if (segue.identifier == "AccidentManagementSecondVC") {
             let ctrl = segue.destination as! AccidentManagementSecondVC
             ctrl.applicationId = self.accidentData?.app_id
             ctrl.isFromView = self.isFromView
+            ctrl.regoNumber = self.regoNumber
             print("AccidentManagementSecondVC")
         } else if (segue.identifier == "AccidentManagementThirdVC") {
             let ctrl = segue.destination as! AccidentManagementThirdVC
