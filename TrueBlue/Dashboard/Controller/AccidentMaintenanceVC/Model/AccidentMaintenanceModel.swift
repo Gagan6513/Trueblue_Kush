@@ -333,3 +333,23 @@ class AccidentServiceDetailsModel: Codable {
 class AccidentServiceDetailsData: Codable {
     var response : AccidentService?
 }
+
+
+class LastServiceDetailsModel: Codable {
+    
+    var data: AccidentServiceDataData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentServiceDataData: Codable {
+    var response : LastAccidentServiceData?
+}
+
+class LastAccidentServiceData: Codable {
+    var last_service_date : String?
+    var last_service_mileage : String?
+    var repairer_name : String?
+}

@@ -41,6 +41,24 @@ class FleetReferenceVC: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func btnAddNewRef(_ sender: Any) {
+        CommonObject.sharedInstance.isNewEntry = true
+        CommonObject.sharedInstance.currentReferenceId = ""
+        
+        var storyboardName = String()
+        var vcID = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            vcID = AppStoryboardId.NEW_BOOKING_ENTRY
+            storyboardName = AppStoryboards.DASHBOARD
+        } else {
+            vcID = AppStoryboardId.NEW_BOOKIN_ENTRY_PHONE
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let newbookingEntryVc = storyboard.instantiateViewController(identifier: vcID) as! NewBookingEntryVC
+        present(newbookingEntryVc, animated: true, completion: nil)
+    }
+    
     func setupTableview() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
