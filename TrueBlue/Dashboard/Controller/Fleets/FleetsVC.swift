@@ -73,15 +73,16 @@ class FleetsVC: UIViewController {
 
 extension FleetsVC: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        search = (string.isEmpty ? String(search.dropLast()) : (textField.text! + string)).lowercased()
-        self.filterData()
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        search = (string.isEmpty ? String(search.dropLast()) : (textField.text! + string)).lowercased()
+//        self.filterData()
+//        return true
+//    }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         self.search = ""
-        self.filterData()
+//        self.filterData()
+//        self.refreshPage()
         return true
     }
     
@@ -92,6 +93,14 @@ extension FleetsVC: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 //        self.getACAList()
+        self.refreshPage()
+    }
+    
+    func refreshPage() {
+        self.arrFilteredVehicles = []
+        self.arrAvailVehicles = []
+        self.currentPage = 0
+        self.getAvaiableVehicleList()
     }
     
 }
@@ -180,7 +189,11 @@ extension FleetsVC {
         var param = [String: Any]()
         param["limitRecord"] = "\(numberOfItemPerPage)"
         param["pageNo"] = "\(numberOfItemPerPage * (self.currentPage))"
-
+        
+        if !(self.txtSearch.text?.isEmpty ?? false) {
+            param["searchval"] = self.txtSearch.text
+        }
+        
         webService.parameters = param
         
         /* API CALLS */
@@ -241,11 +254,11 @@ extension FleetsVC {
             self.arrFilteredVehicles = self.arrAvailVehicles.filter({ $0.status == "Maintenance" })
         }
         
-        self.arrFilteredVehicles = self.arrFilteredVehicles.filter({ search.isEmpty ? true :
-               (($0.vehicle_make?.lowercased().contains(search.lowercased()) ?? false)
-            || ($0.vehicle_model?.lowercased().contains(search.lowercased()) ?? false))
-            || ($0.registration_no?.lowercased().contains(search.lowercased()) ?? false)
-        })
+//        self.arrFilteredVehicles = self.arrFilteredVehicles.filter({ search.isEmpty ? true :
+//               (($0.vehicle_make?.lowercased().contains(search.lowercased()) ?? false)
+//            || ($0.vehicle_model?.lowercased().contains(search.lowercased()) ?? false))
+//            || ($0.registration_no?.lowercased().contains(search.lowercased()) ?? false)
+//        })
 
         if self.isPaginationAvailable && search.isEmpty {
             if self.arrFilteredVehicles.count == 0 {
@@ -300,6 +313,7 @@ extension FleetsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.search = ""
         self.currentPage = 0
         self.isPaginationAvailable = false
         self.arrAvailVehicles = []
