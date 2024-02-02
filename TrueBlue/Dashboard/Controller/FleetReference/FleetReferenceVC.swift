@@ -28,11 +28,13 @@ class FleetReferenceVC: UIViewController {
         super.viewDidLoad()
         self.setupTableview()
         self.setupDetails()
+        DispatchQueue.main.async {
+            self.getRefList()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getRefList()
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -74,22 +76,36 @@ extension FleetReferenceVC: UITableViewDelegate, UITableViewDataSource {
         cell.setupDetails(data: self.arrReferace[indexPath.row])
         cell.detailsButtonClicked = { [weak self] in
             guard let self else { return }
-            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
-            ctrl.modalPresentationStyle = .overFullScreen
-            ctrl.accidentData = self.arrReferace[indexPath.row]
-            self.present(ctrl, animated: true)
+            self.navigateToNewEntry(index: indexPath.row)
         }
         
         cell.viewButtonClicked = { [weak self] in
             guard let self else { return }
-            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
-            ctrl.modalPresentationStyle = .overFullScreen
-            ctrl.accidentData = self.arrReferace[indexPath.row]
-            ctrl.isFromView = true
-            self.present(ctrl, animated: true)
+            self.navigateToNewEntry(index: indexPath.row)
         }
         
         return cell
+    }
+    
+    func navigateToNewEntry(index: Int) {
+        if let application_id = arrReferace[index].application_id {
+            
+            CommonObject.sharedInstance.isNewEntry = false
+            CommonObject.sharedInstance.currentReferenceId = application_id
+            
+            var storyboardName = String()
+            var vcID = String()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                vcID = AppStoryboardId.NEW_BOOKING_ENTRY
+                storyboardName = AppStoryboards.DASHBOARD
+            } else {
+                vcID = AppStoryboardId.NEW_BOOKIN_ENTRY_PHONE
+                storyboardName = AppStoryboards.DASHBOARD_PHONE
+            }
+            let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+            let newbookingEntryVc = storyboard.instantiateViewController(identifier: vcID) as! NewBookingEntryVC
+            present(newbookingEntryVc, animated: true, completion: nil)
+        }
     }
     
     

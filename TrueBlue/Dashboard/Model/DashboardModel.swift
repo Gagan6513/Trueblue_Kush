@@ -19,6 +19,7 @@ class DashboardModel : NSObject {
         dictResult.upcomingbookingcount = dict["upcomingbookingcount"] as? String ?? ""
         dictResult.repairerbookingcount = dict["repairerbookingcount"] as? String ?? ""
         dictResult.fleet_maintenance_count = dict["fleet_maintenance_count"] as? String ?? ""
+        dictResult.fleet_count = dict["fleet_count"] as? Int ?? 0
         dictResult.task_count = dict["task_count"] as? Int ?? 0
     }
 }
@@ -34,6 +35,7 @@ struct DashboardModelData {
     var upcomingbookingcount : String = ""
     var repairerbookingcount : String = ""
     var fleet_maintenance_count : String = ""
+    var fleet_count : Int = 0
     var task_count: Int = 0
     
 }
