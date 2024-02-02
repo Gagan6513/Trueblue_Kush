@@ -71,6 +71,10 @@ class FleetsTVC: UITableViewCell {
             }
         }
         
+        if data.status_modified_on == nil && (data.status_modified_on ?? "") == "" {
+            self.availableLabel.text = "NA"
+            self.availableLabel.textColor = .gray
+        }
 
         
         if let url = URL(string: data.fleet_image ?? "") {
