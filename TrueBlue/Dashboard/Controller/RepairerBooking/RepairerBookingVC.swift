@@ -319,19 +319,20 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let repairObject = repairBookingsArray[indexPath.row]
 
         cell.refNumberLbl.text = "#Ref \(repairObject["application_id"] as? String ?? "")"
-        
+        cell.statusLabel.text = repairObject["recovery_status"] as? String ?? "NA"
+
         switch (repairObject["recovery_status"] as? String)?.lowercased() {
         case "settled":
             cell.statusLabel.textColor = UIColor(named: "07B107")
         case "unsettled":
             cell.statusLabel.textColor = UIColor(named: "F39C12")
-        case "statement of claim":
+        case "soc":
             cell.statusLabel.textColor = UIColor(named: "FF0000")
+            cell.statusLabel.text = "Statement of Claim"
         default:
             cell.statusLabel.textColor = .lightGray
         }
         
-        cell.statusLabel.text = repairObject["recovery_status"] as? String ?? "NA"
         cell.mobileNumberLabel.text = repairObject["owner_phone"] as? String
         cell.clientNameLbl.text = "\(repairObject["owner_firstname"] ?? "")  \(repairObject["owner_lastname"] ?? "")"
 
