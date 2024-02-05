@@ -7,22 +7,30 @@
 
 import UIKit
 import Alamofire
+import Applio
 
 class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var dateToTF: UITextField!
     @IBOutlet weak var dateFromTF: UITextField!
-    @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var repairerBookingTableView: UITableView!
-    @IBOutlet weak var txtSearch: UITextField!
     
+    @IBOutlet weak var txtSearch: UITextField!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var btnSearch: UIButton!
+
     var repairBookingsArray = [[String: Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.txtSearch.delegate = self
+        self.searchView.layer.borderColor = UIColor(named: "AppBlue")?.cgColor
+        self.searchView.layer.borderWidth = 1
+        self.searchView.layer.cornerRadius = 5
+        self.searchView.isHidden = true
+        
         self.repairerBookingTableView.isHidden = true
         filterView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         let currentDate = Date()
@@ -35,6 +43,8 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         dateFromTF.keyboardType = .numberPad
         dateToTF.keyboardType = .numberPad
         // Do any additional setup after loading the view.
+        
+        self.repairerBookingTableView.registerNib(for: "RepairerBookingTVC")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
     }
@@ -228,6 +238,23 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         filterView.isHidden = true
     }
     
+    @IBAction func searchInnerAction(_ sender: Any) {
+        self.searchView.isHidden = true
+        self.txtSearch.resignFirstResponder()
+        if !(txtSearch.text?.isEmpty ?? false) {
+            let parameters : Parameters = ["searchval" : txtSearch.text ?? ""]
+            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_REPAIRER_BOOKINGS)
+        } else {
+            CallAPIWhenPageLoad()
+        }
+    }
+    
+    @IBAction func btnSearchClicked(_ sender: UIButton) {
+//        self.view.endEditing(true)
+        self.searchView.isHidden = false
+        self.txtSearch.becomeFirstResponder()
+    }
+    
     @IBAction func btnSearch(_ sender: Any) {
         self.view.endEditing(true)
         if !(txtSearch.text?.isEmpty ?? false) {
@@ -285,38 +312,69 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.REPAIR_BOOKING_TABLEVIEW_CELL, for: indexPath as IndexPath) as! RepairerBookingTableViewCell
-        cell.selectionStyle = .none
-
-        let repairObject = repairBookingsArray[indexPath.row]
-        cell.selectionStyle = .none
-        cell.associateLbl.text = repairObject["associate_name"] as? String
-        cell.makeModelLbl.text = "\(repairObject["vehicle_make"] ?? "") / \(repairObject["vehicle_model"] ?? "")"
-        cell.referalName.text = repairObject["referral_name"] as? String
-        cell.clientNameLbl.text = "\(repairObject["owner_firstname"] ?? "")  \(repairObject["owner_lastname"] ?? "")"
-        cell.repairerName.text = repairObject["repairer_name"] as? String
-        cell.statusLbl.text = repairObject["status"] as? String
-        cell.refNoLbl.text = repairObject["application_id"] as? String
-        cell.vehicleRegoLbl.text = repairObject["registration_no"] as? String
         
-        if let expected_delivery_date = repairObject["expected_delivery_date"] as? String {
-            if let formDate = getDayMonthWithYear(dateString: expected_delivery_date) {
-                let formDateArr = formDate.components(separatedBy: "~")
-                cell.dayLbl.text = formDateArr[0]
-                cell.monthYearLbl.text = formDateArr[1]
-            } else {
-                cell.dayLbl.text = ""
-                cell.monthYearLbl.text = ""
-            }
-        } else {
-            cell.dayLbl.text = ""
-            cell.monthYearLbl.text = ""
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepairerBookingTVC", for: indexPath) as? RepairerBookingTVC else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        let repairObject = repairBookingsArray[indexPath.row]
+
+        cell.refNumberLbl.text = "#Ref \(repairObject["application_id"] as? String ?? "")"
+        cell.statusLabel.text = repairObject["recovery_status"] as? String ?? "NA"
+
+        switch (repairObject["recovery_status"] as? String)?.lowercased() {
+        case "settled":
+            cell.statusLabel.textColor = UIColor(named: "07B107")
+        case "unsettled":
+            cell.statusLabel.textColor = UIColor(named: "F39C12")
+        case "soc":
+            cell.statusLabel.textColor = UIColor(named: "FF0000")
+            cell.statusLabel.text = "Statement of Claim"
+        default:
+            cell.statusLabel.textColor = .lightGray
         }
         
-        cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
-        cell.viewMainBorder.layer.borderWidth =  1
-        cell.viewMainBorder.backgroundColor = .white
+        cell.mobileNumberLabel.text = repairObject["owner_phone"] as? String
+        cell.clientNameLbl.text = "\(repairObject["owner_firstname"] ?? "")  \(repairObject["owner_lastname"] ?? "")"
+
+        
         return cell
+        
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: AppTblViewCells.REPAIR_BOOKING_TABLEVIEW_CELL, for: indexPath as IndexPath) as! RepairerBookingTableViewCell
+//        cell.selectionStyle = .none
+//
+//        cell.selectionStyle = .none
+//        cell.associateLbl.text = repairObject["associate_name"] as? String
+//        cell.makeModelLbl.text = "\(repairObject["vehicle_make"] ?? "") / \(repairObject["vehicle_model"] ?? "")"
+//        cell.referalName.text = repairObject["referral_name"] as? String
+//        cell.clientNameLbl.text = "\(repairObject["owner_firstname"] ?? "")  \(repairObject["owner_lastname"] ?? "")"
+//        cell.repairerName.text = repairObject["repairer_name"] as? String
+//        cell.statusLbl.text = repairObject["status"] as? String
+//        cell.refNoLbl.text = repairObject["application_id"] as? String
+//        cell.vehicleRegoLbl.text = repairObject["registration_no"] as? String
+//
+//        if let expected_delivery_date = repairObject["expected_delivery_date"] as? String {
+//            if let formDate = getDayMonthWithYear(dateString: expected_delivery_date) {
+//                let formDateArr = formDate.components(separatedBy: "~")
+//                cell.dayLbl.text = formDateArr[0]
+//                cell.monthYearLbl.text = formDateArr[1]
+//            } else {
+//                cell.dayLbl.text = ""
+//                cell.monthYearLbl.text = ""
+//            }
+//        } else {
+//            cell.dayLbl.text = ""
+//            cell.monthYearLbl.text = ""
+//        }
+//
+//        cell.viewMainBorder.layer.borderColor = UIColor(named: AppColors.INPUT_BORDER)?.cgColor
+//        cell.viewMainBorder.layer.borderWidth =  1
+//        cell.viewMainBorder.backgroundColor = .white
+//        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -346,6 +404,24 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 }
 extension RepairerBookingVC : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case txtSearch:
+            self.searchView.isHidden = true
+            self.txtSearch.resignFirstResponder()
+            if !(txtSearch.text?.isEmpty ?? false) {
+                let parameters : Parameters = ["searchval" : txtSearch.text ?? ""]
+                apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_REPAIRER_BOOKINGS)
+            } else {
+                CallAPIWhenPageLoad()
+            }
+        default:
+            return true
+        }
+        
+        return true
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
