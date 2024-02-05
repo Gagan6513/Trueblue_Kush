@@ -662,6 +662,10 @@ extension AccidentManagementFirstVC {
                         NotificationCenter.default.post(name: .AccidentDetailsEdit, object: nil, userInfo: data)
                     }
                     
+                    if let appId = self.accidentData?.application_id {
+                        self.txtRefNumber.text = "Ref# " + appId
+                    }
+                    
                     self.setupDetails()
                 }
             }

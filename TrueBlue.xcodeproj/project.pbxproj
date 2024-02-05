@@ -195,6 +195,8 @@
 		B3366DCF2B358C5E00F72CE8 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */; };
 		B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */; };
 		B3366DD32B358CEA00F72CE8 /* TableView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */; };
+		B33A10ED2B70A3FC0089F191 /* RepairerBookingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */; };
+		B33A10EE2B70A3FC0089F191 /* RepairerBookingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */; };
 		B34B3C1C2B6A0C860051986B /* FleetServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */; };
 		B357B0C52B5E734C004C71DF /* AccidentMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */; };
 		B357B0C92B5E7440004C71DF /* AccidentMaintenanceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */; };
@@ -430,7 +432,7 @@
 		81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		816133152B2DCB3F00938B28 /* ReferenceSearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSearchResultVC.swift; sourceTree = "<group>"; };
 		816133172B2DD4C800938B28 /* ReferenceSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
+		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBooking/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
 		8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTableViewCell.swift; sourceTree = "<group>"; };
 		95F09AF4B08AB4D8297FEBA8 /* Pods-TrueBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueBlue.debug.xcconfig"; path = "Target Support Files/Pods-TrueBlue/Pods-TrueBlue.debug.xcconfig"; sourceTree = "<group>"; };
 		B3366DB52B35557500F72CE8 /* ACAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +446,8 @@
 		B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+Extention.swift"; sourceTree = "<group>"; };
+		B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTVC.swift; sourceTree = "<group>"; };
+		B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepairerBookingTVC.xib; sourceTree = "<group>"; };
 		B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetServiceVC.swift; sourceTree = "<group>"; };
 		B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceVC.swift; sourceTree = "<group>"; };
 		B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceTVC.swift; sourceTree = "<group>"; };
@@ -452,6 +456,7 @@
 		B357B0CF2B5E91CF004C71DF /* ViewReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReferenceVC.swift; sourceTree = "<group>"; };
 		B357B0D22B5E970A004C71DF /* ViewReferenceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReferenceTVC.swift; sourceTree = "<group>"; };
 		B357B0D32B5E970A004C71DF /* ViewReferenceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewReferenceTVC.xib; sourceTree = "<group>"; };
+		B35B8E8D2B70B8BF008EFB9B /* TrueBlue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrueBlue.entitlements; sourceTree = "<group>"; };
 		B3660A962B57B42A00AC8F02 /* AccidentManagement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccidentManagement.storyboard; sourceTree = "<group>"; };
 		B3660A9B2B57B53300AC8F02 /* HeaderFilterCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterCVC.swift; sourceTree = "<group>"; };
 		B3660A9C2B57B53300AC8F02 /* HeaderFilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFilterCVC.xib; sourceTree = "<group>"; };
@@ -623,6 +628,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B33A10E92B70A3C70089F191 /* RepairerBooking */,
 				B34B3C1A2B6A0C760051986B /* FleetService */,
 				B38D86632B6783BE006CC28E /* FleetReference */,
 				B38D865B2B676D5D006CC28E /* Fleets */,
@@ -642,7 +648,6 @@
 				B3366DBC2B35713B00F72CE8 /* ACAFilterPopup */,
 				B3366DB42B35551300F72CE8 /* ACAList */,
 				B3771E582B316B5500705FEF /* SwapVehicleVC */,
-				816133192B2EF6A900938B28 /* RepairerBookingVC.swift */,
 				5319E5D426C7CE1E0095045E /* DashboardVC.swift */,
 				53346CA326C82F6400807BFB /* DrawerVC.swift */,
 				537D73C626CCCA9F009591BF /* CollectionsVC.swift */,
@@ -757,6 +762,7 @@
 		5344796B26C67CB800380609 /* TrueBlue */ = {
 			isa = PBXGroup;
 			children = (
+				B35B8E8D2B70B8BF008EFB9B /* TrueBlue.entitlements */,
 				5344798026C6805500380609 /* Authentication */,
 				530B1A0726CB719C001ACBBA /* Dashboard */,
 				5344798526C680BE00380609 /* Common */,
@@ -1014,6 +1020,24 @@
 				B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		B33A10E92B70A3C70089F191 /* RepairerBooking */ = {
+			isa = PBXGroup;
+			children = (
+				B33A10EA2B70A3E80089F191 /* RepairerBookingTVC */,
+				816133192B2EF6A900938B28 /* RepairerBookingVC.swift */,
+			);
+			path = RepairerBooking;
+			sourceTree = "<group>";
+		};
+		B33A10EA2B70A3E80089F191 /* RepairerBookingTVC */ = {
+			isa = PBXGroup;
+			children = (
+				B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */,
+				B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */,
+			);
+			path = RepairerBookingTVC;
 			sourceTree = "<group>";
 		};
 		B34B3C1A2B6A0C760051986B /* FleetService */ = {
@@ -1414,6 +1438,7 @@
 				5731CB4A2B4E59020048A220 /* UpcomingBookingTableViewCell.xib in Resources */,
 				B388B26D2B580812007EA2E8 /* ImagesCVC.xib in Resources */,
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
+				B33A10EE2B70A3FC0089F191 /* RepairerBookingTVC.xib in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
 				B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */,
 				B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */,
@@ -1689,6 +1714,7 @@
 				530B1A1026CB80EE001ACBBA /* NewBookingEntryTabCvCell.swift in Sources */,
 				B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */,
 				530F39C026D4B84100222E5E /* NewReferenceIdModel.swift in Sources */,
+				B33A10ED2B70A3FC0089F191 /* RepairerBookingTVC.swift in Sources */,
 				B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */,
 				212D9B9129E7B937001F31BE /* DeliveryNotesListViewModel.swift in Sources */,
 				537D73CB26CCCD29009591BF /* DataSyncManager.swift in Sources */,
@@ -1855,6 +1881,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrueBlue/TrueBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 41;
@@ -1882,6 +1909,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrueBlue/TrueBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 41;
