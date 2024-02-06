@@ -16,6 +16,14 @@ class AccidentModel: Codable {
     
 }
 
+class SuccessModel: Codable {
+    
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
 class AccidentDataModel: Codable {
     
     var app_id: String?

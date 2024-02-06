@@ -42,6 +42,7 @@ class SwapVehicleVC: UIViewController {
     var isAddMorePicturesCell = false
     var picturesForUpload = [UIImage]()
     var arrViewSwapVehicle = [DocumentDetailsModelData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
