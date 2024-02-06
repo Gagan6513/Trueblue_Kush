@@ -21,6 +21,7 @@ class API_URL {
 
     static let accidentManagementFirst = new_path + "saveAccidentForm"
     static let saveServiceDetails = new_path + "saveServiceDetails"
+    static let returnVehicle = new_path + "returnVehicle"
 
     static let BRANCH_LIST = new_path + "branchList"
     static let getReferenceDetails = new_path + "getReferenceDetails"
@@ -41,6 +42,8 @@ class API_URL {
     static let DELETE_UPLOADED_DOCUMENT = API_PATH + "deleteuploadeddoc.php"
 
     static let GET_UPLOADED_DOCUMENTS_TAB_DETAILS = API_PATH + "getuploaddocuments2.php"//"getuploaddocuments.php"
+    static let hiredvehicleslist = API_PATH + "hiredvehicleslist.php"
+    static let delivered_collectedby = API_PATH + "delivered_collectedby.php"
 
     static let SWAP_VEHICLE = new_path + "swapVehicle"
     

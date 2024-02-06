@@ -24,7 +24,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.txtSearch.delegate = self
         self.searchView.layer.borderColor = UIColor(named: "AppBlue")?.cgColor
         self.searchView.layer.borderWidth = 1
@@ -448,4 +448,5 @@ extension RepairerBookingVC : UITextFieldDelegate {
 //        }
 //        return true
 //    }
+    
 }

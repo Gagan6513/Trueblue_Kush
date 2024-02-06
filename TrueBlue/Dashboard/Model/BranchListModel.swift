@@ -197,3 +197,69 @@ class RegoListResponse: Codable {
     var yearof_purchase: String?
 }
 
+
+class HiredData: Codable {
+    
+    var data: HiredResponse?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class HiredResponse: Codable {
+    
+    var response: [HiredDataList]?
+}
+
+class HiredDataList: Codable {
+    
+    var booking_id: String?
+    var application_id: String?
+    var client_name: String?
+    var refno: String?
+    var vehicle_id: String?
+    var registration_no: String?
+    var vehicle_make: String?
+    var vehicle_model: String?
+    var date_out: String?
+    var time_out: String?
+    var Mileage_out: String?
+    var fuel_out: String?
+    var fleet_docs: [FleetDocs]?
+    
+    // For Collected By
+    var id: String?
+    var user_name: String?
+}
+
+class FleetDocs: Codable {
+    
+    var document_name: String?
+    var document_id: String?
+    var booking_id: String?
+    var image_url: String?
+    var sequence: String?
+}
+
+
+class CollectedByData: Codable {
+    
+    var data: CollectedByResponse?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class CollectedByResponse: Codable {
+    
+    var response: [CollectedDataList]?
+}
+
+class CollectedDataList: Codable {
+    
+    // For Collected By
+    var id: String?
+    var user_name: String?
+}
