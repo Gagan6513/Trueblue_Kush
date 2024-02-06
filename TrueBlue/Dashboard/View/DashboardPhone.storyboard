@@ -22082,7 +22082,7 @@
                                                                         </constraints>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                         </variation>
@@ -22377,7 +22377,7 @@
                                                                 </constraints>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                 </variation>
@@ -23516,8 +23516,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" width="170.66667175292969" height="170.66667175292969"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="calendar" width="170.66667175292969" height="170.66667175292969"/>
         <image name="calendar 1" width="170.66667175292969" height="170.66667175292969"/>
         <image name="checkUnselected" width="170.66667175292969" height="170.66667175292969"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
