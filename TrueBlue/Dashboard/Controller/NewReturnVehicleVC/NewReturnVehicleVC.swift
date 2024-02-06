@@ -178,8 +178,17 @@ class NewReturnVehicleVC: UIViewController {
     
     @IBAction func btnChooseRego(_ sender: Any) {
         if isFromView { return }
-        if self.arrRego.count != 0 {
-            showSearchListPopUp(listForSearch: self.arrRego.map({ $0.registration_no ?? "" }), listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListReturnVehicle)
+//        if self.arrRego.count != 0 {
+//            showSearchListPopUp(listForSearch: self.arrRego.map({ $0.registration_no ?? "" }), listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListReturnVehicle)
+//        }
+        
+        if arrRego.count > 0 {
+            var temp = [String] ()
+            for i in 0...arrRego.count-1 {
+                let refrenceRegoNumber = (arrRego[i].refno ?? "") + " - " + (arrRego[i].registration_no ?? "")
+                temp.append(refrenceRegoNumber)
+            }
+            showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.REGO_NUMBER, notificationName: .searchListReturnVehicle)
         }
     }
     
@@ -274,9 +283,10 @@ class NewReturnVehicleVC: UIViewController {
     @objc func searchListNotificationAction(_ notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let selectedItem = userInfo["selectedItem"] as! String
+            let selectedIndex = userInfo["selectedIndex"] as! Int
             switch userInfo["itemSelectedFromList"] as? String {
             case AppDropDownLists.REGO_NUMBER:
-                self.selectedRego = self.arrRego.first(where: { ($0.registration_no ?? "") == selectedItem })
+                self.selectedRego = self.arrRego[safe: selectedIndex]
                 self.txtChooseRego.text = self.selectedRego?.registration_no
                 self.txtClientName.text = self.selectedRego?.client_name
                 self.txtMilageOut.text = self.selectedRego?.Mileage_out
@@ -382,30 +392,30 @@ class NewReturnVehicleVC: UIViewController {
             return false
         }
         
-        if self.imgNewFront.image == nil {
-            showAlert(title: "Error!", messsage: "Please select front image")
-            return false
-        }
-        
-        if self.imgNewBack.image == nil {
-            showAlert(title: "Error!", messsage: "Please select back image")
-            return false
-        }
-        
-        if self.imgNewLeft.image == nil {
-            showAlert(title: "Error!", messsage: "Please select left image")
-            return false
-        }
-        
-        if self.imgNewRight.image == nil {
-            showAlert(title: "Error!", messsage: "Please select right image")
-            return false
-        }
-        
-        if self.imgNewMeter.image == nil {
-            showAlert(title: "Error!", messsage: "Please select odo meter image")
-            return false
-        }
+//        if self.imgNewFront.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select front image")
+//            return false
+//        }
+//
+//        if self.imgNewBack.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select back image")
+//            return false
+//        }
+//
+//        if self.imgNewLeft.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select left image")
+//            return false
+//        }
+//
+//        if self.imgNewRight.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select right image")
+//            return false
+//        }
+//
+//        if self.imgNewMeter.image == nil {
+//            showAlert(title: "Error!", messsage: "Please select odo meter image")
+//            return false
+//        }
         
         if (self.txtDateIn.text?.date(from: .ddmmyyyy) ?? Date()) > Date() {
             showAlert(title: "Error!", messsage: "Date in should not be greater than current date!")
@@ -593,7 +603,10 @@ extension NewReturnVehicleVC {
                     NotificationCenter.default.post(name: .refreshFleetList, object: nil)
                     NotificationCenter.default.post(name: .AccidentDetails, object: nil)
                     
-                    self.dismiss(animated: true)
+                    showAlertWithAction(title: alert_title, messsage: data.msg ?? "", isOkClicked: { [weak self] in
+                        guard let self else { return }
+                        self.dismiss(animated: true)
+                    })
                     
                 }
             }
