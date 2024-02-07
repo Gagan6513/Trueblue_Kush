@@ -9531,7 +9531,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SwQ-cX-f9A">
-                                                                    <rect key="frame" x="20" y="8" width="30" height="64"/>
+                                                                    <rect key="frame" x="20" y="10" width="30" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="SJ9-4G-KeI"/>
                                                                         <constraint firstAttribute="width" secondItem="SwQ-cX-f9A" secondAttribute="height" multiplier="1:1" id="XVR-GH-GBB"/>
@@ -9541,9 +9541,9 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="SwQ-cX-f9A" firstAttribute="top" secondItem="acH-NE-tGK" secondAttribute="top" constant="8" id="HlM-m3-dDc"/>
+                                                                <constraint firstItem="SwQ-cX-f9A" firstAttribute="top" secondItem="acH-NE-tGK" secondAttribute="top" constant="10" id="HlM-m3-dDc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="gd1-M3-ybY" secondAttribute="trailing" constant="10" id="Ioe-gd-uXL"/>
-                                                                <constraint firstAttribute="bottom" secondItem="SwQ-cX-f9A" secondAttribute="bottom" constant="8" id="J2A-ag-h2E"/>
+                                                                <constraint firstAttribute="bottom" secondItem="SwQ-cX-f9A" secondAttribute="bottom" constant="10" id="J2A-ag-h2E"/>
                                                                 <constraint firstItem="SwQ-cX-f9A" firstAttribute="centerY" secondItem="acH-NE-tGK" secondAttribute="centerY" id="N8B-49-0gJ"/>
                                                                 <constraint firstItem="SwQ-cX-f9A" firstAttribute="leading" secondItem="acH-NE-tGK" secondAttribute="leading" constant="20" id="Wba-ng-FCf"/>
                                                                 <constraint firstItem="gd1-M3-ybY" firstAttribute="leading" secondItem="SwQ-cX-f9A" secondAttribute="trailing" constant="10" id="wba-le-qaj"/>
