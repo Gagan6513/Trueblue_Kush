@@ -81,6 +81,11 @@ extension FleetsVC: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         self.search = ""
+        DispatchQueue.main.async {
+            textField.resignFirstResponder()
+        }
+        
+//        textField.resignFirstResponder()
 //        self.filterData()
 //        self.refreshPage()
         return true
