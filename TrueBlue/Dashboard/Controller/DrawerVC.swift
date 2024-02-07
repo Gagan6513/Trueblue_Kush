@@ -70,10 +70,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return 100
-        }
-        return 60
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return 100
+//        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
