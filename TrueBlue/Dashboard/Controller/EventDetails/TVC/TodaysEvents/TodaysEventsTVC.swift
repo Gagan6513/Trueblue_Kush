@@ -47,7 +47,7 @@ class TodaysEventsTVC: UITableViewCell {
         self.lblTime.text = data.EVENT_TIME
         
         let api_timeFormater = DateFormatter()
-        api_timeFormater.dateFormat =  "HH:mm"
+        api_timeFormater.dateFormat =  "HH:mm:ss"
         let api_time = api_timeFormater.date(from: data.EVENT_TIME ?? "")
         api_timeFormater.dateFormat =  "hh:mm a"
         self.lblTime.text = api_timeFormater.string(from: api_time ?? Date())
