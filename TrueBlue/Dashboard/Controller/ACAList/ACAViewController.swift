@@ -98,8 +98,15 @@ extension ACAViewController: UITextFieldDelegate {
 extension ACAViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.arrACAList.count == 0 ? tableView.setBackgroundView(msg: .aca_empty) :
-                                     tableView.removeBackgroundView()
+        if !self.isFromFilter {
+            self.arrACAList.count == 0 ? tableView.setBackgroundView(msg: .aca_without_filter_empty) :
+                                         tableView.removeBackgroundView()
+        } else {
+            self.arrACAList.count == 0 ? tableView.setBackgroundView(msg: "ACA not found from \(self.startDate) To \(self.endDate).") :
+                                         tableView.removeBackgroundView()
+        }
+        
+        
         return self.arrACAList.count
     }
     
@@ -162,10 +169,11 @@ extension ACAViewController {
                     }
                     self.arrACAList = data.data?.response ?? []
                     self.tableView.reloadData()
+                    self.isFromFilter = false
                 }
             }
         }
-        self.isFromFilter = false
+//        self.isFromFilter = false
     }
     
 }

@@ -936,7 +936,7 @@ extension UploadDocumentsVC : PreviewVMDelegate {
             }
             let storyboard = UIStoryboard(name: storyBoardName, bundle: .main)
             let webVc = storyboard.instantiateViewController(identifier: vcid) as! WebViewVC
-//            alertVc.dictCardDetails = dictUploadedDocumentsData.cardDetails//Sending Card Details to Card Details Screen
+//            alertVc.dictCardDetails = dictUploadedDocumentsData.cardDetails // Sending Card Details to Card Details Screen
             webVc.url = objData.dictResult.data
 //            alertVc.modalPresentationStyle = .overFullScreen
             present(webVc, animated: true, completion: nil)
