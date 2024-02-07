@@ -413,7 +413,7 @@ extension AddEventPopupVC {
     }
     
     func addEventType() {
-        
+        CommonObject().showProgress()
         let api_dateFormater = DateFormatter()
         api_dateFormater.dateFormat =  "dd-MM-yyyy"
         let api_date = api_dateFormater.date(from: self.txtEventDate.text ?? "") ?? Date()
@@ -483,6 +483,7 @@ extension AddEventPopupVC {
                               "eventDesc": self.txtDescription.text ?? "",
                               "eventType": self.selectedType]
         request.method = .post
+        CommonObject().showProgress()
         
         WebService.shared.performMultipartWebService(model: request, imageData: [], complition: { [weak self] responseData, error in
             guard let self else { return }
