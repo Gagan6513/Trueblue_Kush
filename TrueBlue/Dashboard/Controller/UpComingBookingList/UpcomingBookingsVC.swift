@@ -40,6 +40,7 @@ class UpcomingBookingsVC: UIViewController{
         searchView.layer.borderWidth = 1
         searchView.layer.cornerRadius = 5
         self.searchView.isHidden = true
+        self.searchTxtFld.delegate = self
         
         btnFilter.layer.cornerRadius = btnFilter.frame.size.height/2
         
@@ -143,12 +144,7 @@ class UpcomingBookingsVC: UIViewController{
     
     @IBAction func searchInnerAction(_ sender: Any) {
         self.searchView.isHidden = true
-        if (searchTxtFld.text?.isEmpty ?? false) {
-            self.CallAPIWhenPageLoad()
-        } else {
-            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
-            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
-        }
+        self.searchTxtFld.resignFirstResponder()
     }
     
     @IBAction func btnSearchClicked(_ sender: UIButton) {
@@ -332,13 +328,36 @@ extension UpcomingBookingsVC : UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
         if textField == searchTxtFld && ((searchTxtFld.text?.isEmpty) != nil){
-            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
-            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+//            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
+//            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+            textField.resignFirstResponder()
         }
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == searchTxtFld {
+            self.searchView.isHidden = true
+            if (searchTxtFld.text?.isEmpty ?? false) {
+                self.CallAPIWhenPageLoad()
+            } else {
+                let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
+                apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+            }
+        }
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == searchTxtFld {
+            self.searchTxtFld.text = ""
+            DispatchQueue.main.async {
+                textField.resignFirstResponder()
+            }
+        }
+        return true
+    }
+    
 }
 extension UpcomingBookingsVC :DZNEmptyDataSetDelegate , DZNEmptyDataSetSource  {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
