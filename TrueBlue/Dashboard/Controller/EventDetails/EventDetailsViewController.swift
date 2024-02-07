@@ -249,7 +249,7 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             cell.tblMain = tableView
             cell.tableView.reloadData()
 
-            cell.needToUpdate = false
+            cell.needToUpdate = true
             if let data = self.filterEventData.hourEvents?[indexPath.row] {
                 cell.setupDetails(data: data)
             }

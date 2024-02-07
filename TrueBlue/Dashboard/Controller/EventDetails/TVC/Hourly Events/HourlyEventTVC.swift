@@ -47,6 +47,7 @@ class HourlyEventTVC: UITableViewCell {
             self.needToUpdate ? self.tblMain.beginUpdates() : nil
             self.tableViewHeight.constant = height
             self.needToUpdate ? self.tblMain.endUpdates() : nil
+            self.needToUpdate = false
         }
     }
     

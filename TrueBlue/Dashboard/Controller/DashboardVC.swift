@@ -542,6 +542,10 @@ extension DashboardVC : DashboardVMDelegate {
             arrDashboardCount[data] = ""
         }
         
+        if let data = screenNames.firstIndex(where: { $0 == "Swap Vehicle" }) {
+            arrDashboardCount[data] = ""
+        }
+        
         if let data = screenNames.firstIndex(where: { $0 == "Available\nVehicles" }) {
             arrDashboardCount[data] = objData.dictResult.numOfAvailableVehicle
         }
