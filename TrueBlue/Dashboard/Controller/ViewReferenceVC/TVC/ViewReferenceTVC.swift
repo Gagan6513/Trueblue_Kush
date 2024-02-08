@@ -38,8 +38,8 @@ class ViewReferenceTVC: UITableViewCell {
         self.claimNoLabel.text = (data.atfault_claimno ?? "") == "" ? "NA" : (data.atfault_claimno ?? "")
         self.phoneNumberLabel.text = (data.owner_phone ?? "") == "" ? "NA" : (data.owner_phone ?? "")
         
-        let date_out = (data.date_out ?? "") == "" ? "NA" : (data.date_out ?? "")
-        let date_in = (data.date_in ?? "") == "" ? "NA" : (data.date_in ?? "")
+        let date_out = (data.date_out ?? "") == "" ? "NA" : (data.date_out ?? "").date(convetedFormate: .ddmmyyyy)
+        let date_in = (data.date_in ?? "") == "" ? "NA" : (data.date_in ?? "").date(convetedFormate: .ddmmyyyy)
         
         self.dateOutInLabel.text = "\(date_out) / \(date_in)"
         

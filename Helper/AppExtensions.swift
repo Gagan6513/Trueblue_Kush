@@ -504,6 +504,14 @@ extension String {
         return dateFormatter.date(from: self)
     }
     
+    func date(currentFormate: DateFormat = .yyyymmdd, convetedFormate: DateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = currentFormate.rawValue
+        let date = dateFormatter.date(from: self) ?? Date()
+        dateFormatter.dateFormat = convetedFormate.rawValue
+        return dateFormatter.string(from: date)
+    }
+    
     func isTimeAM()-> Bool {
         if let value = self.DatePresentable?.getDateAccoringTo(format: .amPm) {
             if value.first?.lowercased() ?? "" == "a" {
@@ -627,7 +635,9 @@ enum DateFormat: String {
     case ddmmyyyy = "dd-MM-yyyy"
     case MM = "MM"
     case yyyymmdd_hhmmss = "yyyy-MM-dd HH:mm:ss"
+    case yyyymmdd_hhmmss_s = "yyyy-MM-dd HH:mm:ss.s"
     case yyyymmdd_hhmmaa = "yyyy-MM-dd hh:mm a"
+    case ddmmyyyy_hhmmaa = "dd-MM-yyyy hh:mm a"
     case hhmmss = "HH:mm:ss"
     case Time12Hr_am = "hh:mm a"
     case TIME_am = "HH:mm a"
