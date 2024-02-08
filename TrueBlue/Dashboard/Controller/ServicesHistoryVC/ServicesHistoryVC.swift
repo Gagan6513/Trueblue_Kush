@@ -53,7 +53,7 @@ class ServicesHistoryVC: UIViewController {
     
     func setupDetails() {
         if let data = vehicleDetails {
-            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\(data.yearof_manufacture ?? ""))"
+            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\((data.yearof_manufacture ?? "").date(convetedFormate: .ddmmyyyy)))"
             self.carIdLabel.text = data.vehicle_category
             self.carModelLabel.text = (data.vehicle_make ?? "")
             if let url = URL(string: data.fleet_image ?? "") {

@@ -235,7 +235,11 @@ class DashboardVC: UIViewController {
         let menu = SideMenuNavigationController(rootViewController: vc)
         //        SideMenuManager.default.leftMenuNavigationController = menu
         menu.leftSide = true
-        menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.2)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.4)
+        } else {
+            menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.2)
+        }
         menu.statusBarEndAlpha = 1
         menu.presentationStyle = .menuSlideIn
         menu.presentingViewControllerUserInteractionEnabled = false

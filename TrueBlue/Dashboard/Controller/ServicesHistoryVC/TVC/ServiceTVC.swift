@@ -37,7 +37,7 @@ class ServiceTVC: UITableViewCell {
     
     func setupDetails(data: AccidentService) {
         self.repairerName.text = (data.repairer_name ?? "") == "" ? "NA" : (data.repairer_name ?? "")
-        self.serviceDate.text = (data.service_date ?? "") == "" ? "NA" : (data.service_date ?? "")
+        self.serviceDate.text = (data.service_date ?? "") == "" ? "NA" : (data.service_date ?? "").date(convetedFormate: .ddmmyyyy)
         self.lastServiceMileage.text = (data.service_mileage ?? "") == "" ? "NA" : (data.service_mileage ?? "")
         self.nextServiceDue.text = (data.nextserviceduekm ?? "") == "" ? "NA" : (data.nextserviceduekm ?? "")
     }

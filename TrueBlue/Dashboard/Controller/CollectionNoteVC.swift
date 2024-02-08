@@ -60,7 +60,6 @@ class CollectionNoteVC: UIViewController {
         
     }
     
-    
     @IBAction func backBtn(_ sender: UIButton) {
         dismiss(animated: true)
     }

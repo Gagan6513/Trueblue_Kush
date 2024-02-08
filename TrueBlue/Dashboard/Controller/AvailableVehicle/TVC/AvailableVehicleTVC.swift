@@ -30,7 +30,7 @@ class AvailableVehicleTVC: UITableViewCell {
         self.carNameLabel.text = data.vehicle_model
         self.carId.text = "/ \(data.registration_no ?? "")"
         self.carTypeLabel.text = data.vehicle_category
-        self.availableLabel.text = data.status_modified_on
+        self.availableLabel.text = (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_s, convetedFormate: .ddmmyyyy_hhmmaa)
         
         if let url = URL(string: data.fleet_image ?? "") {
             self.carImage.sd_setImage(with: url)
