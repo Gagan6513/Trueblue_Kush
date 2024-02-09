@@ -138,7 +138,7 @@ class AccidentManagementSecondVC: UIViewController {
             self.txtFirstName.text = data.atfault_firstname
             self.txtLastName.text = data.atfault_lastname
             self.txtPhone.text = data.atfault_phone
-            self.txtDateofBirth.text = data.atfault_dob
+            self.txtDateofBirth.text = data.atfault_dob?.date(convetedFormate: .ddmmyyyy)
             self.isClientAtFault = data.ourdriver_atfault?.lowercased() ?? ""
             self.isAccess = data.excess?.lowercased() ?? ""
             
