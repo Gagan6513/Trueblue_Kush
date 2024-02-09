@@ -325,8 +325,8 @@ class FleetServiceVC: UIViewController {
         
         self.txtInvoiceNo.text = self.serviceData?.invoice_number
         self.txtAmountPaid.text = self.serviceData?.amount_paid
-        self.txtAmountPaidDate.text = self.serviceData?.amount_paid_date
-        self.txtServiceDate.text = self.serviceData?.service_date
+        self.txtAmountPaidDate.text = self.serviceData?.amount_paid_date?.date(convetedFormate: .ddmmyyyy)
+        self.txtServiceDate.text = self.serviceData?.service_date?.date(convetedFormate: .ddmmyyyy)
         self.txtServiceMileage.text = self.serviceData?.service_mileage
         self.txtNextServiceDue.text = self.serviceData?.nextserviceduekm
         self.txtNote.text = self.serviceData?.Notes
