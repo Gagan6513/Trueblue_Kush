@@ -165,7 +165,7 @@ class AddEventPopupVC: UIViewController {
         })
         
         self.txtAssignTo.text = selectedEvent?.ASSIGNED_TO_USER
-        self.txtEventDate.text = selectedEvent?.EVENT_DATE
+        self.txtEventDate.text = selectedEvent?.EVENT_DATE?.date(convetedFormate: .ddmmyyyy)
         if (self.selectedEvent?.EVENT_TIME ?? "") == "00:00:00" {
             self.txtEventTime.text = ""
         } else {
