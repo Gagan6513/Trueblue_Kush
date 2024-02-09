@@ -256,6 +256,7 @@ class NewReturnVehicleVC: UIViewController {
         ctrl.selectedDate = { [weak self] date in
             guard let self else { return }
             txt.text = date
+            self.checkValidation()
         }
         self.present(ctrl, animated: false)
     }
