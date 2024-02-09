@@ -60,6 +60,7 @@ class NewReturnVehicleVC: UIViewController {
         
         self.txtDateIn.delegate = self
         self.txtTimeIn.delegate = self
+        self.txtDateOut.delegate = self
         self.txtSettlementDate.delegate = self
         self.txtMilageIn.delegate = self
         
@@ -621,7 +622,7 @@ extension NewReturnVehicleVC: UITextFieldDelegate {
         
         var isAllowed = true
         switch textField {
-        case txtDateIn, txtSettlementDate:
+        case txtDateIn, txtDateOut:
             isAllowed = textField.validateDateTyped(shouldChangeCharactersInRange: range, replacementString: string)
             self.checkValidation()
         case txtTimeIn :
