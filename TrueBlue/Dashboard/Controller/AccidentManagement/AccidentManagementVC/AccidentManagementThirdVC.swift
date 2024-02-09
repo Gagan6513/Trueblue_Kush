@@ -80,7 +80,7 @@ class AccidentManagementThirdVC: UIViewController {
                 self.txtRepairerName.textColor = UIColor(named: "7D7D7D")
             }
             
-            self.txtDateofAccident.text = data.dateof_accident
+            self.txtDateofAccident.text = data.dateof_accident?.date(convetedFormate: .ddmmyyyy)
             self.txtTimeofAccident.text = data.timeofaccident
             self.txtAccidentLocation.text = data.accident_location
             self.txtViewAccidentDescription.text = data.description
