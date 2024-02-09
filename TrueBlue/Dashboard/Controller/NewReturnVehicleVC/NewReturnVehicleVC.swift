@@ -387,10 +387,10 @@ class NewReturnVehicleVC: UIViewController {
             return false
         }
         
-        if txtSettlementDate.text?.isEmpty ?? true {
-            showAlert(title: "Error!", messsage: "Please select settlement date")
-            return false
-        }
+//        if txtSettlementDate.text?.isEmpty ?? true {
+//            showAlert(title: "Error!", messsage: "Please select settlement date")
+//            return false
+//        }
         
 //        if self.imgNewFront.image == nil {
 //            showAlert(title: "Error!", messsage: "Please select front image")
