@@ -205,10 +205,12 @@ class FleetServiceVC: UIViewController {
             return false
         }
         
-        if (txtServiceDate.text?.date(from: .ddmmyyyy) ?? Date()) < (txtLastServiceDate.text?.date(from: .yyyymmdd) ?? Date()) {
-            showAlert(title: "Error!", messsage: "Current Service due needs to be greater than before")
-            return false
-        }
+//        if (self.txtLastServiceDate.text ?? "") != "N/A" {
+//            if (txtServiceDate.text?.date(from: .ddmmyyyy) ?? Date()) < (txtLastServiceDate.text?.date(from: .ddmmyyyy) ?? Date()) {
+//                showAlert(title: "Error!", messsage: "Current Service due needs to be greater than before")
+//                return false
+//            }
+//        }
         
 //        if serviceSleepImage.image == nil {
 //            showAlert(title: "Error!", messsage: "Please select service sleep image")
@@ -329,7 +331,7 @@ class FleetServiceVC: UIViewController {
         self.txtNextServiceDue.text = self.serviceData?.nextserviceduekm
         self.txtNote.text = self.serviceData?.Notes
         self.txtKms.text = self.serviceData?.last_service_mileage
-        self.txtLastServiceDate.text = self.serviceData?.last_service_date
+        self.txtLastServiceDate.text = self.serviceData?.last_service_date?.date(convetedFormate: .ddmmyyyy)
         
         if let url = URL(string: self.serviceData?.service_slip1 ?? "") {
             self.imgSlip1.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -448,7 +450,7 @@ extension FleetServiceVC {
                         
                         self.lastServiceData = serviceDataa
                         
-                        self.txtLastServiceDate.text = self.lastServiceData?.last_service_date
+                        self.txtLastServiceDate.text = self.lastServiceData?.last_service_date?.date(convetedFormate: .ddmmyyyy)
                         self.txtKms.text = self.lastServiceData?.last_service_mileage
                         self.txtLastServiceBy.text = self.lastServiceData?.repairer_name
                         
