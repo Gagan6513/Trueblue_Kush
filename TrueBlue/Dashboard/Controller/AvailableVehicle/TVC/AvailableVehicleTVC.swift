@@ -35,7 +35,6 @@ class AvailableVehicleTVC: UITableViewCell {
         if let url = URL(string: data.fleet_image ?? "") {
             self.carImage.sd_setImage(with: url)
         }
-        
     }
     
 }

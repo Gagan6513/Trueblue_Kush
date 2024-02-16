@@ -18,6 +18,16 @@ class AccidentMaintenanceModel: Codable {
 
 class AccidentMaintenanceData: Codable {
     var response : [AccidentMaintenance]?
+    var total_records: CounsForFleet?
+
+}
+
+class CounsForFleet: Codable {
+    
+    var total_count: String?
+    var available_count: String?
+    var hired_count: String?
+    var maintenance_count: String?
 }
 
 class AccidentDetailsModel: Codable {
