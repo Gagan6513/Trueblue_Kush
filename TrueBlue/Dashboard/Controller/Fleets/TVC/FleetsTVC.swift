@@ -81,6 +81,17 @@ class FleetsTVC: UITableViewCell {
             self.carImage.sd_setImage(with: url)
         }
         
+        
+        self.availableTitleLabel.text = "Available Since Last Returned:"
+
+        if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
+            self.availableTitleLabel.text = "Available Since Last Returned:"
+        } else if data.status == "Active" && (data.fleet_status == "Hired") {
+            self.availableTitleLabel.text = "Hiered Since:"
+        } else if data.status == "Maintenance" {
+            self.availableTitleLabel.text = "On Maintenance Since:"
+        }
+        
     }
     
     func convertString(str: String) -> String {
