@@ -10,8 +10,8 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet"]
-    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle",/*"Available\nVehicles",*/"Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet"]
+    let imageNames = ["collections","delivery","returnVehicle","swap"/*,"availableVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0"]
 
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]

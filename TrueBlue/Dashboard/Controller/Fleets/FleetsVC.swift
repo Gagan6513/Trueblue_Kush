@@ -20,10 +20,10 @@ class FleetsVC: UIViewController {
     var currentPage = 0
     var isSearchEnable = false
     var isPaginationAvailable = false
-    var arrNavigation = [["title": "All", "icon": "", "type": "All"],
-                         ["title": "Available", "icon": "image 56", "type": "Available"],
-                         ["title": "On Hire", "icon": "delivery-truck-svgrepo-com 1", "type": "On Hire"],
-                         ["title": "Maintenance", "icon": "image 57", "type": "Maintenance"]]
+    var arrNavigation = [["title": "All", "icon": "", "type": "All", "count": "0"],
+                         ["title": "Available", "icon": "image 56", "type": "Available", "count": "0"],
+                         ["title": "On Hire", "icon": "delivery-truck-svgrepo-com 1", "type": "On Hire", "count": "0"],
+                         ["title": "Maintenance", "icon": "image 57", "type": "Maintenance", "count": "0"]]
     var selectedFilter = "All"
     var search = ""
 
@@ -124,6 +124,23 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FleetsTVC") as? FleetsTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
+        
+        if selectedFilter == "All" {
+            cell.availableTitleLabel.text = "Available Since Last Returned:"
+        }
+        
+        if selectedFilter == "Available" {
+            cell.availableTitleLabel.text = "Available Since Last Returned:" // 20-12-2024 ( 2 Days Ago )
+        }
+        
+        if selectedFilter == "On Hire" {
+            cell.availableTitleLabel.text = "Hiered Since:"
+        }
+        
+        if selectedFilter == "Maintenance" {
+            cell.availableTitleLabel.text = "On Maintenance Since:"
+        }
+        
         if let data = self.arrFilteredVehicles[safe: indexPath.row] {
             cell.setupDetails(data: data)
             
@@ -227,8 +244,35 @@ extension FleetsVC {
                         return
                     }
                     
+                    if var all = self.arrNavigation.firstIndex(where: { $0["title"] == "All" }) {
+                        if let count = data.data?.total_records?.total_count {
+                            self.arrNavigation[all]["count"] = count
+                        }
+                    }
+                    
+                    if var available = self.arrNavigation.firstIndex(where: { $0["title"] == "Available" }) {
+                        if let count = data.data?.total_records?.available_count {
+                            self.arrNavigation[available]["count"] = count
+                        }
+                    }
+                    
+                    if var hire = self.arrNavigation.firstIndex(where: { $0["title"] == "On Hire" }) {
+                        if let count = data.data?.total_records?.hired_count {
+                            self.arrNavigation[hire]["count"] = count
+                        }
+                    }
+                    
+                    if var maintenance = self.arrNavigation.firstIndex(where: { $0["title"] == "Maintenance" }) {
+                        if let count = data.data?.total_records?.maintenance_count {
+                            self.arrNavigation[maintenance]["count"] = count
+                        }
+                    }
+                    
+                    self.filterCollectionView.reloadData()
+                    
+                    
                     if let dataList = data.data?.response {
-                        self.isPaginationAvailable = !(dataList.count < 50)
+                        self.isPaginationAvailable = !(dataList.count < numberOfItemPerPage)
                         self.arrAvailVehicles.append(contentsOf: dataList)
 //                        self.arrFilteredVehicles.append(contentsOf: dataList)
                         self.filterData()
@@ -286,7 +330,7 @@ extension FleetsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventDetailsNavigation", for: indexPath) as? EventDetailsNavigation else { return UICollectionViewCell() }
             
-        cell.lblTitle.text = self.arrNavigation[indexPath.row]["title"]
+        cell.lblTitle.text = "\(self.arrNavigation[indexPath.row]["title"] ?? "") (\(self.arrNavigation[indexPath.row]["count"] ?? ""))"
         cell.imgIcon.isHidden = (self.arrNavigation[indexPath.row]["icon"] ?? "") == ""
         if (self.arrNavigation[indexPath.row]["icon"] ?? "") != "" {
             cell.imgIcon.image = UIImage(named: self.arrNavigation[indexPath.row]["icon"] ?? "")
