@@ -125,22 +125,6 @@ extension FleetsVC : UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FleetsTVC") as? FleetsTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         
-        if selectedFilter == "All" {
-            cell.availableTitleLabel.text = "Available Since Last Returned:"
-        }
-        
-        if selectedFilter == "Available" {
-            cell.availableTitleLabel.text = "Available Since Last Returned:" // 20-12-2024 ( 2 Days Ago )
-        }
-        
-        if selectedFilter == "On Hire" {
-            cell.availableTitleLabel.text = "Hiered Since:"
-        }
-        
-        if selectedFilter == "Maintenance" {
-            cell.availableTitleLabel.text = "On Maintenance Since:"
-        }
-        
         if let data = self.arrFilteredVehicles[safe: indexPath.row] {
             cell.setupDetails(data: data)
             

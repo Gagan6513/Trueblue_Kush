@@ -163,53 +163,5 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BEC1B30E-8569-4AFC-BA96-096BA746D5C4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/Fleets/FleetsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "getAvaiableVehicleList()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BEC1B30E-8569-4AFC-BA96-096BA746D5C4 - f74c41fbf1401927"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in TrueBlue.FleetsVC.getAvaiableVehicleList() -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/Fleets/FleetsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "249"
-                  endingLineNumber = "249"
-                  offsetFromSymbolStart = "2652">
-               </Location>
-               <Location
-                  uuid = "BEC1B30E-8569-4AFC-BA96-096BA746D5C4 - f74c41fbf1401419"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in TrueBlue.FleetsVC.getAvaiableVehicleList() -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/Fleets/FleetsVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "271"
-                  endingLineNumber = "271"
-                  offsetFromSymbolStart = "5108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
