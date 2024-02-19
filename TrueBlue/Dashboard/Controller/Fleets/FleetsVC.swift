@@ -228,25 +228,25 @@ extension FleetsVC {
                         return
                     }
                     
-                    if var all = self.arrNavigation.firstIndex(where: { $0["title"] == "All" }) {
+                    if let all = self.arrNavigation.firstIndex(where: { $0["title"] == "All" }) {
                         if let count = data.data?.total_records?.total_count {
                             self.arrNavigation[all]["count"] = count
                         }
                     }
                     
-                    if var available = self.arrNavigation.firstIndex(where: { $0["title"] == "Available" }) {
+                    if let available = self.arrNavigation.firstIndex(where: { $0["title"] == "Available" }) {
                         if let count = data.data?.total_records?.available_count {
                             self.arrNavigation[available]["count"] = count
                         }
                     }
                     
-                    if var hire = self.arrNavigation.firstIndex(where: { $0["title"] == "On Hire" }) {
+                    if let hire = self.arrNavigation.firstIndex(where: { $0["title"] == "On Hire" }) {
                         if let count = data.data?.total_records?.hired_count {
                             self.arrNavigation[hire]["count"] = count
                         }
                     }
                     
-                    if var maintenance = self.arrNavigation.firstIndex(where: { $0["title"] == "Maintenance" }) {
+                    if let maintenance = self.arrNavigation.firstIndex(where: { $0["title"] == "Maintenance" }) {
                         if let count = data.data?.total_records?.maintenance_count {
                             self.arrNavigation[maintenance]["count"] = count
                         }
