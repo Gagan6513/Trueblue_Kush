@@ -55,7 +55,7 @@ class FleetsTVC: UITableViewCell {
         
         let timeLabel = self.convertToDate(str: (data.status_modified_on ?? ""))
         
-        self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))" // self.convertString(str: (data.status_modified_on ?? ""))
+        self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy))" // (\(timeLabel))"
         
         self.availableLabel.textColor = UIColor(named: "07B107")
 
