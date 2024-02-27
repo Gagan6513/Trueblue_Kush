@@ -399,23 +399,21 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
         switch screenNames[indexPath.row - 1] {
         case "Collections History":
             performSegue(withIdentifier: AppSegue.COLLECTIONS, sender: nil)
+//            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "DeliveryCollectionsVC") as! DeliveryCollectionsVC
+//            ctrl.modalPresentationStyle = .overFullScreen
+//            self.present(ctrl, animated: true)
         case "Delivery History":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
         case "Return\nVehicle":
-//            performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewReturnVehicleVC") as! NewReturnVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         case "Swap Vehicle":
-//            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
-
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
             
         case "Available\nVehicles":
-//            performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
-            
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "AvailableVehicleVC") as! AvailableVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)

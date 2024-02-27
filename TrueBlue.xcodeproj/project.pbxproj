@@ -210,6 +210,9 @@
 		B3660A9E2B57B53300AC8F02 /* HeaderFilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3660A9C2B57B53300AC8F02 /* HeaderFilterCVC.xib */; };
 		B3660AA12B57B68200AC8F02 /* AccidentManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3660AA02B57B68200AC8F02 /* AccidentManagementVC.swift */; };
 		B37068872B8DA4F600AC330E /* LogSheetFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37068862B8DA4F600AC330E /* LogSheetFilterVC.swift */; };
+		B370688A2B8DB31000AC330E /* DeliveryCollectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */; };
+		B370688E2B8DB70700AC330E /* DeliveryCollectionsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */; };
+		B370688F2B8DB70700AC330E /* DeliveryCollectionsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */; };
 		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
 		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
 		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
@@ -464,6 +467,9 @@
 		B3660A9C2B57B53300AC8F02 /* HeaderFilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFilterCVC.xib; sourceTree = "<group>"; };
 		B3660AA02B57B68200AC8F02 /* AccidentManagementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementVC.swift; sourceTree = "<group>"; };
 		B37068862B8DA4F600AC330E /* LogSheetFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSheetFilterVC.swift; sourceTree = "<group>"; };
+		B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCollectionsVC.swift; sourceTree = "<group>"; };
+		B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCollectionsTVC.swift; sourceTree = "<group>"; };
+		B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryCollectionsTVC.xib; sourceTree = "<group>"; };
 		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
 		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
 		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
@@ -632,6 +638,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B37068882B8DB30300AC330E /* DeliveryCollectionsVC */,
 				B39FE0402B71F1C600565AE9 /* NewReturnVehicleVC */,
 				B33A10E92B70A3C70089F191 /* RepairerBooking */,
 				B34B3C1A2B6A0C760051986B /* FleetService */,
@@ -1147,6 +1154,24 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		B37068882B8DB30300AC330E /* DeliveryCollectionsVC */ = {
+			isa = PBXGroup;
+			children = (
+				B370688B2B8DB6D000AC330E /* TVC */,
+				B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */,
+			);
+			path = DeliveryCollectionsVC;
+			sourceTree = "<group>";
+		};
+		B370688B2B8DB6D000AC330E /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */,
+				B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
 		B3771E582B316B5500705FEF /* SwapVehicleVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1461,6 +1486,7 @@
 				B388B26D2B580812007EA2E8 /* ImagesCVC.xib in Resources */,
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
 				B33A10EE2B70A3FC0089F191 /* RepairerBookingTVC.xib in Resources */,
+				B370688F2B8DB70700AC330E /* DeliveryCollectionsTVC.xib in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
 				B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */,
 				B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */,
@@ -1654,6 +1680,7 @@
 				4D9AE14E26DCCA280080D3AB /* HiredVehicleTblCell.swift in Sources */,
 				53F312D926D8A27700D25E52 /* BookingDetailsModel.swift in Sources */,
 				B392BC8A2B3965670002DD69 /* HourlyEventTVC.swift in Sources */,
+				B370688E2B8DB70700AC330E /* DeliveryCollectionsTVC.swift in Sources */,
 				53C5AF3B27019E90004F2FC3 /* CollectionsHeaderTblViewCell.swift in Sources */,
 				B3366DC42B35778B00F72CE8 /* WebService.swift in Sources */,
 				536761C92754D26F00D7F2AB /* DateTextField.swift in Sources */,
@@ -1684,6 +1711,7 @@
 				21F3F7C829B0B3C800C3C60B /* DeliveredCollectedByModel.swift in Sources */,
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,
 				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
+				B370688A2B8DB31000AC330E /* DeliveryCollectionsVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
 				B3926BE52B5A493800C1BAC3 /* AccidentModel.swift in Sources */,
 				579EFDDF2B4E949C0048BDC3 /* NewEventTVC.swift in Sources */,
