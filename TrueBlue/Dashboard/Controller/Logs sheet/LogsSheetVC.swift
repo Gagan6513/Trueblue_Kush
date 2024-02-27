@@ -88,9 +88,7 @@ extension LogsSheetVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         search = string.isEmpty ? String(search.dropLast()) : (textField.text! + string)
-        
         self.filterAllNotesArray = self.allNotesArray.filter({ $0.u_name?.lowercased().contains(search.lowercased()) ?? false})
-
         if search == "" {
             self.filterAllNotesArray = self.allNotesArray
         }
