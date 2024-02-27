@@ -21,11 +21,19 @@ class LogSheetFilterVC: UIViewController {
     var dateFormater = DateFormatter()
     var dateClosure: ((_ fromDate: String, _ toDate: String, _ employee: UserList?) -> Void)?
     
+    var startDate = ""
+    var endDate = ""
+    
     var arrUserList = [UserList]()
     var selectedUserId: UserList?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setupUI()
     }
     
@@ -34,10 +42,10 @@ class LogSheetFilterVC: UIViewController {
     }
     
     @IBAction func btnSave(_ sender: Any) {
-        if validateTextField() {
+//        if validateTextField() {
             self.dateClosure?(self.txtFrom.text ?? "", self.txtTo.text ?? "", self.selectedUserId)
             self.dismiss(animated: false)
-        }
+//        }
     }
     
     @IBAction func btnFromDate(_ sender: Any) {
@@ -81,6 +89,11 @@ class LogSheetFilterVC: UIViewController {
     }
     
     func setupUI() {
+        
+        self.txtFrom.text = self.startDate
+        self.txtTo.text = self.endDate
+        self.txtEmployeeName.text = self.selectedUserId?.name
+        
         self.getUserList()
         self.dateFormater.dateFormat = "dd-MM-YYYY"
         

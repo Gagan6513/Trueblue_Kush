@@ -54,6 +54,11 @@ class LogsSheetVC: UIViewController {
         let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "LogSheetFilterVC") as! LogSheetFilterVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.view.isOpaque = false
+        
+        ctrl.startDate = self.startDate
+        ctrl.endDate = self.endDate
+        ctrl.selectedUserId = self.selectedEmployee
+        
         ctrl.dateClosure = { [weak self] fromdate, todate, emplyee in
             guard let self else { return }
             self.isFromFilter = true
