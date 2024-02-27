@@ -6134,7 +6134,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circlebadge.fill" catalog="system" width="128" height="122"/>
+        <image name="circlebadge.fill" catalog="system" width="32" height="32"/>
         <image name="ic_back" width="27" height="32"/>
         <image name="ic_calender" width="14" height="14"/>
         <image name="ic_clock" width="12" height="12"/>
