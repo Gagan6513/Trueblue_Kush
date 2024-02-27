@@ -116,6 +116,11 @@ class LogSheetFilterVC: UIViewController {
             if let data = self.arrUserList.first(where: { $0.name == noti }) {
                 self.txtEmployeeName.text = data.name
                 self.selectedUserId = data
+            } else {
+                self.txtEmployeeName.text = noti
+                let UserList = UserList()
+                UserList.name = noti
+                self.selectedUserId = UserList
             }
         })
     }
@@ -140,7 +145,8 @@ extension LogSheetFilterVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.txtEmployeeName {
-            let array = self.arrUserList.map({ $0.name ?? "" })
+            var array = self.arrUserList.map({ $0.name ?? "" })
+            array.insert("All", at: 0)
             self.showSearchListPopUp(listForSearch: array, listNameForSearch: AppDropDownLists.SEARCH_USER_LIST, notificationName: .searchUser)
             DispatchQueue.main.async {
                 self.view.endEditing(true)
