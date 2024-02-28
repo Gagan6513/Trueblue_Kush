@@ -20,9 +20,15 @@ class ACADataFilterViewController: UIViewController {
     var dateFormater = DateFormatter()
     var dateClosure: ((_ fromDate: String, _ toDate: String) -> Void)?
     
+    var startDate = ""
+    var endDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setupUI()
     }
     
@@ -32,7 +38,11 @@ class ACADataFilterViewController: UIViewController {
     
     @IBAction func btnSave(_ sender: Any) {
         if validateTextField() {
-            self.dateClosure?(self.txtFrom.text ?? "", self.txtTo.text ?? "")
+            
+            let startDate = (self.txtFrom.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+            let endDate = (self.txtTo.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+            
+            self.dateClosure?(startDate, endDate)
             self.dismiss(animated: false)
         }
     }
@@ -78,6 +88,10 @@ class ACADataFilterViewController: UIViewController {
     }
     
     func setupUI() {
+        
+        self.txtFrom.text = self.startDate.date(currentFormate: .yyyymmdd, convetedFormate: .ddmmyyyy)
+        self.txtTo.text = self.endDate.date(currentFormate: .yyyymmdd, convetedFormate: .ddmmyyyy)
+        
         self.dateFormater.dateFormat = "dd-MM-YYYY"
         
         self.firstStack.axis = UIDevice.current.userInterfaceIdiom == .pad ? .horizontal : .vertical

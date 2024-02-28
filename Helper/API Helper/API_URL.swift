@@ -51,6 +51,7 @@ class API_URL {
     
     static let accidentMaintenanceFirst = new_path + "getFleetsList"
     static let getFleetsList = new_path + "getFleetsList"
+    static let collectionDeliveryList = new_path + "collectionDeliveryList"
     static let getRegoServiceHistory = new_path + "getRegoServiceHistory"
     static let accidentBookings = new_path + "accidentBookings"
     static let getRegoBookings = new_path + "getRegoBookings"
