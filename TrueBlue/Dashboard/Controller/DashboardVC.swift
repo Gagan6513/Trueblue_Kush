@@ -10,9 +10,9 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle",/*"Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet"]
-    let imageNames = ["collections","delivery","returnVehicle","swap"/*,"availableVehicle","hiredVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle"]
-    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0"]
+    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle",/*"Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet", "Collections & Deliveries"]
+    let imageNames = ["collections","delivery","returnVehicle","swap"/*,"availableVehicle","hiredVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle", "hiredVehicle"]
+    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0","0"]
 
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
     var searchbyPicker = UIPickerView()
@@ -399,9 +399,6 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
         switch screenNames[indexPath.row - 1] {
         case "Collections History":
             performSegue(withIdentifier: AppSegue.COLLECTIONS, sender: nil)
-//            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "DeliveryCollectionsVC") as! DeliveryCollectionsVC
-//            ctrl.modalPresentationStyle = .overFullScreen
-//            self.present(ctrl, animated: true)
         case "Delivery History":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
         case "Return\nVehicle":
@@ -412,7 +409,6 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-            
         case "Available\nVehicles":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "AvailableVehicleVC") as! AvailableVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
@@ -438,6 +434,10 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             self.present(ctrl, animated: true)
         case "Fleet":
             let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetsVC") as! FleetsVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Collections & Deliveries":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "DeliveryCollectionsVC") as! DeliveryCollectionsVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:

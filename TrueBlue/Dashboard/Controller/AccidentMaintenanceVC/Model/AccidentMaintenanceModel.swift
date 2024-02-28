@@ -363,3 +363,30 @@ class LastAccidentServiceData: Codable {
     var last_service_mileage : String?
     var repairer_name : String?
 }
+
+class CollectionDeliveryModel: Codable {
+    
+    var data: [CollectionDeliveryDataList]?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class CollectionDeliveryDataList: Codable {
+    
+    var application_id: String?
+    var app_id: String?
+    var collection_by: String?
+    var delivered_by: String?
+    var date_in: String?
+    var date_out: String?
+    var is_swapped: String?
+    var owner_firstname: String?
+    var owner_lastname: String?
+    var owner_phone: String?
+    var registration_no: String?
+    var status: String?
+    var vehicle_id: String?
+    
+}
