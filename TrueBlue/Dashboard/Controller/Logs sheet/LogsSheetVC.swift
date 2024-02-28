@@ -19,6 +19,7 @@ class LogsSheetVC: UIViewController {
     var filterAllNotesArray: [NotesResponseObject] = []
     var search = ""
     var startDate = ""
+    var noteType = ""
     var endDate = ""
     var selectedEmployee: UserList?
     
@@ -58,12 +59,14 @@ class LogsSheetVC: UIViewController {
         ctrl.startDate = self.startDate
         ctrl.endDate = self.endDate
         ctrl.selectedUserId = self.selectedEmployee
+        ctrl.noteType = self.noteType
         
-        ctrl.dateClosure = { [weak self] fromdate, todate, emplyee in
+        ctrl.dateClosure = { [weak self] fromdate, todate, emplyee, noteType in
             guard let self else { return }
             self.isFromFilter = true
             self.startDate = fromdate
             self.endDate = todate
+            self.noteType = noteType
             self.selectedEmployee = emplyee
             self.getLogSheet()
         }
@@ -140,6 +143,11 @@ extension LogsSheetVC {
             param["fromDate"] = self.startDate
             param["toDate"] = self.endDate
             param["emplyee"] = self.selectedEmployee?.id ?? "0"
+        
+        if self.noteType != "" {
+            param["notes_type"] = self.noteType
+        }
+        
 //        }
         
         webService.parameters = param
