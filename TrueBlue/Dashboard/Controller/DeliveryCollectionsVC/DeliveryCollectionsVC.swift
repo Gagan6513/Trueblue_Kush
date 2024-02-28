@@ -9,6 +9,7 @@ import UIKit
 
 class DeliveryCollectionsVC: UIViewController {
     
+    @IBOutlet weak var navigationTitle: UILabel!
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +34,7 @@ class DeliveryCollectionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        
+        self.navigationTitle.text = self.selectedFilter
         NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
             guard let self else { return }
             self.refreshPage()
@@ -316,5 +317,7 @@ extension DeliveryCollectionsVC: UICollectionViewDelegate, UICollectionViewDeleg
         self.selectedFilterType = (self.arrNavigation[indexPath.row]["type"] ?? "")
         self.filterCollectionView.reloadData()
         self.getCollectionListList()
+        
+        self.navigationTitle.text = self.selectedFilter
     }
 }

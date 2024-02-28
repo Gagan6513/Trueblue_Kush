@@ -50,8 +50,13 @@ class DeliveryCollectionsTVC: UITableViewCell {
             self.lblCollectionBy.text = convertString(str: data.collection_by ?? "")
             self.lblHiredDate.isHidden = false
             self.daysCountLabel.isHidden = false
-            self.lblHiredDate.text = (data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy)
-            self.lblDate.text = data.date_in?.date(convetedFormate: .ddmmyyyy)
+            self.lblHiredDate.text = "Hired Date: \((data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy))" 
+            
+             let date1st = formattedDateFromString(dateString: data.date_in ?? "", withFormat: "dd")
+
+            let date2nd = formattedDateFromString(dateString: data.date_in ?? "", withFormat: "MMM, yyyy")
+
+            self.lblDate.text = data.date_in?.date(convetedFormate: .ddMMMMyyyy)
             self.lblStatus.text = "Collected"
             
             let startDate = data.date_out?.date(from: .yyyymmdd) ?? Date()
@@ -110,5 +115,16 @@ class DeliveryCollectionsTVC: UITableViewCell {
     
     @IBAction func btnRefNumber(_ sender: Any) {
         self.clickedRefButton?()
+    }
+    
+    func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy/MM/dd"
+        if let date = inputFormatter.date(from: dateString) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = format
+            return outputFormatter.string(from: date)
+        }
+        return nil
     }
 }

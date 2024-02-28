@@ -10,8 +10,8 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle",/*"Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet", "Collections & Deliveries"]
-    let imageNames = ["collections","delivery","returnVehicle","swap"/*,"availableVehicle","hiredVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle", "hiredVehicle"]
+    let screenNames = [/*"Collections History","Delivery History",*/"Return\nVehicle","Swap Vehicle",/*"Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet", "Collections & Deliveries"]
+    let imageNames = [/*"collections","delivery",*/"returnVehicle","swap"/*,"availableVehicle","hiredVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle", "hiredVehicle"]
     var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0","0"]
 
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
@@ -532,13 +532,13 @@ extension DashboardVC : DashboardVMDelegate {
     func dashboardAPISuccess(objData: DashboardModel, strMessage: String) {
         print(objData.dictResult)
         
-        if let data = screenNames.firstIndex(where: { $0 == "Collections History" }) {
-            arrDashboardCount[data] = objData.dictResult.numOfCollections
-        }
-        
-        if let data = screenNames.firstIndex(where: { $0 == "Delivery History" }) {
-            arrDashboardCount[data] = objData.dictResult.numOfTodayDeliveries
-        }
+//        if let data = screenNames.firstIndex(where: { $0 == "Collections History" }) {
+//            arrDashboardCount[data] = objData.dictResult.numOfCollections
+//        }
+//
+//        if let data = screenNames.firstIndex(where: { $0 == "Delivery History" }) {
+//            arrDashboardCount[data] = objData.dictResult.numOfTodayDeliveries
+//        }
         
         if let data = screenNames.firstIndex(where: { $0 == "Return\nVehicle" }) {
             arrDashboardCount[data] = ""
