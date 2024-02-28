@@ -22,6 +22,9 @@ class DeliveryCollectionsTVC: UITableViewCell {
     
     @IBOutlet weak var collectedByTitle: UILabel!
     
+    var clickedRefButton: (() -> Void)?
+    var clickedRegoButton: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -87,15 +90,25 @@ class DeliveryCollectionsTVC: UITableViewCell {
         return str == "" ? "NA" : str
     }
     
+    @IBAction func btncall(_ sender: Any) {
+        if let urlMobile = NSURL(string: "tel://\(self.lblPhoneNumber.text ?? "")"), UIApplication.shared.canOpenURL(urlMobile as URL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(urlMobile as URL, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(urlMobile as URL)
+            }
+        }
+    }
+    
     @IBAction func btnNext(_ sender: Any) {
         
     }
     
     @IBAction func btnRegoNumber(_ sender: Any) {
-        
+        self.clickedRegoButton?()
     }
     
     @IBAction func btnRefNumber(_ sender: Any) {
-        
+        self.clickedRefButton?()
     }
 }

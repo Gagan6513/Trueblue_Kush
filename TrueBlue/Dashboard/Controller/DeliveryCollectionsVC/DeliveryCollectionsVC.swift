@@ -149,23 +149,16 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
         if let data = self.arrFilteredVehicles[safe: indexPath.row] {
             cell.setupDetails(data: data)
             
+            cell.clickedRefButton = { [weak self] in
+                guard let self else { return }
+                self.openReferance(data: data)
+            }
             
-            
-//            
-//            cell.refClicked = { [weak self] in
-//                guard let self else { return }
-//                self.openReferance(data: data)
-//            }
-//            
-//            cell.serviceClicked = { [weak self] in
-//                guard let self else { return }
-//                self.openService(data: data)
-//            }
-//            
-//            cell.btnReferanceClicked = { [weak self] in
-//                guard let self else { return }
-//                self.openFleetReferance(data: data)
-//            }
+            cell.clickedRegoButton = { [weak self] in
+                guard let self else { return }
+                self.openFleetReferance(data: data)
+            }
+
         }
  
         return cell
@@ -181,27 +174,28 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
 //        }
     }
     
-    func openReferance(data: AccidentMaintenance) {
-        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "ViewReferenceVC") as! ViewReferenceVC
+    func openReferance(data: CollectionDeliveryDataList) {
+        
+        var storyboardName = String()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = AppStoryboards.DASHBOARD
+        } else {
+            storyboardName = AppStoryboards.DASHBOARD_PHONE
+        }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        
+        let ctrl = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: "SearchDashboardResultDetailsVC") as! SearchDashboardResultDetailsVC
         ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.vehicleDetails = data
+        ctrl.searchValue = data.application_id ?? ""
         self.present(ctrl, animated: true)
     }
     
-    func openFleetReferance(data: AccidentMaintenance) {
+    func openFleetReferance(data: CollectionDeliveryDataList) {
         let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetReferenceVC") as! FleetReferenceVC
         ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.vehicleDetails = data
+        ctrl.vehicleCollectionDetails = data
         self.present(ctrl, animated: true)
     }
-    
-    func openService(data: AccidentMaintenance) {
-        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "ServicesHistoryVC") as! ServicesHistoryVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.vehicleDetails = data
-        self.present(ctrl, animated: true)
-    }
- 
 }
 
 extension DeliveryCollectionsVC {

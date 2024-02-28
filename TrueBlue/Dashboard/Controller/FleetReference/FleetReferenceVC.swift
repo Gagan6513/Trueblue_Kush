@@ -19,6 +19,7 @@ class FleetReferenceVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var vehicleDetails: AccidentMaintenance?
+    var vehicleCollectionDetails: CollectionDeliveryDataList?
     var arrReferace: [AccidentReferance] = []
     
     var currentPage = 0
@@ -73,6 +74,12 @@ class FleetReferenceVC: UIViewController {
             if let url = URL(string: data.fleet_image ?? "") {
                 self.carImage.sd_setImage(with: url)
             }
+        }
+        
+        if let data = vehicleCollectionDetails {
+            self.carNameLabel.text = "-------"
+            self.carIdLabel.text = "-------"
+            self.carModelLabel.text = "-------"
         }
     }
 }
@@ -160,7 +167,7 @@ extension FleetReferenceVC {
         param["limitRecord"] = "\(numberOfItemPerPage)"
         param["pageNo"] = "\(numberOfItemPerPage * (self.currentPage))"
         
-        param["vehicle_id"] = vehicleDetails?.id
+        param["vehicle_id"] = vehicleDetails?.id ?? vehicleCollectionDetails?.vehicle_id
         
         webService.parameters = param
         

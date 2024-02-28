@@ -13,11 +13,13 @@ class SearchDashboardResultDetailsVC: UIViewController {
     var vehiclesResultObj = [VehiclesDetailsModelData]()
     var searchValue = String()
     var arrSearchData = [SearchDashboardResultDetailsModelData]()
+    
 //    @IBOutlet weak var ibViewSappedVehicleBtn: UIButton!
     @IBOutlet weak var tblView: UITableView!
     
     @IBOutlet weak var viewSwappedHeight: NSLayoutConstraint!
     @IBOutlet weak var viewSwappedBtnView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //viewSwappedHeight.constant = 0
