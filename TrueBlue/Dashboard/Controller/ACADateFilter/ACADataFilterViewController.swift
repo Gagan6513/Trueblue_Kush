@@ -37,13 +37,21 @@ class ACADataFilterViewController: UIViewController {
     }
     
     @IBAction func btnSave(_ sender: Any) {
-        if validateTextField() {
-            let startDate = (self.txtFrom.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
-            let endDate = (self.txtTo.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
-            
-            self.dateClosure?(startDate, endDate)
-            self.dismiss(animated: false)
+//        if validateTextField() {
+        var startDate = (self.txtFrom.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+        var endDate = (self.txtTo.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+
+        if (self.txtFrom.text ?? "") == "" {
+            startDate = ""
         }
+        
+        if (self.txtTo.text ?? "") == "" {
+            endDate = ""
+        }
+        
+        self.dateClosure?(startDate, endDate)
+        self.dismiss(animated: false)
+//        }
     }
     
     @IBAction func btnFromDate(_ sender: Any) {

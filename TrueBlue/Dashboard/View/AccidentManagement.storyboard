@@ -6385,6 +6385,7 @@
                     <connections>
                         <outlet property="btnFilter" destination="375-gq-9SD" id="VfM-GU-GUK"/>
                         <outlet property="filterCollectionView" destination="Gdg-n5-jdv" id="WuY-4m-s8c"/>
+                        <outlet property="navigationTitle" destination="IyD-fR-0YQ" id="BYp-TC-reA"/>
                         <outlet property="tableView" destination="hs1-hm-gSz" id="j1F-ZP-s5d"/>
                         <outlet property="txtSearch" destination="4vx-Ho-5aE" id="9ff-uQ-gxk"/>
                     </connections>
