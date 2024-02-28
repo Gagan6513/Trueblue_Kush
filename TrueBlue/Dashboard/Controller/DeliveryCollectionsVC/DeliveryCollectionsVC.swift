@@ -95,13 +95,13 @@ extension DeliveryCollectionsVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         search = (string.isEmpty ? String(search.dropLast()) : (textField.text! + string)).lowercased()
         
-        if search == "" {
-            self.arrFilteredVehicles = self.arrAvailVehicles
-        } else {
-            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ ($0.owner_firstname?.lowercased().contains(search) ?? false) || ($0.owner_lastname?.lowercased().contains(search) ?? false) })
-        }
-        
-        self.tableView.reloadData()
+//        if search == "" {
+//            self.arrFilteredVehicles = self.arrAvailVehicles
+//        } else {
+//            self.arrFilteredVehicles = self.arrAvailVehicles.filter({ ($0.owner_firstname?.lowercased().contains(search) ?? false) || ($0.owner_lastname?.lowercased().contains(search) ?? false) })
+//        }
+//
+//        self.tableView.reloadData()
         return true
     }
         
@@ -120,7 +120,7 @@ extension DeliveryCollectionsVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        self.refreshPage()
+        self.refreshPage()
     }
     
     func refreshPage() {
@@ -209,7 +209,6 @@ extension DeliveryCollectionsVC {
     func getCollectionListList() {
         
         self.arrAvailVehicles = []
-        self.txtSearch.text = ""
         
         if self.currentPage == 0 {
             CommonObject().showProgress()
@@ -224,6 +223,10 @@ extension DeliveryCollectionsVC {
         param["fromDate"] = self.startDate
         param["toDate"] = self.endDate
         param["status"] = self.selectedFilterType
+        
+        if self.search != "" {
+            param["searchval"] = self.search
+        }
         
         webService.parameters = param
         
@@ -310,6 +313,7 @@ extension DeliveryCollectionsVC: UICollectionViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.search = ""
+        self.txtSearch.text = ""
         self.currentPage = 0
         self.isPaginationAvailable = false
         self.arrAvailVehicles = []
