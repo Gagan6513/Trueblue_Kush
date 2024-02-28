@@ -27,8 +27,8 @@ class DeliveryCollectionsVC: UIViewController {
     var search = ""
     var arrAvailVehicles = [CollectionDeliveryDataList]()
     var arrFilteredVehicles = [CollectionDeliveryDataList]()
-    var startDate = "2023-02-27"
-    var endDate = "2024-02-27"
+    var startDate = ""
+    var endDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
