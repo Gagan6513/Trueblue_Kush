@@ -24,6 +24,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
     
     var clickedRefButton: (() -> Void)?
     var clickedRegoButton: (() -> Void)?
+    var clickedNextButton: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -106,7 +107,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     @IBAction func btnNext(_ sender: Any) {
-        
+        self.clickedNextButton?()
     }
     
     @IBAction func btnRegoNumber(_ sender: Any) {

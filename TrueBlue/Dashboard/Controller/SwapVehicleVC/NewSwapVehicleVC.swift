@@ -51,6 +51,9 @@ class NewSwapVehicleVC: UIViewController {
     @IBOutlet weak var imgNewMeter: UIImageView!
 
     var applicationID = String()//We get this from Collections Screen
+    
+    var regoNumber = String()//Get from Collection & deliveries
+    
     var arrHiredVehicle = [HiredVehicleDropdownListModelData]()
     var arrReturnUploadedDocs = [DocumentDetailsModelData]()
     var arrCarImages = [fleet_docs]()
@@ -280,6 +283,7 @@ class NewSwapVehicleVC: UIViewController {
                 showToast(strMessage: noRecordAvailable)
             }
         }
+        
     }
     
     @IBAction func btnChooseNewRefNo(_ sender: Any) {
@@ -452,7 +456,6 @@ class NewSwapVehicleVC: UIViewController {
         self.txtNewDateOut.delegate = self
         self.txtNewTimeOut.delegate = self
         
-        
         apiPostRequest(parameters: [:], endPoint: EndPoints.HIRED_VEHICLE_DROPDOWN_LIST)
         apiPostSwapeVehicleRequest(parameters: [:], endPoint: EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST)
 
@@ -557,6 +560,24 @@ class NewSwapVehicleVC: UIViewController {
                 }
             }
         }
+        
+        if !regoNumber.isEmpty {
+            for i in 0...arrHiredVehicle.count-1 {
+                if regoNumber == arrHiredVehicle[i].registration_no {
+                    txtRefNo.text = arrHiredVehicle[i].refno + "-" + arrHiredVehicle[i].registration_no
+                    txtMilageOut.text = arrHiredVehicle[i].Mileage_out
+                    txtDateOut.text = arrHiredVehicle[i].date_out
+                    txtTimeOut.text = arrHiredVehicle[i].time_out
+                    txtClientName.text = arrHiredVehicle[i].client_name
+                    
+                    txtModelInfo.text = arrHiredVehicle[i].vehicle_make + " " + arrHiredVehicle[i].vehicle_model
+                    
+                    self.arrCarImages = arrHiredVehicle[i].fleet_docs
+                    self.CarImageCollectionView.reloadData()
+                }
+            }
+        }
+        
     }
     
     func validationTextfield() -> Bool {

@@ -147,7 +147,6 @@ extension LogsSheetVC {
         if self.noteType != "" {
             param["notes_type"] = self.noteType
         }
-        
 //        }
         
         webService.parameters = param
