@@ -27,7 +27,9 @@ class LogSheetFilterVC: UIViewController {
     var endDate = ""
     var noteType = ""
     
-    var arrNotesType = [["title": "Custom Notes", "type": "custom_notes"],
+    var arrNotesType = [["title": "All", "type": "all"],
+                        ["title": "Custom Notes", "type": "custom"],
+                        ["title": "New Bookings", "type": "ref_booking"],
                         ["title": "Deliveries", "type": "deliveries"],
                         ["title": "Collections", "type": "collection"],
                         ["title": "Swap", "type": "swap"],

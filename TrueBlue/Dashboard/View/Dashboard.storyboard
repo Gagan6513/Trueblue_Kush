@@ -1294,7 +1294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WG-jf-LIA">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="94.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="820" height="94.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9l-5R-8v1">
                                         <rect key="frame" x="50" y="30.5" width="39" height="33"/>
@@ -1306,13 +1306,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swap Vehicle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qu-d9-dpa">
-                                        <rect key="frame" x="407" y="27" width="210.5" height="40.5"/>
+                                        <rect key="frame" x="305" y="27" width="210.5" height="40.5"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkf-gj-V7G">
-                                        <rect key="frame" x="927" y="23.5" width="47" height="47.5"/>
+                                        <rect key="frame" x="723" y="23.5" width="47" height="47.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Qkf-gj-V7G" secondAttribute="height" multiplier="1:1" id="0Wh-LI-cCS"/>
                                         </constraints>
@@ -1331,32 +1331,32 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJ2-YI-Q5H">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="820" height="0.0"/>
                                 <color key="backgroundColor" name="AppBlue"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWv-hZ-K19">
-                                <rect key="frame" x="0.0" y="94.5" width="1024" height="1085.5"/>
+                                <rect key="frame" x="0.0" y="94.5" width="820" height="1085.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Z5-Zq-aIT">
-                                        <rect key="frame" x="0.0" y="0.0" width="1013" height="1171"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="811" height="1171"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Na-xg-9V5">
-                                                <rect key="frame" x="0.0" y="0.0" width="1013" height="760"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="811" height="760"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6nH-Qp-gFE">
-                                                        <rect key="frame" x="40" y="30" width="933" height="720"/>
+                                                        <rect key="frame" x="40" y="30" width="731" height="720"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-xl-zks" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="933" height="81"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="731" height="81"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose REGO or RA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-Q4-Oeh">
-                                                                        <rect key="frame" x="15" y="0.0" width="848" height="81"/>
+                                                                        <rect key="frame" x="15" y="0.0" width="646" height="81"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <color key="textColor" name="AppGrey"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="qf8-G8-DI0">
-                                                                        <rect key="frame" x="873" y="33" width="30" height="15"/>
+                                                                        <rect key="frame" x="671" y="33" width="30" height="15"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="ZgN-dM-o2m"/>
                                                                             <constraint firstAttribute="height" constant="15" id="jpW-BF-1ji"/>
@@ -1377,13 +1377,13 @@
                                                                 </connections>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e2K-sM-7ry">
-                                                                <rect key="frame" x="0.0" y="91" width="933" height="81.5"/>
+                                                                <rect key="frame" x="0.0" y="91" width="731" height="81.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so4-xy-hNr" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="461.5" height="81.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="360.5" height="81.5"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mileage Out" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjY-bp-g9y" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="436.5" height="59.5"/>
+                                                                                <rect key="frame" x="15" y="11" width="335.5" height="59.5"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1417,10 +1417,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7h-5J-QeP" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="471.5" y="0.0" width="461.5" height="81.5"/>
+                                                                        <rect key="frame" x="370.5" y="0.0" width="360.5" height="81.5"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date Out(DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Dh-l0-i4L" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="436.5" height="59.5"/>
+                                                                                <rect key="frame" x="15" y="11" width="335.5" height="59.5"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1456,13 +1456,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fgH-ep-e3Y">
-                                                                <rect key="frame" x="0.0" y="182.5" width="933" height="81"/>
+                                                                <rect key="frame" x="0.0" y="182.5" width="731" height="81"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkt-fj-rXF" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="461.5" height="81"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="360.5" height="81"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time Out(HH:MM)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-lG-dfd" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="331.5" height="59"/>
+                                                                                <rect key="frame" x="15" y="11" width="230.5" height="59"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1488,7 +1488,7 @@
                                                                                 </connections>
                                                                             </textField>
                                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6si-v8-plJ">
-                                                                                <rect key="frame" x="356.5" y="20.5" width="90" height="41"/>
+                                                                                <rect key="frame" x="255.5" y="20.5" width="90" height="41"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="Y2M-1o-AN5"/>
                                                                                     <constraint firstAttribute="width" constant="90" id="zFz-Jt-Ip7"/>
@@ -1509,10 +1509,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTQ-GZ-vCV" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="471.5" y="0.0" width="461.5" height="81"/>
+                                                                        <rect key="frame" x="370.5" y="0.0" width="360.5" height="81"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date In(DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MwF-xl-sbx" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="348.5" height="59"/>
+                                                                                <rect key="frame" x="15" y="11" width="248" height="59"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1538,7 +1538,7 @@
                                                                                 </connections>
                                                                             </textField>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jx-fE-LQf">
-                                                                                <rect key="frame" x="378.5" y="14" width="53" height="53"/>
+                                                                                <rect key="frame" x="278" y="14" width="52.5" height="53"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="9jx-fE-LQf" secondAttribute="height" multiplier="1:1" id="6wL-QW-Ltw"/>
                                                                                 </constraints>
@@ -1562,13 +1562,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7de-eN-FK6">
-                                                                <rect key="frame" x="0.0" y="273.5" width="933" height="81.5"/>
+                                                                <rect key="frame" x="0.0" y="273.5" width="731" height="81.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dut-hj-aaQ" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="461.5" height="81.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="360.5" height="81.5"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time In(HH:MM)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pau-NW-WM2" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="331.5" height="59.5"/>
+                                                                                <rect key="frame" x="15" y="11" width="230.5" height="59.5"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1594,7 +1594,7 @@
                                                                                 </connections>
                                                                             </textField>
                                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RLV-2m-S0A">
-                                                                                <rect key="frame" x="356.5" y="21" width="90" height="41"/>
+                                                                                <rect key="frame" x="255.5" y="21" width="90" height="41"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="90" id="DpY-9C-MhR"/>
                                                                                     <constraint firstAttribute="height" constant="40" id="L7i-Yd-dTd"/>
@@ -1615,10 +1615,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7H-yv-MWi" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                        <rect key="frame" x="471.5" y="0.0" width="461.5" height="81.5"/>
+                                                                        <rect key="frame" x="370.5" y="0.0" width="360.5" height="81.5"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mileage In" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0Y-5D-zlS" customClass="JVFloatLabeledTextField">
-                                                                                <rect key="frame" x="15" y="11" width="436.5" height="59.5"/>
+                                                                                <rect key="frame" x="15" y="11" width="335.5" height="59.5"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                 <userDefinedRuntimeAttributes>
@@ -1654,16 +1654,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIC-l3-Dye" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="365" width="933" height="81"/>
+                                                                <rect key="frame" x="0.0" y="365" width="731" height="81"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose New Vehicle REGO or RA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-iZ-7A9">
-                                                                        <rect key="frame" x="15" y="0.0" width="848" height="81"/>
+                                                                        <rect key="frame" x="15" y="0.0" width="646" height="81"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <color key="textColor" name="AppGrey"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdown" translatesAutoresizingMaskIntoConstraints="NO" id="6M1-xh-0GP">
-                                                                        <rect key="frame" x="873" y="33" width="30" height="15"/>
+                                                                        <rect key="frame" x="671" y="33" width="30" height="15"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="15" id="Ioq-MR-OFg"/>
                                                                             <constraint firstAttribute="width" constant="30" id="k2I-Cx-rYh"/>
@@ -1684,10 +1684,10 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SF2-D4-RKo" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="456" width="933" height="81.5"/>
+                                                                <rect key="frame" x="0.0" y="456" width="731" height="81.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mileage Out" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIh-pv-DFs" customClass="JVFloatLabeledTextField">
-                                                                        <rect key="frame" x="15" y="11" width="908" height="59.5"/>
+                                                                        <rect key="frame" x="15" y="11" width="706" height="59.5"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -1721,10 +1721,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yi-jV-Vid" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="547.5" width="933" height="81"/>
+                                                                <rect key="frame" x="0.0" y="547.5" width="731" height="81"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Replacement(DD-MM-YYYY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwt-gE-XOO" customClass="JVFloatLabeledTextField">
-                                                                        <rect key="frame" x="15" y="11" width="820" height="59"/>
+                                                                        <rect key="frame" x="15" y="11" width="618.5" height="59"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -1750,7 +1750,7 @@
                                                                         </connections>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cs7-41-cAr">
-                                                                        <rect key="frame" x="850" y="14" width="53" height="53"/>
+                                                                        <rect key="frame" x="648.5" y="14" width="52.5" height="53"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Cs7-41-cAr" secondAttribute="height" multiplier="1:1" id="j0K-jT-rAg"/>
                                                                         </constraints>
@@ -1772,10 +1772,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLh-f8-b8t" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="638.5" width="933" height="81.5"/>
+                                                                <rect key="frame" x="0.0" y="638.5" width="731" height="81.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time of Replacement(HH:MM)" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-7h-P8z" customClass="JVFloatLabeledTextField">
-                                                                        <rect key="frame" x="15" y="11" width="803" height="59.5"/>
+                                                                        <rect key="frame" x="15" y="11" width="601" height="59.5"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -1801,7 +1801,7 @@
                                                                         </connections>
                                                                     </textField>
                                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XVq-29-kC5">
-                                                                        <rect key="frame" x="828" y="21" width="90" height="41"/>
+                                                                        <rect key="frame" x="626" y="21" width="90" height="41"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="90" id="CRe-Z7-Xc7"/>
                                                                             <constraint firstAttribute="height" constant="40" id="CVC-GN-E5u"/>
@@ -1822,10 +1822,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-if-BN2" customClass="InputView" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="720" width="933" height="22"/>
+                                                                <rect key="frame" x="0.0" y="720" width="731" height="22"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number of Days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUg-2k-dbB" customClass="JVFloatLabeledTextField">
-                                                                        <rect key="frame" x="15" y="11" width="908" height="0.0"/>
+                                                                        <rect key="frame" x="15" y="11" width="706" height="0.0"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -1873,10 +1873,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uN9-Iw-I4v">
-                                                <rect key="frame" x="0.0" y="770" width="1013" height="130"/>
+                                                <rect key="frame" x="0.0" y="770" width="811" height="130"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="id4-FB-ci7">
-                                                        <rect key="frame" x="40" y="0.0" width="933" height="130"/>
+                                                        <rect key="frame" x="40" y="0.0" width="731" height="130"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4kV-cz-o2H">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -1926,10 +1926,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-WE-ZDx">
-                                                <rect key="frame" x="0.0" y="910" width="1013" height="130"/>
+                                                <rect key="frame" x="0.0" y="910" width="811" height="130"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZV2-g0-5lk">
-                                                        <rect key="frame" x="40" y="0.0" width="933" height="130"/>
+                                                        <rect key="frame" x="40" y="0.0" width="731" height="130"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u0u-fA-dV7">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -1976,7 +1976,7 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="swapVehicleAddMorePicturesCell" id="IEj-YO-Hfy" customClass="SwapVehicleAddMorePicturesCvCell" customModule="TrueBlue" customModuleProvider="target">
-                                                                <rect key="frame" x="161" y="0.0" width="128" height="128"/>
+                                                                <rect key="frame" x="151" y="0.0" width="128" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="A3A-ql-Lbc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -2019,10 +2019,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kar-rr-MMe">
-                                                <rect key="frame" x="0.0" y="1050" width="1013" height="121"/>
+                                                <rect key="frame" x="0.0" y="1050" width="811" height="121"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmo-9v-QAD">
-                                                        <rect key="frame" x="40" y="20" width="933" height="71"/>
+                                                        <rect key="frame" x="40" y="20" width="731" height="71"/>
                                                         <color key="backgroundColor" name="AppBlue"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                                         <state key="normal" title="Submit">
@@ -15081,7 +15081,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOR-yT-4zN">
-                                <rect key="frame" x="0.0" y="0.0" width="820" height="45"/>
+                                <rect key="frame" x="0.0" y="24" width="820" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPi-mQ-eSe">
                                         <rect key="frame" x="15" y="12.5" width="25" height="20"/>
@@ -15097,7 +15097,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reference Search Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-N5-0KA">
-                                        <rect key="frame" x="83.5" y="9.5" width="652" height="26"/>
+                                        <rect key="frame" x="83.5" y="9.5" width="652" height="36"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -15105,7 +15105,6 @@
                                 </subviews>
                                 <color key="backgroundColor" name="AppBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="6E8-3Z-5VN"/>
                                     <constraint firstItem="qPi-mQ-eSe" firstAttribute="top" secondItem="sOR-yT-4zN" secondAttribute="top" constant="12.5" id="RtJ-Tj-aW0"/>
                                     <constraint firstItem="ddm-N5-0KA" firstAttribute="top" secondItem="sOR-yT-4zN" secondAttribute="top" constant="9.5" id="blh-8L-zIa"/>
                                     <constraint firstItem="qPi-mQ-eSe" firstAttribute="leading" secondItem="sOR-yT-4zN" secondAttribute="leading" constant="15" id="dwM-Rg-aJv"/>
@@ -15114,8 +15113,44 @@
                                     <constraint firstAttribute="trailing" secondItem="ddm-N5-0KA" secondAttribute="trailing" constant="84.5" id="ye4-AF-Mdq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrF-BN-4SZ">
+                                <rect key="frame" x="0.0" y="24" width="820" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reference Search Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xL8-ch-bfr">
+                                        <rect key="frame" x="303.5" y="17" width="213" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" name="F5F5F5"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udL-hj-R9n">
+                                        <rect key="frame" x="4" y="0.0" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="udL-hj-R9n" secondAttribute="height" id="jUn-Ma-0cL"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_back"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="0vV-fl-R4b" eventType="touchUpInside" id="X4F-nX-eFv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="3478F6"/>
+                                <constraints>
+                                    <constraint firstItem="udL-hj-R9n" firstAttribute="leading" secondItem="BrF-BN-4SZ" secondAttribute="leading" constant="4" id="EoS-aj-enK"/>
+                                    <constraint firstItem="xL8-ch-bfr" firstAttribute="centerX" secondItem="BrF-BN-4SZ" secondAttribute="centerX" id="UUE-s0-JPd"/>
+                                    <constraint firstItem="xL8-ch-bfr" firstAttribute="centerY" secondItem="BrF-BN-4SZ" secondAttribute="centerY" id="aXf-W2-7td"/>
+                                    <constraint firstItem="udL-hj-R9n" firstAttribute="top" secondItem="BrF-BN-4SZ" secondAttribute="top" id="cIg-QP-AKr"/>
+                                    <constraint firstAttribute="height" constant="44" id="f1l-jl-55o">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="55"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="udL-hj-R9n" secondAttribute="bottom" id="wPV-72-kBV"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANq-Xh-2kb">
-                                <rect key="frame" x="10" y="64" width="800" height="120"/>
+                                <rect key="frame" x="10" y="99" width="800" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EjR-S8-Whj">
                                         <rect key="frame" x="0.0" y="82" width="800" height="35"/>
@@ -15329,7 +15364,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FNr-8p-OUk">
-                                <rect key="frame" x="10" y="206" width="800" height="954"/>
+                                <rect key="frame" x="10" y="241" width="800" height="919"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReferenceSearchResultTableViewCell" rowHeight="117" id="zb4-SB-nkk" customClass="ReferenceSearchResultTableViewCell" customModule="TrueBlue" customModuleProvider="target">
@@ -15489,6 +15524,10 @@
                                     <outlet property="delegate" destination="0vV-fl-R4b" id="INo-k7-qOh"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSh-gu-rbK">
+                                <rect key="frame" x="0.0" y="0.0" width="820" height="24"/>
+                                <color key="backgroundColor" name="3478F6"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kHU-Lr-aJ8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -15496,14 +15535,22 @@
                         <constraints>
                             <constraint firstItem="FNr-8p-OUk" firstAttribute="top" secondItem="ANq-Xh-2kb" secondAttribute="bottom" constant="22" id="09O-sY-GAc"/>
                             <constraint firstItem="kHU-Lr-aJ8" firstAttribute="trailing" secondItem="FNr-8p-OUk" secondAttribute="trailing" constant="10" id="0D0-4n-eQr"/>
+                            <constraint firstItem="BrF-BN-4SZ" firstAttribute="bottom" secondItem="sOR-yT-4zN" secondAttribute="bottom" id="2du-gi-pMI"/>
                             <constraint firstItem="FNr-8p-OUk" firstAttribute="leading" secondItem="kHU-Lr-aJ8" secondAttribute="leading" constant="10" id="3AF-OO-40f"/>
+                            <constraint firstItem="ANq-Xh-2kb" firstAttribute="top" secondItem="sOR-yT-4zN" secondAttribute="bottom" constant="20" id="4Ww-wu-P7N"/>
                             <constraint firstItem="FNr-8p-OUk" firstAttribute="bottom" secondItem="kHU-Lr-aJ8" secondAttribute="bottom" id="7aJ-zO-Hbb"/>
                             <constraint firstItem="kHU-Lr-aJ8" firstAttribute="trailing" secondItem="ANq-Xh-2kb" secondAttribute="trailing" constant="10" id="C0T-gB-Ucz"/>
-                            <constraint firstItem="sOR-yT-4zN" firstAttribute="top" secondItem="qsd-JT-Fm3" secondAttribute="top" id="L25-WL-VTu"/>
+                            <constraint firstItem="sOR-yT-4zN" firstAttribute="top" secondItem="kHU-Lr-aJ8" secondAttribute="top" id="L25-WL-VTu"/>
+                            <constraint firstItem="BrF-BN-4SZ" firstAttribute="trailing" secondItem="sOR-yT-4zN" secondAttribute="trailing" id="LBN-FB-aPW"/>
                             <constraint firstAttribute="trailing" secondItem="sOR-yT-4zN" secondAttribute="trailing" id="Rsv-se-TNi"/>
                             <constraint firstItem="sOR-yT-4zN" firstAttribute="leading" secondItem="qsd-JT-Fm3" secondAttribute="leading" id="bFR-4B-N3u"/>
+                            <constraint firstItem="sOR-yT-4zN" firstAttribute="top" secondItem="cSh-gu-rbK" secondAttribute="bottom" id="fbI-n7-7Uk"/>
+                            <constraint firstItem="cSh-gu-rbK" firstAttribute="leading" secondItem="qsd-JT-Fm3" secondAttribute="leading" id="hbV-IC-xoD"/>
                             <constraint firstItem="ANq-Xh-2kb" firstAttribute="leading" secondItem="kHU-Lr-aJ8" secondAttribute="leading" constant="10" id="keF-pu-JIq"/>
-                            <constraint firstItem="ANq-Xh-2kb" firstAttribute="top" secondItem="kHU-Lr-aJ8" secondAttribute="top" constant="40" id="pSz-7w-BQU"/>
+                            <constraint firstItem="cSh-gu-rbK" firstAttribute="top" secondItem="qsd-JT-Fm3" secondAttribute="top" id="l8D-cS-Ace"/>
+                            <constraint firstAttribute="trailing" secondItem="cSh-gu-rbK" secondAttribute="trailing" id="r7v-IH-L7I"/>
+                            <constraint firstItem="BrF-BN-4SZ" firstAttribute="leading" secondItem="sOR-yT-4zN" secondAttribute="leading" id="sE2-cT-bbR"/>
+                            <constraint firstItem="BrF-BN-4SZ" firstAttribute="top" secondItem="sOR-yT-4zN" secondAttribute="top" id="scb-cY-d9X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V2T-Mg-QtV"/>
@@ -15522,7 +15569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4s-dA-7Mt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3302.34375" y="569.69253294289888"/>
+            <point key="canvasLocation" x="3302.1951219512193" y="569.49152542372883"/>
         </scene>
         <!--Repairer BookingVC-->
         <scene sceneID="gq4-ac-wrH">
@@ -16282,349 +16329,373 @@
     </scenes>
     <designables>
         <designable name="06u-iH-Axh">
-            <size key="intrinsicContentSize" width="374" height="23.5"/>
+            <size key="intrinsicContentSize" width="374" height="43.5"/>
         </designable>
         <designable name="0kl-X2-AdZ">
-            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="64.5" height="46"/>
         </designable>
         <designable name="1BL-1e-020">
-            <size key="intrinsicContentSize" width="426" height="24.5"/>
+            <size key="intrinsicContentSize" width="426" height="46"/>
         </designable>
         <designable name="1Bg-ua-BAO">
-            <size key="intrinsicContentSize" width="129" height="24.5"/>
+            <size key="intrinsicContentSize" width="129" height="46"/>
         </designable>
         <designable name="1Dh-l0-i4L">
-            <size key="intrinsicContentSize" width="278" height="30.5"/>
+            <size key="intrinsicContentSize" width="278" height="56.5"/>
         </designable>
         <designable name="1z6-7b-RZM">
-            <size key="intrinsicContentSize" width="171" height="30.5"/>
+            <size key="intrinsicContentSize" width="171" height="56.5"/>
         </designable>
         <designable name="2xw-EN-JWT">
-            <size key="intrinsicContentSize" width="125" height="24.5"/>
+            <size key="intrinsicContentSize" width="125" height="46"/>
         </designable>
         <designable name="32D-I8-lKm">
-            <size key="intrinsicContentSize" width="181.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="181.5" height="46"/>
         </designable>
         <designable name="3DE-Oa-jwo">
-            <size key="intrinsicContentSize" width="6" height="24.5"/>
+            <size key="intrinsicContentSize" width="6" height="29.5"/>
         </designable>
         <designable name="4Me-jE-BoS">
-            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
         </designable>
         <designable name="5bD-Ba-6Wv">
-            <size key="intrinsicContentSize" width="58" height="24.5"/>
+            <size key="intrinsicContentSize" width="58" height="46"/>
         </designable>
         <designable name="7Da-LD-AT4">
-            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
         </designable>
         <designable name="9T8-V3-VJ3">
-            <size key="intrinsicContentSize" width="6" height="24.5"/>
+            <size key="intrinsicContentSize" width="6" height="29.5"/>
         </designable>
         <designable name="A2F-1S-dLh">
-            <size key="intrinsicContentSize" width="179" height="24.5"/>
+            <size key="intrinsicContentSize" width="179" height="46"/>
+        </designable>
+        <designable name="A8Z-Je-XOf">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="BAb-y5-tXr">
-            <size key="intrinsicContentSize" width="150.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="150.5" height="56.5"/>
         </designable>
         <designable name="BOV-Ab-jtc">
-            <size key="intrinsicContentSize" width="58" height="24.5"/>
+            <size key="intrinsicContentSize" width="58" height="46"/>
         </designable>
         <designable name="BS2-D2-h60">
-            <size key="intrinsicContentSize" width="50.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="50.5" height="46"/>
         </designable>
         <designable name="C6j-Bh-55u">
-            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="131.5" height="46"/>
         </designable>
         <designable name="CfH-kI-Dwe">
-            <size key="intrinsicContentSize" width="146" height="24.5"/>
+            <size key="intrinsicContentSize" width="146" height="46"/>
         </designable>
         <designable name="D2h-Za-BbH">
-            <size key="intrinsicContentSize" width="272.5" height="28"/>
+            <size key="intrinsicContentSize" width="272.5" height="51.5"/>
         </designable>
         <designable name="DVc-hZ-qXT">
-            <size key="intrinsicContentSize" width="168.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="168.5" height="56.5"/>
         </designable>
         <designable name="Eli-Ij-3Xa">
-            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="183.5" height="46"/>
         </designable>
         <designable name="F0Y-5D-zlS">
-            <size key="intrinsicContentSize" width="115.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="115.5" height="56.5"/>
         </designable>
         <designable name="FS3-pD-o9p">
-            <size key="intrinsicContentSize" width="93.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="93.5" height="46"/>
         </designable>
         <designable name="FjY-bp-g9y">
-            <size key="intrinsicContentSize" width="135" height="30.5"/>
+            <size key="intrinsicContentSize" width="135" height="56.5"/>
         </designable>
         <designable name="Fwq-Ji-QNJ">
-            <size key="intrinsicContentSize" width="130.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="130.5" height="46"/>
         </designable>
         <designable name="GD6-G4-Qtb">
-            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="91.5" height="46"/>
         </designable>
         <designable name="GrP-4d-aJh">
-            <size key="intrinsicContentSize" width="115.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="115.5" height="56.5"/>
         </designable>
         <designable name="H7Z-XE-zaf">
-            <size key="intrinsicContentSize" width="262.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="262.5" height="46"/>
         </designable>
         <designable name="Hv3-dx-9VD">
-            <size key="intrinsicContentSize" width="142.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="142.5" height="46"/>
         </designable>
         <designable name="Ib9-66-o27">
-            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="131.5" height="46"/>
         </designable>
         <designable name="Im2-jl-muc">
-            <size key="intrinsicContentSize" width="109" height="24.5"/>
+            <size key="intrinsicContentSize" width="109" height="46"/>
         </designable>
         <designable name="J1p-Te-ZKZ">
-            <size key="intrinsicContentSize" width="109" height="24.5"/>
+            <size key="intrinsicContentSize" width="109" height="46"/>
         </designable>
         <designable name="J6c-Yv-qDe">
-            <size key="intrinsicContentSize" width="288" height="24.5"/>
+            <size key="intrinsicContentSize" width="288" height="46"/>
         </designable>
         <designable name="JAX-MX-WQc">
-            <size key="intrinsicContentSize" width="133.5" height="23.5"/>
+            <size key="intrinsicContentSize" width="133.5" height="43.5"/>
         </designable>
         <designable name="JDj-nc-qxq">
-            <size key="intrinsicContentSize" width="223" height="24.5"/>
+            <size key="intrinsicContentSize" width="223" height="46"/>
         </designable>
         <designable name="JOX-lr-Rys">
-            <size key="intrinsicContentSize" width="151.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="151.5" height="56.5"/>
         </designable>
         <designable name="KJH-kw-fTM">
-            <size key="intrinsicContentSize" width="72.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="72.5" height="46"/>
         </designable>
         <designable name="L2p-Po-IaZ">
-            <size key="intrinsicContentSize" width="101.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="101.5" height="46"/>
         </designable>
         <designable name="MwF-xl-sbx">
-            <size key="intrinsicContentSize" width="258.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="258.5" height="56.5"/>
         </designable>
         <designable name="NOD-6m-kh0">
-            <size key="intrinsicContentSize" width="75.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="75.5" height="56.5"/>
         </designable>
         <designable name="NoH-pA-chA">
-            <size key="intrinsicContentSize" width="112.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="112.5" height="46"/>
+        </designable>
+        <designable name="NyR-dQ-Prk">
+            <size key="intrinsicContentSize" width="-1" height="2.5"/>
         </designable>
         <designable name="OfH-bW-2rz">
-            <size key="intrinsicContentSize" width="124" height="30.5"/>
+            <size key="intrinsicContentSize" width="124" height="56.5"/>
         </designable>
         <designable name="Oo4-Ve-y2T">
-            <size key="intrinsicContentSize" width="109" height="24.5"/>
+            <size key="intrinsicContentSize" width="109" height="46"/>
         </designable>
         <designable name="PPx-zc-Lfg">
-            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="183.5" height="46"/>
         </designable>
         <designable name="Pau-NW-WM2">
-            <size key="intrinsicContentSize" width="184" height="30.5"/>
+            <size key="intrinsicContentSize" width="184" height="56.5"/>
         </designable>
         <designable name="QQC-OR-ase">
-            <size key="intrinsicContentSize" width="165.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="165.5" height="56.5"/>
         </designable>
         <designable name="Qfg-My-uGM">
-            <size key="intrinsicContentSize" width="6" height="23"/>
+            <size key="intrinsicContentSize" width="6" height="28"/>
         </designable>
         <designable name="RNm-mV-sQf">
-            <size key="intrinsicContentSize" width="296" height="30.5"/>
+            <size key="intrinsicContentSize" width="296" height="56.5"/>
         </designable>
         <designable name="Rop-Va-822">
-            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
         </designable>
         <designable name="SUM-DO-2dl">
-            <size key="intrinsicContentSize" width="168.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="168.5" height="56.5"/>
         </designable>
         <designable name="Teh-9U-Ozi">
-            <size key="intrinsicContentSize" width="242.5" height="28"/>
+            <size key="intrinsicContentSize" width="242.5" height="51.5"/>
         </designable>
         <designable name="U7S-gB-Cx5">
-            <size key="intrinsicContentSize" width="262.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="262.5" height="46"/>
         </designable>
         <designable name="UEu-kd-9bW">
-            <size key="intrinsicContentSize" width="61.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="61.5" height="46"/>
         </designable>
         <designable name="UFB-hf-7bM">
-            <size key="intrinsicContentSize" width="177" height="24.5"/>
+            <size key="intrinsicContentSize" width="177" height="46"/>
         </designable>
         <designable name="UOc-bR-940">
-            <size key="intrinsicContentSize" width="183.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="183.5" height="46"/>
         </designable>
         <designable name="UQV-qY-cpg">
-            <size key="intrinsicContentSize" width="272.5" height="28"/>
+            <size key="intrinsicContentSize" width="272.5" height="51.5"/>
         </designable>
         <designable name="UcB-4R-VAv">
-            <size key="intrinsicContentSize" width="120.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="120.5" height="46"/>
         </designable>
         <designable name="UdO-Nv-nOH">
-            <size key="intrinsicContentSize" width="58" height="24.5"/>
+            <size key="intrinsicContentSize" width="58" height="46"/>
+        </designable>
+        <designable name="Uyo-eu-Z6C">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="VAI-9z-Bit">
-            <size key="intrinsicContentSize" width="184" height="30.5"/>
+            <size key="intrinsicContentSize" width="184" height="56.5"/>
         </designable>
         <designable name="Vhv-a0-ifg">
             <size key="intrinsicContentSize" width="34" height="34"/>
         </designable>
         <designable name="Vwt-gE-XOO">
-            <size key="intrinsicContentSize" width="413" height="30.5"/>
+            <size key="intrinsicContentSize" width="413" height="56.5"/>
         </designable>
         <designable name="XfJ-dm-o4A">
-            <size key="intrinsicContentSize" width="128" height="24.5"/>
+            <size key="intrinsicContentSize" width="128" height="46"/>
         </designable>
         <designable name="YIq-pw-TMr">
-            <size key="intrinsicContentSize" width="128" height="24.5"/>
+            <size key="intrinsicContentSize" width="128" height="46"/>
         </designable>
         <designable name="Yg3-LN-vuQ">
-            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="91.5" height="46"/>
         </designable>
         <designable name="ZEx-lG-dfd">
-            <size key="intrinsicContentSize" width="203.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="203.5" height="56.5"/>
         </designable>
         <designable name="ZMb-R1-lG3">
-            <size key="intrinsicContentSize" width="278" height="30.5"/>
+            <size key="intrinsicContentSize" width="278" height="56.5"/>
         </designable>
         <designable name="aGp-Zd-1vE">
-            <size key="intrinsicContentSize" width="68" height="24.5"/>
+            <size key="intrinsicContentSize" width="68" height="46"/>
         </designable>
         <designable name="akJ-rg-RyD">
-            <size key="intrinsicContentSize" width="98" height="24.5"/>
+            <size key="intrinsicContentSize" width="98" height="46"/>
         </designable>
         <designable name="bb9-jo-72T">
-            <size key="intrinsicContentSize" width="128" height="24.5"/>
+            <size key="intrinsicContentSize" width="128" height="46"/>
         </designable>
         <designable name="bcc-nK-ckd">
-            <size key="intrinsicContentSize" width="202.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="202.5" height="46"/>
         </designable>
         <designable name="cUg-2k-dbB">
-            <size key="intrinsicContentSize" width="181" height="30.5"/>
+            <size key="intrinsicContentSize" width="181" height="56.5"/>
         </designable>
         <designable name="d73-t5-cbv">
-            <size key="intrinsicContentSize" width="357" height="24.5"/>
+            <size key="intrinsicContentSize" width="357" height="46"/>
         </designable>
         <designable name="dRY-co-Q8B">
-            <size key="intrinsicContentSize" width="58" height="24.5"/>
+            <size key="intrinsicContentSize" width="58" height="46"/>
         </designable>
         <designable name="e1B-vh-S6f">
-            <size key="intrinsicContentSize" width="6" height="23"/>
+            <size key="intrinsicContentSize" width="6" height="28"/>
         </designable>
         <designable name="eh9-Tv-8XY">
-            <size key="intrinsicContentSize" width="253.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="253.5" height="46"/>
         </designable>
         <designable name="elS-iO-4gl">
-            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="64.5" height="46"/>
         </designable>
         <designable name="fFm-WW-BdQ">
-            <size key="intrinsicContentSize" width="201.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="201.5" height="46"/>
         </designable>
         <designable name="fa9-Gw-R34">
-            <size key="intrinsicContentSize" width="272.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="272.5" height="46"/>
         </designable>
         <designable name="fb8-ug-v03">
-            <size key="intrinsicContentSize" width="181.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="181.5" height="46"/>
         </designable>
         <designable name="fjx-1X-OWZ">
-            <size key="intrinsicContentSize" width="201.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="201.5" height="46"/>
         </designable>
         <designable name="fsA-zY-x4T">
-            <size key="intrinsicContentSize" width="109" height="24.5"/>
+            <size key="intrinsicContentSize" width="109" height="46"/>
         </designable>
         <designable name="ggI-vP-D6g">
-            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="64.5" height="46"/>
         </designable>
         <designable name="hDT-9L-qyb">
-            <size key="intrinsicContentSize" width="64.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="64.5" height="46"/>
         </designable>
         <designable name="hPg-Ck-nFG">
-            <size key="intrinsicContentSize" width="296" height="30.5"/>
+            <size key="intrinsicContentSize" width="296" height="56.5"/>
         </designable>
         <designable name="hnk-A7-ilL">
-            <size key="intrinsicContentSize" width="125" height="24.5"/>
+            <size key="intrinsicContentSize" width="125" height="46"/>
         </designable>
         <designable name="hxf-R0-9xg">
-            <size key="intrinsicContentSize" width="242.5" height="28"/>
+            <size key="intrinsicContentSize" width="242.5" height="51.5"/>
+        </designable>
+        <designable name="jeI-SR-Y1Q">
+            <size key="intrinsicContentSize" width="-1" height="2.5"/>
         </designable>
         <designable name="kAU-M2-eDT">
-            <size key="intrinsicContentSize" width="258.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="258.5" height="56.5"/>
         </designable>
         <designable name="kY2-Pj-P0a">
-            <size key="intrinsicContentSize" width="6" height="24.5"/>
+            <size key="intrinsicContentSize" width="6" height="29.5"/>
         </designable>
         <designable name="kjC-ly-e8I">
-            <size key="intrinsicContentSize" width="130.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="130.5" height="46"/>
+        </designable>
+        <designable name="laV-1d-9f6">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="lwb-YT-Ypv">
-            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="131.5" height="46"/>
         </designable>
         <designable name="mqz-3g-bV9">
-            <size key="intrinsicContentSize" width="131.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="131.5" height="46"/>
         </designable>
         <designable name="n8E-vz-n7V">
-            <size key="intrinsicContentSize" width="6" height="24.5"/>
+            <size key="intrinsicContentSize" width="6" height="29.5"/>
         </designable>
         <designable name="nLG-hI-vFW">
-            <size key="intrinsicContentSize" width="263.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="263.5" height="56.5"/>
         </designable>
         <designable name="nRj-ge-xXg">
-            <size key="intrinsicContentSize" width="146" height="24.5"/>
+            <size key="intrinsicContentSize" width="146" height="46"/>
         </designable>
         <designable name="nhl-7h-P8z">
-            <size key="intrinsicContentSize" width="338.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="338.5" height="56.5"/>
         </designable>
         <designable name="phj-Gn-NMM">
-            <size key="intrinsicContentSize" width="203.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="203.5" height="56.5"/>
+        </designable>
+        <designable name="q3j-lP-hyn">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="qeT-qC-RjC">
-            <size key="intrinsicContentSize" width="91.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="91.5" height="46"/>
         </designable>
         <designable name="rBr-Ih-QXJ">
-            <size key="intrinsicContentSize" width="170" height="30.5"/>
+            <size key="intrinsicContentSize" width="170" height="56.5"/>
         </designable>
         <designable name="rIh-pv-DFs">
-            <size key="intrinsicContentSize" width="135" height="30.5"/>
+            <size key="intrinsicContentSize" width="135" height="56.5"/>
         </designable>
         <designable name="rXa-sb-RLQ">
-            <size key="intrinsicContentSize" width="158" height="24.5"/>
+            <size key="intrinsicContentSize" width="158" height="46"/>
+        </designable>
+        <designable name="s4b-qr-KvV">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="s7u-we-XmO">
-            <size key="intrinsicContentSize" width="138" height="30.5"/>
+            <size key="intrinsicContentSize" width="138" height="56.5"/>
         </designable>
         <designable name="sCM-PU-cl6">
-            <size key="intrinsicContentSize" width="135" height="30.5"/>
+            <size key="intrinsicContentSize" width="135" height="56.5"/>
         </designable>
         <designable name="sug-8T-MbE">
-            <size key="intrinsicContentSize" width="166" height="24.5"/>
+            <size key="intrinsicContentSize" width="166" height="46"/>
+        </designable>
+        <designable name="tFm-Mc-Ijj">
+            <size key="intrinsicContentSize" width="-1" height="8.5"/>
         </designable>
         <designable name="tbh-83-Wd2">
-            <size key="intrinsicContentSize" width="97" height="24.5"/>
+            <size key="intrinsicContentSize" width="97" height="46"/>
         </designable>
         <designable name="teL-KC-SYK">
-            <size key="intrinsicContentSize" width="202.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="202.5" height="46"/>
         </designable>
         <designable name="uHl-i3-qAR">
-            <size key="intrinsicContentSize" width="296" height="30.5"/>
+            <size key="intrinsicContentSize" width="296" height="56.5"/>
         </designable>
         <designable name="vb5-E0-dTR">
-            <size key="intrinsicContentSize" width="62.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="62.5" height="46"/>
         </designable>
         <designable name="w4Z-JG-3qe">
-            <size key="intrinsicContentSize" width="296" height="30.5"/>
+            <size key="intrinsicContentSize" width="296" height="56.5"/>
         </designable>
         <designable name="wRT-vx-2Cz">
-            <size key="intrinsicContentSize" width="135" height="24.5"/>
+            <size key="intrinsicContentSize" width="135" height="46"/>
         </designable>
         <designable name="xe8-7e-7BH">
-            <size key="intrinsicContentSize" width="106" height="24.5"/>
+            <size key="intrinsicContentSize" width="106" height="46"/>
         </designable>
         <designable name="xrX-IF-X7Y">
-            <size key="intrinsicContentSize" width="67" height="24.5"/>
+            <size key="intrinsicContentSize" width="67" height="46"/>
         </designable>
         <designable name="yiA-ve-GzH">
-            <size key="intrinsicContentSize" width="165.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="165.5" height="56.5"/>
         </designable>
         <designable name="ytC-vG-5rf">
-            <size key="intrinsicContentSize" width="6" height="24.5"/>
+            <size key="intrinsicContentSize" width="6" height="29.5"/>
         </designable>
         <designable name="zW9-9X-S0I">
-            <size key="intrinsicContentSize" width="75.5" height="30.5"/>
+            <size key="intrinsicContentSize" width="75.5" height="56.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
