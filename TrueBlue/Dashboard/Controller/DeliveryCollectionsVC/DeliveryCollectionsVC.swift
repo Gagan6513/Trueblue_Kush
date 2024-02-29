@@ -216,19 +216,38 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
     
     func openReferance(data: CollectionDeliveryDataList) {
         
+//        var storyboardName = String()
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            storyboardName = AppStoryboards.DASHBOARD
+//        } else {
+//            storyboardName = AppStoryboards.DASHBOARD_PHONE
+//        }
+//        let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+//
+//        let ctrl = storyboard.instantiateViewController(withIdentifier: "SearchDashboardResultDetailsVC") as! SearchDashboardResultDetailsVC
+//        ctrl.modalPresentationStyle = .overFullScreen
+//        ctrl.searchValue = data.application_id ?? ""
+//        self.present(ctrl, animated: true)
+        
         var storyboardName = String()
+        var vcid = String()
         if UIDevice.current.userInterfaceIdiom == .pad {
             storyboardName = AppStoryboards.DASHBOARD
+            vcid = AppStoryboardId.REF_SEARCH_RESULT_VC
+            
         } else {
-            storyboardName = AppStoryboards.DASHBOARD_PHONE
+            storyboardName  = AppStoryboards.DASHBOARD_PHONE
+            vcid = AppStoryboardId.REF_SEARCH_RESULT_PHONE
         }
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
+        let searchResultvc = storyboard.instantiateViewController(identifier: vcid) as! ReferenceSearchResultVC
+//        searchResultvc.responseDict = dict
+        searchResultvc.searchValue = data.application_id ?? ""
+        searchResultvc.modalPresentationStyle = .overFullScreen
+        self.present(searchResultvc, animated: true, completion: nil)
         
-        let ctrl = storyboard.instantiateViewController(withIdentifier: "SearchDashboardResultDetailsVC") as! SearchDashboardResultDetailsVC
-        ctrl.modalPresentationStyle = .overFullScreen
-        ctrl.searchValue = data.application_id ?? ""
-        self.present(ctrl, animated: true)
     }
+    
     
     func openSwapVehicle(data: CollectionDeliveryDataList) {
         let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC

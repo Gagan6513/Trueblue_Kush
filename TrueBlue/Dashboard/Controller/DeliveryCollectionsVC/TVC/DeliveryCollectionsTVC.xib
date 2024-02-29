@@ -239,7 +239,7 @@
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         </variation>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_delivery_tab" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-4K-57w">
+                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_delivery_tab" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-4K-57w">
                                                         <rect key="frame" x="111.33333333333333" y="0.0" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="nnh-4K-57w" secondAttribute="height" id="g7b-V9-zjG"/>
