@@ -8,8 +8,8 @@
 import UIKit
 
 class DrawerVC: UIViewController {
-    var screenNames = ["Collections","Deliveries","Return Vehicle","Swap Vehicle","Create New Entry"]
-    var imageNames = ["collection1","deal","car","exchange","new"]
+    var screenNames = [/*"Collections","Deliveries"*/"Create New Entry","Collections & Deliveries","Return Vehicle","Swap Vehicle"]
+    var imageNames = ["collection1",/*"deal"*/"car","exchange","new"]
     
     var selectedRow = -1
     
@@ -107,6 +107,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
             self.present(ctrl, animated: true)
         case "Log Sheet":
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "LogsSheetVC") as! LogsSheetVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Collections & Deliveries":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "DeliveryCollectionsVC") as! DeliveryCollectionsVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:
