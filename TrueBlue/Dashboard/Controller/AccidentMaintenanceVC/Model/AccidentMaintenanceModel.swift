@@ -389,4 +389,10 @@ class CollectionDeliveryDataList: Codable {
     var status: String?
     var vehicle_id: String?
     
+    var vehicle_make: String?
+    var vehicle_model: String?
+    var yearof_manufacture: String?
+    var vehicle_category: String?
+    var fleet_image: String?
+    
 }

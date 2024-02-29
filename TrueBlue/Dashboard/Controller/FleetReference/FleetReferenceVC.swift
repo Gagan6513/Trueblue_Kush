@@ -77,9 +77,12 @@ class FleetReferenceVC: UIViewController {
         }
         
         if let data = vehicleCollectionDetails {
-            self.carNameLabel.text = "-------"
-            self.carIdLabel.text = "-------"
-            self.carModelLabel.text = "-------"
+            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\((data.yearof_manufacture ?? "").date(convetedFormate: .ddmmyyyy)))"
+            self.carIdLabel.text = data.vehicle_category
+            self.carModelLabel.text = (data.vehicle_make ?? "")
+            if let url = URL(string: data.fleet_image ?? "") {
+                self.carImage.sd_setImage(with: url)
+            }
         }
     }
 }
