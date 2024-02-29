@@ -14,6 +14,8 @@ class ServiceTVC: UITableViewCell {
     @IBOutlet weak var lastServiceMileage: UILabel!
     @IBOutlet weak var nextServiceDue: UILabel!
     
+    var btnViewClicked: ((Bool) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,16 +28,16 @@ class ServiceTVC: UITableViewCell {
     }
     
     @IBAction func btnEdit(_ sender: Any) {
-        
+        self.btnViewClicked?(false)
     }
     
     @IBAction func btnView(_ sender: Any) {
-        
+        self.btnViewClicked?(true)
     }
     
     func setupDetails(data: AccidentService) {
         self.repairerName.text = (data.repairer_name ?? "") == "" ? "NA" : (data.repairer_name ?? "")
-        self.serviceDate.text = (data.service_date ?? "") == "" ? "NA" : (data.service_date ?? "")
+        self.serviceDate.text = (data.service_date ?? "") == "" ? "NA" : (data.service_date ?? "").date(convetedFormate: .ddmmyyyy)
         self.lastServiceMileage.text = (data.service_mileage ?? "") == "" ? "NA" : (data.service_mileage ?? "")
         self.nextServiceDue.text = (data.nextserviceduekm ?? "") == "" ? "NA" : (data.nextserviceduekm ?? "")
     }

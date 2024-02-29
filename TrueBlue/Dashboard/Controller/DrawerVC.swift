@@ -70,10 +70,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return 100
-        }
-        return 60
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            return 100
+//        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,7 +85,10 @@ extension DrawerVC : UITableViewDataSource, UITableViewDelegate {
         case "Deliveries":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
         case "Return Vehicle":
-            performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
+//            performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewReturnVehicleVC") as! NewReturnVehicleVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         case "Swap Vehicle":
 //            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC

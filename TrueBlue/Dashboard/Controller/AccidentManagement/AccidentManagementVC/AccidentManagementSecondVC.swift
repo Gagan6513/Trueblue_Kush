@@ -39,8 +39,11 @@ class AccidentManagementSecondVC: UIViewController {
     var isFromView = false
 
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let ACCEPTABLE_CHARACTERS_FOR_MOBILE = "0123456789"
+
     var isClientAtFault = ""
     var isAccess = ""
+    var regoNumber = ""
     var arrInsurance = [InsuranceListResponse]()
     var selectedInsurance: InsuranceListResponse?
     
@@ -61,6 +64,7 @@ class AccidentManagementSecondVC: UIViewController {
         self.txtClaimNo.delegate = self
         self.txtDateofBirth.delegate = self
         self.txtExpiry.delegate = self
+        self.txtPhone.delegate = self
         
         getInsuranceCompany()
         setupNotification()
@@ -134,7 +138,7 @@ class AccidentManagementSecondVC: UIViewController {
             self.txtFirstName.text = data.atfault_firstname
             self.txtLastName.text = data.atfault_lastname
             self.txtPhone.text = data.atfault_phone
-            self.txtDateofBirth.text = data.atfault_dob
+            self.txtDateofBirth.text = data.atfault_dob?.date(convetedFormate: .ddmmyyyy)
             self.isClientAtFault = data.ourdriver_atfault?.lowercased() ?? ""
             self.isAccess = data.excess?.lowercased() ?? ""
             
@@ -206,6 +210,7 @@ class AccidentManagementSecondVC: UIViewController {
             let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
             let ctrl = storyboard.instantiateViewController(identifier: vcId) as! SelectDateVC
             ctrl.modalPresentationStyle = .overFullScreen
+            ctrl.isFromDateOfBirth = true
             ctrl.selectedDate = { [weak self] date in
                 guard let self else { return }
                 self.txtDateofBirth.text = date
@@ -591,7 +596,7 @@ extension AccidentManagementSecondVC {
         let webService = WebServiceModel()
         webService.url = URL(string: API_URL.getAllFleets)!
         webService.method = .post
-                
+        webService.parameters = ["status": "active"]
         /* API CALLS */
         WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
             guard let self else { return }
@@ -622,6 +627,13 @@ extension AccidentManagementSecondVC {
                         self.selectedRego = self.arrRego.first(where: { ($0.id ?? "") == data.atfault_registration_no })
                         self.txtRegistrationNo.text = self.selectedRego?.registration_no
                     }
+                    
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego
+                        self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                        self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                    }
+                    
                 }
             }
         }
@@ -630,6 +642,34 @@ extension AccidentManagementSecondVC {
 }
 
 extension AccidentManagementSecondVC: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case txtDateofBirth:
+            let result = isDateGreaterThan1910(dateString: self.txtDateofBirth.text ?? "")
+            if !result {
+                showToast(strMessage: "Date of birth should be greater than 01-01-1910")
+                self.txtDateofBirth.text = ""
+                return
+            }
+            
+            let strDate = self.txtDateofBirth.text ?? ""
+            let age = strDate.calculateAge(format: DateFormat.ddmmyyyy.rawValue)
+            print(age)
+            if age.year < 0 {
+                self.txtDateofBirth.text = ""
+                showToast(strMessage: futureDobEntered)
+            } else if (age.year == 0 && (age.month >= 0 || age.day >= 0)) ||  (age.year >= 0 && age.year < 21) {
+                showAlert(message: requiredHirerAge, yesTitle: "Yes", noTitle: "No", yesAction: {
+                }, noAction: {
+                    self.txtDateofBirth.text = ""
+                })
+            }
+            print(result)
+        default:
+            print("TextField without restriction")
+        }
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -641,10 +681,33 @@ extension AccidentManagementSecondVC: UITextFieldDelegate {
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
             let filtered = string.components(separatedBy: cs).joined(separator: "")
             isAllowed = (string == filtered)
+        case txtPhone:
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_MOBILE).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
         default:
             print("TextField without restriction")
         }
         return isAllowed
     }
  
+}
+
+func isDateGreaterThan1910(dateString: String) -> Bool {
+    // Your date string in "dd-MM-yyyy" format
+    let inputDateString = "01-01-1910"
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd-MM-yyyy"
+    
+    // Convert the date strings to Date objects
+    if let inputDate = dateFormatter.date(from: inputDateString),
+       let targetDate = dateFormatter.date(from: dateString) {
+        
+        // Compare the dates
+        return targetDate > inputDate
+    }
+    
+    // Return false if there's an issue with date conversion
+    return false
 }

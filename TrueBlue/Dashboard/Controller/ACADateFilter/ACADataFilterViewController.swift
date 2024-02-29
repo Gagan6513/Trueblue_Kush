@@ -20,9 +20,15 @@ class ACADataFilterViewController: UIViewController {
     var dateFormater = DateFormatter()
     var dateClosure: ((_ fromDate: String, _ toDate: String) -> Void)?
     
+    var startDate = ""
+    var endDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setupUI()
     }
     
@@ -31,10 +37,21 @@ class ACADataFilterViewController: UIViewController {
     }
     
     @IBAction func btnSave(_ sender: Any) {
-        if validateTextField() {
-            self.dateClosure?(self.txtFrom.text ?? "", self.txtTo.text ?? "")
-            self.dismiss(animated: false)
+//        if validateTextField() {
+        var startDate = (self.txtFrom.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+        var endDate = (self.txtTo.text ?? "").date(currentFormate: .ddmmyyyy, convetedFormate: .yyyymmdd)
+
+        if (self.txtFrom.text ?? "") == "" {
+            startDate = ""
         }
+        
+        if (self.txtTo.text ?? "") == "" {
+            endDate = ""
+        }
+        
+        self.dateClosure?(startDate, endDate)
+        self.dismiss(animated: false)
+//        }
     }
     
     @IBAction func btnFromDate(_ sender: Any) {
@@ -78,6 +95,14 @@ class ACADataFilterViewController: UIViewController {
     }
     
     func setupUI() {
+        
+        if self.startDate != "" {
+            self.txtFrom.text = self.startDate.date(currentFormate: .yyyymmdd, convetedFormate: .ddmmyyyy)
+        }
+        if self.endDate != "" {
+            self.txtTo.text = self.endDate.date(currentFormate: .yyyymmdd, convetedFormate: .ddmmyyyy)
+        }
+        
         self.dateFormater.dateFormat = "dd-MM-YYYY"
         
         self.firstStack.axis = UIDevice.current.userInterfaceIdiom == .pad ? .horizontal : .vertical

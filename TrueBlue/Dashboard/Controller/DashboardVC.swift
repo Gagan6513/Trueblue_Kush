@@ -10,9 +10,9 @@ import SideMenu
 import Alamofire
 class DashboardVC: UIViewController {
     
-    let screenNames = ["Collections History","Delivery History","Return\nVehicle","Swap Vehicle","Available\nVehicles","Hired\nVehicles",/* "Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", "Accident Management"]
-    let imageNames = ["collections","delivery","returnVehicle","swap","availableVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle"]
-    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0"]
+    let screenNames = [/*"Collections History","Delivery History",*/"Return\nVehicle","Swap Vehicle",/*"Available\nVehicles","Hired\nVehicles","Collection Note","Delivery Note", */"Upcoming Bookings", "Repairer Bookings", "Vehicle Activity Statement", /*"Accident Management",*/ "Fleet", "Collections & Deliveries"]
+    let imageNames = [/*"collections","delivery",*/"returnVehicle","swap"/*,"availableVehicle","hiredVehicle"*/,"hiredVehicle","hiredVehicle","hiredVehicle","hiredVehicle", "hiredVehicle", "hiredVehicle", "hiredVehicle"]
+    var arrDashboardCount = ["0","0","0","0","0","0","0","0","0","0","0","0","0"]
 
     var arrSearchby = ["Reference No."/*, "Phone Number", "Email"*/]
     var searchbyPicker = UIPickerView()
@@ -235,7 +235,11 @@ class DashboardVC: UIViewController {
         let menu = SideMenuNavigationController(rootViewController: vc)
         //        SideMenuManager.default.leftMenuNavigationController = menu
         menu.leftSide = true
-        menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.2)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.4)
+        } else {
+            menu.menuWidth = UIScreen.main.bounds.width - (UIScreen.main.bounds.width * 0.2)
+        }
         menu.statusBarEndAlpha = 1
         menu.presentationStyle = .menuSlideIn
         menu.presentingViewControllerUserInteractionEnabled = false
@@ -398,17 +402,14 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
         case "Delivery History":
             performSegue(withIdentifier: AppSegue.DELIVERIES, sender: nil)
         case "Return\nVehicle":
-            performSegue(withIdentifier: AppSegue.RETURN_VEHICLE, sender: nil)
+            let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewReturnVehicleVC") as! NewReturnVehicleVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
         case "Swap Vehicle":
-//            performSegue(withIdentifier: AppSegue.SWAP_VEHICLE, sender: nil)
-
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
-            
         case "Available\nVehicles":
-//            performSegue(withIdentifier: AppSegue.AVAIL_VEHICLE, sender: nil)
-            
             let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "AvailableVehicleVC") as! AvailableVehicleVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
@@ -429,6 +430,14 @@ extension DashboardVC : UICollectionViewDataSource, UICollectionViewDelegate , U
             self.present(ctrl, animated: true)
         case "Accident Management":
             let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentMaintenanceVC") as! AccidentMaintenanceVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Fleet":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetsVC") as! FleetsVC
+            ctrl.modalPresentationStyle = .overFullScreen
+            self.present(ctrl, animated: true)
+        case "Collections & Deliveries":
+            let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "DeliveryCollectionsVC") as! DeliveryCollectionsVC
             ctrl.modalPresentationStyle = .overFullScreen
             self.present(ctrl, animated: true)
         default:
@@ -523,12 +532,20 @@ extension DashboardVC : DashboardVMDelegate {
     func dashboardAPISuccess(objData: DashboardModel, strMessage: String) {
         print(objData.dictResult)
         
-        if let data = screenNames.firstIndex(where: { $0 == "Collections History" }) {
-            arrDashboardCount[data] = objData.dictResult.numOfCollections
+//        if let data = screenNames.firstIndex(where: { $0 == "Collections History" }) {
+//            arrDashboardCount[data] = objData.dictResult.numOfCollections
+//        }
+//
+//        if let data = screenNames.firstIndex(where: { $0 == "Delivery History" }) {
+//            arrDashboardCount[data] = objData.dictResult.numOfTodayDeliveries
+//        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Return\nVehicle" }) {
+            arrDashboardCount[data] = ""
         }
         
-        if let data = screenNames.firstIndex(where: { $0 == "Delivery History" }) {
-            arrDashboardCount[data] = objData.dictResult.numOfTodayDeliveries
+        if let data = screenNames.firstIndex(where: { $0 == "Swap Vehicle" }) {
+            arrDashboardCount[data] = ""
         }
         
         if let data = screenNames.firstIndex(where: { $0 == "Available\nVehicles" }) {
@@ -559,10 +576,18 @@ extension DashboardVC : DashboardVMDelegate {
             arrDashboardCount[data] = objData.dictResult.todayDeliveryNotes
         }
         
-        if let data = screenNames.firstIndex(where: { $0 == "Accident Management" }) {
-            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
+//        if let data = screenNames.firstIndex(where: { $0 == "Accident Management" }) {
+//            arrDashboardCount[data] = objData.dictResult.fleet_maintenance_count
+//        }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Fleet" }) {
+            arrDashboardCount[data] = "\(objData.dictResult.fleet_count)"
         }
         
+        if let data = screenNames.firstIndex(where: { $0 == "Collections & Deliveries" }) {
+            arrDashboardCount[data] = ""
+        }
+                
         //arrDashboardCount[6] = objData
         collectionView.reloadData()
         print(arrDashboardCount)

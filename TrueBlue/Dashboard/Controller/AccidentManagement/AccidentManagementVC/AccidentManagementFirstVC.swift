@@ -40,6 +40,7 @@ class AccidentManagementFirstVC: UIViewController {
     
     var isYourVehicleBusinessRegistered = ""
     var isYourCarDrivable = ""
+    var regoNumber = ""
     var arrBranch = [BranchListResponse]()
     var selectedBranch: BranchListResponse?
     
@@ -56,6 +57,7 @@ class AccidentManagementFirstVC: UIViewController {
     
     var recoveryForArr = ["Trueblue", "Repairer"]
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let ACCEPTABLE_CHARACTERS_FOR_MOBILE = "0123456789"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ class AccidentManagementFirstVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListNotAtFault, object: nil)
 
         self.txtClaimNo.delegate = self
-        
+        self.txtPhone.delegate = self
         self.getBranchList()
         
     }
@@ -335,6 +337,10 @@ extension AccidentManagementFirstVC: UITextFieldDelegate {
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
             let filtered = string.components(separatedBy: cs).joined(separator: "")
             return (string == filtered)
+        case txtPhone:
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_MOBILE).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
         default: return true
         }
     }
@@ -575,7 +581,7 @@ extension AccidentManagementFirstVC {
         let webService = WebServiceModel()
         webService.url = URL(string: API_URL.getAllFleets)!
         webService.method = .post
-                
+        webService.parameters = ["status": "active"]
         /* API CALLS */
         WebService.shared.performMultipartWebService(model: webService, imageData: []) { [weak self] responseData, error in
             guard let self else { return }
@@ -602,6 +608,13 @@ extension AccidentManagementFirstVC {
                     }
                     
                     self.arrRego = data.data ?? []
+                    
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego
+                        self.txtRegistrationNo.text = self.selectedRego?.registration_no
+                        self.txtModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                    }
+                    
                     self.applicationId != nil ? self.getAccidentDetialsForEditProfile() : nil
                 }
             }
@@ -647,6 +660,10 @@ extension AccidentManagementFirstVC {
                     if let data = self.accidentData {
                         let data: [String: Any] = ["data": data]
                         NotificationCenter.default.post(name: .AccidentDetailsEdit, object: nil, userInfo: data)
+                    }
+                    
+                    if let appId = self.accidentData?.application_id {
+                        self.txtRefNumber.text = "Ref# " + appId
                     }
                     
                     self.setupDetails()

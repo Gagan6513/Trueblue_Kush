@@ -270,6 +270,7 @@ struct AppDropDownLists {
     static let HIRED_VEHICLE_REGO_RA = "Hired Vehicle Rego RA"
     static let AVAILABLE_VEHICLE_REGO_RA = "Available Vehicle Rego RA"
     static let SEARCH_USER_LIST = "Assign"
+    static let NotesType = "Note Type"
     static let Reference_No = "Reference No"
     static let RETURN_VEHICLE_REGO = "REGO-RA"//"Return Vehicle Dropdown"
     static let CARD_TYPE = "CardType"

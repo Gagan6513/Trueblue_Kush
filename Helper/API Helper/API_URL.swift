@@ -20,6 +20,8 @@ class API_URL {
     static let logSheet = new_path + "getAllNotes"
 
     static let accidentManagementFirst = new_path + "saveAccidentForm"
+    static let saveServiceDetails = new_path + "saveServiceDetails"
+    static let returnVehicle = new_path + "returnVehicle"
 
     static let BRANCH_LIST = new_path + "branchList"
     static let getReferenceDetails = new_path + "getReferenceDetails"
@@ -32,19 +34,26 @@ class API_URL {
 
     static let stateList = new_path + "stateList"
     static let getAllFleets = new_path + "getAllFleets"
+    static let getServiceDetails = new_path + "getServiceDetails"
+    static let getLastServiceDetail = new_path + "getLastServiceDetail"
     static let getReferenceList = new_path + "getReferenceList"
     
     static let UPLOAD_MULTIPLE_DOCS = API_PATH + "uploadmultiple_docs.php"
     static let DELETE_UPLOADED_DOCUMENT = API_PATH + "deleteuploadeddoc.php"
 
     static let GET_UPLOADED_DOCUMENTS_TAB_DETAILS = API_PATH + "getuploaddocuments2.php"//"getuploaddocuments.php"
+    static let hiredvehicleslist = API_PATH + "hiredvehicleslist.php"
+    static let delivered_collectedby = API_PATH + "delivered_collectedby.php"
 
     static let SWAP_VEHICLE = new_path + "swapVehicle"
     
     static let AVAILABLE_VEHICLE_LIST = new_path + "getAvailableFleets"
     
     static let accidentMaintenanceFirst = new_path + "getFleetsList"
+    static let getFleetsList = new_path + "getFleetsList"
+    static let collectionDeliveryList = new_path + "collectionDeliveryList"
     static let getRegoServiceHistory = new_path + "getRegoServiceHistory"
     static let accidentBookings = new_path + "accidentBookings"
+    static let getRegoBookings = new_path + "getRegoBookings"
 
 }

@@ -13,10 +13,17 @@ class LogsSheetVC: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnFilter: UIButton!
     
     var allNotesArray: [NotesResponseObject] = []
     var filterAllNotesArray: [NotesResponseObject] = []
     var search = ""
+    var startDate = ""
+    var noteType = ""
+    var endDate = ""
+    var selectedEmployee: UserList?
+    
+    var isFromFilter = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +35,13 @@ class LogsSheetVC: UIViewController {
         self.tableView.registerNib(for: "LogSheetTVC")
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.btnFilter.layoutIfNeeded()
+        self.btnFilter.layoutSubviews()
+        self.btnFilter.layer.cornerRadius = self.btnFilter.layer.frame.width / 2
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getLogSheet()
@@ -35,6 +49,28 @@ class LogsSheetVC: UIViewController {
     
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func btnFilter(_ sender: Any) {
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "LogSheetFilterVC") as! LogSheetFilterVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.view.isOpaque = false
+        
+        ctrl.startDate = self.startDate
+        ctrl.endDate = self.endDate
+        ctrl.selectedUserId = self.selectedEmployee
+        ctrl.noteType = self.noteType
+        
+        ctrl.dateClosure = { [weak self] fromdate, todate, emplyee, noteType in
+            guard let self else { return }
+            self.isFromFilter = true
+            self.startDate = fromdate
+            self.endDate = todate
+            self.noteType = noteType
+            self.selectedEmployee = emplyee
+            self.getLogSheet()
+        }
+        self.present(ctrl, animated: false)
     }
     
     @IBAction func btnOpenSearchPopup(_ sender: Any) {
@@ -55,9 +91,7 @@ extension LogsSheetVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         search = string.isEmpty ? String(search.dropLast()) : (textField.text! + string)
-        
         self.filterAllNotesArray = self.allNotesArray.filter({ $0.u_name?.lowercased().contains(search.lowercased()) ?? false})
-
         if search == "" {
             self.filterAllNotesArray = self.allNotesArray
         }
@@ -104,6 +138,16 @@ extension LogsSheetVC {
         var param = [String: Any]()
         param["notesForId"] = application_id
         param["notesFor"] = "all"
+        
+//        if self.isFromFilter {
+            param["fromDate"] = self.startDate
+            param["toDate"] = self.endDate
+            param["emplyee"] = self.selectedEmployee?.id ?? "0"
+        
+        if self.noteType != "" {
+            param["notes_type"] = self.noteType
+        }
+//        }
         
         webService.parameters = param
         

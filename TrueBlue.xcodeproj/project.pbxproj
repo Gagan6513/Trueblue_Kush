@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -195,6 +195,9 @@
 		B3366DCF2B358C5E00F72CE8 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */; };
 		B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */; };
 		B3366DD32B358CEA00F72CE8 /* TableView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */; };
+		B33A10ED2B70A3FC0089F191 /* RepairerBookingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */; };
+		B33A10EE2B70A3FC0089F191 /* RepairerBookingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */; };
+		B34B3C1C2B6A0C860051986B /* FleetServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */; };
 		B357B0C52B5E734C004C71DF /* AccidentMaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */; };
 		B357B0C92B5E7440004C71DF /* AccidentMaintenanceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */; };
 		B357B0CA2B5E7440004C71DF /* AccidentMaintenanceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B357B0C82B5E7440004C71DF /* AccidentMaintenanceTVC.xib */; };
@@ -206,9 +209,14 @@
 		B3660A9D2B57B53300AC8F02 /* HeaderFilterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3660A9B2B57B53300AC8F02 /* HeaderFilterCVC.swift */; };
 		B3660A9E2B57B53300AC8F02 /* HeaderFilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3660A9C2B57B53300AC8F02 /* HeaderFilterCVC.xib */; };
 		B3660AA12B57B68200AC8F02 /* AccidentManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3660AA02B57B68200AC8F02 /* AccidentManagementVC.swift */; };
+		B37068872B8DA4F600AC330E /* LogSheetFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37068862B8DA4F600AC330E /* LogSheetFilterVC.swift */; };
+		B370688A2B8DB31000AC330E /* DeliveryCollectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */; };
+		B370688E2B8DB70700AC330E /* DeliveryCollectionsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */; };
+		B370688F2B8DB70700AC330E /* DeliveryCollectionsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */; };
 		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
 		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
 		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
+		B37C7FE62B905073007DE024 /* CollectionFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */; };
 		B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */; };
 		B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */; };
 		B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */; };
@@ -216,6 +224,12 @@
 		B388B26C2B580812007EA2E8 /* ImagesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388B26A2B580812007EA2E8 /* ImagesCVC.swift */; };
 		B388B26D2B580812007EA2E8 /* ImagesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B388B26B2B580812007EA2E8 /* ImagesCVC.xib */; };
 		B388B26F2B58093A007EA2E8 /* AccidentManagementFifthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */; };
+		B38D865D2B676D71006CC28E /* FleetsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D865C2B676D71006CC28E /* FleetsVC.swift */; };
+		B38D86612B6780FA006CC28E /* FleetsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D865F2B6780FA006CC28E /* FleetsTVC.swift */; };
+		B38D86622B6780FA006CC28E /* FleetsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38D86602B6780FA006CC28E /* FleetsTVC.xib */; };
+		B38D86652B6783DD006CC28E /* FleetReferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D86642B6783DD006CC28E /* FleetReferenceVC.swift */; };
+		B38D86692B67852F006CC28E /* FleetViewReferenceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38D86672B67852F006CC28E /* FleetViewReferenceTVC.xib */; };
+		B38D866A2B67852F006CC28E /* FleetViewReferenceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D86682B67852F006CC28E /* FleetViewReferenceTVC.swift */; };
 		B38DC9152B3D41DA009FD897 /* EventDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */; };
 		B3926BE52B5A493800C1BAC3 /* AccidentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3926BE42B5A493700C1BAC3 /* AccidentModel.swift */; };
 		B392BC782B39437E0002DD69 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392BC772B39437E0002DD69 /* EventViewController.swift */; };
@@ -236,6 +250,7 @@
 		B399CDD22B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD12B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift */; };
 		B399CDD42B58FBC100D84AE4 /* AccidentManagementSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */; };
 		B399CDD62B58FBE900D84AE4 /* AccidentManagementThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */; };
+		B39FE0422B71F1DA00565AE9 /* NewReturnVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */; };
 		B3F7AE5B2B636EE3002D49B7 /* ServicesHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */; };
 		B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */; };
 		B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */; };
@@ -423,7 +438,7 @@
 		81506AB92B2B01ED006889AF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		816133152B2DCB3F00938B28 /* ReferenceSearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSearchResultVC.swift; sourceTree = "<group>"; };
 		816133172B2DD4C800938B28 /* ReferenceSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
+		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBooking/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
 		8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTableViewCell.swift; sourceTree = "<group>"; };
 		95F09AF4B08AB4D8297FEBA8 /* Pods-TrueBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueBlue.debug.xcconfig"; path = "Target Support Files/Pods-TrueBlue/Pods-TrueBlue.debug.xcconfig"; sourceTree = "<group>"; };
 		B3366DB52B35557500F72CE8 /* ACAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAViewController.swift; sourceTree = "<group>"; };
@@ -437,6 +452,9 @@
 		B3366DCC2B358C5E00F72CE8 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		B3366DCD2B358C5E00F72CE8 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		B3366DD22B358CEA00F72CE8 /* TableView+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+Extention.swift"; sourceTree = "<group>"; };
+		B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTVC.swift; sourceTree = "<group>"; };
+		B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepairerBookingTVC.xib; sourceTree = "<group>"; };
+		B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetServiceVC.swift; sourceTree = "<group>"; };
 		B357B0C42B5E734C004C71DF /* AccidentMaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceVC.swift; sourceTree = "<group>"; };
 		B357B0C72B5E7440004C71DF /* AccidentMaintenanceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMaintenanceTVC.swift; sourceTree = "<group>"; };
 		B357B0C82B5E7440004C71DF /* AccidentMaintenanceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccidentMaintenanceTVC.xib; sourceTree = "<group>"; };
@@ -444,13 +462,19 @@
 		B357B0CF2B5E91CF004C71DF /* ViewReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReferenceVC.swift; sourceTree = "<group>"; };
 		B357B0D22B5E970A004C71DF /* ViewReferenceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReferenceTVC.swift; sourceTree = "<group>"; };
 		B357B0D32B5E970A004C71DF /* ViewReferenceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewReferenceTVC.xib; sourceTree = "<group>"; };
+		B35B8E8D2B70B8BF008EFB9B /* TrueBlue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrueBlue.entitlements; sourceTree = "<group>"; };
 		B3660A962B57B42A00AC8F02 /* AccidentManagement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccidentManagement.storyboard; sourceTree = "<group>"; };
 		B3660A9B2B57B53300AC8F02 /* HeaderFilterCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterCVC.swift; sourceTree = "<group>"; };
 		B3660A9C2B57B53300AC8F02 /* HeaderFilterCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderFilterCVC.xib; sourceTree = "<group>"; };
 		B3660AA02B57B68200AC8F02 /* AccidentManagementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementVC.swift; sourceTree = "<group>"; };
+		B37068862B8DA4F600AC330E /* LogSheetFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSheetFilterVC.swift; sourceTree = "<group>"; };
+		B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCollectionsVC.swift; sourceTree = "<group>"; };
+		B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCollectionsTVC.swift; sourceTree = "<group>"; };
+		B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryCollectionsTVC.xib; sourceTree = "<group>"; };
 		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
 		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
 		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
+		B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFilterVC.swift; sourceTree = "<group>"; };
 		B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsSheetVC.swift; sourceTree = "<group>"; };
 		B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSheetTVC.swift; sourceTree = "<group>"; };
 		B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogSheetTVC.xib; sourceTree = "<group>"; };
@@ -458,6 +482,12 @@
 		B388B26A2B580812007EA2E8 /* ImagesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCVC.swift; sourceTree = "<group>"; };
 		B388B26B2B580812007EA2E8 /* ImagesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesCVC.xib; sourceTree = "<group>"; };
 		B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementFifthVC.swift; sourceTree = "<group>"; };
+		B38D865C2B676D71006CC28E /* FleetsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetsVC.swift; sourceTree = "<group>"; };
+		B38D865F2B6780FA006CC28E /* FleetsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FleetsTVC.swift; sourceTree = "<group>"; };
+		B38D86602B6780FA006CC28E /* FleetsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetsTVC.xib; sourceTree = "<group>"; };
+		B38D86642B6783DD006CC28E /* FleetReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetReferenceVC.swift; sourceTree = "<group>"; };
+		B38D86672B67852F006CC28E /* FleetViewReferenceTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetViewReferenceTVC.xib; sourceTree = "<group>"; };
+		B38D86682B67852F006CC28E /* FleetViewReferenceTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FleetViewReferenceTVC.swift; sourceTree = "<group>"; };
 		B38DC9142B3D41DA009FD897 /* EventDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsModel.swift; sourceTree = "<group>"; };
 		B3926BE42B5A493700C1BAC3 /* AccidentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentModel.swift; sourceTree = "<group>"; };
 		B392BC772B39437E0002DD69 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -478,6 +508,7 @@
 		B399CDD12B58FB7F00D84AE4 /* AccidentManagementFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementFirstVC.swift; sourceTree = "<group>"; };
 		B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementSecondVC.swift; sourceTree = "<group>"; };
 		B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementThirdVC.swift; sourceTree = "<group>"; };
+		B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReturnVehicleVC.swift; sourceTree = "<group>"; };
 		B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesHistoryVC.swift; sourceTree = "<group>"; };
 		B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTVC.swift; sourceTree = "<group>"; };
 		B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTVC.xib; sourceTree = "<group>"; };
@@ -609,6 +640,13 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B37C7FE42B90505C007DE024 /* CollectionFilterVC */,
+				B37068882B8DB30300AC330E /* DeliveryCollectionsVC */,
+				B39FE0402B71F1C600565AE9 /* NewReturnVehicleVC */,
+				B33A10E92B70A3C70089F191 /* RepairerBooking */,
+				B34B3C1A2B6A0C760051986B /* FleetService */,
+				B38D86632B6783BE006CC28E /* FleetReference */,
+				B38D865B2B676D5D006CC28E /* Fleets */,
 				B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */,
 				B357B0CE2B5E91A5004C71DF /* ViewReferenceVC */,
 				B357B0C12B5E72D8004C71DF /* AccidentMaintenanceVC */,
@@ -625,7 +663,6 @@
 				B3366DBC2B35713B00F72CE8 /* ACAFilterPopup */,
 				B3366DB42B35551300F72CE8 /* ACAList */,
 				B3771E582B316B5500705FEF /* SwapVehicleVC */,
-				816133192B2EF6A900938B28 /* RepairerBookingVC.swift */,
 				5319E5D426C7CE1E0095045E /* DashboardVC.swift */,
 				53346CA326C82F6400807BFB /* DrawerVC.swift */,
 				537D73C626CCCA9F009591BF /* CollectionsVC.swift */,
@@ -740,6 +777,7 @@
 		5344796B26C67CB800380609 /* TrueBlue */ = {
 			isa = PBXGroup;
 			children = (
+				B35B8E8D2B70B8BF008EFB9B /* TrueBlue.entitlements */,
 				5344798026C6805500380609 /* Authentication */,
 				530B1A0726CB719C001ACBBA /* Dashboard */,
 				5344798526C680BE00380609 /* Common */,
@@ -999,6 +1037,32 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		B33A10E92B70A3C70089F191 /* RepairerBooking */ = {
+			isa = PBXGroup;
+			children = (
+				B33A10EA2B70A3E80089F191 /* RepairerBookingTVC */,
+				816133192B2EF6A900938B28 /* RepairerBookingVC.swift */,
+			);
+			path = RepairerBooking;
+			sourceTree = "<group>";
+		};
+		B33A10EA2B70A3E80089F191 /* RepairerBookingTVC */ = {
+			isa = PBXGroup;
+			children = (
+				B33A10EB2B70A3FC0089F191 /* RepairerBookingTVC.swift */,
+				B33A10EC2B70A3FC0089F191 /* RepairerBookingTVC.xib */,
+			);
+			path = RepairerBookingTVC;
+			sourceTree = "<group>";
+		};
+		B34B3C1A2B6A0C760051986B /* FleetService */ = {
+			isa = PBXGroup;
+			children = (
+				B34B3C1B2B6A0C860051986B /* FleetServiceVC.swift */,
+			);
+			path = FleetService;
+			sourceTree = "<group>";
+		};
 		B357B0C12B5E72D8004C71DF /* AccidentMaintenanceVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1085,6 +1149,32 @@
 			path = AccidentManagementVC;
 			sourceTree = "<group>";
 		};
+		B37068852B8DA4E500AC330E /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				B37068862B8DA4F600AC330E /* LogSheetFilterVC.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		B37068882B8DB30300AC330E /* DeliveryCollectionsVC */ = {
+			isa = PBXGroup;
+			children = (
+				B370688B2B8DB6D000AC330E /* TVC */,
+				B37068892B8DB31000AC330E /* DeliveryCollectionsVC.swift */,
+			);
+			path = DeliveryCollectionsVC;
+			sourceTree = "<group>";
+		};
+		B370688B2B8DB6D000AC330E /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B370688C2B8DB70700AC330E /* DeliveryCollectionsTVC.swift */,
+				B370688D2B8DB70700AC330E /* DeliveryCollectionsTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
 		B3771E582B316B5500705FEF /* SwapVehicleVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1103,9 +1193,18 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		B37C7FE42B90505C007DE024 /* CollectionFilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */,
+			);
+			path = CollectionFilterVC;
+			sourceTree = "<group>";
+		};
 		B37FC4932B50FED3009CBA77 /* Logs sheet */ = {
 			isa = PBXGroup;
 			children = (
+				B37068852B8DA4E500AC330E /* Filter */,
 				B37FC4962B50FF29009CBA77 /* TVC */,
 				B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */,
 			);
@@ -1129,6 +1228,43 @@
 			);
 			path = CVC;
 			sourceTree = "<group>";
+		};
+		B38D865B2B676D5D006CC28E /* Fleets */ = {
+			isa = PBXGroup;
+			children = (
+				B38D865E2B6780E3006CC28E /* TVC */,
+				B38D865C2B676D71006CC28E /* FleetsVC.swift */,
+			);
+			path = Fleets;
+			sourceTree = "<group>";
+		};
+		B38D865E2B6780E3006CC28E /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B38D865F2B6780FA006CC28E /* FleetsTVC.swift */,
+				B38D86602B6780FA006CC28E /* FleetsTVC.xib */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		B38D86632B6783BE006CC28E /* FleetReference */ = {
+			isa = PBXGroup;
+			children = (
+				B38D86662B67852F006CC28E /* TVC */,
+				B38D86642B6783DD006CC28E /* FleetReferenceVC.swift */,
+			);
+			path = FleetReference;
+			sourceTree = "<group>";
+		};
+		B38D86662B67852F006CC28E /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				B38D86672B67852F006CC28E /* FleetViewReferenceTVC.xib */,
+				B38D86682B67852F006CC28E /* FleetViewReferenceTVC.swift */,
+			);
+			name = TVC;
+			path = TrueBlue/Dashboard/Controller/FleetReference/TVC;
+			sourceTree = SOURCE_ROOT;
 		};
 		B38DC9132B3D41CB009FD897 /* Model */ = {
 			isa = PBXGroup;
@@ -1263,6 +1399,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B39FE0402B71F1C600565AE9 /* NewReturnVehicleVC */ = {
+			isa = PBXGroup;
+			children = (
+				B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */,
+			);
+			path = NewReturnVehicleVC;
+			sourceTree = "<group>";
+		};
 		B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,17 +1496,21 @@
 				5731CB4A2B4E59020048A220 /* UpcomingBookingTableViewCell.xib in Resources */,
 				B388B26D2B580812007EA2E8 /* ImagesCVC.xib in Resources */,
 				5344797926C67CB900380609 /* LaunchScreen.storyboard in Resources */,
+				B33A10EE2B70A3FC0089F191 /* RepairerBookingTVC.xib in Resources */,
+				B370688F2B8DB70700AC330E /* DeliveryCollectionsTVC.xib in Resources */,
 				B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */,
 				B392BC8B2B3965670002DD69 /* HourlyEventTVC.xib in Resources */,
 				B392BC7D2B39445D0002DD69 /* EventTVC.xib in Resources */,
 				B3660A9E2B57B53300AC8F02 /* HeaderFilterCVC.xib in Resources */,
 				530B1A0A26CB71CB001ACBBA /* Dashboard.storyboard in Resources */,
+				B38D86692B67852F006CC28E /* FleetViewReferenceTVC.xib in Resources */,
 				B3366DD02B358C5E00F72CE8 /* NoDataView.xib in Resources */,
 				5344797626C67CB900380609 /* Assets.xcassets in Resources */,
 				B357B0D52B5E970A004C71DF /* ViewReferenceTVC.xib in Resources */,
 				B399CDCD2B58E5B500D84AE4 /* AvailableVehicleTVC.xib in Resources */,
 				B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */,
 				B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */,
+				B38D86622B6780FA006CC28E /* FleetsTVC.xib in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
 				B357B0CA2B5E7440004C71DF /* AccidentMaintenanceTVC.xib in Resources */,
@@ -1434,6 +1582,7 @@
 				21F3F7C429B0B16700C3C60B /* SendToEmailModel.swift in Sources */,
 				B357B0CD2B5E880F004C71DF /* AccidentMaintenanceModel.swift in Sources */,
 				534D4DD7276C5E2700363682 /* CustomGroupDetailImageCell.swift in Sources */,
+				B38D865D2B676D71006CC28E /* FleetsVC.swift in Sources */,
 				B357B0D42B5E970A004C71DF /* ViewReferenceTVC.swift in Sources */,
 				5322CADB26CA831200376CBD /* DrawerTblViewCell.swift in Sources */,
 				DC0568922B295ECE0080CB37 /* UnderMaintenanceModel.swift in Sources */,
@@ -1478,6 +1627,7 @@
 				B38DC9152B3D41DA009FD897 /* EventDetailsModel.swift in Sources */,
 				537D73C926CCCBB7009591BF /* DeliveriesVC.swift in Sources */,
 				21EAA31C29ED62C200A3A704 /* ReferralsListModel.swift in Sources */,
+				B34B3C1C2B6A0C860051986B /* FleetServiceVC.swift in Sources */,
 				534D4DD5276C5DC500363682 /* CustomUIDelegate.swift in Sources */,
 				215341DB29EE623E00C21BA2 /* CollectedDocumentsModel.swift in Sources */,
 				B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */,
@@ -1489,12 +1639,14 @@
 				210AE0C029FB98D900ACC1F9 /* GetAccidentDetailsModel.swift in Sources */,
 				215341DD29EE812F00C21BA2 /* CollectionNoteViewModel.swift in Sources */,
 				B3660AA12B57B68200AC8F02 /* AccidentManagementVC.swift in Sources */,
+				B37068872B8DA4F600AC330E /* LogSheetFilterVC.swift in Sources */,
 				4D3C69D326D955F20034B5FB /* DeliveryListCell.swift in Sources */,
 				21F3F7CE29B0B8A700C3C60B /* DeliveredCollectedByViewModel.swift in Sources */,
 				B3366DCE2B358C5E00F72CE8 /* BaseViews.swift in Sources */,
 				5383298126CA404E00A6DEAF /* DashboardCvCell.swift in Sources */,
 				21DF53F82A03AD0C0064B1D6 /* SwapVehiclePicturesCvCell.swift in Sources */,
 				531B15B526C7892B005D5EBF /* LoginVC.swift in Sources */,
+				B38D86612B6780FA006CC28E /* FleetsTVC.swift in Sources */,
 				21F3F7C629B0B2AE00C3C60B /* FinalSubmitModel.swift in Sources */,
 				537D73D526CCD385009591BF /* KeyboardStateListener.swift in Sources */,
 				534B1D1F26CF71DB00E3907C /* AtFaultDriverDetailsVC.swift in Sources */,
@@ -1539,6 +1691,7 @@
 				4D9AE14E26DCCA280080D3AB /* HiredVehicleTblCell.swift in Sources */,
 				53F312D926D8A27700D25E52 /* BookingDetailsModel.swift in Sources */,
 				B392BC8A2B3965670002DD69 /* HourlyEventTVC.swift in Sources */,
+				B370688E2B8DB70700AC330E /* DeliveryCollectionsTVC.swift in Sources */,
 				53C5AF3B27019E90004F2FC3 /* CollectionsHeaderTblViewCell.swift in Sources */,
 				B3366DC42B35778B00F72CE8 /* WebService.swift in Sources */,
 				536761C92754D26F00D7F2AB /* DateTextField.swift in Sources */,
@@ -1569,6 +1722,7 @@
 				21F3F7C829B0B3C800C3C60B /* DeliveredCollectedByModel.swift in Sources */,
 				53DA39BE26D37A6E00842140 /* StateListModel.swift in Sources */,
 				B392BC802B394D310002DD69 /* AddEventPopupVC.swift in Sources */,
+				B370688A2B8DB31000AC330E /* DeliveryCollectionsVC.swift in Sources */,
 				53DC811826CE141A004352D4 /* UserDefaultsHelper.swift in Sources */,
 				B3926BE52B5A493800C1BAC3 /* AccidentModel.swift in Sources */,
 				579EFDDF2B4E949C0048BDC3 /* NewEventTVC.swift in Sources */,
@@ -1576,18 +1730,21 @@
 				5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */,
 				573264412B4683C500E1450D /* AllUserModel.swift in Sources */,
 				81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */,
+				B37C7FE62B905073007DE024 /* CollectionFilterVC.swift in Sources */,
 				21F2AFC329F7969A004B8732 /* SwappedVehicleTblViewCell.swift in Sources */,
 				573264372B46790300E1450D /* UserVC.swift in Sources */,
 				5392792326FC845100696A30 /* CardDetailsViewModel.swift in Sources */,
 				53B669AF26CFB9D8007F1696 /* ReturnVehicleViewModel.swift in Sources */,
 				533C6B2126D668160070C4C1 /* RepairerListModel.swift in Sources */,
 				4FCAC9342B00F01A00813EDA /* AddNotesVC.swift in Sources */,
+				B38D866A2B67852F006CC28E /* FleetViewReferenceTVC.swift in Sources */,
 				530F39CA26D518BD00222E5E /* AtFaultDriverDetailsModel.swift in Sources */,
 				534FA2A326CD40C700251DC8 /* LoginModel.swift in Sources */,
 				533BC34B26FD8C6A0062D150 /* MultiSelectionImgPicker.swift in Sources */,
 				21EAA31A29ED623A00A3A704 /* RepairersListModel.swift in Sources */,
 				5334B8DC26D4AB8200F51D6E /* NotAtFaultDriverDetailsViewModel.swift in Sources */,
 				21F2AFC129F79096004B8732 /* SwappedVehicleVC.swift in Sources */,
+				B39FE0422B71F1DA00565AE9 /* NewReturnVehicleVC.swift in Sources */,
 				8161331A2B2EF6A900938B28 /* RepairerBookingVC.swift in Sources */,
 				816133162B2DCB3F00938B28 /* ReferenceSearchResultVC.swift in Sources */,
 				530F39C226D4B8C300222E5E /* ProposedVehicleModel.swift in Sources */,
@@ -1621,6 +1778,7 @@
 				530B1A1026CB80EE001ACBBA /* NewBookingEntryTabCvCell.swift in Sources */,
 				B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */,
 				530F39C026D4B84100222E5E /* NewReferenceIdModel.swift in Sources */,
+				B33A10ED2B70A3FC0089F191 /* RepairerBookingTVC.swift in Sources */,
 				B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */,
 				212D9B9129E7B937001F31BE /* DeliveryNotesListViewModel.swift in Sources */,
 				537D73CB26CCCD29009591BF /* DataSyncManager.swift in Sources */,
@@ -1630,6 +1788,7 @@
 				532E307F26D7820C006322F0 /* ImagePicker.swift in Sources */,
 				B357B0D02B5E91CF004C71DF /* ViewReferenceVC.swift in Sources */,
 				B399CDD02B58EA1B00D84AE4 /* AvailableVehicleModel.swift in Sources */,
+				B38D86652B6783DD006CC28E /* FleetReferenceVC.swift in Sources */,
 				DC0568942B2962910080CB37 /* UnderMaintenanceViewModel.swift in Sources */,
 				2103AAC729E533EE00DCCB94 /* DeliveryNoteViewModel.swift in Sources */,
 				53346CA426C82F6400807BFB /* DrawerVC.swift in Sources */,
@@ -1786,10 +1945,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrueBlue/TrueBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 41;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PL479L295R;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				INFOPLIST_FILE = TrueBlue/Info.plist;
@@ -1813,10 +1973,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrueBlue/TrueBlue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 41;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PL479L295R;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				INFOPLIST_FILE = TrueBlue/Info.plist;

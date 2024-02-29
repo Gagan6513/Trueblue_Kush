@@ -39,14 +39,14 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxk-wy-ibl">
-                        <rect key="frame" x="20" y="155" width="504" height="1"/>
+                        <rect key="frame" x="20" y="150" width="504" height="1"/>
                         <color key="backgroundColor" name="E7E2E2"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="xsr-Td-gHp"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UI-Xf-UC8">
-                        <rect key="frame" x="120" y="20" width="384" height="115"/>
+                        <rect key="frame" x="120" y="20" width="384" height="110"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 320i (2018)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-Nb-hC4">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="22"/>
@@ -107,10 +107,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gvs-4u-3VD">
-                                <rect key="frame" x="0.0" y="84" width="170" height="31"/>
+                                <rect key="frame" x="0.0" y="84" width="170" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj7-JL-brK">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="3Rt-Im-5MQ">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
@@ -141,7 +141,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwF-bg-9i9">
-                                        <rect key="frame" x="90" y="0.0" width="80" height="31"/>
+                                        <rect key="frame" x="90" y="0.0" width="80" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="History"/>
@@ -164,10 +164,10 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-Jp-HQ1">
-                                        <rect key="frame" x="170" y="0.0" width="0.0" height="31"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <rect key="frame" x="170" y="0.0" width="0.0" height="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="New Booking"/>
+                                        <state key="normal" title="References"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="5"/>
@@ -179,8 +179,11 @@
                                                 <color key="value" name="3478F6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        </variation>
                                         <connections>
-                                            <action selector="btnNewBooking:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5tO-S6-BQz"/>
+                                            <action selector="btnReferences:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5tO-S6-BQz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -207,24 +210,37 @@
                             <constraint firstItem="Ymt-ii-E07" firstAttribute="centerY" secondItem="3dz-Nb-hC4" secondAttribute="centerY" id="xON-us-KiL"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBu-hf-i9K">
+                        <rect key="frame" x="20" y="20.000000000000004" width="80" height="53.333333333333343"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="btnFullScreen:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="va3-sh-omQ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="5UI-Xf-UC8" firstAttribute="leading" secondItem="wfW-iQ-cXh" secondAttribute="trailing" constant="20" id="0VB-f8-3Ig"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="leading" secondItem="wfW-iQ-cXh" secondAttribute="leading" id="5p7-zV-jPg"/>
                     <constraint firstItem="wfW-iQ-cXh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="6Mt-Kw-S7g"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="trailing" secondItem="wfW-iQ-cXh" secondAttribute="trailing" id="8SF-RM-aep"/>
                     <constraint firstAttribute="trailing" secondItem="Lxk-wy-ibl" secondAttribute="trailing" id="9Sl-sj-oFd"/>
                     <constraint firstAttribute="bottom" secondItem="Lxk-wy-ibl" secondAttribute="bottom" id="JPd-wJ-wsa"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="top" secondItem="wfW-iQ-cXh" secondAttribute="top" id="MiO-OP-N69"/>
                     <constraint firstItem="Lxk-wy-ibl" firstAttribute="top" secondItem="5UI-Xf-UC8" secondAttribute="bottom" constant="20" id="Pts-yl-ho6"/>
                     <constraint firstItem="5UI-Xf-UC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Sng-WE-6I0"/>
                     <constraint firstAttribute="trailing" secondItem="5UI-Xf-UC8" secondAttribute="trailing" constant="20" id="T1h-cn-U5m"/>
                     <constraint firstItem="wfW-iQ-cXh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cgQ-fj-Ysy"/>
                     <constraint firstItem="Lxk-wy-ibl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dAC-ZD-kcG"/>
+                    <constraint firstItem="cBu-hf-i9K" firstAttribute="bottom" secondItem="wfW-iQ-cXh" secondAttribute="bottom" id="ucJ-5Z-PFu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="availableLabel" destination="UwR-m1-pLD" id="huu-xf-G79"/>
+                <outlet property="availableTitleLabel" destination="Ve2-Ed-y7d" id="cGG-9A-gen"/>
+                <outlet property="btnReferences" destination="mQt-Jp-HQ1" id="N0q-hu-5R5"/>
                 <outlet property="carId" destination="Ymt-ii-E07" id="hRr-fm-hAI"/>
                 <outlet property="carImage" destination="wfW-iQ-cXh" id="gWH-Sm-cYI"/>
                 <outlet property="carNameLabel" destination="3dz-Nb-hC4" id="cL1-ZA-Yx7"/>

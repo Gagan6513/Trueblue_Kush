@@ -23,11 +23,24 @@ class ViewReferenceVC: UIViewController {
         super.viewDidLoad()
         self.setupTableview()
         self.setupDetails()
+        
+        NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.getRefList()
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getRefList()
+    }
+    
+    @IBAction func btnAddAccident(_ sender: Any) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "AccidentManagementVC") as! AccidentManagementVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.regoNumber = self.vehicleDetails?.registration_no ?? ""
+        self.present(ctrl, animated: true)
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -42,7 +55,7 @@ class ViewReferenceVC: UIViewController {
     
     func setupDetails() {
         if let data = vehicleDetails {
-            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\(data.yearof_manufacture ?? ""))"
+            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\((data.yearof_manufacture ?? "").date(convetedFormate: .ddmmyyyy)))"
             self.carIdLabel.text = data.vehicle_category
             self.carModelLabel.text = (data.vehicle_make ?? "")
             if let url = URL(string: data.fleet_image ?? "") {

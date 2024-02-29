@@ -18,6 +18,16 @@ class AccidentMaintenanceModel: Codable {
 
 class AccidentMaintenanceData: Codable {
     var response : [AccidentMaintenance]?
+    var total_records: CounsForFleet?
+
+}
+
+class CounsForFleet: Codable {
+    
+    var total_count: String?
+    var available_count: String?
+    var hired_count: String?
+    var maintenance_count: String?
 }
 
 class AccidentDetailsModel: Codable {
@@ -311,5 +321,78 @@ class AccidentService: Codable {
     let vehicle_id : String?
     let vehicle_make : String?
     let vehicle_model : String?
+    let last_service_mileage : String?
+    let last_service_date : String?
+    let registration_no : String?
+    let service_slip1 : String?
+    let service_slip2 : String?
+    let service_slip3 : String?
+    let service_slip4 : String?
+    
+}
+
+class AccidentServiceDetailsModel: Codable {
+    
+    var data: AccidentServiceDetailsData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentServiceDetailsData: Codable {
+    var response : AccidentService?
+}
+
+
+class LastServiceDetailsModel: Codable {
+    
+    var data: AccidentServiceDataData?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class AccidentServiceDataData: Codable {
+    var response : LastAccidentServiceData?
+}
+
+class LastAccidentServiceData: Codable {
+    var last_service_date : String?
+    var last_service_mileage : String?
+    var repairer_name : String?
+}
+
+class CollectionDeliveryModel: Codable {
+    
+    var data: [CollectionDeliveryDataList]?
+    var status: Int?
+    var msg:String?
+    var statusCode: Int?
+    
+}
+
+class CollectionDeliveryDataList: Codable {
+    
+    var application_id: String?
+    var app_id: String?
+    var collection_by: String?
+    var delivered_by: String?
+    var date_in: String?
+    var date_out: String?
+    var is_swapped: String?
+    var owner_firstname: String?
+    var owner_lastname: String?
+    var owner_phone: String?
+    var registration_no: String?
+    var status: String?
+    var vehicle_id: String?
+    
+    var vehicle_make: String?
+    var vehicle_model: String?
+    var yearof_manufacture: String?
+    var vehicle_category: String?
+    var fleet_image: String?
     
 }

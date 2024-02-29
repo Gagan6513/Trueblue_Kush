@@ -14,8 +14,11 @@ class AccidentMaintenanceTVC: UITableViewCell {
     @IBOutlet weak var carId: UILabel!
     @IBOutlet weak var carTypeLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var availableTitleLabel: UILabel!
+    @IBOutlet weak var btnReferences: UIButton!
     
     var refClicked: (() -> Void)?
+    var btnReferanceClicked: (() -> Void)?
     var serviceClicked: (() -> Void)?
     
     override func awakeFromNib() {
@@ -37,7 +40,12 @@ class AccidentMaintenanceTVC: UITableViewCell {
         self.serviceClicked?()
     }
     
-    @IBAction func btnNewBooking(_ sender: Any) {
+    @IBAction func btnReferences(_ sender: Any) {
+        self.btnReferanceClicked?()
+    }
+    
+    @IBAction func btnFullScreen(_ sender: Any) {
+        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
     }
     
     func setupDetails(data: AccidentMaintenance) {

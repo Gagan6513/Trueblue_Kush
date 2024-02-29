@@ -56,6 +56,18 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         
         self.dateLabel.text = stringDate
         self.monthLabel.text = stringMonthYear
+        self.dateLabel.textColor = UIColor(named: "AppGray")
+        self.monthLabel.textColor = UIColor(named: "AppGray")
+        
+        let dateee = data.expected_delivery_date.date(from: .yyyymmdd) ?? Date()
+        
+        if dateee < Date() {
+            self.dateLabel.textColor = UIColor(named: "FF0000")
+            self.monthLabel.textColor = UIColor(named: "FF0000")
+        } else {
+            self.dateLabel.textColor = UIColor(named: "AppGray")
+            self.monthLabel.textColor = UIColor(named: "AppGray")
+        }
         
         self.phoneNumber.text = data.owner_phone == "" ? "NA" : data.owner_phone
         self.clientLicense.text = data.owner_lic == "" ? "NA" : data.owner_lic
@@ -66,27 +78,27 @@ class UpcomingBookingTableViewCell: UITableViewCell {
         
         self.refNo.text = "Ref# \(data.application_id)"
         
-        self.expiresOn.text = data.ownerlic_exp == "" ? "NA" : data.ownerlic_exp
+//        self.expiresOn.text = data.ownerlic_exp == "" ? "NA" : data.ownerlic_exp
         
-        if (data.ownerlic_exp == "") {
-            self.expiresOn.textColor = .black
-        } else {
-            let date = data.ownerlic_exp.date(from: .ddmmyyyy) ?? Date()
-            if date < Date() {
-                self.expiresOn.textColor = UIColor(named: "FF0000")
-            } else {
-                
-                let dateFormater = DateFormatter()
-                dateFormater.dateFormat = "MM"
-                let monthString = dateFormater.string(from: Date())
-                let expiryMonthString = dateFormater.string(from: date)
-                if monthString == expiryMonthString {
-                    self.expiresOn.textColor = UIColor(named: "FF0000")
-                } else {
-                    self.expiresOn.textColor = UIColor(named: "07B107")
-                }
-            }
-        }
+//        if (data.ownerlic_exp == "") {
+//            self.expiresOn.textColor = .black
+//        } else {
+//            let date = data.ownerlic_exp.date(from: .ddmmyyyy) ?? Date()
+//            if date < Date() {
+//                self.expiresOn.textColor = UIColor(named: "FF0000")
+//            } else {
+//
+//                let dateFormater = DateFormatter()
+//                dateFormater.dateFormat = "MM"
+//                let monthString = dateFormater.string(from: Date())
+//                let expiryMonthString = dateFormater.string(from: date)
+//                if monthString == expiryMonthString {
+//                    self.expiresOn.textColor = UIColor(named: "FF0000")
+//                } else {
+//                    self.expiresOn.textColor = UIColor(named: "07B107")
+//                }
+//            }
+//        }
         
     }
     

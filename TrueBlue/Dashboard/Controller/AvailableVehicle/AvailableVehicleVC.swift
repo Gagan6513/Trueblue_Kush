@@ -64,14 +64,15 @@ extension AvailableVehicleVC {
         
         /* Create API Request */
         let webService = WebServiceModel()
-        webService.url = URL(string: API_URL.AVAILABLE_VEHICLE_LIST)!
+        webService.url = URL(string: API_URL.getAllFleets)! // API CHANGES
         webService.method = .post
         
         let application_id = CommonObject.sharedInstance.currentReferenceId.replacingOccurrences(of: "IV000", with: "")
         
         var param = [String: Any]()
-        param["notesForId"] = application_id
-        param["notesFor"] = "all"
+//        param["notesForId"] = application_id
+//        param["notesFor"] = "all"
+        param["status"] = "available"
         
         webService.parameters = param
         

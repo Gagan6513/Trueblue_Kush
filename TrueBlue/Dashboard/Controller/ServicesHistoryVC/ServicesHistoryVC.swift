@@ -23,11 +23,14 @@ class ServicesHistoryVC: UIViewController {
         super.viewDidLoad()
         self.setupTableview()
         self.setupDetails()
+        DispatchQueue.main.async {
+            self.getRefList()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getRefList()
+        
     }
     
     @IBAction func btnBack(_ sender: Any) {
@@ -40,15 +43,30 @@ class ServicesHistoryVC: UIViewController {
         self.tableView.registerNib(for: "ServiceTVC")
     }
     
+    @IBAction func btnAdd(_ sender: Any) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetServiceVC") as! FleetServiceVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.isFromView = false
+        ctrl.regoNumber = self.vehicleDetails?.registration_no ?? ""
+        self.present(ctrl, animated: true)
+    }
+    
     func setupDetails() {
         if let data = vehicleDetails {
-            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\(data.yearof_manufacture ?? ""))"
+            self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\((data.yearof_manufacture ?? "").date(convetedFormate: .ddmmyyyy)))"
             self.carIdLabel.text = data.vehicle_category
             self.carModelLabel.text = (data.vehicle_make ?? "")
             if let url = URL(string: data.fleet_image ?? "") {
                 self.carImage.sd_setImage(with: url)
             }
         }
+        
+        
+        NotificationCenter.default.addObserver(forName: .refreshFleetList, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self else { return }
+            self.getRefList()
+        })
+        
     }
 }
 
@@ -67,11 +85,20 @@ extension ServicesHistoryVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTVC") as? ServiceTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.setupDetails(data: self.arrReferace[indexPath.row])
-       
-        
+        cell.btnViewClicked = { [weak self] status in
+            guard let self else { return }
+            self.showDetiails(isFromView: status, data: self.arrReferace[indexPath.row])
+        }
         return cell
     }
     
+    func showDetiails(isFromView: Bool, data: AccidentService) {
+        let ctrl = UIStoryboard(name: "AccidentManagement", bundle: nil).instantiateViewController(withIdentifier: "FleetServiceVC") as! FleetServiceVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.serviceData = data
+        ctrl.isFromView = isFromView
+        self.present(ctrl, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
    
@@ -90,8 +117,8 @@ extension ServicesHistoryVC {
         webService.method = .post
         
         var param = [String: Any]()
-        param["referenceFor"] = "rego"
-        param["regoId"] = vehicleDetails?.id
+//        param["referenceFor"] = "rego"
+        param["vehicle_id"] = vehicleDetails?.id
         
         webService.parameters = param
         

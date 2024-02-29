@@ -32,6 +32,7 @@ extension Notification.Name {
     static let dateCollections = Notification.Name("dateCollections")
     static let dateDeliveries = Notification.Name("dateDeliveries")
     static let searchUser = Notification.Name("searchUser")
+    static let noteType = Notification.Name("noteType")
     static let searchReferenceNo = Notification.Name("searchReferenceNo")
     static let dateReturnVehicle = Notification.Name("dateReturnVehicle")
     static let timeReturnVehicle = Notification.Name("timeReturnVehicle")
@@ -78,6 +79,7 @@ extension Notification.Name {
     
     
     static let AccidentDetails = Notification.Name("AccidentDetails")
+    static let refreshFleetList = Notification.Name("refreshFleetList")
     static let AccidentDetailsEdit = Notification.Name("AccidentDetailsEdit")
     
     
@@ -194,7 +196,7 @@ extension UIViewController {
         present(alertVc, animated: true, completion: nil)
     }
     
-    func showDatePickerPopUp(textField: UITextField,notificationName: Notification.Name, _isFromUpcomingBooking:Bool = false, _isThreeYearsValidation:Bool = false) {
+    func showDatePickerPopUp(textField: UITextField,notificationName: Notification.Name, _isFromUpcomingBooking:Bool = false, _isThreeYearsValidation:Bool = false, isFromDateOfBirth:Bool = false) {
         var storyboardName = String()
         var vcId = String()
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -209,6 +211,8 @@ extension UIViewController {
         alertVc.dateTextField = textField
         alertVc.modalPresentationStyle = .overFullScreen
         alertVc.currentNotification = notificationName
+        alertVc.isFromDateOfBirth = isFromDateOfBirth
+
 //        alertVc.isFromUpcomingBooking = _isFromUpcomingBooking
         alertVc.isThreeYearsValidation = _isThreeYearsValidation
         view.endEditing(true)//To remove any keyboard that were open on other texfield
@@ -501,6 +505,14 @@ extension String {
         return dateFormatter.date(from: self)
     }
     
+    func date(currentFormate: DateFormat = .yyyymmdd, convetedFormate: DateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = currentFormate.rawValue
+        let date = dateFormatter.date(from: self) ?? Date()
+        dateFormatter.dateFormat = convetedFormate.rawValue
+        return dateFormatter.string(from: date)
+    }
+    
     func isTimeAM()-> Bool {
         if let value = self.DatePresentable?.getDateAccoringTo(format: .amPm) {
             if value.first?.lowercased() ?? "" == "a" {
@@ -621,10 +633,15 @@ enum DateFormat: String {
     case mmddyyyy = "MM/dd/yyyy"
     case mmmd_yyyy = "MMM d, yyyy"
     case yyyymmdd = "yyyy-MM-dd"
+    case ddMMMMyyyy = "dd MMM, yyyy"
+    
     case ddmmyyyy = "dd-MM-yyyy"
     case MM = "MM"
     case yyyymmdd_hhmmss = "yyyy-MM-dd HH:mm:ss"
+    case yyyymmdd_hhmmss_s = "yyyy-MM-dd HH:mm:ss.s"
+    case yyyymmdd_hhmmss_sss = "yyyy-MM-dd HH:mm:ss.SSS"
     case yyyymmdd_hhmmaa = "yyyy-MM-dd hh:mm a"
+    case ddmmyyyy_hhmmaa = "dd-MM-yyyy hh:mm a"
     case hhmmss = "HH:mm:ss"
     case Time12Hr_am = "hh:mm a"
     case TIME_am = "HH:mm a"

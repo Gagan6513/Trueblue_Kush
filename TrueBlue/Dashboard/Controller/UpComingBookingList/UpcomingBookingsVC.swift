@@ -40,6 +40,7 @@ class UpcomingBookingsVC: UIViewController{
         searchView.layer.borderWidth = 1
         searchView.layer.cornerRadius = 5
         self.searchView.isHidden = true
+        self.searchTxtFld.delegate = self
         
         btnFilter.layer.cornerRadius = btnFilter.frame.size.height/2
         
@@ -47,8 +48,8 @@ class UpcomingBookingsVC: UIViewController{
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.DateNotificationAction(_:)), name: .collectionDate, object: nil)
         
-        tblUpcomingBookingsList.emptyDataSetSource = self;
-        tblUpcomingBookingsList.emptyDataSetDelegate = self;
+//        tblUpcomingBookingsList.emptyDataSetSource = self;
+//        tblUpcomingBookingsList.emptyDataSetDelegate = self;
         
         
         self.tblUpcomingBookingsList.delegate = self
@@ -143,12 +144,7 @@ class UpcomingBookingsVC: UIViewController{
     
     @IBAction func searchInnerAction(_ sender: Any) {
         self.searchView.isHidden = true
-        if (searchTxtFld.text?.isEmpty ?? false) {
-            self.CallAPIWhenPageLoad()
-        } else {
-            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
-            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
-        }
+        self.searchTxtFld.resignFirstResponder()
     }
     
     @IBAction func btnSearchClicked(_ sender: UIButton) {
@@ -230,8 +226,14 @@ extension UpcomingBookingsVC : UITableViewDelegate {
 }
 extension UpcomingBookingsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arrCollectionList.count > 0 {
-            return arrCollectionList.count
+        if self.arrCollectionList.count != 0 {
+            tableView.removeBackgroundView()
+            return self.arrCollectionList.count
+        }
+        if dateFromTxtFld.text?.isEmpty ?? true {
+            tableView.setBackgroundView(msg: "No Records found")
+        } else {
+            tableView.setBackgroundView(msg: "No Records found for\n\(dateFromTxtFld.text ?? "") to \(dateToTxtFld.text ?? "")")
         }
         return 0
     }
@@ -326,13 +328,36 @@ extension UpcomingBookingsVC : UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
         if textField == searchTxtFld && ((searchTxtFld.text?.isEmpty) != nil){
-            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
-            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+//            let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
+//            apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+            textField.resignFirstResponder()
         }
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == searchTxtFld {
+            self.searchView.isHidden = true
+            if (searchTxtFld.text?.isEmpty ?? false) {
+                self.CallAPIWhenPageLoad()
+            } else {
+                let parameters : Parameters = ["application_id" : searchTxtFld.text ?? ""]
+                apiPostCollectionNoteDetail(parameters: parameters, endPoint: EndPoints.GET_NEW_UPCOMING_BOOKINGS)
+            }
+        }
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == searchTxtFld {
+            self.searchTxtFld.text = ""
+            DispatchQueue.main.async {
+                textField.resignFirstResponder()
+            }
+        }
+        return true
+    }
+    
 }
 extension UpcomingBookingsVC :DZNEmptyDataSetDelegate , DZNEmptyDataSetSource  {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
