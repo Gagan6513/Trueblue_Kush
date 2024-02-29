@@ -583,6 +583,10 @@ extension DashboardVC : DashboardVMDelegate {
         if let data = screenNames.firstIndex(where: { $0 == "Fleet" }) {
             arrDashboardCount[data] = "\(objData.dictResult.fleet_count)"
         }
+        
+        if let data = screenNames.firstIndex(where: { $0 == "Collections & Deliveries" }) {
+            arrDashboardCount[data] = ""
+        }
                 
         //arrDashboardCount[6] = objData
         collectionView.reloadData()

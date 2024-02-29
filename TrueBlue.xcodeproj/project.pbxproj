@@ -216,6 +216,7 @@
 		B3771E5D2B316B5500705FEF /* CarImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3771E5A2B316B5500705FEF /* CarImageCVC.xib */; };
 		B3771E5E2B316B5500705FEF /* CarImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5B2B316B5500705FEF /* CarImageCVC.swift */; };
 		B3771E5F2B316B5500705FEF /* NewSwapVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */; };
+		B37C7FE62B905073007DE024 /* CollectionFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */; };
 		B37FC4952B50FEE6009CBA77 /* LogsSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */; };
 		B37FC4992B50FF3A009CBA77 /* LogSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */; };
 		B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */; };
@@ -473,6 +474,7 @@
 		B3771E5A2B316B5500705FEF /* CarImageCVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarImageCVC.xib; sourceTree = "<group>"; };
 		B3771E5B2B316B5500705FEF /* CarImageCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarImageCVC.swift; sourceTree = "<group>"; };
 		B3771E5C2B316B5500705FEF /* NewSwapVehicleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSwapVehicleVC.swift; sourceTree = "<group>"; };
+		B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFilterVC.swift; sourceTree = "<group>"; };
 		B37FC4942B50FEE6009CBA77 /* LogsSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsSheetVC.swift; sourceTree = "<group>"; };
 		B37FC4972B50FF3A009CBA77 /* LogSheetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSheetTVC.swift; sourceTree = "<group>"; };
 		B37FC4982B50FF3A009CBA77 /* LogSheetTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogSheetTVC.xib; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		530B1A0D26CB71E9001ACBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B37C7FE42B90505C007DE024 /* CollectionFilterVC */,
 				B37068882B8DB30300AC330E /* DeliveryCollectionsVC */,
 				B39FE0402B71F1C600565AE9 /* NewReturnVehicleVC */,
 				B33A10E92B70A3C70089F191 /* RepairerBooking */,
@@ -1190,6 +1193,14 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		B37C7FE42B90505C007DE024 /* CollectionFilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				B37C7FE52B905073007DE024 /* CollectionFilterVC.swift */,
+			);
+			path = CollectionFilterVC;
+			sourceTree = "<group>";
+		};
 		B37FC4932B50FED3009CBA77 /* Logs sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,6 +1730,7 @@
 				5732643D2B467A4A00E1450D /* UserListTVC.swift in Sources */,
 				573264412B4683C500E1450D /* AllUserModel.swift in Sources */,
 				81506ABA2B2B01ED006889AF /* ImageCollectionViewCell.swift in Sources */,
+				B37C7FE62B905073007DE024 /* CollectionFilterVC.swift in Sources */,
 				21F2AFC329F7969A004B8732 /* SwappedVehicleTblViewCell.swift in Sources */,
 				573264372B46790300E1450D /* UserVC.swift in Sources */,
 				5392792326FC845100696A30 /* CardDetailsViewModel.swift in Sources */,

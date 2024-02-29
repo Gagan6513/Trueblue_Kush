@@ -46,6 +46,7 @@ class NewReturnVehicleVC: UIViewController {
     @IBOutlet weak var imgNewRight: UIImageView!
     @IBOutlet weak var imgNewMeter: UIImageView!
     
+    var regoNumber = ""
     var isYourVehicleTotalLoss = ""
     var isFromView = false
     var arrRego = [HiredDataList]()
@@ -470,11 +471,15 @@ extension NewReturnVehicleVC {
                     
                     self.arrRego = data.data?.response ?? []
                     
-//                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
-//                        self.selectedRego = rego
-//                        self.txtRegoNo.text = self.selectedRego?.registration_no
-//                        self.txtMakeModel.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
-//                    }
+                    if let rego = self.arrRego.first(where: { $0.registration_no?.lowercased() == self.regoNumber.lowercased() }) {
+                        self.selectedRego = rego                        
+                        self.txtChooseRego.text = self.selectedRego?.registration_no
+                        self.txtClientName.text = self.selectedRego?.client_name
+                        self.txtMilageOut.text = self.selectedRego?.Mileage_out
+                        self.txtDateOut.text = self.selectedRego?.date_out
+                        self.txtTimeOut.text = self.selectedRego?.time_out
+                        self.txtModelInfo.text = "\(self.selectedRego?.vehicle_make ?? "") / \(self.selectedRego?.vehicle_model ?? "")"
+                        self.setOldVehicleImage()                    }
                     
                     self.getCollectedBy()
                 }

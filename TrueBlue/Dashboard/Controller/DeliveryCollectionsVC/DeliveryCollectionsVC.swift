@@ -66,10 +66,9 @@ class DeliveryCollectionsVC: UIViewController {
         let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "ACADataFilterViewController") as! ACADataFilterViewController
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.view.isOpaque = false
-        
         ctrl.startDate = self.startDate
         ctrl.endDate = self.endDate
-        
+
         ctrl.dateClosure = {fromdate, todate in
             self.startDate = fromdate
             self.endDate = todate
@@ -159,10 +158,50 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
                 guard let self else { return }
                 self.openFleetReferance(data: data)
             }
-
+            
+            cell.clickedNextButton = { [weak self] in
+                guard let self else { return }
+                self.openFilter(data: data)
+            }
         }
- 
         return cell
+    }
+    
+    func openFilter(data: CollectionDeliveryDataList) {
+        let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "CollectionFilterVC") as! CollectionFilterVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.view.isOpaque = false
+        ctrl.isCollected = (data.status ?? "").lowercased() == "returned"
+        
+        ctrl.refbtnClicked = { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.openReferance(data: data)
+            }
+        }
+        
+        ctrl.returnbtnClicked = { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.openRetrunVehicle(data: data)
+            }
+        }
+        
+        ctrl.regobtnClicked = { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.openFleetReferance(data: data)
+            }
+        }
+        
+        ctrl.swapbtnClicked = { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.openSwapVehicle(data: data)
+            }
+        }
+        
+        self.present(ctrl, animated: false)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -185,9 +224,23 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
         }
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
         
-        let ctrl = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: "SearchDashboardResultDetailsVC") as! SearchDashboardResultDetailsVC
+        let ctrl = storyboard.instantiateViewController(withIdentifier: "SearchDashboardResultDetailsVC") as! SearchDashboardResultDetailsVC
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.searchValue = data.application_id ?? ""
+        self.present(ctrl, animated: true)
+    }
+    
+    func openSwapVehicle(data: CollectionDeliveryDataList) {
+        let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewSwapVehicleVC") as! NewSwapVehicleVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.regoNumber = data.registration_no ?? ""
+        self.present(ctrl, animated: true)
+    }
+    
+    func openRetrunVehicle(data: CollectionDeliveryDataList) {
+        let ctrl = UIStoryboard(name: "DashboardPhone", bundle: nil).instantiateViewController(withIdentifier: "NewReturnVehicleVC") as! NewReturnVehicleVC
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.regoNumber = data.registration_no ?? ""
         self.present(ctrl, animated: true)
     }
     
