@@ -10,19 +10,28 @@ import UIKit
 class LogSheetFilterVC: UIViewController {
     
     @IBOutlet weak var firstStack: UIStackView!
+    @IBOutlet weak var secondStack: UIStackView!
     
     @IBOutlet weak var txtFrom: UITextField!
     @IBOutlet weak var txtTo: UITextField!
     @IBOutlet weak var txtEmployeeName: UITextField!
+    @IBOutlet weak var txtNotesType: UITextField!
     
     var fromDatePicker = UIDatePicker()
     var toDatePicker = UIDatePicker()
     
     var dateFormater = DateFormatter()
-    var dateClosure: ((_ fromDate: String, _ toDate: String, _ employee: UserList?) -> Void)?
+    var dateClosure: ((_ fromDate: String, _ toDate: String, _ employee: UserList?, _ noteType: String) -> Void)?
     
     var startDate = ""
     var endDate = ""
+    var noteType = ""
+    
+    var arrNotesType = [["title": "Custom Notes", "type": "custom_notes"],
+                        ["title": "Deliveries", "type": "deliveries"],
+                        ["title": "Collections", "type": "collection"],
+                        ["title": "Swap", "type": "swap"],
+                        ["title": "Others", "type": "others"]]
     
     var arrUserList = [UserList]()
     var selectedUserId: UserList?
@@ -43,8 +52,8 @@ class LogSheetFilterVC: UIViewController {
     
     @IBAction func btnSave(_ sender: Any) {
 //        if validateTextField() {
-            self.dateClosure?(self.txtFrom.text ?? "", self.txtTo.text ?? "", self.selectedUserId)
-            self.dismiss(animated: false)
+        self.dateClosure?(self.txtFrom.text ?? "", self.txtTo.text ?? "", self.selectedUserId, self.noteType)
+        self.dismiss(animated: false)
 //        }
     }
     
@@ -94,10 +103,16 @@ class LogSheetFilterVC: UIViewController {
         self.txtTo.text = self.endDate
         self.txtEmployeeName.text = self.selectedUserId?.name
         
+        if let data = self.arrNotesType.first(where: { $0["type"] == self.noteType }) {
+            self.txtNotesType.text = data["title"]
+            self.noteType = data["type"] ?? ""
+        }
+        
         self.getUserList()
         self.dateFormater.dateFormat = "dd-MM-YYYY"
         
         self.firstStack.axis = UIDevice.current.userInterfaceIdiom == .pad ? .horizontal : .vertical
+        self.secondStack.axis = UIDevice.current.userInterfaceIdiom == .pad ? .horizontal : .vertical
         
         self.fromDatePicker.datePickerMode = .date
         self.toDatePicker.datePickerMode = .date
@@ -105,6 +120,7 @@ class LogSheetFilterVC: UIViewController {
         self.txtFrom.delegate = self
         self.txtTo.delegate = self
         self.txtEmployeeName.delegate = self
+        self.txtNotesType.delegate = self
         
         self.fromDatePicker.preferredDatePickerStyle = .wheels
         self.toDatePicker.preferredDatePickerStyle = .wheels
@@ -123,6 +139,17 @@ class LogSheetFilterVC: UIViewController {
                 self.selectedUserId = UserList
             }
         })
+        
+        NotificationCenter.default.addObserver(forName: .noteType, object: nil, queue: nil, using: { [weak self] data in
+            guard let self else { return }
+            let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
+            
+            if let data = self.arrNotesType.first(where: { $0["title"] == noti }) {
+                self.txtNotesType.text = data["title"]
+                self.noteType = data["type"] ?? ""
+            }
+        })
+        
     }
     
     func validateTextField() -> Bool {
@@ -151,6 +178,13 @@ extension LogSheetFilterVC: UITextFieldDelegate {
             DispatchQueue.main.async {
                 self.view.endEditing(true)
             }
+        } else if textField == self.txtNotesType {
+            var array = self.arrNotesType.map({ $0["title"] ?? "" })
+            self.showSearchListPopUp(listForSearch: array, listNameForSearch: AppDropDownLists.NotesType, notificationName: .noteType)
+            DispatchQueue.main.async {
+                self.view.endEditing(true)
+            }
+
         }
     }
     
