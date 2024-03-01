@@ -401,8 +401,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hired Date: 24-02-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izH-47-NUk">
-                                <rect key="frame" x="128.66666666666666" y="9" width="126.66666666666666" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hired Date: 24-02-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izH-47-NUk">
+                                <rect key="frame" x="128.66666666666669" y="9" width="126.66666666666666" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="fUC-9w-ywV">
                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -415,8 +415,8 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(08 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlS-O3-g8V">
-                                <rect key="frame" x="259.33333333333331" y="9" width="48.666666666666686" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="(08 days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlS-O3-g8V">
+                                <rect key="frame" x="259.33333333333326" y="9" width="48.666666666666686" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="A0J-f4-Wb6">
                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -448,6 +448,7 @@
                             <constraint firstItem="BRX-it-Na5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Htc-eC-FBj" secondAttribute="bottom" constant="6" id="ReH-Dn-t8G">
                                 <variation key="heightClass=regular-widthClass=regular" constant="12"/>
                             </constraint>
+                            <constraint firstItem="izH-47-NUk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="hvN-SQ-BxY" secondAttribute="leading" id="SaT-7u-DYL"/>
                             <constraint firstItem="oUF-xF-Ap7" firstAttribute="top" secondItem="SPc-wU-KdC" secondAttribute="top" constant="10" id="Se2-iQ-pqQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                             </constraint>
@@ -455,7 +456,7 @@
                             <constraint firstItem="vKh-mk-q4u" firstAttribute="centerY" secondItem="oUF-xF-Ap7" secondAttribute="centerY" id="dVT-ce-pTY"/>
                             <constraint firstItem="Htc-eC-FBj" firstAttribute="leading" secondItem="SPc-wU-KdC" secondAttribute="leading" constant="12" id="dwx-bI-VBC"/>
                             <constraint firstAttribute="trailing" secondItem="Htc-eC-FBj" secondAttribute="trailing" constant="12" id="eQU-AL-4dl"/>
-                            <constraint firstItem="qkU-Ut-YTG" firstAttribute="leading" secondItem="qlS-O3-g8V" secondAttribute="trailing" constant="6" id="uqR-ka-Qxi"/>
+                            <constraint firstItem="qkU-Ut-YTG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qlS-O3-g8V" secondAttribute="trailing" constant="6" id="uqR-ka-Qxi"/>
                         </constraints>
                     </view>
                 </subviews>
