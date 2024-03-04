@@ -10,6 +10,8 @@ import UIKit
 class CollectionFilterVC: UIViewController {
 
     @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var returnView: UIView!
+    @IBOutlet weak var swapView: UIView!
     
     var swapbtnClicked: (() -> Void)?
     var returnbtnClicked: (() -> Void)?
@@ -20,7 +22,8 @@ class CollectionFilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.bottomStackView.isHidden = self.isCollected
+            self.returnView.isHidden = self.isCollected
+            self.swapView.isHidden = self.isCollected
         }
         // Do any additional setup after loading the view.
     }

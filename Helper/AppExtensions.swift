@@ -637,6 +637,7 @@ enum DateFormat: String {
     
     case ddmmyyyy = "dd-MM-yyyy"
     case MM = "MM"
+    case YYYY = "yyyy"
     case yyyymmdd_hhmmss = "yyyy-MM-dd HH:mm:ss"
     case yyyymmdd_hhmmss_s = "yyyy-MM-dd HH:mm:ss.s"
     case yyyymmdd_hhmmss_sss = "yyyy-MM-dd HH:mm:ss.SSS"

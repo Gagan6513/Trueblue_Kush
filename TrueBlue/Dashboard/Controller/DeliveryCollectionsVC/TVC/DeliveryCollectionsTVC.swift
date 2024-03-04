@@ -6,21 +6,33 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DeliveryCollectionsTVC: UITableViewCell {
 
     @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var lblRefNumber: UILabel!
-    @IBOutlet weak var lblRegoNumber: UILabel!
-    @IBOutlet weak var lblStatus: UILabel!
-    @IBOutlet weak var statusIcon: UIImageView!
+    @IBOutlet weak var lblCarName: UILabel!
+    @IBOutlet weak var lblCarId: UILabel!
     @IBOutlet weak var lblClientName: UILabel!
     @IBOutlet weak var lblPhoneNumber: UILabel!
-    @IBOutlet weak var lblCollectionBy: UILabel!
+    @IBOutlet weak var lblRefNumber: UILabel!
+    @IBOutlet weak var lblCollectedByTitle: UILabel!
+    @IBOutlet weak var lblCollectedByName: UILabel!
+    @IBOutlet weak var lblCollectedAtTitle: UILabel!
+    @IBOutlet weak var lblCollectedAtName: UILabel!
+    @IBOutlet weak var lblReferalName: UILabel!
+    @IBOutlet weak var carImage: UIImageView!
+    
+//    @IBOutlet weak var lblRegoNumber: UILabel!
+//    @IBOutlet weak var lblStatus: UILabel!
+//    @IBOutlet weak var statusIcon: UIImageView!
+//    @IBOutlet weak var lblCollectionBy: UILabel!
+    
+    @IBOutlet weak var hiredDateView: UIView!
     @IBOutlet weak var lblHiredDate: UILabel!
     @IBOutlet weak var daysCountLabel: UILabel!
-    
-    @IBOutlet weak var collectedByTitle: UILabel!
+//
+//    @IBOutlet weak var collectedByTitle: UILabel!
     
     var clickedRefButton: (() -> Void)?
     var clickedRegoButton: (() -> Void)?
@@ -38,57 +50,69 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     func setupDetails(data: CollectionDeliveryDataList) {
-        self.lblRefNumber.text = convertString(str: data.application_id ?? "")
-        self.lblRegoNumber.text = convertString(str: data.registration_no ?? "")
+        let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
+        self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
+        
+        self.lblRefNumber.text = "#" + convertString(str: data.application_id ?? "")
         self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
         self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "")
         
-        if (data.status ?? "").lowercased() == "returned" {
-            self.statusIcon.image = UIImage(named: "ic_collection_tab")
-            self.collectedByTitle.text = "Collected By:"
-            self.collectedByTitle.textColor = UIColor(named: "726F6F")
-            self.lblStatus.textColor = UIColor(named: "AppOrange")
-            self.lblCollectionBy.text = convertString(str: data.collection_by ?? "")
-            self.lblHiredDate.isHidden = false
-            self.daysCountLabel.isHidden = false
-            self.lblHiredDate.text = "Hired Date: \((data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy))" 
+        self.lblCarId.text = data.registration_no
+        self.lblReferalName.text = convertString(str: data.referral_name ?? "")
+        
+        if let url = URL(string: data.fleet_image ?? "") {
+            self.carImage.sd_setImage(with: url)
+        }
+        
+        if (data.booking_status ?? "").lowercased() == "returned" {
+            self.lblCollectedByTitle.text = "Collected By:"
+            self.lblCollectedAtTitle.text = "Collected At:"
             
-             let date1st = formattedDateFromString(dateString: data.date_in ?? "", withFormat: "dd")
-
-            let date2nd = formattedDateFromString(dateString: data.date_in ?? "", withFormat: "MMM, yyyy")
+            self.lblCollectedByTitle.textColor = UIColor(named: "F39C12")
+            self.lblCollectedAtTitle.textColor = UIColor(named: "F39C12")
 
             self.lblDate.text = data.date_in?.date(convetedFormate: .ddMMMMyyyy)
-            self.lblStatus.text = "Collected"
+
+            self.lblCollectedByName.text = convertString(str: data.collection_by ?? "")
+            self.lblCollectedAtName.text = convertString(str: data.collected_at ?? "")
+            
+            self.lblHiredDate.text = "\((data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy))"
             
             let startDate = data.date_out?.date(from: .yyyymmdd) ?? Date()
             let endDate = data.date_in?.date(from: .yyyymmdd) ?? Date()
             
             self.daysCountLabel.text = "(\(startDate.timeAgoDisplay(endDate: endDate)))"
+            self.hiredDateView.isHidden = false
         }
         
-        if (data.status ?? "").lowercased() == "hired" {
-            self.statusIcon.image = UIImage(named: "ic_delivery_tab")
-            self.collectedByTitle.text = "Delivered By:"
-            self.collectedByTitle.textColor = UIColor(named: "3478F6")
-            self.lblStatus.textColor = UIColor(named: "07B107")
-            self.lblCollectionBy.text = convertString(str: data.delivered_by ?? "")
-            self.lblHiredDate.isHidden = true
-            self.daysCountLabel.isHidden = true
+        if (data.booking_status ?? "").lowercased() == "hired" {
+            
+            self.lblCollectedByTitle.text = "Delivered By:"
+            self.lblCollectedAtTitle.text = "Delivered At:"
+            
+            self.lblCollectedByTitle.textColor = UIColor(named: "07B107")
+            self.lblCollectedAtTitle.textColor = UIColor(named: "07B107")
+
             self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
-            self.lblStatus.text = "Delivered"
+
+            self.lblCollectedByName.text = convertString(str: data.delivered_by ?? "")
+            self.lblCollectedAtName.text = convertString(str: data.delivered_at ?? "")
+            self.hiredDateView.isHidden = true
+            
         }
         
-        if (data.is_swapped ?? "").lowercased() == "yes" && (data.status ?? "").lowercased() == "hired" {
-            self.statusIcon.image = UIImage(named: "ic_swap_tab")
-            self.collectedByTitle.text = "Swapped By:"
-            self.collectedByTitle.textColor = UIColor(named: "3478F6")
-            self.lblStatus.textColor = UIColor(named: "BF28D8")
-            self.lblCollectionBy.text = convertString(str: data.delivered_by ?? "")
-            self.lblHiredDate.isHidden = true
-            self.daysCountLabel.isHidden = true
-            self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
-            self.lblStatus.text = "Swapped"
-        }
+//        if (data.is_swapped ?? "").lowercased() == "yes" && (data.status ?? "").lowercased() == "hired" {
+////            self.statusIcon.image = UIImage(named: "ic_swap_tab")
+////            self.collectedByTitle.text = "Swapped By:"
+////            self.collectedByTitle.textColor = UIColor(named: "3478F6")
+////            self.lblStatus.textColor = UIColor(named: "BF28D8")
+////            self.lblCollectionBy.text = convertString(str: data.delivered_by ?? "")
+////            self.lblHiredDate.isHidden = true
+////            self.daysCountLabel.isHidden = true
+////            self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
+////            self.lblStatus.text = "Swapped"
+//
+//        }
         
     }
     

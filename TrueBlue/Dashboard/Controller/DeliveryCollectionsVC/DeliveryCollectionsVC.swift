@@ -21,7 +21,7 @@ class DeliveryCollectionsVC: UIViewController {
     var arrNavigation = [["title": "All", "icon": "", "type": "all", "count": "0"],
                          ["title": "Collection", "icon": "ic_collection_tab", "type": "returned", "count": "0"],
                          ["title": "Deliveries", "icon": "ic_delivery_tab", "type": "hired", "count": "0"],
-                         ["title": "Swap", "icon": "ic_swap_tab", "type": "swapped", "count": "0"]]
+                         /*["title": "Swap", "icon": "ic_swap_tab", "type": "swapped", "count": "0"]*/]
     
     var selectedFilter = "All"
     var selectedFilterType = "all"
@@ -374,7 +374,7 @@ extension DeliveryCollectionsVC: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 4), height: collectionView.frame.height)
+        return CGSize(width: (collectionView.frame.width / CGFloat(self.arrNavigation.count)), height: collectionView.frame.height)
     }
     
     

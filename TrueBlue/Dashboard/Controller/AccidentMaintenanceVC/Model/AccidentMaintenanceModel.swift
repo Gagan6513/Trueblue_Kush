@@ -379,6 +379,9 @@ class CollectionDeliveryDataList: Codable {
     var app_id: String?
     var collection_by: String?
     var delivered_by: String?
+    var delivered_at: String?
+    var referral_name: String?
+    var collected_at: String?
     var date_in: String?
     var date_out: String?
     var is_swapped: String?
@@ -387,6 +390,7 @@ class CollectionDeliveryDataList: Codable {
     var owner_phone: String?
     var registration_no: String?
     var status: String?
+    var booking_status: String?
     var vehicle_id: String?
     
     var vehicle_make: String?
