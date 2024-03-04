@@ -18,9 +18,9 @@ class DeliveryCollectionsVC: UIViewController {
     var currentPage = 0
     var isSearchEnable = false
     var isPaginationAvailable = false
-    var arrNavigation = [["title": "All", "icon": "", "type": "all", "count": "0"],
-                         ["title": "Collection", "icon": "ic_collection_tab", "type": "returned", "count": "0"],
-                         ["title": "Deliveries", "icon": "ic_delivery_tab", "type": "hired", "count": "0"],
+    var arrNavigation = [["title": "All", "icon": "", "type": "all", "count": "0", "nav_title": "Collection & Deliveries"],
+                         ["title": "Collection", "icon": "ic_collection_tab", "type": "returned", "count": "0", "nav_title": "Collection"],
+                         ["title": "Deliveries", "icon": "ic_delivery_tab", "type": "hired", "count": "0", "nav_title": "Deliveries"],
                          /*["title": "Swap", "icon": "ic_swap_tab", "type": "swapped", "count": "0"]*/]
     
     var selectedFilter = "All"
@@ -34,7 +34,7 @@ class DeliveryCollectionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.navigationTitle.text = self.selectedFilter
+        self.navigationTitle.text = "Collection & Deliveries"
         NotificationCenter.default.addObserver(forName: .AccidentDetails, object: nil, queue: nil, using: { [weak self] _ in
             guard let self else { return }
             self.refreshPage()
@@ -397,6 +397,7 @@ extension DeliveryCollectionsVC: UICollectionViewDelegate, UICollectionViewDeleg
         self.filterCollectionView.reloadData()
         self.getCollectionListList()
         
-        self.navigationTitle.text = self.selectedFilter
+        self.navigationTitle.text = (self.arrNavigation[indexPath.row]["nav_title"] ?? "")
+//        self.navigationTitle.text = self.selectedFilter
     }
 }
