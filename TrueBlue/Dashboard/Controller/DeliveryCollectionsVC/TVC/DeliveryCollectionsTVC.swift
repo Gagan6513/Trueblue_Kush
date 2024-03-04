@@ -55,7 +55,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         
         self.lblRefNumber.text = "#" + convertString(str: data.application_id ?? "")
         self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
-        self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "")
+        self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
         
         self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
@@ -73,7 +73,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
 
             self.lblDate.text = data.date_in?.date(convetedFormate: .ddMMMMyyyy)
 
-            self.lblCollectedByName.text = convertString(str: data.collection_by ?? "")
+            self.lblCollectedByName.text = convertString(str: data.collection_by ?? "") + ", "
             self.lblCollectedAtName.text = convertString(str: data.collected_at ?? "")
             
             self.lblHiredDate.text = "\((data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy))"
@@ -95,7 +95,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
 
             self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
 
-            self.lblCollectedByName.text = convertString(str: data.delivered_by ?? "")
+            self.lblCollectedByName.text = convertString(str: data.delivered_by ?? "") + ", "
             self.lblCollectedAtName.text = convertString(str: data.delivered_at ?? "")
             self.hiredDateView.isHidden = true
             

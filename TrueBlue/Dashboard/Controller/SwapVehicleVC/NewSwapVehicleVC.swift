@@ -671,6 +671,12 @@ class NewSwapVehicleVC: UIViewController {
         
         parameters["mileage_out"] = self.txtNewMileageOut.text // NEW VEHICLE
         
+        
+//        parameters["delivered_by"] = UserDefaults.standard.userId()
+//        parameters["collected_by"] = UserDefaults.standard.userId()
+//        parameters["collected_at"] = self.txtNewMileageOut.text // NEW VEHICLE
+//        parameters["delivered_at"] = self.txtNewMileageOut.text // NEW VEHICLE
+        
         var profileImageData: [Dictionary<String, Any>] = []
         
         if let img = self.imgOldFront.image, let data = img.jpeg(.medium) {
