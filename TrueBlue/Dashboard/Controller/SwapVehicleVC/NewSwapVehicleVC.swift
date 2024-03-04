@@ -50,12 +50,24 @@ class NewSwapVehicleVC: UIViewController {
     @IBOutlet weak var imgNewRight: UIImageView!
     @IBOutlet weak var imgNewMeter: UIImageView!
 
+    
+    @IBOutlet weak var txtCollectedLocation: UITextField!
+    @IBOutlet weak var txtCollectionBy: UITextField!
+    
+    @IBOutlet weak var txtDeliveredLocation: UITextField!
+    @IBOutlet weak var txtDeliveredBy: UITextField!
+    
     var applicationID = String()//We get this from Collections Screen
     
     var regoNumber = String()//Get from Collection & deliveries
     
     var arrHiredVehicle = [HiredVehicleDropdownListModelData]()
     var arrReturnUploadedDocs = [DocumentDetailsModelData]()
+    var arrUserList = [UserList]()
+
+    var selectedCollectedBy: UserList?
+    var selectedDeliveredBy: UserList?
+    
     var arrCarImages = [fleet_docs]()
     var selectedDropdownItemIndex = -1 as Int
     
@@ -364,6 +376,22 @@ class NewSwapVehicleVC: UIViewController {
         self.present(ctrl, animated: false)
     }
     
+    @IBAction func btnCollectionBy(_ sender: Any) {
+        let array = self.arrUserList.map({ $0.name ?? "" })
+        self.showSearchListPopUp(listForSearch: array, listNameForSearch: AppDropDownLists.SEARCH_USER_LIST, notificationName: .searchCollectedByUser)
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+        }
+    }
+    
+    @IBAction func btnDeliveredBy(_ sender: Any) {
+        let array = self.arrUserList.map({ $0.name ?? "" })
+        self.showSearchListPopUp(listForSearch: array, listNameForSearch: AppDropDownLists.SEARCH_USER_LIST, notificationName: .searchDeleiveredByUser)
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+        }
+    }
+    
     func checkValidation() {
         
         let dateFormater = DateFormatter()
@@ -461,11 +489,33 @@ class NewSwapVehicleVC: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListReturnVehicle, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.SearchListNotificationAction(_:)), name: .searchListSwapVehicle, object: nil)
+        
+        NotificationCenter.default.addObserver(forName: .searchCollectedByUser, object: nil, queue: nil, using: { [weak self] data in
+            guard let self else { return }
+            let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
+            
+            if let data = self.arrUserList.first(where: { $0.name == noti }) {
+                self.txtCollectionBy.text = data.name
+                self.selectedCollectedBy = data
+            }
+        })
+        
+        NotificationCenter.default.addObserver(forName: .searchDeleiveredByUser, object: nil, queue: nil, using: { [weak self] data in
+            guard let self else { return }
+            let noti = (data.userInfo as? NSDictionary)?.value(forKey: "selectedItem") as? String ?? ""
+            
+            if let data = self.arrUserList.first(where: { $0.name == noti }) {
+                self.txtDeliveredBy.text = data.name
+                self.selectedDeliveredBy = data
+            }
+        })
 
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         multipleImgPicker = MultipleImgPicker(presentationController: self,delegate: self)
         
         self.txtMilageIn.delegate = self
+        
+        self.getUserList()
     }
     
     @objc func SearchListNotificationAction(_ notification: NSNotification) {
@@ -672,10 +722,10 @@ class NewSwapVehicleVC: UIViewController {
         parameters["mileage_out"] = self.txtNewMileageOut.text // NEW VEHICLE
         
         
-//        parameters["delivered_by"] = UserDefaults.standard.userId()
-//        parameters["collected_by"] = UserDefaults.standard.userId()
-//        parameters["collected_at"] = self.txtNewMileageOut.text // NEW VEHICLE
-//        parameters["delivered_at"] = self.txtNewMileageOut.text // NEW VEHICLE
+        parameters["delivered_by"] = self.selectedDeliveredBy?.id
+        parameters["collected_by"] = self.selectedCollectedBy?.id
+        parameters["collected_at"] = self.txtCollectedLocation.text // NEW VEHICLE
+        parameters["delivered_at"] = self.txtDeliveredLocation.text // NEW VEHICLE
         
         var profileImageData: [Dictionary<String, Any>] = []
         
@@ -772,6 +822,41 @@ class NewSwapVehicleVC: UIViewController {
         
         apiPostMultipartRequest(parameters: parameters, endPoint: API_URL.SWAP_VEHICLE, imageData: profileImageData)
         
+    }
+    
+    func getUserList() {
+        
+        let request = WebServiceModel()
+        request.url = URL(string: API_URL.getUserList)!
+        request.method = .post
+        
+        WebService.shared.performWebService(model: request, complition: { [weak self] responseData, error in
+            guard let self else { return }
+            
+            CommonObject().stopProgress()
+
+            if let error {
+                /* API ERROR */
+                showAlert(title: "Error!", messsage: "\(error)")
+                return
+            }
+            
+            /* CONVERT JSON DATA TO MODEL */
+            if let data = responseData?.convertData(UserModel.self) {
+                if let error = data as? String {
+                    /* JSON ERROR */
+                    showAlert(title: "Error!", messsage: "\(error)")
+                    return
+                }
+                if let data = data as? UserModel {
+                    if (data.status ?? 0) == 0 {
+                        showAlert(title: "Error!", messsage: data.msg ?? "")
+                        return
+                    }
+                    self.arrUserList = data.data?.response ?? []
+                }
+            }
+        })
     }
     
 }

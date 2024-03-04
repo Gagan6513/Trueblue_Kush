@@ -24,6 +24,7 @@ class NewReturnVehicleVC: UIViewController {
     @IBOutlet weak var txtTimeIn: UITextField!
     @IBOutlet weak var txtDateInError: UILabel!
     @IBOutlet weak var txtCollectedBy: UITextField!
+    @IBOutlet weak var collectedLocation: UITextField!
     @IBOutlet weak var txtRepairerName: UITextField!
     
     @IBOutlet weak var btnYesRadio: UIButton!
@@ -54,7 +55,7 @@ class NewReturnVehicleVC: UIViewController {
     
     var arrCollectedBy = [CollectedDataList]()
     var selectedCollectedBy: CollectedDataList?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNotification()
@@ -547,6 +548,7 @@ extension NewReturnVehicleVC {
         parameters["return_remarks"] = self.txtOther.text
         parameters["returned_repairer_name"] = self.txtRepairerName.text
         parameters["liability_status"] = self.txtLaibilityStatus.text
+        parameters["collected_at"] = self.collectedLocation.text
         parameters["collected_by_id"] = self.selectedCollectedBy?.id
         parameters["collected_by_name"] = self.selectedCollectedBy?.user_name
         
