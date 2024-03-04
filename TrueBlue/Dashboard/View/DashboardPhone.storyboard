@@ -17638,7 +17638,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -17768,7 +17768,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
@@ -22618,7 +22618,7 @@
                                                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                                                             </constraint>
                                                                         </constraints>
-                                                                        <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
