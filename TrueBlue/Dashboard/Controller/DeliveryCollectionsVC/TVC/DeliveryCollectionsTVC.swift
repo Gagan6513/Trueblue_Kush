@@ -49,6 +49,70 @@ class DeliveryCollectionsTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setCollectionData(data: CollectionDeliveryDataList) {
+        let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
+        self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
+        
+        self.lblRefNumber.text = "#" + convertString(str: data.application_id ?? "")
+        self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
+        self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
+        
+        self.lblCarId.text = data.registration_no
+        self.lblReferalName.text = convertString(str: data.referral_name ?? "")
+        
+        if let url = URL(string: data.fleet_image ?? "") {
+            self.carImage.sd_setImage(with: url)
+        }
+        
+        self.lblCollectedByTitle.text = "Collected By:"
+        self.lblCollectedAtTitle.text = "Collected At:"
+        
+        self.lblCollectedByTitle.textColor = UIColor(named: "F39C12")
+        self.lblCollectedAtTitle.textColor = UIColor(named: "F39C12")
+
+        self.lblDate.text = data.date_in?.date(convetedFormate: .ddMMMMyyyy)
+
+        self.lblCollectedByName.text = convertString(str: data.collection_by ?? "") + ", "
+        self.lblCollectedAtName.text = convertString(str: data.collected_at ?? "")
+        
+        self.lblHiredDate.text = "\((data.date_out ?? "").date(convetedFormate: .ddMMMMyyyy))"
+        
+        let startDate = data.date_out?.date(from: .yyyymmdd) ?? Date()
+        let endDate = data.date_in?.date(from: .yyyymmdd) ?? Date()
+        
+        self.daysCountLabel.text = "(\(startDate.timeAgoDisplay(endDate: endDate)))"
+        self.hiredDateView.isHidden = false
+    }
+    
+    func setDeliveredData(data: CollectionDeliveryDataList) {
+        let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
+        self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
+        
+        self.lblRefNumber.text = "#" + convertString(str: data.application_id ?? "")
+        self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
+        self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
+        
+        self.lblCarId.text = data.registration_no
+        self.lblReferalName.text = convertString(str: data.referral_name ?? "")
+        
+        if let url = URL(string: data.fleet_image ?? "") {
+            self.carImage.sd_setImage(with: url)
+        }
+        
+        
+        self.lblCollectedByTitle.text = "Delivered By:"
+        self.lblCollectedAtTitle.text = "Delivered At:"
+        
+        self.lblCollectedByTitle.textColor = UIColor(named: "07B107")
+        self.lblCollectedAtTitle.textColor = UIColor(named: "07B107")
+
+        self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
+
+        self.lblCollectedByName.text = convertString(str: data.delivered_by ?? "") + ", "
+        self.lblCollectedAtName.text = convertString(str: data.delivered_at ?? "")
+        self.hiredDateView.isHidden = true
+    }
+    
     func setupDetails(data: CollectionDeliveryDataList) {
         let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
         self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
@@ -111,9 +175,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
 ////            self.daysCountLabel.isHidden = true
 ////            self.lblDate.text = data.date_out?.date(convetedFormate: .ddMMMMyyyy)
 ////            self.lblStatus.text = "Swapped"
-//
 //        }
-        
     }
     
     @IBAction func fullscreenView(_ sender: Any) {

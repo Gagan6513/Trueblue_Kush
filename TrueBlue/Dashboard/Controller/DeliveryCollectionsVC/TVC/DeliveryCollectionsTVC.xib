@@ -207,10 +207,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Janine Hammoude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfA-6U-ayY">
-                                                        <rect key="frame" x="36.333333333333336" y="2" width="101.33333333333331" height="16"/>
+                                                        <rect key="frame" x="36.333333333333336" y="1" width="101.33333333333331" height="18"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="B6E-Z7-oH9">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="18" id="B6E-Z7-oH9">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Gpv-l3-5fw"/>
                                                         </constraints>
@@ -226,7 +226,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="MLF-LQ-xFo"/>
                                                             <constraint firstAttribute="height" constant="20" id="MWv-k2-y0J">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -280,10 +280,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Yassin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJV-GE-NWi">
-                                                        <rect key="frame" x="74" y="2" width="79.666666666666686" height="16"/>
+                                                        <rect key="frame" x="74" y="1" width="79.666666666666686" height="18"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="5aL-RX-cad">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="18" id="5aL-RX-cad">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -311,10 +311,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#IVC265CV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYs-LC-0A5">
-                                                        <rect key="frame" x="177.33333333333331" y="2" width="62" height="16"/>
+                                                        <rect key="frame" x="177.33333333333331" y="1" width="62" height="18"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="YwN-lX-wWd">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="18" id="YwN-lX-wWd">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -358,10 +358,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Yassin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgs-oe-3VW">
-                                                        <rect key="frame" x="68" y="2" width="79.666666666666686" height="16"/>
+                                                        <rect key="frame" x="68" y="1" width="79.666666666666686" height="18"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="kwK-fc-49j">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="18" id="kwK-fc-49j">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -406,7 +406,7 @@
                                                         <rect key="frame" x="62.666666666666657" y="1" width="63" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="ra1-Ym-v39">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -462,10 +462,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXM-tf-Ku7">
-                                                        <rect key="frame" x="82.333333333333343" y="2" width="13.666666666666671" height="16"/>
+                                                        <rect key="frame" x="82.333333333333343" y="1" width="13.666666666666671" height="18"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="fe6-Lm-FGX">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="18" id="fe6-Lm-FGX">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>

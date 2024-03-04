@@ -147,7 +147,14 @@ extension DeliveryCollectionsVC : UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         
         if let data = self.arrFilteredVehicles[safe: indexPath.row] {
-            cell.setupDetails(data: data)
+            
+            if self.selectedFilterType.lowercased() == "returned" {
+                cell.setCollectionData(data: data)
+            } else if self.selectedFilterType.lowercased() == "hired" {
+                cell.setDeliveredData(data: data)
+            } else {
+                cell.setupDetails(data: data)
+            }
             
             cell.clickedRefButton = { [weak self] in
                 guard let self else { return }
