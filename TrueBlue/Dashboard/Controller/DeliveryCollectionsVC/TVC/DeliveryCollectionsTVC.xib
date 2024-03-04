@@ -179,12 +179,14 @@
                                                 <rect key="frame" x="0.0" y="22" width="220" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvN-SQ-BxY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="anu-h9-63j">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="kFn-UN-pvo"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="kFn-UN-pvo">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                            </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <color key="textColor" name="3478F6"/>
@@ -194,7 +196,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Janine Hammoude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfA-6U-ayY">
-                                                        <rect key="frame" x="38.333333333333336" y="2" width="101.33333333333331" height="16"/>
+                                                        <rect key="frame" x="43.999999999999993" y="2" width="101.33333333333331" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="B6E-Z7-oH9">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="18"/>
@@ -252,10 +254,10 @@
                                                 <rect key="frame" x="0.0" y="44" width="220" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ref:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uat-gG-28I">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Ddt-Ui-wvN">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Ddt-Ui-wvN">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                                             </constraint>
                                                             <constraint firstAttribute="height" constant="20" id="eum-jx-MNB">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -269,7 +271,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#IVC265CV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-cY-2bA">
-                                                        <rect key="frame" x="25.666666666666657" y="2" width="62" height="16"/>
+                                                        <rect key="frame" x="44" y="2" width="62" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="0un-oy-7qi">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="18"/>
@@ -283,7 +285,7 @@
                                                         </variation>
                                                     </label>
                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQP-tA-maN">
-                                                        <rect key="frame" x="25.666666666666657" y="2" width="62" height="16"/>
+                                                        <rect key="frame" x="44" y="2" width="62" height="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -422,10 +424,10 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-02-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzB-nd-DXF">
-                                                        <rect key="frame" x="131.66666666666666" y="1" width="63" height="18"/>
+                                                        <rect key="frame" x="131.66666666666666" y="0.0" width="63" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="18" id="apW-j5-13a">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="18"/>
+                                                            <constraint firstAttribute="height" constant="20" id="apW-j5-13a">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
