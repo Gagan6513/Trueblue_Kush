@@ -99,14 +99,25 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageFailed" translatesAutoresizingMaskIntoConstraints="NO" id="46O-ve-ZHo">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy8-I4-zP9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <connections>
+                                                            <action selector="fullscreenView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="P7V-j8-NHj"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="oy8-I4-zP9" secondAttribute="bottom" id="4p2-Bv-Amx"/>
+                                                    <constraint firstItem="oy8-I4-zP9" firstAttribute="top" secondItem="mAY-pr-HDQ" secondAttribute="top" id="8g6-RT-jqB"/>
                                                     <constraint firstAttribute="trailing" secondItem="46O-ve-ZHo" secondAttribute="trailing" id="Dhm-if-WyM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oy8-I4-zP9" secondAttribute="trailing" id="J9H-F1-hHg"/>
                                                     <constraint firstAttribute="height" constant="60" id="JGx-hx-usw">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                                     </constraint>
                                                     <constraint firstAttribute="bottom" secondItem="46O-ve-ZHo" secondAttribute="bottom" id="NSV-id-c1U"/>
+                                                    <constraint firstItem="oy8-I4-zP9" firstAttribute="leading" secondItem="mAY-pr-HDQ" secondAttribute="leading" id="YvR-MF-Lv4"/>
                                                     <constraint firstItem="46O-ve-ZHo" firstAttribute="top" secondItem="mAY-pr-HDQ" secondAttribute="top" id="eo6-U1-lRf"/>
                                                     <constraint firstItem="46O-ve-ZHo" firstAttribute="leading" secondItem="mAY-pr-HDQ" secondAttribute="leading" id="j0b-ry-G4r"/>
                                                     <constraint firstAttribute="width" constant="100" id="oxl-vi-Mhk">

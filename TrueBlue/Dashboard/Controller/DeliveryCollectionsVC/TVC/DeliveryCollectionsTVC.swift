@@ -116,6 +116,10 @@ class DeliveryCollectionsTVC: UITableViewCell {
         
     }
     
+    @IBAction func fullscreenView(_ sender: Any) {
+        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
+    }
+    
     func convertString(str: String) -> String {
         return str == "" ? "NA" : str
     }
