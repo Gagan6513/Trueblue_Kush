@@ -70,14 +70,15 @@ class UserListTVC: UITableViewCell {
 }
 
 extension Date {
- func timeAgoDisplay() -> String {
-
+    
+    func timeAgoDisplay() -> String {
+        
         let calendar = Calendar.current
         let minuteAgo = calendar.date(byAdding: .minute, value: -1, to: Date())!
         let hourAgo = calendar.date(byAdding: .hour, value: -1, to: Date())!
         let dayAgo = calendar.date(byAdding: .day, value: -1, to: Date())!
         let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
-
+        
         if minuteAgo < self {
             let diff = Calendar.current.dateComponents([.second], from: self, to: Date()).second ?? 0
             return "\(diff) sec ago"
@@ -93,6 +94,18 @@ extension Date {
         }
         let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
         return "\(diff) weeks ago"
+    }
+    
+    func getDays() -> String {
+        
+        let calendar = Calendar.current
+        let minuteAgo = calendar.date(byAdding: .minute, value: -1, to: Date())!
+        let hourAgo = calendar.date(byAdding: .hour, value: -1, to: Date())!
+        let dayAgo = calendar.date(byAdding: .day, value: -1, to: Date())!
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+        
+        let diff = Calendar.current.dateComponents([.day], from: self, to: Date()).day ?? 0
+        return "\(diff) days ago"
     }
     
     func timeAgoDisplay(endDate: Date) -> String {

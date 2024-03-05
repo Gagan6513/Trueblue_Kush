@@ -17,6 +17,10 @@ class FleetsTVC: UITableViewCell {
     @IBOutlet weak var availableTitleLabel: UILabel!
     @IBOutlet weak var btnReferences: UIButton!
     
+    @IBOutlet weak var totalHiredView: UIView!
+    @IBOutlet weak var txtMenufacturerYear: UILabel!
+    
+    
     var refClicked: (() -> Void)?
     var btnReferanceClicked: (() -> Void)?
     var serviceClicked: (() -> Void)?
@@ -59,6 +63,8 @@ class FleetsTVC: UITableViewCell {
         
         self.availableLabel.textColor = UIColor(named: "07B107")
 
+        self.txtMenufacturerYear.text = "\((data.yearof_manufacture ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy))"
+        
         if timeLabel.contains("days ago") {
             if let month = timeLabel.first {
                 if (Int(String(month)) ?? 0) <= 28 {
@@ -84,14 +90,17 @@ class FleetsTVC: UITableViewCell {
         
         self.availableTitleLabel.text = "Available Since Last Returned:"
 
+        self.totalHiredView.isHidden = false
+        
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
             self.availableTitleLabel.text = "Available Since Last Returned:"
         } else if data.status == "Active" && (data.fleet_status == "Hired") {
             self.availableTitleLabel.text = "Hired Since:"
+            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
+            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
         }
-        
     }
     
     func convertString(str: String) -> String {
@@ -100,8 +109,8 @@ class FleetsTVC: UITableViewCell {
     
     func convertToDate(str: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "yyyy-MM-dd"// HH:mm:ss.SSS"
         let date = dateFormatter.date(from: str) ?? Date()
-        return date.timeAgoDisplay()
+        return date.getDays()
     }
 }
