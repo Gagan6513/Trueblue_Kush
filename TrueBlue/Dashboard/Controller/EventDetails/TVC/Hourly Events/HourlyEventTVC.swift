@@ -16,7 +16,7 @@ class HourlyEventTVC: UITableViewCell {
     
     var tblMain = UITableView()
     var obs: NSKeyValueObservation?
-    var btnExpandClick: (() -> Void)?
+    var btnExpandClick: ((String) -> Void)?
     var needToUpdate = false
     
     var dataa: HourEvents?
@@ -34,7 +34,7 @@ class HourlyEventTVC: UITableViewCell {
     }
     
     @IBAction func btnShowDetails(_ sender: Any) {
-        self.btnExpandClick?()
+//        self.btnExpandClick?("")
     }
     
     func setupUI() {
@@ -78,5 +78,21 @@ extension HourlyEventTVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.needToUpdate = true
+//        guard let cell = tableView.cellForRow(at: indexPath) as? TodaysEventsTVC else { return }
+//        cell.lblDescription.numberOfLines = cell.lblDescription.numberOfLines == 1 ? 0 : 1
+//        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? TodaysEventsTVC else { return }
+        if cell.lblDescription.numberOfTextLines() > 1 {
+            if let data = self.dataa?.events?[indexPath.row] {
+                self.btnExpandClick?(data.EVENT_DESC ?? "")
+            }
+        }
     }
 }

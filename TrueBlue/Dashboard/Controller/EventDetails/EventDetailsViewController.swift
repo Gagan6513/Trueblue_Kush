@@ -254,6 +254,11 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
                 cell.setupDetails(data: data)
             }
             
+            cell.btnExpandClick = { [weak self] data in
+                guard let self else { return }
+                self.openDetails(description: data)
+            }
+            
             cell.editButtonClicked = { [weak self] data in
                 guard let self else { return }
                 self.editEvent(data: data)
@@ -280,6 +285,24 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
         ctrl.selectedEvent = data
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.view.isOpaque = false
+        self.present(ctrl, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView != self.tableViewHourlyEvents {
+            guard let cell = tableView.cellForRow(at: indexPath) as? TodaysEventsTVC else { return }
+            if cell.lblDescription.numberOfTextLines() > 1 {
+                if let data = self.filterEventData.dayEvents?[indexPath.row] {
+                    self.openDetails(description: data.EVENT_DESC ?? "")
+                }
+            }
+        }
+    }
+    
+    func openDetails(description: String) {
+        guard let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "MessagePopupVC") as? MessagePopupVC else { return }
+        ctrl.modalPresentationStyle = .overFullScreen
+        ctrl.message = description
         self.present(ctrl, animated: false)
     }
 }

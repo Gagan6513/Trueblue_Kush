@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -251,6 +251,7 @@
 		B399CDD42B58FBC100D84AE4 /* AccidentManagementSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */; };
 		B399CDD62B58FBE900D84AE4 /* AccidentManagementThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */; };
 		B39FE0422B71F1DA00565AE9 /* NewReturnVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */; };
+		B3A646752B9841BA00D941C4 /* MessagePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A646742B9841BA00D941C4 /* MessagePopupVC.swift */; };
 		B3F7AE5B2B636EE3002D49B7 /* ServicesHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */; };
 		B3F7AE5F2B6376B5002D49B7 /* ServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */; };
 		B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */; };
@@ -509,6 +510,7 @@
 		B399CDD32B58FBC100D84AE4 /* AccidentManagementSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementSecondVC.swift; sourceTree = "<group>"; };
 		B399CDD52B58FBE900D84AE4 /* AccidentManagementThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementThirdVC.swift; sourceTree = "<group>"; };
 		B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReturnVehicleVC.swift; sourceTree = "<group>"; };
+		B3A646742B9841BA00D941C4 /* MessagePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePopupVC.swift; sourceTree = "<group>"; };
 		B3F7AE5A2B636EE3002D49B7 /* ServicesHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesHistoryVC.swift; sourceTree = "<group>"; };
 		B3F7AE5D2B6376B5002D49B7 /* ServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTVC.swift; sourceTree = "<group>"; };
 		B3F7AE5E2B6376B5002D49B7 /* ServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTVC.xib; sourceTree = "<group>"; };
@@ -1322,6 +1324,7 @@
 		B392BC842B39645C0002DD69 /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
+				B3A646732B9841AA00D941C4 /* Message Popup  */,
 				B392BC872B3965530002DD69 /* TVC */,
 				B392BC852B39646A0002DD69 /* EventDetailsViewController.swift */,
 			);
@@ -1405,6 +1408,14 @@
 				B39FE0412B71F1DA00565AE9 /* NewReturnVehicleVC.swift */,
 			);
 			path = NewReturnVehicleVC;
+			sourceTree = "<group>";
+		};
+		B3A646732B9841AA00D941C4 /* Message Popup  */ = {
+			isa = PBXGroup;
+			children = (
+				B3A646742B9841BA00D941C4 /* MessagePopupVC.swift */,
+			);
+			path = "Message Popup ";
 			sourceTree = "<group>";
 		};
 		B3F7AE592B636ECF002D49B7 /* ServicesHistoryVC */ = {
@@ -1765,6 +1776,7 @@
 				534DE39D26FCBD9B00DAFE8F /* BookingDetailsViewModel.swift in Sources */,
 				B3366DBE2B35715100F72CE8 /* ACAFilterPopupVC.swift in Sources */,
 				4D9AE15626DCD5200080D3AB /* HiredVehicleDropdownListModel.swift in Sources */,
+				B3A646752B9841BA00D941C4 /* MessagePopupVC.swift in Sources */,
 				534B1D2326CF721B00E3907C /* UploadDocumentsVC.swift in Sources */,
 				21AF34AE29E801D200606A8C /* CollectionNotesListVC.swift in Sources */,
 				B3F7AE5B2B636EE3002D49B7 /* ServicesHistoryVC.swift in Sources */,
