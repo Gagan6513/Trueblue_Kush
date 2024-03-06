@@ -12,12 +12,40 @@ class MessagePopupVC: UIViewController {
     @IBOutlet weak var scrollingHeight: NSLayoutConstraint!
     @IBOutlet weak var messageLabel: UILabel!
     
-    var message = ""
+    @IBOutlet weak var byLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    var message: Events?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.messageLabel.text = self.message
+        if let data = self.message {
+            self.byLabel.text = data.ASSIGNED_BY_USER?.capitalized
+            self.toLabel.text = data.ASSIGNED_TO_USER?.capitalized
+            self.timeLabel.text = data.EVENT_TIME
+
+            let api_timeFormater = DateFormatter()
+            api_timeFormater.dateFormat =  "HH:mm:ss"
+            let api_time = api_timeFormater.date(from: data.EVENT_TIME ?? "")
+            api_timeFormater.dateFormat =  "hh:mm a"
+            self.timeLabel.text = api_timeFormater.string(from: api_time ?? Date())
+            
+            if let appId = data.APP_ID {
+                self.messageLabel.text = "#\(appId) / \(data.EVENT_DESC ?? "")"
+            } else {
+                self.messageLabel.text = "\(data.EVENT_DESC ?? "")"
+            }
+            
+            if data.EVENT_TYPE ?? "" == "collection_notes" {
+                self.byLabel.textColor = UIColor(named: "AppOrange")
+            } else if data.EVENT_TYPE ?? "" == "delivery_notes" {
+                self.byLabel.textColor = UIColor(named: "3478F6")
+            } else {
+                self.byLabel.textColor = UIColor(named: "07B107")
+            }
+            
+        }
 
         DispatchQueue.main.async {
             self.scrollingHeight.constant = self.messageLabel.calculateContentHeight()

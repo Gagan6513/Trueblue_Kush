@@ -293,13 +293,13 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             guard let cell = tableView.cellForRow(at: indexPath) as? TodaysEventsTVC else { return }
             if cell.lblDescription.numberOfTextLines() > 1 {
                 if let data = self.filterEventData.dayEvents?[indexPath.row] {
-                    self.openDetails(description: data.EVENT_DESC ?? "")
+                    self.openDetails(description: data)
                 }
             }
         }
     }
     
-    func openDetails(description: String) {
+    func openDetails(description: Events) {
         guard let ctrl = self.storyboard?.instantiateViewController(withIdentifier: "MessagePopupVC") as? MessagePopupVC else { return }
         ctrl.modalPresentationStyle = .overFullScreen
         ctrl.message = description

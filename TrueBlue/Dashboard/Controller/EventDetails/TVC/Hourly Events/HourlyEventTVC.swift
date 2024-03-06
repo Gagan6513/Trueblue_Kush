@@ -16,7 +16,7 @@ class HourlyEventTVC: UITableViewCell {
     
     var tblMain = UITableView()
     var obs: NSKeyValueObservation?
-    var btnExpandClick: ((String) -> Void)?
+    var btnExpandClick: ((Events) -> Void)?
     var needToUpdate = false
     
     var dataa: HourEvents?
@@ -91,7 +91,7 @@ extension HourlyEventTVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.cellForRow(at: indexPath) as? TodaysEventsTVC else { return }
         if cell.lblDescription.numberOfTextLines() > 1 {
             if let data = self.dataa?.events?[indexPath.row] {
-                self.btnExpandClick?(data.EVENT_DESC ?? "")
+                self.btnExpandClick?(data)
             }
         }
     }
