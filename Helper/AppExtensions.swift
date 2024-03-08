@@ -510,7 +510,7 @@ extension String {
     func date(currentFormate: DateFormat = .yyyymmdd, convetedFormate: DateFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = currentFormate.rawValue
-        let date = dateFormatter.date(from: self) ?? Date()
+        guard let date = dateFormatter.date(from: self) else { return "NA" } 
         dateFormatter.dateFormat = convetedFormate.rawValue
         return dateFormatter.string(from: date)
     }

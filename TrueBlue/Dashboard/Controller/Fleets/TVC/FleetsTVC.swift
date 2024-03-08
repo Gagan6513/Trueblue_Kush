@@ -79,16 +79,11 @@ class FleetsTVC: UITableViewCell {
             }
         }
         
-        if data.status_modified_on == nil && (data.status_modified_on ?? "") == "" {
-            self.availableLabel.text = "NA"
-            self.availableLabel.textColor = .gray
-        }
-        
         if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
         
-        self.availableTitleLabel.text = "Available Since Last Returned:"
+        self.availableTitleLabel.text = "Available Since:"
 
         self.totalHiredView.isHidden = false
         
@@ -96,12 +91,28 @@ class FleetsTVC: UITableViewCell {
             self.availableTitleLabel.text = "Available Since:"
             let timeLabel = self.convertToDate(str: (data.available_date ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
             self.availableLabel.text = "\((data.available_date ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+            
+            if data.available_date == nil || (data.available_date ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+                self.availableLabel.text = "NA"
+                self.availableLabel.textColor = .gray
+            }
+            
         } else if data.status == "Active" && (data.fleet_status == "Hired") {
             self.availableTitleLabel.text = "Hired Since:"
             let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
             self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+            
+            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+                self.availableLabel.text = "NA"
+                self.availableLabel.textColor = .gray
+            }
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
+            
+            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+                self.availableLabel.text = "NA"
+                self.availableLabel.textColor = .gray
+            }
         }
     }
     
