@@ -102,14 +102,14 @@ class FleetsTVC: UITableViewCell {
             let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
             self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
             
-            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
                 self.availableLabel.text = "NA"
                 self.availableLabel.textColor = .gray
             }
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
             
-            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
                 self.availableLabel.text = "NA"
                 self.availableLabel.textColor = .gray
             }
