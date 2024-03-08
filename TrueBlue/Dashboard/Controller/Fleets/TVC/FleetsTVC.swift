@@ -17,8 +17,13 @@ class FleetsTVC: UITableViewCell {
     @IBOutlet weak var availableTitleLabel: UILabel!
     @IBOutlet weak var btnReferences: UIButton!
     
+    @IBOutlet weak var availableView: UIView!
+    @IBOutlet weak var hiredTime: UILabel!
+    @IBOutlet weak var hiredDate: UILabel!
+    @IBOutlet weak var hiredView: UIView!
     @IBOutlet weak var totalHiredView: UIView!
     @IBOutlet weak var txtMenufacturerYear: UILabel!
+    @IBOutlet weak var HiredTitle: UILabel!
     
     var accidentMaintenance: AccidentMaintenance?
     var refClicked: (() -> Void)?
@@ -67,6 +72,7 @@ class FleetsTVC: UITableViewCell {
 
         self.txtMenufacturerYear.text = "\((data.yearof_manufacture ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy))"
         
+        
         if timeLabel.contains("days ago") {
             if let month = timeLabel.first {
                 if (Int(String(month)) ?? 0) <= 28 {
@@ -78,6 +84,22 @@ class FleetsTVC: UITableViewCell {
                 }
             }
         }
+        
+        /* ================================== */
+        self.availableView.isHidden = true
+        self.hiredView.isHidden = false
+        
+        self.hiredDate.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .ddMMMMyyyy))"
+        self.hiredTime.text = "(\(timeLabel))"
+        
+        if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
+            self.hiredDate.text = "NA"
+            self.hiredTime.text = ""
+            self.hiredDate.textColor = .gray
+        } else {
+            self.hiredDate.textColor = .black
+        }
+        /* ================================== */
         
         if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
             self.availableLabel.text = "NA"
@@ -94,6 +116,7 @@ class FleetsTVC: UITableViewCell {
         
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
             self.availableTitleLabel.text = "Available Since:"
+            self.HiredTitle.text = "Available Since:"
 //            let timeLabelll = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
 //            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
 //
@@ -104,15 +127,14 @@ class FleetsTVC: UITableViewCell {
 //
         } else if data.status == "Active" && (data.fleet_status == "Hired") {
             self.availableTitleLabel.text = "Hired Since:"
+            self.HiredTitle.text = "Hired Since:"
+            
 //            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
 //            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
 //
-//            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
-//                self.availableLabel.text = "NA"
-//                self.availableLabel.textColor = .gray
-//            }
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
+            self.HiredTitle.text = "On Maintenance Since:"
 //            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
 //            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
 //

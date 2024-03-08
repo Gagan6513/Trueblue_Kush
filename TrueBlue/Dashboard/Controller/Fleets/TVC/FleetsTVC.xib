@@ -70,7 +70,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="p2H-IK-kqL">
-                                <rect key="frame" x="0.0" y="66" width="384" height="40"/>
+                                <rect key="frame" x="0.0" y="42" width="384" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3h4-fM-rEg">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="18"/>
@@ -143,6 +143,67 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UwR-m1-pLD" secondAttribute="trailing" id="pfx-uL-zoZ"/>
                                             <constraint firstItem="UwR-m1-pLD" firstAttribute="centerY" secondItem="Ve2-Ed-y7d" secondAttribute="centerY" id="woD-ao-dXH"/>
                                             <constraint firstItem="Ve2-Ed-y7d" firstAttribute="leading" secondItem="pqG-LV-NS2" secondAttribute="leading" id="zzz-ZY-Rdn"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tte-JW-Tg6">
+                                        <rect key="frame" x="0.0" y="44" width="384" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hired Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6u-RH-IUx">
+                                                <rect key="frame" x="0.0" y="0.0" width="60.666666666666664" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="TEX-rC-6Fh">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="hCO-SA-9WL">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" name="3478F6"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-02-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZa-kc-lvz">
+                                                <rect key="frame" x="62.666666666666657" y="1" width="63" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="6Jc-Si-d4u">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" name="AppBlack"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-02-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-Lb-6nc">
+                                                <rect key="frame" x="129.66666666666666" y="0.0" width="63" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Y0N-zC-OlP">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" name="07B107"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="u6u-RH-IUx" firstAttribute="top" secondItem="tte-JW-Tg6" secondAttribute="top" id="38n-8p-0hz"/>
+                                            <constraint firstAttribute="bottom" secondItem="u6u-RH-IUx" secondAttribute="bottom" id="3HW-ha-WMx"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Aa-Lb-6nc" secondAttribute="trailing" id="Nbh-rd-7H8"/>
+                                            <constraint firstItem="uZa-kc-lvz" firstAttribute="leading" secondItem="u6u-RH-IUx" secondAttribute="trailing" constant="2" id="UrG-Ai-uey"/>
+                                            <constraint firstItem="4Aa-Lb-6nc" firstAttribute="leading" secondItem="uZa-kc-lvz" secondAttribute="trailing" constant="4" id="aUk-1y-nxf"/>
+                                            <constraint firstItem="u6u-RH-IUx" firstAttribute="leading" secondItem="tte-JW-Tg6" secondAttribute="leading" id="pIY-yE-MVY"/>
+                                            <constraint firstItem="uZa-kc-lvz" firstAttribute="centerY" secondItem="u6u-RH-IUx" secondAttribute="centerY" id="rFE-gf-Dac"/>
+                                            <constraint firstItem="4Aa-Lb-6nc" firstAttribute="centerY" secondItem="uZa-kc-lvz" secondAttribute="centerY" id="zv5-df-2Xw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -230,7 +291,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compact Elite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bch-9G-kee">
-                                <rect key="frame" x="0.0" y="22" width="384" height="40"/>
+                                <rect key="frame" x="0.0" y="22" width="384" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="ALm-U6-aAO"/>
                                 </constraints>
@@ -290,13 +351,18 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="HiredTitle" destination="u6u-RH-IUx" id="ogs-mY-dvb"/>
                 <outlet property="availableLabel" destination="UwR-m1-pLD" id="huu-xf-G79"/>
                 <outlet property="availableTitleLabel" destination="Ve2-Ed-y7d" id="cGG-9A-gen"/>
+                <outlet property="availableView" destination="pqG-LV-NS2" id="SdR-YO-FKl"/>
                 <outlet property="btnReferences" destination="mQt-Jp-HQ1" id="N0q-hu-5R5"/>
                 <outlet property="carId" destination="Ymt-ii-E07" id="hRr-fm-hAI"/>
                 <outlet property="carImage" destination="wfW-iQ-cXh" id="gWH-Sm-cYI"/>
                 <outlet property="carNameLabel" destination="3dz-Nb-hC4" id="cL1-ZA-Yx7"/>
                 <outlet property="carTypeLabel" destination="bch-9G-kee" id="KOh-px-plX"/>
+                <outlet property="hiredDate" destination="uZa-kc-lvz" id="Yhd-I1-BIj"/>
+                <outlet property="hiredTime" destination="4Aa-Lb-6nc" id="Hom-w3-8hX"/>
+                <outlet property="hiredView" destination="tte-JW-Tg6" id="Tqc-rW-EnE"/>
                 <outlet property="totalHiredView" destination="3h4-fM-rEg" id="sAM-bY-A3w"/>
                 <outlet property="txtMenufacturerYear" destination="opm-44-QKj" id="2V0-7G-FCQ"/>
             </connections>
