@@ -38,6 +38,8 @@ class DeliveryCollectionsTVC: UITableViewCell {
     var clickedRegoButton: (() -> Void)?
     var clickedNextButton: (() -> Void)?
     
+    var collectionDeliveryDataList: CollectionDeliveryDataList?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -50,6 +52,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     func setCollectionData(data: CollectionDeliveryDataList) {
+        self.collectionDeliveryDataList = data
         let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
         self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
         
@@ -60,7 +63,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
-        if let url = URL(string: data.fleet_image ?? "") {
+        if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
         
@@ -85,6 +88,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     func setDeliveredData(data: CollectionDeliveryDataList) {
+        self.collectionDeliveryDataList = data
         let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
         self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
         
@@ -95,7 +99,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
-        if let url = URL(string: data.fleet_image ?? "") {
+        if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
         
@@ -114,6 +118,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     func setupDetails(data: CollectionDeliveryDataList) {
+        self.collectionDeliveryDataList = data
         let yearOF = data.yearof_manufacture?.date(currentFormate: .yyyymmdd, convetedFormate: .YYYY)
         self.lblCarName.text = convertString(str: data.vehicle_make ?? "") + " \(convertString(str: data.vehicle_model ?? "")) (\(yearOF ?? "NA"))"
         
@@ -124,7 +129,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
-        if let url = URL(string: data.fleet_image ?? "") {
+        if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
         
@@ -179,7 +184,10 @@ class DeliveryCollectionsTVC: UITableViewCell {
     }
     
     @IBAction func fullscreenView(_ sender: Any) {
-        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
+        
+        topMostController()?.setAllImages(currentImg: self.collectionDeliveryDataList?.fleet_image?.first ?? "", allImages: self.collectionDeliveryDataList?.fleet_image ?? [], currentIndex: 0)
+        
+//        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
     }
     
     func convertString(str: String) -> String {

@@ -8560,7 +8560,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-617.1875" y="1755.46875"/>
+            <point key="canvasLocation" x="-628" y="1797"/>
         </scene>
         <!--Upload DocumentsVC-->
         <scene sceneID="udN-bY-6To">
@@ -9233,7 +9233,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="49.275362318840585" y="1767.1875"/>
+            <point key="canvasLocation" x="132" y="1797"/>
         </scene>
         <!--Digital SignatureVC-->
         <scene sceneID="XzA-5v-78h">
@@ -9458,7 +9458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Asx-2M-4cl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982.608695652174" y="1789.9553571428571"/>
+            <point key="canvasLocation" x="1962" y="1570"/>
         </scene>
         <!--DrawerVC-->
         <scene sceneID="DKT-il-Y7A">
@@ -20059,7 +20059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFy-py-eeq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3656.8000000000002" y="2044.2278860569718"/>
+            <point key="canvasLocation" x="3696" y="2044"/>
         </scene>
         <!--Add Event PopupVC-->
         <scene sceneID="T4V-rP-L7r">
@@ -21017,7 +21017,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69s-AG-tM3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3720.289855072464" y="2724.7767857142858"/>
+            <point key="canvasLocation" x="3696" y="2725"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="joQ-QC-Gar">
@@ -21901,7 +21901,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acl-72-3X3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5665" y="1377"/>
+            <point key="canvasLocation" x="5632" y="1377"/>
         </scene>
         <!--Available VehicleVC-->
         <scene sceneID="iAs-zb-wZk">
@@ -23946,7 +23946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhp-ay-j5I" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6302.898550724638" y="1376.7857142857142"/>
+            <point key="canvasLocation" x="6286" y="1377"/>
         </scene>
         <!--Log Sheet FilterVC-->
         <scene sceneID="hJy-nO-cU5">
@@ -24764,8 +24764,8 @@
         <image name="addentry" width="40" height="40"/>
         <image name="appLogoWhite" width="469" height="122"/>
         <image name="arrowBack" width="39" height="33"/>
-        <image name="calendar" width="170.66667175292969" height="170.66667175292969"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="calendar" width="170.66667175292969" height="170.66667175292969"/>
         <image name="calendar 1" width="170.66667175292969" height="170.66667175292969"/>
         <image name="checkUnselected" width="170.66667175292969" height="170.66667175292969"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>

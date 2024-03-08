@@ -20,7 +20,7 @@ class FleetsTVC: UITableViewCell {
     @IBOutlet weak var totalHiredView: UIView!
     @IBOutlet weak var txtMenufacturerYear: UILabel!
     
-    
+    var accidentMaintenance: AccidentMaintenance?
     var refClicked: (() -> Void)?
     var btnReferanceClicked: (() -> Void)?
     var serviceClicked: (() -> Void)?
@@ -37,7 +37,8 @@ class FleetsTVC: UITableViewCell {
     }
     
     @IBAction func btnShowFullscreen(_ sender: Any) {
-        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
+        topMostController()?.setAllImages(currentImg: accidentMaintenance?.fleet_image?.first ?? "", allImages: (accidentMaintenance?.fleet_image ?? []), currentIndex: 0)
+//        topMostController()?.displayImageOnFullScreen(img: self.carImage.image ?? UIImage())
     }
     
     @IBAction func btnReference(_ sender: Any) {
@@ -53,6 +54,7 @@ class FleetsTVC: UITableViewCell {
     }
     
     func setupDetails(data: AccidentMaintenance) {
+        self.accidentMaintenance = data
         self.carNameLabel.text = self.convertString(str: (data.vehicle_make ?? "")) + " (\(self.convertString(str: (data.vehicle_model ?? ""))))"
         self.carId.text = "\(self.convertString(str: (data.registration_no ?? "")))"
         self.carTypeLabel.text = self.convertString(str: (data.vehicle_category ?? ""))
@@ -81,19 +83,19 @@ class FleetsTVC: UITableViewCell {
             self.availableLabel.text = "NA"
             self.availableLabel.textColor = .gray
         }
-
         
-        if let url = URL(string: data.fleet_image ?? "") {
+        if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
-        
         
         self.availableTitleLabel.text = "Available Since Last Returned:"
 
         self.totalHiredView.isHidden = false
         
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
-            self.availableTitleLabel.text = "Available Since Last Returned:"
+            self.availableTitleLabel.text = "Available Since:"
+            let timeLabel = self.convertToDate(str: (data.available_date ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
+            self.availableLabel.text = "\((data.available_date ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
         } else if data.status == "Active" && (data.fleet_status == "Hired") {
             self.availableTitleLabel.text = "Hired Since:"
             let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))

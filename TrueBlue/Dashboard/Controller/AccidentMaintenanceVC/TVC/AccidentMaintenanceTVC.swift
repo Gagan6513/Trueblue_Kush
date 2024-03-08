@@ -73,7 +73,7 @@ class AccidentMaintenanceTVC: UITableViewCell {
         
 
         
-        if let url = URL(string: data.fleet_image ?? "") {
+        if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
         

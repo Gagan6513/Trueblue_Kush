@@ -58,7 +58,7 @@ class ViewReferenceVC: UIViewController {
             self.carNameLabel.text = "\(data.vehicle_make ?? "") \(data.vehicle_model ?? "") (\((data.yearof_manufacture ?? "").date(convetedFormate: .ddmmyyyy)))"
             self.carIdLabel.text = data.vehicle_category
             self.carModelLabel.text = (data.vehicle_make ?? "")
-            if let url = URL(string: data.fleet_image ?? "") {
+            if let url = URL(string: data.fleet_image?.first ?? "") {
                 self.carImage.sd_setImage(with: url)
             }
         }

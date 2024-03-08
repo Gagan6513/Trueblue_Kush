@@ -19,7 +19,6 @@ class AccidentMaintenanceModel: Codable {
 class AccidentMaintenanceData: Codable {
     var response : [AccidentMaintenance]?
     var total_records: CounsForFleet?
-
 }
 
 class CounsForFleet: Codable {
@@ -243,7 +242,7 @@ class AccidentMaintenance: Codable {
     var available_date: String?
     var available_time: String?
     var available_status: String?
-    var fleet_image: String?
+    var fleet_image: [String]?
     var vehicle_make: String?
     var vehicle_model: String?
     var vehicle_category: String?
@@ -397,6 +396,6 @@ class CollectionDeliveryDataList: Codable {
     var vehicle_model: String?
     var yearof_manufacture: String?
     var vehicle_category: String?
-    var fleet_image: String?
+    var fleet_image: [String]?
     
 }
