@@ -272,7 +272,8 @@ class NewSwapVehicleVC: UIViewController {
     
     @IBAction func btnFullScreenNewVehicle(_ sender: Any) {
         if let img = self.newcarImage.image {
-            self.setAllImages(currentImg: img, allImages: [img], currentIndex: 0)
+//            self.setAllImages(currentImg: img, allImages: [img], currentIndex: 0)
+            self.setAllImages(currentImg: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img.first ?? "", allImages: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img, currentIndex: 0)
         }
     }
     // =============================
@@ -563,7 +564,7 @@ class NewSwapVehicleVC: UIViewController {
                     self.txtNewVehivleRefNo.text = selectedItem
                     self.txtNewModelInfo.text = arrAvailableVehicles[selectedDropdownItemIndex].vehicle_make + " " + arrAvailableVehicles[selectedDropdownItemIndex].vehicle_model
                     
-                    self.newcarImage.sd_setImage(with: URL(string: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img))
+                    self.newcarImage.sd_setImage(with: URL(string: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img.first ?? ""))
                 default:
                     print("Unkown List")
                 }

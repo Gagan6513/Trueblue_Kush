@@ -14,7 +14,7 @@ class AvailableVehicleDropDownListModel : NSObject {
                 var dictArray = AvailableVehicleDropDownListModelData()
                 dictArray.id = dict["id"] as? String ?? ""
                 dictArray.registration_no = dict["registration_no"] as? String ?? ""
-                dictArray.fleet_img = dict["fleet_img"] as? String ?? ""
+                dictArray.fleet_img = dict["fleet_img"] as? [String] ?? []
                 dictArray.vehicle_make = dict["vehicle_make"] as? String ?? ""
                 dictArray.vehicle_model = dict["vehicle_model"] as? String ?? ""
                 arrResult.append(dictArray)
@@ -27,7 +27,7 @@ class AvailableVehicleDropDownListModel : NSObject {
 struct AvailableVehicleDropDownListModelData {
     var id : String = ""
     var registration_no : String = ""
-    var fleet_img: String = ""
+    var fleet_img: [String] = []
     var vehicle_make: String = ""
     var vehicle_model: String = ""
 }

@@ -13,6 +13,7 @@ class DisplayFullImageVC: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var colseBtn: UIButton!
+    @IBOutlet weak var pageControll: UIPageControl!
     
     var imgForDisplay = UIImage()
     var imageUrlForDisplay = String()
@@ -26,6 +27,19 @@ class DisplayFullImageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if imageArray.count != 0 {
+            self.pageControll.numberOfPages = self.imageArray.count
+            
+            self.pageControll.currentPage = self.currenIndex
+        }
+        
+        if imageArr.count != 0 {
+            self.pageControll.numberOfPages = self.imageArr.count
+            self.pageControll.currentPage = self.currenIndex
+        }
+        
+        
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1
         scrollView.maximumZoomScale = 10
@@ -61,6 +75,7 @@ class DisplayFullImageVC: UIViewController {
                    if(currenIndex < imageArray.count){
                        currenIndex += 1
                        if imageArray.indices.contains(currenIndex) {
+                           self.pageControll.currentPage = self.currenIndex
                            imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
                        }
                    }
@@ -68,6 +83,7 @@ class DisplayFullImageVC: UIViewController {
                    if(currenIndex < imageArr.count){
                        currenIndex += 1
                        if imageArr.indices.contains(currenIndex) {
+                           self.pageControll.currentPage = self.currenIndex
                            imageView.image = imageArr[currenIndex]
                        }
                    }
@@ -78,6 +94,7 @@ class DisplayFullImageVC: UIViewController {
                    if(currenIndex > 0){
                        currenIndex -= 1
                        if imageArray.indices.contains(currenIndex) {
+                           self.pageControll.currentPage = self.currenIndex
                            imageView.kf.setImage(with: URL(string: imageArray[currenIndex]))
                        }
                    }
@@ -85,6 +102,7 @@ class DisplayFullImageVC: UIViewController {
                    if(currenIndex > 0){
                        currenIndex -= 1
                        if imageArr.indices.contains(currenIndex) {
+                           self.pageControll.currentPage = self.currenIndex
                            imageView.image = imageArr[currenIndex]
                        }
                    }

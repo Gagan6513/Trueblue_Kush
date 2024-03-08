@@ -173,28 +173,13 @@
             filePath = "TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "946"
-            endingLineNumber = "946"
-            landmarkName = "swapVehicleAPISuccess(objData:strMessage:)"
-            landmarkType = "7">
+            startingLineNumber = "947"
+            endingLineNumber = "947"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - 7190576b979a5809"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NewSwapVehicleVC.selectImage() -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "948"
-                  endingLineNumber = "948"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - b667f9d76ae72bc1"
+                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - b667f9d76ae72b83"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -204,8 +189,23 @@
                   urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "946"
-                  endingLineNumber = "946"
+                  startingLineNumber = "948"
+                  endingLineNumber = "948"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - b667f9d76ae72be0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrueBlue.NewSwapVehicleVC.swapVehicleAPISuccess(objData: TrueBlue.ReturnUploadedDocsModel, strMessage: Swift.String) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "947"
+                  endingLineNumber = "947"
                   offsetFromSymbolStart = "272">
                </Location>
             </Locations>
