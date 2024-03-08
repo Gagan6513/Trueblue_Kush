@@ -89,8 +89,20 @@ class FleetsTVC: UITableViewCell {
         
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
             self.availableTitleLabel.text = "Available Since:"
-            let timeLabel = self.convertToDate(str: (data.available_date ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
-            self.availableLabel.text = "\((data.available_date ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+            let timeLabelll = self.convertToDate(str: (data.available_date ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
+            self.availableLabel.text = "\((data.available_date ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
+            
+            if timeLabelll.contains("days ago") {
+                if let month = timeLabelll.first {
+                    if (Int(String(month)) ?? 0) <= 28 {
+                        self.availableLabel.textColor = UIColor(named: "07B107")
+                    } else if (Int(String(month)) ?? 0) <= 168 {
+                        self.availableLabel.textColor = UIColor.purple
+                    } else {
+                        self.availableLabel.textColor = UIColor(named: "FF0000")
+                    }
+                }
+            }
             
             if data.available_date == nil || (data.available_date ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
                 self.availableLabel.text = "NA"
@@ -108,7 +120,9 @@ class FleetsTVC: UITableViewCell {
             }
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
-            
+            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
+            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+
             if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
                 self.availableLabel.text = "NA"
                 self.availableLabel.textColor = .gray
