@@ -59,9 +59,9 @@ class FleetsTVC: UITableViewCell {
         self.carId.text = "\(self.convertString(str: (data.registration_no ?? "")))"
         self.carTypeLabel.text = self.convertString(str: (data.vehicle_category ?? ""))
         
-        let timeLabel = self.convertToDate(str: (data.status_modified_on ?? ""))
+        let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
         
-        self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy))" // (\(timeLabel))"
+        self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
         
         self.availableLabel.textColor = UIColor(named: "07B107")
 
@@ -79,6 +79,11 @@ class FleetsTVC: UITableViewCell {
             }
         }
         
+        if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
+            self.availableLabel.text = "NA"
+            self.availableLabel.textColor = .gray
+        }
+        
         if let url = URL(string: data.fleet_image?.first ?? "") {
             self.carImage.sd_setImage(with: url)
         }
@@ -89,44 +94,32 @@ class FleetsTVC: UITableViewCell {
         
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
             self.availableTitleLabel.text = "Available Since:"
-            let timeLabelll = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
-            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
-            
-            if timeLabelll.contains("days ago") {
-                if let month = timeLabelll.first {
-                    if (Int(String(month)) ?? 0) <= 28 {
-                        self.availableLabel.textColor = UIColor(named: "07B107")
-                    } else if (Int(String(month)) ?? 0) <= 168 {
-                        self.availableLabel.textColor = UIColor.purple
-                    } else {
-                        self.availableLabel.textColor = UIColor(named: "FF0000")
-                    }
-                }
-            }
-            
-            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
-                self.availableLabel.text = "NA"
-                self.availableLabel.textColor = .gray
-            }
-            
+//            let timeLabelll = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
+//            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
+//
+//            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
+//                self.availableLabel.text = "NA"
+//                self.availableLabel.textColor = .gray
+//            }
+//
         } else if data.status == "Active" && (data.fleet_status == "Hired") {
             self.availableTitleLabel.text = "Hired Since:"
-            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
-            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
-            
-            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
-                self.availableLabel.text = "NA"
-                self.availableLabel.textColor = .gray
-            }
+//            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
+//            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+//
+//            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
+//                self.availableLabel.text = "NA"
+//                self.availableLabel.textColor = .gray
+//            }
         } else if data.status == "Maintenance" {
             self.availableTitleLabel.text = "On Maintenance Since:"
-            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
-            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
-
-            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
-                self.availableLabel.text = "NA"
-                self.availableLabel.textColor = .gray
-            }
+//            let timeLabel = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .yyyymmdd))
+//            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss ,convetedFormate: .ddmmyyyy)) (\(timeLabel))"
+//
+//            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
+//                self.availableLabel.text = "NA"
+//                self.availableLabel.textColor = .gray
+//            }
         }
     }
     
