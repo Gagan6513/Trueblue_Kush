@@ -89,8 +89,8 @@ class FleetsTVC: UITableViewCell {
         
         if data.status == "Active" && (data.fleet_status == "Returned" || data.fleet_status == "Free") {
             self.availableTitleLabel.text = "Available Since:"
-            let timeLabelll = self.convertToDate(str: (data.available_date ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
-            self.availableLabel.text = "\((data.available_date ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
+            let timeLabelll = self.convertToDate(str: (data.status_modified_on ?? "").date(currentFormate: .yyyymmdd, convetedFormate: .yyyymmdd))
+            self.availableLabel.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd ,convetedFormate: .ddmmyyyy)) (\(timeLabelll))"
             
             if timeLabelll.contains("days ago") {
                 if let month = timeLabelll.first {
@@ -104,7 +104,7 @@ class FleetsTVC: UITableViewCell {
                 }
             }
             
-            if data.available_date == nil || (data.available_date ?? "") == "" || (data.available_date ?? "") == "0000-00-00" {
+            if data.status_modified_on == nil || (data.status_modified_on ?? "") == "" || (data.status_modified_on ?? "") == "0000-00-00" {
                 self.availableLabel.text = "NA"
                 self.availableLabel.textColor = .gray
             }
