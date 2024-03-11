@@ -104,7 +104,6 @@ class FleetsTVC: UITableViewCell {
         /* ================================== */
         self.availableView.isHidden = true
         self.hiredView.isHidden = false
-        self.carId.isHidden = true
         
         self.hiredDate.text = "\((data.status_modified_on ?? "").date(currentFormate: .yyyymmdd_hhmmss_sss, convetedFormate: .ddMMMMyyyy))"
         self.hiredTime.text = "(\(timeLabel))"

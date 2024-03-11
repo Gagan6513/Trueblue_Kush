@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -184,6 +184,7 @@
 		8161331A2B2EF6A900938B28 /* RepairerBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816133192B2EF6A900938B28 /* RepairerBookingVC.swift */; };
 		8161331C2B2EF86900938B28 /* RepairerBookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */; };
 		93662B0C2AF0C56700ECE574 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B669AA26CFB62C007F1696 /* CollectionsViewModel.swift */; };
+		93D15D1B2B9BBC05005B575A /* FleetsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D15D1A2B9BBC05005B575A /* FleetsTVC.xib */; };
 		B3366DB62B35557500F72CE8 /* ACAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DB52B35557500F72CE8 /* ACAViewController.swift */; };
 		B3366DBA2B3555DF00F72CE8 /* AcaTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3366DB82B3555DF00F72CE8 /* AcaTVC.swift */; };
 		B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3366DB92B3555DF00F72CE8 /* AcaTVC.xib */; };
@@ -226,7 +227,6 @@
 		B388B26F2B58093A007EA2E8 /* AccidentManagementFifthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */; };
 		B38D865D2B676D71006CC28E /* FleetsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D865C2B676D71006CC28E /* FleetsVC.swift */; };
 		B38D86612B6780FA006CC28E /* FleetsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D865F2B6780FA006CC28E /* FleetsTVC.swift */; };
-		B38D86622B6780FA006CC28E /* FleetsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38D86602B6780FA006CC28E /* FleetsTVC.xib */; };
 		B38D86652B6783DD006CC28E /* FleetReferenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D86642B6783DD006CC28E /* FleetReferenceVC.swift */; };
 		B38D86692B67852F006CC28E /* FleetViewReferenceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38D86672B67852F006CC28E /* FleetViewReferenceTVC.xib */; };
 		B38D866A2B67852F006CC28E /* FleetViewReferenceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D86682B67852F006CC28E /* FleetViewReferenceTVC.swift */; };
@@ -441,6 +441,7 @@
 		816133172B2DD4C800938B28 /* ReferenceSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		816133192B2EF6A900938B28 /* RepairerBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepairerBookingVC.swift; path = TrueBlue/Dashboard/Controller/RepairerBooking/RepairerBookingVC.swift; sourceTree = SOURCE_ROOT; };
 		8161331B2B2EF86900938B28 /* RepairerBookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairerBookingTableViewCell.swift; sourceTree = "<group>"; };
+		93D15D1A2B9BBC05005B575A /* FleetsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetsTVC.xib; sourceTree = "<group>"; };
 		95F09AF4B08AB4D8297FEBA8 /* Pods-TrueBlue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueBlue.debug.xcconfig"; path = "Target Support Files/Pods-TrueBlue/Pods-TrueBlue.debug.xcconfig"; sourceTree = "<group>"; };
 		B3366DB52B35557500F72CE8 /* ACAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACAViewController.swift; sourceTree = "<group>"; };
 		B3366DB82B3555DF00F72CE8 /* AcaTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaTVC.swift; sourceTree = "<group>"; };
@@ -485,7 +486,6 @@
 		B388B26E2B58093A007EA2E8 /* AccidentManagementFifthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentManagementFifthVC.swift; sourceTree = "<group>"; };
 		B38D865C2B676D71006CC28E /* FleetsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetsVC.swift; sourceTree = "<group>"; };
 		B38D865F2B6780FA006CC28E /* FleetsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FleetsTVC.swift; sourceTree = "<group>"; };
-		B38D86602B6780FA006CC28E /* FleetsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetsTVC.xib; sourceTree = "<group>"; };
 		B38D86642B6783DD006CC28E /* FleetReferenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetReferenceVC.swift; sourceTree = "<group>"; };
 		B38D86672B67852F006CC28E /* FleetViewReferenceTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetViewReferenceTVC.xib; sourceTree = "<group>"; };
 		B38D86682B67852F006CC28E /* FleetViewReferenceTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FleetViewReferenceTVC.swift; sourceTree = "<group>"; };
@@ -1243,8 +1243,8 @@
 		B38D865E2B6780E3006CC28E /* TVC */ = {
 			isa = PBXGroup;
 			children = (
+				93D15D1A2B9BBC05005B575A /* FleetsTVC.xib */,
 				B38D865F2B6780FA006CC28E /* FleetsTVC.swift */,
-				B38D86602B6780FA006CC28E /* FleetsTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -1521,12 +1521,12 @@
 				B399CDCD2B58E5B500D84AE4 /* AvailableVehicleTVC.xib in Resources */,
 				B37FC49A2B50FF3A009CBA77 /* LogSheetTVC.xib in Resources */,
 				B3F7AE602B6376B5002D49B7 /* ServiceTVC.xib in Resources */,
-				B38D86622B6780FA006CC28E /* FleetsTVC.xib in Resources */,
 				5344797426C67CB800380609 /* Main.storyboard in Resources */,
 				B3366DBB2B3555DF00F72CE8 /* AcaTVC.xib in Resources */,
 				B357B0CA2B5E7440004C71DF /* AccidentMaintenanceTVC.xib in Resources */,
 				5732643E2B467A4A00E1450D /* UserListTVC.xib in Resources */,
 				B3660A972B57B42A00AC8F02 /* AccidentManagement.storyboard in Resources */,
+				93D15D1B2B9BBC05005B575A /* FleetsTVC.xib in Resources */,
 				532F6852272AB6D30067C5A7 /* DashboardPhone.storyboard in Resources */,
 				B392BC912B3965800002DD69 /* TodaysEventsTVC.xib in Resources */,
 				5344798B26C6813F00380609 /* AppColours.xcassets in Resources */,
