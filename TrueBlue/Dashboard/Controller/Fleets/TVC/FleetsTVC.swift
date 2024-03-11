@@ -45,9 +45,10 @@ class FleetsTVC: UITableViewCell {
     @IBOutlet weak var imageCountPictures: UILabel!
     
     override func awakeFromNib() {
-        imageLblView.addBottomRoundedCorner(radius: 20)
+//
         
         super.awakeFromNib()
+//        imageLblView.addBottomRoundedCorner(radius: 6)
         // Initialization code
     }
 
