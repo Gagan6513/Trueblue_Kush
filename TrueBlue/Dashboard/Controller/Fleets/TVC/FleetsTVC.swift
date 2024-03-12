@@ -162,7 +162,11 @@ class FleetsTVC: UITableViewCell {
 //            }
         }
         if(data.fleet_image!.count > 0) {
-            imageCountPictures.text = "\(data.fleet_image!.count) pictures"
+            if data.fleet_image!.count > 1 {
+                imageCountPictures.text = "\(data.fleet_image!.count) pictures"
+            } else {
+                imageCountPictures.text = "\(data.fleet_image!.count) picture"
+            }
         }
         imageLblText.text = data.registration_no!
         
