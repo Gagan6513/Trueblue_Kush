@@ -161,14 +161,14 @@ class FleetsTVC: UITableViewCell {
 //                self.availableLabel.textColor = .gray
 //            }
         }
-        if(data.fleet_image!.count > 0) {
-            if data.fleet_image!.count > 1 {
-                imageCountPictures.text = "\(data.fleet_image!.count) pictures"
+        if((data.fleet_image?.count ?? 0) > 0) {
+            if (data.fleet_image?.count ?? 0) > 1 {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) pictures"
             } else {
-                imageCountPictures.text = "\(data.fleet_image!.count) picture"
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) picture"
             }
         }
-        imageLblText.text = data.registration_no!
+        self.imageLblText.text = data.registration_no
         
     }
     
