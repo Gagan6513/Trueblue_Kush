@@ -131,7 +131,7 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         let newAPIPATH = API_PATH //.replacingOccurrences(of: "newapp", with: "app")
         let requestURL = newAPIPATH + EndPoints.SEARCH_REFERENCE
         let parameters : Parameters = ["searchvalue" : searchValue]
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
@@ -147,7 +147,7 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         self.showAlertWithAction(title: alert_title, messsage: message) {
                             self.logout()
                         }
@@ -201,6 +201,7 @@ class ReferenceSearchResultVC: UIViewController, UITableViewDelegate, UITableVie
         UserDefaults.standard.setUsername(value: "")
         UserDefaults.standard.setIsLoggedIn(value: false)
         UserDefaults.standard.setUserId(value: "")
+        UserDefaults.standard.setUserToken(value: "")
     }
 
 }

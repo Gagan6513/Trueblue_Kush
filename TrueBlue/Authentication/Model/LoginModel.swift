@@ -13,6 +13,7 @@ class LoginModel : NSObject {
         dictLogin.name = dict["name"] as? String ?? ""
         dictLogin.userType = dict["usertype"] as? String ?? ""
         dictLogin.groupId = dict["group_id"] as? String ?? ""
+        dictLogin.userToken = dict["userToken"] as? String ?? ""
         dictLogin.userId = dict["id"] as? String ?? ""
         dictLogin.status = dict["status"] as? String ?? ""
         dictLogin.message = dict["msg"] as? String ?? ""
@@ -23,6 +24,7 @@ class LoginModel : NSObject {
 struct LoginModelData {
     var name : String = ""
     var userType : String = ""
+    var userToken : String = ""
     var groupId : String = ""
     var userId : String = ""
     var status : String = ""

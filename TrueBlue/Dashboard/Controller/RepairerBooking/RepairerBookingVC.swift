@@ -100,7 +100,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         CommonObject.sharedInstance.showProgress()
         let newAPIPATH = API_PATH.replacingOccurrences(of: "newapp", with: "app")
         let requestURL = newAPIPATH + endPoint
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
          
         if NetworkReachabilityManager()!.isReachable {
@@ -114,7 +114,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         if let topController = UIApplication.topViewController() {
                             topController.showAlertWithAction(title: alert_title, messsage: message) {
                                 self.logout()
@@ -174,6 +174,7 @@ class RepairerBookingVC: UIViewController, UITableViewDelegate, UITableViewDataS
         UserDefaults.standard.setUsername(value: "")
         UserDefaults.standard.setIsLoggedIn(value: false)
         UserDefaults.standard.setUserId(value: "")
+        UserDefaults.standard.setUserToken(value: "")
     }
     
     func formattedDateFromString(dateString: String, withFormat format: String) -> String? {

@@ -26,9 +26,19 @@ extension UserDefaults {
         set(value, forKey: "userId")
         synchronize()
     }
+    
+    func setUserToken(value: String) {
+        set(value, forKey: "userToken")
+        synchronize()
+    }
 
     func userId() -> String {
         return string(forKey: "userId") ?? ""
+    }
+    
+    func userToken() -> String {
+//        return ""
+        return string(forKey: "userToken") ?? ""
     }
     
     func setGroupId(value: String) {
@@ -80,9 +90,8 @@ extension UserDefaults {
 //    func email() -> String {
 //        return string(forKey: "email") ?? ""
 //    }
-//
 
-    
+//
 //    func setNotificationStatus(value: String) {
 //        set(value, forKey: "notificationStatus")
 //        synchronize()

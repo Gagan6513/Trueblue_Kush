@@ -20,6 +20,7 @@ class WebServiceModel {
         self.headers?.add(name: "Accept", value: "application/json")
         self.headers?.add(name: "Content-type", value: "application/json")
         self.headers?.add(name: "userId", value: UserDefaults.standard.userId())
+        self.headers?.add(name: "userToken", value: UserDefaults.standard.userToken())
     }
 }
 
@@ -49,7 +50,7 @@ class WebService {
                     
                     if let mainDict = response.data?.convertData(StatusCodeModel.self){
                         if let data = mainDict as? StatusCodeModel {
-                            if data.statusCode == 5001 {
+                            if data.statusCode == 5001 || data.statusCode == 4001  {
                                 if let topController = UIApplication.topViewController() {
                                     topController.showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
                                         self.logout()
@@ -89,6 +90,7 @@ class WebService {
         UserDefaults.standard.setUsername(value: "")
         UserDefaults.standard.setIsLoggedIn(value: false)
         UserDefaults.standard.setUserId(value: "")
+        UserDefaults.standard.setUserToken(value: "")
     }
     
     // MARK: - PERFORM API CALLS
@@ -147,7 +149,7 @@ class WebService {
                 DispatchQueue.main.async {
                     if let mainDict = response.data?.convertData(StatusCodeModel.self){
                         if let data = mainDict as? StatusCodeModel {
-                            if data.statusCode == 5001 {
+                            if data.statusCode == 5001 || data.statusCode == 4001  {
                                 if let topController = UIApplication.topViewController() {
                                     topController.showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
                                         self.logout()
@@ -246,7 +248,7 @@ class WebService {
                     DispatchQueue.main.async {
                         if let mainDict = response.data?.convertData(StatusCodeModel.self){
                             if let data = mainDict as? StatusCodeModel {
-                                if data.statusCode == 5001 {
+                                if data.statusCode == 5001 || data.statusCode == 4001 {
                                     if let topController = UIApplication.topViewController() {
                                         topController.showAlertWithAction(title: alert_title, messsage: data.msg ?? "") {
                                             self.logout()

@@ -46,8 +46,8 @@
             filePath = "AppManagers/DataSyncManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
             landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:currentController:)"
             landmarkType = "7">
             <Locations>
@@ -96,6 +96,21 @@
                   endingLineNumber = "491"
                   offsetFromSymbolStart = "612">
                </Location>
+               <Location
+                  uuid = "0D4A517E-28B9-4510-89F5-B391D5B2922C - ba7ec42ee6ba5d21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in TrueBlue.DataSyncManager.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, currentController: __C.UIViewController) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/AppManagers/DataSyncManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "492"
+                  endingLineNumber = "492"
+                  offsetFromSymbolStart = "592">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -109,10 +124,57 @@
             filePath = "Helper/API Helper/WebService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:complition:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0752BEF7-F77C-4D75-A979-0EB8132044D9 - dc7f833aa4a01c63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.WebService.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, complition: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "1652">
+               </Location>
+               <Location
+                  uuid = "0752BEF7-F77C-4D75-A979-0EB8132044D9 - dc7f833aa4a01c63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.WebService.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, complition: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "1768">
+               </Location>
+               <Location
+                  uuid = "0752BEF7-F77C-4D75-A979-0EB8132044D9 - dc7f833aa4a01c63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.WebService.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, complition: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -125,13 +187,13 @@
             filePath = "Helper/API Helper/WebService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "performMultipartWebService(endPoint:isMultipleImage:parameters:imageData:complition:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01e53"
+                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01e72"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -141,12 +203,12 @@
                   urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
                   offsetFromSymbolStart = "408">
                </Location>
                <Location
-                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01e53"
+                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01e72"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -156,8 +218,38 @@
                   urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01f91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.WebService.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, complition: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "D81DD516-20E0-4BDD-92F8-9C559AD8B40B - dc7f833aa4a01f91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; () in closure #1 (Alamofire.MultipartFormData) -&gt; () in TrueBlue.WebService.performMultipartWebService(endPoint: Swift.String, isMultipleImage: Swift.Bool, parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, imageData: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, complition: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/Helper/API%20Helper/WebService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
                   offsetFromSymbolStart = "648">
                </Location>
             </Locations>
@@ -209,6 +301,38 @@
                   offsetFromSymbolStart = "272">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9E89A88-6672-4EF5-AE1A-6B37C11785BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Authentication/Controller/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "LoginAPISuccess(objLoginData:strMessage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44D6D4E4-A151-41EE-B725-25C0A49C8B24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Authentication/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "requestSuccess(dictObj:serviceKey:strMessage:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

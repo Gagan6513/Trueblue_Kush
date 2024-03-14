@@ -100,7 +100,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let requestURL = newAPIPATH + "getAllNotes"
         let parameters : Parameters = ["notesForId" : application_id,
                                        "notesFor"   : "reference"]
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
@@ -115,7 +115,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         self.showAlertWithAction(title: alert_title, messsage: message) {
                             self.logout()
                         }
@@ -176,6 +176,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         UserDefaults.standard.setUsername(value: "")
         UserDefaults.standard.setIsLoggedIn(value: false)
         UserDefaults.standard.setUserId(value: "")
+        UserDefaults.standard.setUserToken(value: "")
     }
     
     func saveNotes() {
@@ -191,7 +192,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                                        "user_name" : UserDefaults.standard.username(),
                                        "notes" : notesTextView.text!,
                                        "request_from": "App"]
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
         //        apiPostRequest(parameters: parameters, endPoint: EndPoints.GET_AT_FAULT_DRIVER_DETAILS)
         
@@ -199,7 +200,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             AF.request(requestURL , method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: newHeader) { $0.timeoutInterval = 60 }.responseJSON { (response) in
                 debugPrint(response)
                 print(requestURL)
-                let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+                let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
                 var newHeader = HTTPHeaders(header)
                 
                 CommonObject.sharedInstance.stopProgress()
@@ -209,7 +210,7 @@ class NotesListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         self.showAlertWithAction(title: alert_title, messsage: message) {
                             self.logout()
                         }

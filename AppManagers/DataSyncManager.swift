@@ -19,7 +19,7 @@ class DataSyncManager :NSObject {
         
         var requestURL = ""
         requestURL = API_PATH + endPoint
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
         
         if endPoint == API_URL.SWAP_VEHICLE || endPoint == EndPoints.GET_NEW_UPCOMING_BOOKINGS || endPoint == EndPoints.UNDER_MAINTENANCE{
@@ -43,7 +43,7 @@ class DataSyncManager :NSObject {
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001 {
                         currentController.showAlertWithAction(title: alert_title, messsage: message) {
                             self.logout()
                         }
@@ -95,12 +95,13 @@ class DataSyncManager :NSObject {
         UserDefaults.standard.setUsername(value: "")
         UserDefaults.standard.setIsLoggedIn(value: false)
         UserDefaults.standard.setUserId(value: "")
+        UserDefaults.standard.setUserToken(value: "")
     }
     
     func getRequest(endPoint : String,  parameters : Parameters?, currentController : UIViewController) {
         print(parameters)
         let requestURL = API_PATH + endPoint
-        let header: [String: String] = ["userId" : UserDefaults.standard.userId()]
+        let header: [String: String] = ["userId" : UserDefaults.standard.userId(), "userToken": UserDefaults.standard.userToken()]
         var newHeader = HTTPHeaders(header)
         
         if NetworkReachabilityManager()!.isReachable {
@@ -115,7 +116,7 @@ class DataSyncManager :NSObject {
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         currentController.showAlertWithAction(title: alert_title, messsage: message) {
                             self.logout()
                         }
@@ -219,7 +220,7 @@ class DataSyncManager :NSObject {
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         if let topController = UIApplication.topViewController() {
                             topController.showAlertWithAction(title: alert_title, messsage: message) {
                                 self.logout()
@@ -318,7 +319,7 @@ class DataSyncManager :NSObject {
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         if let topController = UIApplication.topViewController() {
                             topController.showAlertWithAction(title: alert_title, messsage: message) {
                                 self.logout()
@@ -465,7 +466,7 @@ extension DataSyncManager {
                     let statusCode = mainDict["statusCode"] as? Int ?? 0
                     let message = mainDict["msg"] as? String ?? ""
                     
-                    if statusCode == 5001 {
+                    if statusCode == 5001 || statusCode == 4001  {
                         if let topController = UIApplication.topViewController() {
                             topController.showAlertWithAction(title: alert_title, messsage: message) {
                                 self.logout()
