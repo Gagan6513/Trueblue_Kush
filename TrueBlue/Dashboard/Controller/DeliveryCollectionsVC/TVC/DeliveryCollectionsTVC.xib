@@ -211,7 +211,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-hn-dcs">
-                                                                <rect key="frame" x="28" y="0.0" width="56" height="22"/>
+                                                                <rect key="frame" x="22" y="0.0" width="62" height="22"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                 <color key="textColor" name="FF0000"/>
                                                                 <nil key="highlightedColor"/>
@@ -223,7 +223,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="haJ-YZ-ysE" secondAttribute="bottom" id="9CH-mt-Sfa"/>
-                                                            <constraint firstItem="5X8-hn-dcs" firstAttribute="leading" secondItem="haJ-YZ-ysE" secondAttribute="trailing" constant="6" id="B72-BP-kxv"/>
+                                                            <constraint firstItem="5X8-hn-dcs" firstAttribute="leading" secondItem="haJ-YZ-ysE" secondAttribute="trailing" id="B72-BP-kxv"/>
                                                             <constraint firstItem="haJ-YZ-ysE" firstAttribute="top" secondItem="9fM-Wx-zGM" secondAttribute="top" id="OSA-l0-Asx"/>
                                                             <constraint firstAttribute="height" constant="22" id="e77-cd-lGw"/>
                                                             <constraint firstItem="5X8-hn-dcs" firstAttribute="top" secondItem="9fM-Wx-zGM" secondAttribute="top" id="hIe-e4-jT4"/>
@@ -674,7 +674,7 @@
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <image name="info_fleet" width="128" height="128"/>
+        <image name="info_fleet" width="30" height="24"/>
         <namedColor name="07B107">
             <color red="0.027450980392156862" green="0.69411764705882351" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
