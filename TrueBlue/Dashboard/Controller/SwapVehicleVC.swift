@@ -134,6 +134,7 @@ class SwapVehicleVC: UIViewController {
     @IBAction func newVehicleRegoRaListTapped(_ sender: UITapGestureRecognizer) {
         apiPostRequest(parameters: [:], endPoint: EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST)
     }
+    
     @IBAction func backBtn(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

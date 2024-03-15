@@ -33,6 +33,9 @@ class FleetsTVC: UITableViewCell {
     @IBOutlet weak var txtMenufacturerYear: UILabel!
     @IBOutlet weak var HiredTitle: UILabel!
     
+    @IBOutlet weak var serviceMilage: UILabel!
+    @IBOutlet weak var serviceDueinfo: UIView!
+    
     var accidentMaintenance: AccidentMaintenance?
     var refClicked: (() -> Void)?
     var btnReferanceClicked: (() -> Void)?
@@ -168,7 +171,10 @@ class FleetsTVC: UITableViewCell {
                 self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) picture"
             }
         }
+        
         self.imageLblText.text = data.registration_no
+        self.serviceDueinfo.isHidden = data.is_service_due == 0
+        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
         
     }
     

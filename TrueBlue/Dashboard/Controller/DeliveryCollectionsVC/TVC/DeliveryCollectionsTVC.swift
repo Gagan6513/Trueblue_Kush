@@ -31,6 +31,12 @@ class DeliveryCollectionsTVC: UITableViewCell {
     @IBOutlet weak var hiredDateView: UIView!
     @IBOutlet weak var lblHiredDate: UILabel!
     @IBOutlet weak var daysCountLabel: UILabel!
+    
+    @IBOutlet weak var serviceMilage: UILabel!
+    @IBOutlet weak var serviceDueinfo: UIView!
+    
+    @IBOutlet weak var imageLblText: UILabel!
+    @IBOutlet weak var imageCountPictures: UILabel!
 //
 //    @IBOutlet weak var collectedByTitle: UILabel!
     
@@ -85,6 +91,18 @@ class DeliveryCollectionsTVC: UITableViewCell {
         
         self.daysCountLabel.text = "(\(startDate.timeAgoDisplay(endDate: endDate)))"
         self.hiredDateView.isHidden = false
+        
+        if((data.fleet_image?.count ?? 0) > 0) {
+            if (data.fleet_image?.count ?? 0) > 1 {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) pictures"
+            } else {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) picture"
+            }
+        }
+        
+        self.imageLblText.text = data.registration_no
+        self.serviceDueinfo.isHidden = data.is_service_due == 0
+        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
     }
     
     func setDeliveredData(data: CollectionDeliveryDataList) {
@@ -115,6 +133,18 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblCollectedByName.text = convertString(str: data.delivered_by ?? "") + ", "
         self.lblCollectedAtName.text = convertString(str: data.delivered_at ?? "")
         self.hiredDateView.isHidden = true
+        
+        if((data.fleet_image?.count ?? 0) > 0) {
+            if (data.fleet_image?.count ?? 0) > 1 {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) pictures"
+            } else {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) picture"
+            }
+        }
+        
+        self.imageLblText.text = data.registration_no
+        self.serviceDueinfo.isHidden = data.is_service_due == 0
+        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
     }
     
     func setupDetails(data: CollectionDeliveryDataList) {
@@ -169,6 +199,18 @@ class DeliveryCollectionsTVC: UITableViewCell {
             self.hiredDateView.isHidden = true
             
         }
+        
+        if((data.fleet_image?.count ?? 0) > 0) {
+            if (data.fleet_image?.count ?? 0) > 1 {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) pictures"
+            } else {
+                self.imageCountPictures.text = "\(data.fleet_image?.count ?? 0) picture"
+            }
+        }
+        
+        self.imageLblText.text = data.registration_no
+        self.serviceDueinfo.isHidden = data.is_service_due == 0
+        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
         
 //        if (data.is_swapped ?? "").lowercased() == "yes" && (data.status ?? "").lowercased() == "hired" {
 ////            self.statusIcon.image = UIImage(named: "ic_swap_tab")

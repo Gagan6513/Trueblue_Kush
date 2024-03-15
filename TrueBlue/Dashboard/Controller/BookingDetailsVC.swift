@@ -28,6 +28,9 @@ class BookingDetailsVC: UIViewController {
     @IBOutlet weak var mileageOutTxtFld: UITextField!
     @IBOutlet weak var fuelOutTypeLbl: UILabel!
     
+    @IBOutlet weak var serviceDueInfo: UIView!
+    @IBOutlet weak var lastServiceMiles: UILabel!
+    
     var selectedProposedVehicleId = String()//From Not At Fault
     var selectedDateOut = String()//From Not At Fault
     var selectedTimeOut = String()//From Not At Fault
@@ -40,6 +43,7 @@ class BookingDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.serviceDueInfo.isHidden = true
         selecteddeliveredById = UserDefaults.standard.userId()
         deliveredCollectedByLbl.text = UserDefaults.standard.username()
         deliveredCollectedByLbl.textColor = UIColor(named: AppColors.BLACK)

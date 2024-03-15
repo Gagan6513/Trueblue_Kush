@@ -258,54 +258,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "947"
-            endingLineNumber = "947"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - b667f9d76ae72b83"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NewSwapVehicleVC.swapVehicleAPISuccess(objData: TrueBlue.ReturnUploadedDocsModel, strMessage: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "948"
-                  endingLineNumber = "948"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  uuid = "6D206DF3-4F23-4BA1-AC02-02D317FD4005 - b667f9d76ae72be0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrueBlue.NewSwapVehicleVC.swapVehicleAPISuccess(objData: TrueBlue.ReturnUploadedDocsModel, strMessage: Swift.String) -&gt; ()"
-                  moduleName = "TrueBlue"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/SwapVehicleVC/NewSwapVehicleVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "947"
-                  endingLineNumber = "947"
-                  offsetFromSymbolStart = "272">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F9E89A88-6672-4EF5-AE1A-6B37C11785BA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -333,6 +285,86 @@
             endingLineNumber = "39"
             landmarkName = "requestSuccess(dictObj:serviceKey:strMessage:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCF12293-596B-4BFD-9BF1-8191964FA698"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "bookingDetailsBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AA60B70-3C55-4273-8146-0AB5F849FA7E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Dashboard/Controller/NotAtFaultDriverDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "bookingDetailsBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91BD104B-F7BB-4B6D-96C6-D4968072C4F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrueBlue/Dashboard/Controller/BookingDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "SearchListNotificationAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "91BD104B-F7BB-4B6D-96C6-D4968072C4F6 - b171b31c05661159"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrueBlue.BookingDetailsVC.SearchListNotificationAction(__C.NSNotification) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/BookingDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2376">
+               </Location>
+               <Location
+                  uuid = "91BD104B-F7BB-4B6D-96C6-D4968072C4F6 - b171b31c05661159"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrueBlue.BookingDetailsVC.SearchListNotificationAction(__C.NSNotification) -&gt; ()"
+                  moduleName = "TrueBlue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kushkumarkatira/Documents/Vasu%20Git/Trueblue_Kush/TrueBlue/Dashboard/Controller/BookingDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2220">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

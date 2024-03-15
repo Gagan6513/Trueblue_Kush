@@ -246,6 +246,13 @@ class AccidentMaintenance: Codable {
     var vehicle_make: String?
     var vehicle_model: String?
     var vehicle_category: String?
+    
+    var is_service_due: Int?
+    var service_miles_left: Int?
+    var last_mileage: String?
+    var nextserviceduekm: String?
+    var last_service_mileage: String?
+    
 }
 
 
@@ -397,5 +404,11 @@ class CollectionDeliveryDataList: Codable {
     var yearof_manufacture: String?
     var vehicle_category: String?
     var fleet_image: [String]?
+    
+    var is_service_due: Int?
+    var service_miles_left: Int?
+    var last_mileage: String?
+    var nextserviceduekm: String?
+    var last_service_mileage: String?
     
 }

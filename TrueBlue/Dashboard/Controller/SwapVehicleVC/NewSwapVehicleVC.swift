@@ -57,6 +57,10 @@ class NewSwapVehicleVC: UIViewController {
     @IBOutlet weak var txtDeliveredLocation: UITextField!
     @IBOutlet weak var txtDeliveredBy: UITextField!
     
+    @IBOutlet weak var lastServiceMiles: UILabel!
+    @IBOutlet weak var serviceDueInfo: UIView!
+    
+    
     var applicationID = String()//We get this from Collections Screen
     
     var regoNumber = String()//Get from Collection & deliveries
@@ -87,6 +91,7 @@ class NewSwapVehicleVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.serviceDueInfo.isHidden = true
         self.setupCollectionView()
         self.setupUI()
     }
@@ -563,6 +568,11 @@ class NewSwapVehicleVC: UIViewController {
                     selectedVehicleId = arrAvailableVehicles[selectedDropdownItemIndex].id
                     self.txtNewVehivleRefNo.text = selectedItem
                     self.txtNewModelInfo.text = arrAvailableVehicles[selectedDropdownItemIndex].vehicle_make + " " + arrAvailableVehicles[selectedDropdownItemIndex].vehicle_model
+                    
+                    print(arrAvailableVehicles[selectedDropdownItemIndex].is_service_due == 0)
+                    
+                    self.serviceDueInfo.isHidden = arrAvailableVehicles[selectedDropdownItemIndex].is_service_due == 0
+                    self.lastServiceMiles.text = "\(arrAvailableVehicles[selectedDropdownItemIndex].service_miles_left ?? 0) miles"
                     
                     self.newcarImage.sd_setImage(with: URL(string: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img.first ?? ""))
                 default:
