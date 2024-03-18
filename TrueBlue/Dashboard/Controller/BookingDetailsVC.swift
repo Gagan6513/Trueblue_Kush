@@ -341,6 +341,9 @@ extension BookingDetailsVC: BookingDetailsVMDelegate {
             dropLocationTxtFld.text = objData.dictResult.deliveryLocation
         }
         
+        self.serviceDueInfo.isHidden = objData.dictResult.is_service_due == 0
+        self.lastServiceMiles.text = "\(objData.dictResult.service_miles_left ?? 0) miles"
+        
 //        if !objData.dictResult.deliveredBy.isEmpty {
 //            deliveryByTxtFld.text = objData.dictResult.deliveredBy
 //        }

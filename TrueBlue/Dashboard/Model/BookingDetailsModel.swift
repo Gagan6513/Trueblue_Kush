@@ -23,7 +23,11 @@ class BookingDetailsModel : NSObject {
         dictResult.deliveredByname = dict["delivered_byname"] as? String ?? ""
         dictResult.status = dict["Status"] as? String ?? ""
         
-        
+        dictResult.is_service_due = dict["is_service_due"] as? Int ?? 0
+        dictResult.service_miles_left = dict["service_miles_left"] as? Int ?? 0
+        dictResult.last_mileage = dict["last_mileage"] as? String ?? ""
+        dictResult.nextserviceduekm = dict["nextserviceduekm"] as? String ?? ""
+        dictResult.last_service_mileage = dict["last_service_mileage"] as? String ?? ""
     }
 }
 
@@ -41,4 +45,11 @@ struct BookingDetailsModelData {
     var deliveredBy : String = ""
     var deliveredByname : String = ""
     var status : String = ""
+    
+    
+    var is_service_due: Int?
+    var service_miles_left: Int?
+    var last_mileage: String?
+    var nextserviceduekm: String?
+    var last_service_mileage: String?
 }
