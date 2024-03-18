@@ -203,8 +203,18 @@ class BookingDetailsVC: UIViewController {
                 proposedVehicleLbl.text = selectedItem
                 selectedProposedVehicleId = arrProposedVehicle[selectedItemIndex].id
                 
-                self.serviceDueInfo.isHidden = arrProposedVehicle[selectedItemIndex].is_service_due == 0
-                self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) miles"
+//                self.serviceDueInfo.isHidden = arrProposedVehicle[selectedItemIndex].is_service_due == 0
+//                self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) miles"
+                
+                
+                self.serviceDueInfo.isHidden = false
+                if (arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) < 0 {
+                    self.lastServiceMiles.text = "\("\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0)".replacingOccurrences(of: "-", with: "")) miles over"
+                    self.lastServiceMiles.textColor = UIColor(named: "FF0000")
+                } else {
+                    self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) miles left"
+                    self.lastServiceMiles.textColor = UIColor(named: "07B107")
+                }
                 
 //                selectedProposedVehicleId = arrProposedVehicle[selectedItemIndex].fleetId
             default:
@@ -341,8 +351,10 @@ extension BookingDetailsVC: BookingDetailsVMDelegate {
             dropLocationTxtFld.text = objData.dictResult.deliveryLocation
         }
         
-        self.serviceDueInfo.isHidden = objData.dictResult.is_service_due == 0
-        self.lastServiceMiles.text = "\(objData.dictResult.service_miles_left ?? 0) miles"
+//        self.serviceDueInfo.isHidden = objData.dictResult.is_service_due == 0
+//        self.lastServiceMiles.text = "\(objData.dictResult.service_miles_left ?? 0) miles"
+        
+ 
         
 //        if !objData.dictResult.deliveredBy.isEmpty {
 //            deliveryByTxtFld.text = objData.dictResult.deliveredBy
@@ -353,6 +365,19 @@ extension BookingDetailsVC: BookingDetailsVMDelegate {
             proposedVehicleLbl.text = objData.dictResult.proposedVehicle
             proposedVehicleLbl.textColor = UIColor(named: AppColors.BLACK)
             selectedProposedVehicleId = objData.dictResult.vehicleId
+            
+            if let miles = objData.dictResult.service_miles_left {
+                self.serviceDueInfo.isHidden = false
+                if (miles) < 0 {
+                    self.lastServiceMiles.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+                    self.lastServiceMiles.textColor = UIColor(named: "FF0000")
+                } else {
+                    self.lastServiceMiles.text = "\(miles) miles left"
+                    self.lastServiceMiles.textColor = UIColor(named: "07B107")
+                }
+            } else {
+                self.serviceDueInfo.isHidden = true
+            }
         }
         if !objData.dictResult.deliveredBy.isEmpty {
             deliveredCollectedByLbl.text = objData.dictResult.deliveredByname

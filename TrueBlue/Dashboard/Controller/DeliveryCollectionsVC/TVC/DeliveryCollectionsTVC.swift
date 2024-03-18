@@ -101,8 +101,19 @@ class DeliveryCollectionsTVC: UITableViewCell {
         }
         
         self.imageLblText.text = data.registration_no
-        self.serviceDueinfo.isHidden = data.is_service_due == 0
-        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+//        self.serviceDueinfo.isHidden = data.is_service_due == 0
+//        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+        
+        
+        self.serviceDueinfo.isHidden = false
+        if (data.service_miles_left ?? 0) < 0 {
+            let miles = (data.service_miles_left ?? 0)
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.textColor = UIColor(named: "FF0000")
+        } else {
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.textColor = UIColor(named: "07B107")
+        }
     }
     
     func setDeliveredData(data: CollectionDeliveryDataList) {
@@ -143,8 +154,19 @@ class DeliveryCollectionsTVC: UITableViewCell {
         }
         
         self.imageLblText.text = data.registration_no
-        self.serviceDueinfo.isHidden = data.is_service_due == 0
-        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+//        self.serviceDueinfo.isHidden = data.is_service_due == 0
+//        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+        
+        
+        self.serviceDueinfo.isHidden = false
+        if (data.service_miles_left ?? 0) < 0 {
+            let miles = (data.service_miles_left ?? 0)
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.textColor = UIColor(named: "FF0000")
+        } else {
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.textColor = UIColor(named: "07B107")
+        }
     }
     
     func setupDetails(data: CollectionDeliveryDataList) {
@@ -209,8 +231,19 @@ class DeliveryCollectionsTVC: UITableViewCell {
         }
         
         self.imageLblText.text = data.registration_no
-        self.serviceDueinfo.isHidden = data.is_service_due == 0
-        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+//        self.serviceDueinfo.isHidden = data.is_service_due == 0
+//        self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles"
+        
+        self.serviceDueinfo.isHidden = false
+        if (data.service_miles_left ?? 0) < 0 {
+            let miles = (data.service_miles_left ?? 0)
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.textColor = UIColor(named: "FF0000")
+        } else {
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.textColor = UIColor(named: "07B107")
+        }
+        
         
 //        if (data.is_swapped ?? "").lowercased() == "yes" && (data.status ?? "").lowercased() == "hired" {
 ////            self.statusIcon.image = UIImage(named: "ic_swap_tab")

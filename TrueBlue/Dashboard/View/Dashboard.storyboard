@@ -9959,15 +9959,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82f-PQ-Cmq">
                                                 <rect key="frame" x="0.0" y="364" width="620" height="22"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_fleet" translatesAutoresizingMaskIntoConstraints="NO" id="W8h-Un-CLv">
-                                                        <rect key="frame" x="0.0" y="3" width="16" height="16"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repairing" translatesAutoresizingMaskIntoConstraints="NO" id="W8h-Un-CLv">
+                                                        <rect key="frame" x="0.0" y="1" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="W8h-Un-CLv" secondAttribute="height" id="6U8-6o-dng"/>
-                                                            <constraint firstAttribute="width" constant="16" id="Jjb-8P-zHP"/>
+                                                            <constraint firstAttribute="width" constant="20" id="Jjb-8P-zHP"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-zY-yBx">
-                                                        <rect key="frame" x="22" y="0.0" width="598" height="22"/>
+                                                        <rect key="frame" x="26" y="0.0" width="594" height="22"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <color key="textColor" name="FF0000"/>
                                                         <nil key="highlightedColor"/>
@@ -16764,7 +16764,6 @@
         <image name="ic_back" width="27" height="32"/>
         <image name="ic_dropdown" width="13" height="8"/>
         <image name="ic_filter_symbol" width="17" height="17"/>
-        <image name="info_fleet" width="30" height="24"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="menu" width="84" height="84"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
@@ -16773,6 +16772,7 @@
         <image name="plusGrey" width="78" height="78"/>
         <image name="radioBtnSelected" width="49" height="49"/>
         <image name="radioBtnUnselected" width="49" height="49"/>
+        <image name="repairing" width="11" height="11"/>
         <image name="search" width="90" height="90"/>
         <image name="searchBlack" width="256" height="256"/>
         <image name="search_white" width="42.666667938232422" height="42.666667938232422"/>

@@ -571,8 +571,18 @@ class NewSwapVehicleVC: UIViewController {
                     
                     print(arrAvailableVehicles[selectedDropdownItemIndex].is_service_due == 0)
                     
-                    self.serviceDueInfo.isHidden = arrAvailableVehicles[selectedDropdownItemIndex].is_service_due == 0
-                    self.lastServiceMiles.text = "\(arrAvailableVehicles[selectedDropdownItemIndex].service_miles_left ?? 0) miles"
+//                    self.serviceDueInfo.isHidden = arrAvailableVehicles[selectedDropdownItemIndex].is_service_due == 0
+//                    self.lastServiceMiles.text = "\(arrAvailableVehicles[selectedDropdownItemIndex].service_miles_left ?? 0) miles"
+                    
+                    self.serviceDueInfo.isHidden = false
+                    if (self.selectedNewVehicle.service_miles_left ?? 0) < 0 {
+                        let miles = (self.selectedNewVehicle.service_miles_left ?? 0)
+                        self.lastServiceMiles.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+                        self.lastServiceMiles.textColor = UIColor(named: "FF0000")
+                    } else {
+                        self.lastServiceMiles.text = "\(self.selectedNewVehicle.service_miles_left ?? 0) miles left"
+                        self.lastServiceMiles.textColor = UIColor(named: "07B107")
+                    }
                     
                     self.newcarImage.sd_setImage(with: URL(string: arrAvailableVehicles[selectedDropdownItemIndex].fleet_img.first ?? ""))
                 default:
