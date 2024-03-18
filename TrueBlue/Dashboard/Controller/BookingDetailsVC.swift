@@ -209,10 +209,10 @@ class BookingDetailsVC: UIViewController {
                 
                 self.serviceDueInfo.isHidden = false
                 if (arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) < 0 {
-                    self.lastServiceMiles.text = "\("\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0)".replacingOccurrences(of: "-", with: "")) miles over"
+                    self.lastServiceMiles.text = "\("\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0)".replacingOccurrences(of: "-", with: "")) mi over"
                     self.lastServiceMiles.textColor = UIColor(named: "FF0000")
                 } else {
-                    self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) miles left"
+                    self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) mi left"
                     self.lastServiceMiles.textColor = UIColor(named: "07B107")
                 }
                 
@@ -369,10 +369,10 @@ extension BookingDetailsVC: BookingDetailsVMDelegate {
             if let miles = objData.dictResult.service_miles_left {
                 self.serviceDueInfo.isHidden = false
                 if (miles) < 0 {
-                    self.lastServiceMiles.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+                    self.lastServiceMiles.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) mi over"
                     self.lastServiceMiles.textColor = UIColor(named: "FF0000")
                 } else {
-                    self.lastServiceMiles.text = "\(miles) miles left"
+                    self.lastServiceMiles.text = "\(miles) mi left"
                     self.lastServiceMiles.textColor = UIColor(named: "07B107")
                 }
             } else {

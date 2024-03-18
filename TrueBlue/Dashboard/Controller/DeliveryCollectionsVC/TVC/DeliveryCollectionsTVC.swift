@@ -108,10 +108,10 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.serviceDueinfo.isHidden = false
         if (data.service_miles_left ?? 0) < 0 {
             let miles = (data.service_miles_left ?? 0)
-            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) mi over"
             self.serviceMilage.textColor = UIColor(named: "FF0000")
         } else {
-            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) mi left"
             self.serviceMilage.textColor = UIColor(named: "07B107")
         }
     }
@@ -161,10 +161,10 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.serviceDueinfo.isHidden = false
         if (data.service_miles_left ?? 0) < 0 {
             let miles = (data.service_miles_left ?? 0)
-            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) mi over"
             self.serviceMilage.textColor = UIColor(named: "FF0000")
         } else {
-            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) mi left"
             self.serviceMilage.textColor = UIColor(named: "07B107")
         }
     }
@@ -237,10 +237,10 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.serviceDueinfo.isHidden = false
         if (data.service_miles_left ?? 0) < 0 {
             let miles = (data.service_miles_left ?? 0)
-            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) mi over"
             self.serviceMilage.textColor = UIColor(named: "FF0000")
         } else {
-            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
+            self.serviceMilage.text = "\(data.service_miles_left ?? 0) mi left"
             self.serviceMilage.textColor = UIColor(named: "07B107")
         }
         
