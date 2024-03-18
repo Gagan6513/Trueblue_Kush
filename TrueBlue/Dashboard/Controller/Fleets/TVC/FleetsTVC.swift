@@ -173,10 +173,11 @@ class FleetsTVC: UITableViewCell {
         }
         
         self.imageLblText.text = data.registration_no
-        self.serviceDueinfo.isHidden = data.is_service_due == 0
-        
+//        self.serviceDueinfo.isHidden = data.is_service_due == 0
+        self.serviceDueinfo.isHidden = false
         if (data.service_miles_left ?? 0) < 0 {
-            self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles over"
+            let miles = (data.service_miles_left ?? 0)
+            self.serviceMilage.text = "\("\(miles)".replacingOccurrences(of: "-", with: "")) miles over"
             self.serviceMilage.textColor = UIColor(named: "FF0000")
         } else {
             self.serviceMilage.text = "\(data.service_miles_left ?? 0) miles left"
