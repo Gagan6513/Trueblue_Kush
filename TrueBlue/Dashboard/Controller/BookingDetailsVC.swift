@@ -39,7 +39,7 @@ class BookingDetailsVC: UIViewController {
     var selecteddeliveredByName = String()
     var status : String?
     
-    var arrProposedVehicle = [ProposedVehicleModelData]()
+    var arrProposedVehicle = [AvailableVehicleDropDownListModelData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +88,7 @@ class BookingDetailsVC: UIViewController {
         obj.delegate = self
         obj.getProposedVehiclesList(currentController: self, parameters: nil)
     }
+    
     func deliveryByListAPI() {
         let obj = DeliveredCollectedByViewModel()
         obj.delegate = self
@@ -200,7 +201,10 @@ class BookingDetailsVC: UIViewController {
                 print(arrProposedVehicle)
                 proposedVehicleLbl.textColor = UIColor(named: AppColors.BLACK)
                 proposedVehicleLbl.text = selectedItem
-                selectedProposedVehicleId = arrProposedVehicle[selectedItemIndex].fleetId
+                selectedProposedVehicleId = arrProposedVehicle[selectedItemIndex].id
+                
+                self.serviceDueInfo.isHidden = arrProposedVehicle[selectedItemIndex].is_service_due == 0
+                self.lastServiceMiles.text = "\(arrProposedVehicle[selectedItemIndex].service_miles_left ?? 0) miles"
                 
 //                selectedProposedVehicleId = arrProposedVehicle[selectedItemIndex].fleetId
             default:
@@ -380,15 +384,28 @@ extension BookingDetailsVC: BookingDetailsVMDelegate {
     }
     
     func bookingDetailsAPISuccess(objData: ProposedVehicleModel, strMessage: String, serviceKey: String) {
+//        if objData.arrResult.count > 0 {
+//            var temp = [String] ()
+//            for i in 0...objData.arrResult.count-1 {
+//                temp.append(objData.arrResult[i].registrationNumber)
+//            }
+//            arrProposedVehicle = objData.arrResult
+//            showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.PROPOSED_VEHICLE, notificationName: .searchListBookingDetails)
+//        }
+    }
+    
+    func bookingDetailsAPISuccess(objData: AvailableVehicleDropDownListModel, strMessage: String, serviceKey: String) {
         if objData.arrResult.count > 0 {
             var temp = [String] ()
             for i in 0...objData.arrResult.count-1 {
-                temp.append(objData.arrResult[i].registrationNumber)
+                temp.append(objData.arrResult[i].registration_no)
             }
             arrProposedVehicle = objData.arrResult
             showSearchListPopUp(listForSearch: temp, listNameForSearch: AppDropDownLists.PROPOSED_VEHICLE, notificationName: .searchListBookingDetails)
         }
     }
+    
+    
     
     func bookingDetailsAPISuccess(strMessage: String, serviceKey: String) {
         showToast(strMessage: strMessage)

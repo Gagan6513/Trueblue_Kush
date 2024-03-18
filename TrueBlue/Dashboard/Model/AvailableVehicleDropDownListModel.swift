@@ -7,7 +7,9 @@
 
 import Foundation
 class AvailableVehicleDropDownListModel : NSObject {
+    
     var arrResult = [AvailableVehicleDropDownListModelData]()
+    
     init(dict : Dictionary<String, Any>) {
         if let arr = dict["response"] as? Array<Dictionary<String, Any>> {
             for dict in arr {

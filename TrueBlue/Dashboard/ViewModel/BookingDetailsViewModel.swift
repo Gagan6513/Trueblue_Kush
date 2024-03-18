@@ -10,7 +10,7 @@ import Alamofire
 protocol BookingDetailsVMDelegate {
     func bookingDetailsAPISuccess(strMessage: String, serviceKey: String)
     func bookingDetailsAPISuccess(objData : BookingDetailsModel,strMessage: String, serviceKey: String)
-    func bookingDetailsAPISuccess(objData : ProposedVehicleModel,strMessage: String, serviceKey: String)
+    func bookingDetailsAPISuccess(objData : AvailableVehicleDropDownListModel,strMessage: String, serviceKey: String)
     func bookingDetailsAPIFailure(strMessage : String,serviceKey: String)
 }
 class BookingDetailsViewModel : NSObject{
@@ -23,7 +23,7 @@ class BookingDetailsViewModel : NSObject{
     func getProposedVehiclesList(currentController : UIViewController ,parameters : Parameters?) {
         let objCallApi = DataSyncManager()
         objCallApi.delegateDataSync = self
-        objCallApi.getRequest(endPoint: EndPoints.PROPOSED_VEHICLE, parameters: parameters , currentController: currentController)
+        objCallApi.getRequest(endPoint: EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST, parameters: parameters , currentController: currentController)
     }
 //    func getBookingDetails(currentController : UIViewController ,parameters : Parameters?,endPoint: String) {
 //        let objCallApi = DataSyncManager()
@@ -43,8 +43,8 @@ extension BookingDetailsViewModel : DataSyncManagerDelegate {
             delegate.bookingDetailsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
         case EndPoints.UPDATE_BOOKING:
             delegate.bookingDetailsAPISuccess(strMessage: strMessage, serviceKey: serviceKey)
-        case EndPoints.PROPOSED_VEHICLE:
-            let dict = ProposedVehicleModel(dict: dictObj)
+        case EndPoints.AVAILABLE_VEHICLE_DROPDOWN_LIST:
+            let dict = AvailableVehicleDropDownListModel(dict: dictObj)
             print(dict)
             delegate.bookingDetailsAPISuccess(objData: dict, strMessage: strMessage, serviceKey: serviceKey)
 
