@@ -273,7 +273,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="285" height="20"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWS-NS-ZVB">
-                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="20"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="285" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="ZxF-Ye-TZl">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -289,29 +289,13 @@
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                                 </variation>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DG61PY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK1-BK-7GF">
-                                                                <rect key="frame" x="38" y="0.0" width="54.333333333333343" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="mgo-9P-Dzh">
-                                                                        <variation key="heightClass=regular-widthClass=regular" constant="18"/>
-                                                                    </constraint>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <color key="textColor" name="AppBlack"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                </variation>
-                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="zWS-NS-ZVB" firstAttribute="leading" secondItem="uJ6-fZ-6xq" secondAttribute="leading" id="14U-nj-Xao"/>
                                                             <constraint firstItem="zWS-NS-ZVB" firstAttribute="top" secondItem="uJ6-fZ-6xq" secondAttribute="top" id="3Uz-tG-iTG"/>
-                                                            <constraint firstItem="OK1-BK-7GF" firstAttribute="leading" secondItem="zWS-NS-ZVB" secondAttribute="trailing" constant="2" id="BQM-zf-N0m"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zWS-NS-ZVB" secondAttribute="trailing" id="Eix-5T-O1R"/>
                                                             <constraint firstAttribute="bottom" secondItem="zWS-NS-ZVB" secondAttribute="bottom" id="KTe-d5-M9S"/>
-                                                            <constraint firstItem="OK1-BK-7GF" firstAttribute="centerY" secondItem="zWS-NS-ZVB" secondAttribute="centerY" id="aD1-uO-2pb"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OK1-BK-7GF" secondAttribute="trailing" id="eN6-DA-Ayh"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9r-Z5-vaX">
@@ -668,7 +652,6 @@
                 <outlet property="hiredDateView" destination="ep5-e0-Aqj" id="WFd-f0-22h"/>
                 <outlet property="imageCountPictures" destination="D2t-pv-B26" id="0OZ-BO-2MK"/>
                 <outlet property="imageLblText" destination="syY-le-d2X" id="V63-QO-7jK"/>
-                <outlet property="lblCarId" destination="OK1-BK-7GF" id="TrR-9x-Om3"/>
                 <outlet property="lblCarName" destination="zWS-NS-ZVB" id="7Oi-YP-Vmt"/>
                 <outlet property="lblClientName" destination="hfA-6U-ayY" id="h9e-02-BFB"/>
                 <outlet property="lblCollectedAtName" destination="Xgs-oe-3VW" id="0Af-GT-7OK"/>

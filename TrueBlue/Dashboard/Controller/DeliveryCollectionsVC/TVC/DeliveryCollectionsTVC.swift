@@ -66,7 +66,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
         self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
         
-        self.lblCarId.text = data.registration_no
+//        self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
         if let url = URL(string: data.fleet_image?.first ?? "") {
@@ -125,7 +125,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
         self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
         
-        self.lblCarId.text = data.registration_no
+//        self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
         if let url = URL(string: data.fleet_image?.first ?? "") {
@@ -178,7 +178,7 @@ class DeliveryCollectionsTVC: UITableViewCell {
         self.lblPhoneNumber.text = convertString(str: data.owner_phone ?? "")
         self.lblClientName.text = (data.owner_firstname ?? "") + " " + (data.owner_lastname ?? "") + ","
         
-        self.lblCarId.text = data.registration_no
+//        self.lblCarId.text = data.registration_no
         self.lblReferalName.text = convertString(str: data.referral_name ?? "")
         
         if let url = URL(string: data.fleet_image?.first ?? "") {
