@@ -115,7 +115,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVG-SE-CyZ">
-                        <rect key="frame" x="36" y="94.333333333333329" width="22" height="14"/>
+                        <rect key="frame" x="36" y="94.333333333333329" width="22" height="9.6666666666666714"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -408,11 +408,11 @@
                             <constraint firstItem="Ymt-ii-E07" firstAttribute="centerY" secondItem="3dz-Nb-hC4" secondAttribute="centerY" id="xON-us-KiL"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5cp-QY-IY9">
-                        <rect key="frame" x="22" y="114.33333333333331" width="80" height="40"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5cp-QY-IY9">
+                        <rect key="frame" x="22" y="114.33333333333331" width="80" height="50"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYj-49-D0r">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYj-49-D0r">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repairing" translatesAutoresizingMaskIntoConstraints="NO" id="CLj-JL-wfr">
                                         <rect key="frame" x="-2" y="0.0" width="14" height="14"/>
@@ -435,7 +435,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="MAU-8V-ET6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="MAU-8V-ET6"/>
                                     <constraint firstItem="EiQ-xR-4i9" firstAttribute="top" secondItem="bYj-49-D0r" secondAttribute="top" id="Pul-qU-mH2"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EiQ-xR-4i9" secondAttribute="bottom" id="RsK-pt-3lP"/>
                                     <constraint firstAttribute="trailing" secondItem="EiQ-xR-4i9" secondAttribute="trailing" id="xml-HH-RyZ"/>
@@ -448,7 +448,7 @@
                         </subviews>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-ZF-qsp">
-                        <rect key="frame" x="20" y="94.333333333333329" width="14" height="14"/>
+                        <rect key="frame" x="20" y="92.333333333333329" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ZaY-ZF-qsp" secondAttribute="height" id="rEo-tU-txa"/>
                             <constraint firstAttribute="width" constant="14" id="vLi-4I-GVv">

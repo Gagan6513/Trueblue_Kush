@@ -198,11 +198,11 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 </variation>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-1C-Uik">
-                                                <rect key="frame" x="0.0" y="98.333333333333343" width="84" height="40"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-1C-Uik">
+                                                <rect key="frame" x="0.0" y="98.333333333333343" width="84" height="50"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fM-Wx-zGM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fM-Wx-zGM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repairing" translatesAutoresizingMaskIntoConstraints="NO" id="haJ-YZ-ysE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
@@ -227,7 +227,7 @@
                                                         <constraints>
                                                             <constraint firstItem="5X8-hn-dcs" firstAttribute="leading" secondItem="haJ-YZ-ysE" secondAttribute="trailing" constant="2" id="B72-BP-kxv"/>
                                                             <constraint firstItem="haJ-YZ-ysE" firstAttribute="top" secondItem="9fM-Wx-zGM" secondAttribute="top" id="d2E-36-uI1"/>
-                                                            <constraint firstAttribute="height" constant="40" id="e77-cd-lGw"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="e77-cd-lGw"/>
                                                             <constraint firstItem="5X8-hn-dcs" firstAttribute="top" secondItem="9fM-Wx-zGM" secondAttribute="top" id="hIe-e4-jT4"/>
                                                             <constraint firstAttribute="trailing" secondItem="5X8-hn-dcs" secondAttribute="trailing" id="jQd-sC-UMn"/>
                                                             <constraint firstItem="haJ-YZ-ysE" firstAttribute="leading" secondItem="9fM-Wx-zGM" secondAttribute="leading" id="qsN-qN-cN2"/>
@@ -671,7 +671,7 @@
     </objects>
     <resources>
         <image name="camera_icon" width="11" height="13"/>
-        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="32" height="32"/>
         <image name="repairing" width="11" height="11"/>
         <namedColor name="07B107">
             <color red="0.027450980392156862" green="0.69411764705882351" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
