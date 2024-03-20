@@ -249,7 +249,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bfc-1C-Uik" secondAttribute="bottom" constant="12" id="2rO-yy-15e"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bfc-1C-Uik" secondAttribute="bottom" id="2rO-yy-15e"/>
                                             <constraint firstItem="qOr-OZ-YNG" firstAttribute="centerY" secondItem="D2t-pv-B26" secondAttribute="centerY" id="3XH-ac-ZMp"/>
                                             <constraint firstItem="xMW-bM-Vl8" firstAttribute="top" secondItem="bNI-lf-S7k" secondAttribute="top" id="5tf-If-Ztp"/>
                                             <constraint firstItem="qOr-OZ-YNG" firstAttribute="leading" secondItem="xMW-bM-Vl8" secondAttribute="leading" id="FWC-o4-REO"/>
@@ -624,8 +624,8 @@
                             </constraint>
                             <constraint firstItem="qkU-Ut-YTG" firstAttribute="centerY" secondItem="vKh-mk-q4u" secondAttribute="centerY" id="P9r-Al-mR3"/>
                             <constraint firstItem="BRX-it-Na5" firstAttribute="leading" secondItem="SPc-wU-KdC" secondAttribute="leading" id="Pd7-1A-jW8"/>
-                            <constraint firstItem="BRX-it-Na5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Htc-eC-FBj" secondAttribute="bottom" constant="6" id="ReH-Dn-t8G">
-                                <variation key="heightClass=regular-widthClass=regular" constant="12"/>
+                            <constraint firstItem="BRX-it-Na5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Htc-eC-FBj" secondAttribute="bottom" constant="10" id="ReH-Dn-t8G">
+                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
                             </constraint>
                             <constraint firstItem="oUF-xF-Ap7" firstAttribute="top" secondItem="SPc-wU-KdC" secondAttribute="top" constant="10" id="Se2-iQ-pqQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="16"/>
